@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-background text-primary antialiased;
+  }
+  
+  :root[dir="rtl"] body {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)];
+}
+
+/* Platform Ticker infinite marquee */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+.ticker-wrapper {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: ticker-scroll 120s linear infinite;
+}
+
+.ticker-container:hover .ticker-wrapper {
+  animation-play-state: paused;
+}
