@@ -13,7 +13,6 @@ async function fetchStoreData() {
   const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET;
 
   if (!CONSUMER_KEY || !CONSUMER_SECRET) {
-    console.error('❌ Missing WooCommerce API credentials. Build failed.');
     process.exit(1);
   }
 
@@ -26,7 +25,17 @@ async function fetchStoreData() {
   try {
     console.log('⏳ Fetching Arabic Categories...');
     const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
-    const categoriesAr = await categoriesResAr.json();
+    const categoriesText = await categoriesResAr.text(); 
+    let categoriesAr;
+    try {
+      categoriesAr = JSON.parse(categoriesText);
+    } catch(e) {
+      throw new Error(`Failed to parse JSON. Server returned: ${categoriesText.substring(0, 200)}...`);
+    }
+
+    if (!Array.isArray(categoriesAr)) {
+      throw new Error(`categories is not an array. Response is: ${JSON.stringify(categoriesAr).substring(0, 200)}`);
+    }
 
     console.log('⏳ Fetching English Categories...');
     const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en`, { headers });
