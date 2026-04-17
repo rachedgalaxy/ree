@@ -200,6 +200,7 @@ const ProductGrid = ({ searchQuery }) => {
                   ))}
                 </div>
               ) : (
+                <CategorySlider 
                     category={category} 
                     i18n={i18n} 
                 />
@@ -227,8 +228,6 @@ const ProductGrid = ({ searchQuery }) => {
             </p>
           </motion.div>
         )}
-      </AnimatePresence>
-
       </AnimatePresence>
     </div>
   );
