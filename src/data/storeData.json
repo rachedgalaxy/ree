@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mock-category",
+    "databaseId": 1,
+    "title": {
+      "ar": "متجر احتياطي",
+      "en": "Fallback Store"
+    },
+    "products": [
+      {
+        "id": 1,
+        "name": "Fallback Product",
+        "price": "10-100",
+        "image": "https://placehold.co/400x500",
+        "description": "Please configure WC_CONSUMER_KEY in your env",
+        "is_hot": true,
+        "translations": {
+          "ar": {
+            "name": "منتج احتياطي",
+            "desc": ""
+          },
+          "en": {
+            "name": "Fallback Product",
+            "desc": ""
+          }
+        }
+      }
+    ]
+  }
+]
