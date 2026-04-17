@@ -80,6 +80,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image}
           alt=""
+          loading="lazy"
           className="w-full h-full object-cover blur-xl scale-125 opacity-25"
         />
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
