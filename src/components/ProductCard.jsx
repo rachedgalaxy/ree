@@ -44,16 +44,18 @@ const ProductCard = ({ product }) => {
       }}
       className="group relative flex flex-col rounded-2xl p-2 md:p-3 transition-all duration-500 transform hover:-translate-y-1 focus:outline-none select-none overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:ring-1 border border-white/40 isolate"
     >
-      {/* Always Visible Flame Badge */}
-      <div className="absolute top-3 left-3 z-30 pointer-events-none">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="flex items-center justify-center bg-gradient-to-br from-orange-400 to-orange-600 text-white p-1.5 rounded-full shadow-lg"
-        >
-          <Flame size={14} className="fill-current" />
-        </motion.div>
-      </div>
+      {/* Flame Badge (Only on Best Sellers) */}
+      {product.is_hot && (
+        <div className="absolute top-3 left-3 z-30 pointer-events-none">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="flex items-center justify-center bg-gradient-to-br from-orange-400 to-orange-600 text-white p-1.5 rounded-full shadow-lg"
+          >
+            <Flame size={14} className="fill-current" />
+          </motion.div>
+        </div>
+      )}
 
       {/* Premium Dynamic Blurred Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
