@@ -3,14 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
 
-const ProductCard = ({ product, onClick }) => {
+const ProductCard = ({ product }) => {
   const { i18n } = useTranslation();
   const tProduct = product.translations?.[i18n.language] || product.translations?.['en'] || { name: product.name };
-  const [accentColor, setAccentColor] = useState('rgba(225, 30, 59, 0.4)'); 
+  const [accentColor, setAccentColor] = useState('rgba(225, 30, 59, 0.4)');
 
   useEffect(() => {
     if (!product.image) return;
-    
     const img = new Image();
     img.crossOrigin = "Anonymous";
     img.src = product.image;
@@ -30,26 +29,27 @@ const ProductCard = ({ product, onClick }) => {
   }, [product.image]);
 
   return (
-    <div 
-      onClick={onClick}
-      style={{ 
+    <a
+      href={product.woocommerceUrl || '#'}
+      target="_self"
+      draggable="false"
+      style={{
         transform: "translateZ(0)",
         borderColor: accentColor,
-        boxShadow: "0 0 0 0 transparent"
       }}
-      className="group relative flex flex-col rounded-2xl p-2 md:p-3 transition-all duration-500 transform hover:-translate-y-1 focus:outline-none select-none overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:ring-1 border border-white/40 isolate cursor-pointer"
+      className="group relative flex flex-col rounded-2xl p-2 md:p-3 transition-all duration-500 transform hover:-translate-y-1 focus:outline-none select-none overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:ring-1 border border-white/40 isolate"
     >
       {/* Best Seller "Hot" Badge */}
       {product.is_hot && (
         <div className="absolute top-3 left-3 z-30">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             className="flex items-center gap-1 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg"
           >
             <Flame size={10} className="fill-current" />
             <span className={i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}>
-                {i18n.language === 'ar' ? 'الأكثر مبيعاً' : 'Hot'}
+              {i18n.language === 'ar' ? 'الأكثر مبيعاً' : 'Hot'}
             </span>
           </motion.div>
         </div>
@@ -57,9 +57,9 @@ const ProductCard = ({ product, onClick }) => {
 
       {/* Premium Dynamic Blurred Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img 
-          src={product.image} 
-          alt="" 
+        <img
+          src={product.image}
+          alt=""
           className="w-full h-full object-cover blur-xl scale-125 opacity-25 group-hover:opacity-35 transition-opacity duration-500"
         />
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
@@ -69,33 +69,35 @@ const ProductCard = ({ product, onClick }) => {
       <div className="relative z-10 flex flex-col h-full">
         {/* Image Container */}
         <div className="w-full aspect-[3/4] md:aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-sm isolate">
-          <motion.img 
+          <motion.img
             style={{ transform: "translateZ(0)" }}
             initial={false}
             loading="lazy"
             draggable="false"
-            src={product.image} 
+            src={product.image}
             alt={tProduct.name}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
           />
         </div>
-        
-        {/* Title Container */}
+
+        {/* Title & Price */}
         <div className="mt-2 px-1.5 pb-1 flex-1 flex flex-col justify-center pointer-events-none">
           <h3 className={`text-[12px] md:text-[14px] font-[600] text-gray-900 text-start line-clamp-1 leading-tight tracking-tight drop-shadow-sm ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
             {tProduct.name}
           </h3>
           {product.price && (
             <div className="flex items-baseline gap-1 mt-1">
-                <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{i18n.language === 'ar' ? 'تبدأ من' : 'From'}</span>
-                <span className="text-[14px] md:text-[16px] font-bold text-[#e11e3b]">
-                  {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
-                </span>
+              <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
+              </span>
+              <span className="text-[14px] md:text-[16px] font-bold text-[#e11e3b]">
+                {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
+              </span>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

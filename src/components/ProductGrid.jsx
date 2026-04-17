@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faMobileAlt, faCreditCard, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from './ProductCard';
-import ProductModal from './ProductModal';
 import { wcApi } from '../utils/wcApi';
 
 const getCategoryIcon = (id) => {
@@ -18,7 +17,7 @@ const getCategoryIcon = (id) => {
   return faGamepad;
 };
 
-const CategorySlider = ({ category, i18n, onProductClick }) => {
+const CategorySlider = ({ category, i18n }) => {
   const scrollRef = useRef(null);
   const isRtl = i18n.language === 'ar';
   
@@ -108,7 +107,7 @@ const CategorySlider = ({ category, i18n, onProductClick }) => {
               key={product.id}
               className={`snap-start shrink-0 w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-15px)] lg:w-[calc(16.666%-20px)] ${isDragMoved ? 'pointer-events-none' : ''}`}
             >
-              <ProductCard product={product} onClick={() => onProductClick(product)} />
+              <ProductCard product={product} />
             </motion.div>
           ))}
         </AnimatePresence>
@@ -121,7 +120,6 @@ const ProductGrid = ({ searchQuery }) => {
   const { i18n } = useTranslation();
   const [storeData, setStoreData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -197,15 +195,13 @@ const ProductGrid = ({ searchQuery }) => {
                       transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
                       key={product.id}
                     >
-                      <ProductCard product={product} onClick={() => setSelectedProduct(product)} />
+                      <ProductCard product={product} />
                     </motion.div>
                   ))}
                 </div>
               ) : (
-                <CategorySlider 
                     category={category} 
                     i18n={i18n} 
-                    onProductClick={setSelectedProduct} 
                 />
               )}
               
@@ -233,13 +229,6 @@ const ProductGrid = ({ searchQuery }) => {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {selectedProduct && (
-          <ProductModal 
-            product={selectedProduct} 
-            onClose={() => setSelectedProduct(null)} 
-          />
-        )}
       </AnimatePresence>
     </div>
   );
