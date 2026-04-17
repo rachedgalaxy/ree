@@ -282,7 +282,7 @@ const Hero = () => {
               target="_self"
               className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
-               <div className="absolute -right-2 -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500">
+               <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faStore} size="3x" />
                </div>
                <FontAwesomeIcon icon={faStore} className="text-[#007aff] text-xl" />
@@ -297,7 +297,7 @@ const Hero = () => {
               target="_self"
               className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
-               <div className="absolute -right-2 -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500">
+               <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faShoppingBag} size="3x" />
                </div>
                <FontAwesomeIcon icon={faShoppingBag} className="text-[#34c759] text-xl" />
@@ -341,7 +341,7 @@ const Hero = () => {
               onClick={() => setShowFAQ(true)}
               className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
-               <div className="absolute -right-2 -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500">
+               <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
                </div>
                <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ff9500] text-xl" />
