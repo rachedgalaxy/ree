@@ -91,6 +91,7 @@ async function fetchStoreData() {
             on_sale: p.on_sale,
             total_sales: parseInt(p.total_sales || 0),
             is_hot: parseInt(p.total_sales || 0) > 10,
+            in_stock: p.stock_status === 'instock',
             type: p.type,
             variations: p.variations,
             woocommerceUrl: p.permalink,
@@ -99,8 +100,14 @@ async function fetchStoreData() {
                 en: { name: getEnProductName(p.id), desc: getEnProductDesc(p.id) }
             }
           })).sort((a, b) => {
+            // Out of stock products always last
+            if (a.in_stock && !b.in_stock) return -1;
+            if (!a.in_stock && b.in_stock) return 1;
+            
+            // Then Hot products first among the in-stock ones
             if (a.is_hot && !b.is_hot) return -1;
             if (!a.is_hot && b.is_hot) return 1;
+            
             return 0;
           })
         };

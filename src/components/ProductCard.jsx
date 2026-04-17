@@ -33,19 +33,37 @@ const ProductCard = ({ product }) => {
     };
   }, [product.image]);
 
+  const isOutOfStock = product.in_stock === false; // Explicit check, assume true if undefined
+
   return (
     <a
-      href={urlWithLang}
+      href={isOutOfStock ? '#' : urlWithLang}
+      onClick={(e) => {
+          if (isOutOfStock) e.preventDefault();
+      }}
       target="_self"
       draggable="false"
       style={{
         transform: "translateZ(0)",
-        borderColor: accentColor,
+        borderColor: isOutOfStock ? 'rgba(0,0,0,0.1)' : accentColor,
       }}
-      className="group relative flex flex-col rounded-2xl p-2 md:p-3 transition-all duration-500 transform hover:-translate-y-1 focus:outline-none select-none overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:ring-1 border border-white/40 isolate"
+      className={`group relative flex flex-col rounded-2xl p-2 md:p-3 transition-all duration-500 transform focus:outline-none select-none overflow-hidden isolate border border-white/40
+        ${isOutOfStock 
+            ? 'opacity-60 cursor-not-allowed grayscale-[0.8] hover:grayscale-[0.8]' 
+            : 'hover:-translate-y-1 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:ring-1'}
+      `}
     >
-      {/* Flame Badge (Only on Best Sellers) */}
-      {product.is_hot && (
+      {/* Target Audience: Out of Stock overlay */}
+      {isOutOfStock && (
+        <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none">
+          <div className="bg-black/80 backdrop-blur-md text-white text-[11px] md:text-[13px] font-bold px-3 py-1.5 rounded-full shadow-xl tracking-wider">
+             {i18n.language === 'ar' ? 'نفدت الكمية' : 'Out of Stock'}
+          </div>
+        </div>
+      )}
+
+      {/* Flame Badge (Only on Best Sellers in stock) */}
+      {product.is_hot && !isOutOfStock && (
         <div className="absolute top-3 left-3 z-30 pointer-events-none">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -62,7 +80,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image}
           alt=""
-          className="w-full h-full object-cover blur-xl scale-125 opacity-25 group-hover:opacity-35 transition-opacity duration-500"
+          className="w-full h-full object-cover blur-xl scale-125 opacity-25"
         />
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
       </div>
@@ -78,7 +96,7 @@ const ProductCard = ({ product }) => {
             draggable="false"
             src={product.image}
             alt={tProduct.name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+            className={`w-full h-full object-cover transition-transform duration-700 pointer-events-none ${!isOutOfStock && 'group-hover:scale-110'}`}
           />
         </div>
 
@@ -87,13 +105,20 @@ const ProductCard = ({ product }) => {
           <h3 className={`text-[12px] md:text-[14px] font-[600] text-gray-900 text-start line-clamp-1 leading-tight tracking-tight drop-shadow-sm ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
             {tProduct.name}
           </h3>
-          {product.price && (
+          {product.price && !isOutOfStock && (
             <div className="flex items-baseline gap-1 mt-1">
               <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
                 {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
               </span>
               <span className="text-[12px] md:text-[14px] font-bold text-[#e11e3b]">
                 {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
+              </span>
+            </div>
+          )}
+          {isOutOfStock && (
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-[12px] md:text-[13px] font-bold text-gray-500">
+                {i18n.language === 'ar' ? 'غير متوفر حالياً' : 'Unavailable'}
               </span>
             </div>
           )}
