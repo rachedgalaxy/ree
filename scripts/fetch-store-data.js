@@ -98,7 +98,11 @@ async function fetchStoreData() {
                 ar: { name: p.name, desc: p.short_description },
                 en: { name: getEnProductName(p.id), desc: getEnProductDesc(p.id) }
             }
-          }))
+          })).sort((a, b) => {
+            if (a.is_hot && !b.is_hot) return -1;
+            if (!a.is_hot && b.is_hot) return 1;
+            return 0;
+          })
         };
       })
       .filter(cat => cat.products.length > 0);
