@@ -95,7 +95,7 @@ const ProductCard = ({ product }) => {
               <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
                 {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
               </span>
-              <span className="text-[14px] md:text-[16px] font-bold text-[#e11e3b]">
+              <span className="text-[12px] md:text-[14px] font-bold text-[#e11e3b]">
                 {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
               </span>
             </div>
