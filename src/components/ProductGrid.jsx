@@ -1,23 +1,24 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faMobileAlt, faCreditCard, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from './ProductCard';
-import { productCategories } from '../data/products';
+import ProductModal from './ProductModal';
+import { wcApi } from '../utils/wcApi';
 
 const getCategoryIcon = (id) => {
-  switch (id) {
-    case 'mobile-games': return faMobileAlt;
-    case 'pc-games': return faGamepad;
-    case 'gift-cards': return faCreditCard;
-    case 'subscriptions': return faLayerGroup;
-    default: return faGamepad;
-  }
+  // Map slugs or IDs to icons
+  const lowerId = id?.toLowerCase() || '';
+  if (lowerId.includes('mobile')) return faMobileAlt;
+  if (lowerId.includes('pc') || lowerId.includes('game')) return faGamepad;
+  if (lowerId.includes('gift') || lowerId.includes('card')) return faCreditCard;
+  if (lowerId.includes('sub') || lowerId.includes('vip')) return faLayerGroup;
+  return faGamepad;
 };
 
-const CategorySlider = ({ category, i18n }) => {
+const CategorySlider = ({ category, i18n, onProductClick }) => {
   const scrollRef = useRef(null);
   const isRtl = i18n.language === 'ar';
   
@@ -50,12 +51,12 @@ const CategorySlider = ({ category, i18n }) => {
 
   const handleMouseMove = (e) => {
     if (!isDown.current) return;
-    e.preventDefault(); // Pause selection drag behaviors
+    e.preventDefault(); 
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; // Reduced sensitivity for much smoother feel
+    const walk = (x - startX.current) * 1.5; 
     
     if (Math.abs(walk) > 10) {
-      setIsDragMoved(true); // Lock pointer events dynamically
+      setIsDragMoved(true); 
     }
     
     scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
@@ -74,7 +75,6 @@ const CategorySlider = ({ category, i18n }) => {
   return (
     <div className="relative group/slider">
       
-      {/* Navigation App-Store-Style Floating Buttons */}
       <button 
         onClick={() => scroll('prev')} 
         className={`absolute top-[40%] -translate-y-[40%] z-10 w-9 h-9 md:w-11 md:h-11 bg-white/95 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center text-gray-700 hover:text-black hover:scale-105 hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-300 opacity-0 group-hover/slider:opacity-100 focus:outline-none cursor-pointer ${isRtl ? '-right-3 md:-right-5' : '-left-3 md:-left-5'}`}
@@ -89,7 +89,6 @@ const CategorySlider = ({ category, i18n }) => {
         {isRtl ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
       </button>
 
-      {/* Horizontal Smooth Scroll Container */}
       <div 
         ref={scrollRef} 
         onMouseDown={handleMouseDown}
@@ -109,7 +108,7 @@ const CategorySlider = ({ category, i18n }) => {
               key={product.id}
               className={`snap-start shrink-0 w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-15px)] lg:w-[calc(16.666%-20px)] ${isDragMoved ? 'pointer-events-none' : ''}`}
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} onClick={() => onProductClick(product)} />
             </motion.div>
           ))}
         </AnimatePresence>
@@ -120,26 +119,49 @@ const CategorySlider = ({ category, i18n }) => {
 
 const ProductGrid = ({ searchQuery }) => {
   const { i18n } = useTranslation();
+  const [storeData, setStoreData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      const data = await wcApi.getStoreData();
+      if (data) setStoreData(data);
+      setLoading(false);
+    };
+    loadData();
+  }, []);
 
   const filteredCategories = useMemo(() => {
     const query = (searchQuery || '').toLowerCase();
     
-    if (!query) return productCategories;
+    if (!query) return storeData;
 
-    return productCategories.map(category => {
+    return storeData.map(category => {
       const filteredProducts = category.products.filter(p => {
-        const nameAr = p.translations.ar?.name.toLowerCase() || '';
-        const nameEn = p.translations.en?.name.toLowerCase() || '';
+        const nameAr = (p.translations?.ar?.name || p.name).toLowerCase();
+        const nameEn = (p.translations?.en?.name || p.name).toLowerCase();
         return nameAr.includes(query) || nameEn.includes(query);
       });
       return { ...category, products: filteredProducts };
     }).filter(category => category.products.length > 0);
-  }, [searchQuery]);
+  }, [searchQuery, storeData]);
+
+  if (loading && storeData.length === 0) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 bg-[#f5f5f7]">
+        <Loader2 className="w-10 h-10 text-[#e11e3b] animate-spin opacity-80" />
+        <p className={`text-gray-400 text-sm font-medium ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+          {i18n.language === 'ar' ? 'جاري تحميل المتجر...' : 'Loading Storefront...'}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 md:pb-16 bg-[#f5f5f7] min-h-[50vh] transition-all duration-500 ${searchQuery ? 'pt-20 md:pt-28' : 'pt-2 md:pt-3'}`}>
       
-      {/* Dynamic injection to hide native scrollbar for extreme elegance cross-browser */}
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -164,7 +186,6 @@ const ProductGrid = ({ searchQuery }) => {
                 </h2>
               </motion.div>
               
-              {/* Dynamic Logic: Display standard Wrapping Grid when searching to reveal all isolated items natively without sliding masks, else render elegant native slider */}
               {searchQuery ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-5 lg:gap-6 mt-4 pb-4">
                   {category.products.map((product) => (
@@ -176,12 +197,16 @@ const ProductGrid = ({ searchQuery }) => {
                       transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
                       key={product.id}
                     >
-                      <ProductCard product={product} />
+                      <ProductCard product={product} onClick={() => setSelectedProduct(product)} />
                     </motion.div>
                   ))}
                 </div>
               ) : (
-                <CategorySlider category={category} i18n={i18n} />
+                <CategorySlider 
+                    category={category} 
+                    i18n={i18n} 
+                    onProductClick={setSelectedProduct} 
+                />
               )}
               
             </motion.div>
@@ -205,6 +230,15 @@ const ProductGrid = ({ searchQuery }) => {
               {i18n.language === 'ar' ? 'لم نتمكن من العثور على أي منتج يطابق بحثك.' : 'We could not find any products matching your search.'}
             </p>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductModal 
+            product={selectedProduct} 
+            onClose={() => setSelectedProduct(null)} 
+          />
         )}
       </AnimatePresence>
     </div>
