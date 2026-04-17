@@ -8,9 +8,9 @@ const __dirname = path.dirname(__filename);
 
 async function fetchStoreData() {
   const WC_URL = process.env.WC_URL || 'https://redeem-dz.com';
-  // Use env variables in production (Netlify), otherwise fallback to the user's hardcoded ones for local test/build
-  const CONSUMER_KEY = process.env.WC_CONSUMER_KEY || 'ck_af9cd008a5a97fcab32010a3a2532a5edf9fe2b5';
-  const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET || 'cs_10331eedd07bfc1ee87a437d503f5ef980bf0033';
+  // Tokens are now strictly retrieved from safe environment variables (.env locally, or repo Secrets in GitHub)
+  const CONSUMER_KEY = process.env.WC_CONSUMER_KEY;
+  const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET;
 
   if (!CONSUMER_KEY || !CONSUMER_SECRET) {
     console.error('❌ Missing WooCommerce API credentials. Build failed.');
