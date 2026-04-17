@@ -1,0 +1,6 @@
+name = "redeem-dz"
+compatibility_date = "2024-04-17"
+pages_build_output_dir = "dist"
+
+[env.production]
+# Add your environment variables in the Cloudflare Dashboard later
