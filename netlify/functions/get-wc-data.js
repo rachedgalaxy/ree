@@ -36,7 +36,20 @@ exports.handler = async (event, context) => {
     const productsEn = await productsResEn.json();
 
     // Helper functions to get translated names
-    const getEnCatName = (id) => categoriesEn.find(c => c.id === id)?.name || categoriesAr.find(c => c.id === id)?.name;
+    const formatSlugToTitle = (slug) => {
+        if (!slug || slug === 'uncategorized') return '';
+        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    };
+
+    const getEnCatName = (id) => {
+        const enCat = categoriesEn.find(c => c.id === id);
+        const arCat = categoriesAr.find(c => c.id === id);
+        if (!enCat || !arCat) return '';
+        // If TranslatePress didn't translate it (API limitation), use the Slug formatted beautifully!
+        if (enCat.name === arCat.name) return formatSlugToTitle(arCat.slug);
+        return enCat.name;
+    };
+
     const getEnProductName = (id) => productsEn.find(p => p.id === id)?.name || productsAr.find(p => p.id === id)?.name;
     const getEnProductDesc = (id) => productsEn.find(p => p.id === id)?.short_description || productsAr.find(p => p.id === id)?.short_description;
 

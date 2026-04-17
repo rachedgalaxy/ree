@@ -26,32 +26,44 @@ export const wcApi = {
       
       // 2. Fallback to Direct API call via Proxy (Local Dev)
       console.log('wcApi: Functions unavailable, trying local proxy...');
-      const directRes = await fetch(`${LOCAL_PROXY}/products/categories?per_page=100&hide_empty=true`, {
-        headers: { 'Authorization': getAuthHeader() }
-      });
+      const directResAr = await fetch(`${LOCAL_PROXY}/products/categories?per_page=100&hide_empty=true`, { headers: { 'Authorization': getAuthHeader() } });
+      const directResEn = await fetch(`${LOCAL_PROXY}/products/categories?per_page=100&hide_empty=true&lang=en`, { headers: { 'Authorization': getAuthHeader() } });
       
-      if (!directRes.ok) throw new Error('Direct fetch failed');
-      const categories = await directRes.json();
+      if (!directResAr.ok) throw new Error('Direct fetch failed');
+      const categoriesAr = await directResAr.json();
+      const categoriesEn = directResEn.ok ? await directResEn.json() : categoriesAr;
       
-      const prodRes = await fetch(`${LOCAL_PROXY}/products?per_page=100&status=publish`, {
-        headers: { 'Authorization': getAuthHeader() }
-      });
-      const products = await prodRes.json();
+      const prodResAr = await fetch(`${LOCAL_PROXY}/products?per_page=100&status=publish`, { headers: { 'Authorization': getAuthHeader() } });
+      const prodResEn = await fetch(`${LOCAL_PROXY}/products?per_page=100&status=publish&lang=en`, { headers: { 'Authorization': getAuthHeader() } });
+      const formatSlugToTitle = (slug) => {
+          if (!slug || slug === 'uncategorized') return '';
+          return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      };
+
+      const getEnCatName = (id) => {
+          const enName = categoriesEn.find?.(c => c.id === id)?.name;
+          const arCat = categoriesAr.find(c => c.id === id);
+          if (enName && arCat && enName !== arCat.name) return enName;
+          return arCat ? formatSlugToTitle(arCat.slug) : '';
+      };
+      
+      const getEnProductName = (id) => productsEn.find?.(p => p.id === id)?.name || productsAr.find(p => p.id === id)?.name;
 
       // Transform into app structure
-      return categories.filter(c => c.slug !== 'uncategorized').map(cat => ({
+      return categoriesAr.filter(c => c.slug !== 'uncategorized').map(cat => ({
         id: cat.slug,
-        title: { ar: cat.name, en: cat.name },
-        products: products.filter(p => p.categories.some(pc => pc.id === cat.id)).map(p => ({
+        title: { ar: cat.name, en: getEnCatName(cat.id) },
+        products: productsAr.filter(p => p.categories.some(pc => pc.id === cat.id)).map(p => ({
             id: p.id,
             name: p.name,
             price: p.price,
             image: p.images[0]?.src || '',
             description: p.description,
             is_hot: parseInt(p.total_sales || 0) > 10,
+            woocommerceUrl: p.permalink,
             translations: {
                 ar: { name: p.name },
-                en: { name: p.name }
+                en: { name: getEnProductName(p.id) }
             }
         }))
       })).filter(c => c.products.length > 0);
