@@ -217,7 +217,7 @@ const ProductModal = ({ product, onClose }) => {
                     ).join(' ').trim();
                     
                     if (!label) {
-                        label = `${v.price} ${details?.currency || 'USD'}`;
+                        label = `${v.price} ${details?.currency || (i18n.language === 'ar' ? 'دج' : 'DA')}`;
                     }
                     
                     return (
@@ -249,7 +249,7 @@ const ProductModal = ({ product, onClose }) => {
                         {/* Subtle Price if not already in label */}
                         {!label.includes(v.price) && (
                           <span className={`text-[10px] mt-1 font-medium ${isSelected ? 'text-[#e11e3b]/70' : 'text-gray-400'}`}>
-                            {v.price} {details?.currency || 'USD'}
+                            {v.price} {details?.currency || (i18n.language === 'ar' ? 'دج' : 'DA')}
                           </span>
                         )}
                       </button>
@@ -263,7 +263,7 @@ const ProductModal = ({ product, onClose }) => {
                 <div className="flex flex-col">
                   <span className="text-gray-400 text-xs uppercase tracking-widest">{i18n.language === 'ar' ? 'السعر الإجمالي' : 'Total Price'}</span>
                   <span className="text-2xl md:text-3xl font-black text-gray-900">
-                    {selectedVariation?.price || product.price || '---'} <span className="text-sm font-normal text-gray-400">USD</span>
+                    {selectedVariation?.price || product.price || '---'} <span className="text-sm font-normal text-gray-400">{i18n.language === 'ar' ? 'دج' : 'DA'}</span>
                   </span>
                 </div>
                 

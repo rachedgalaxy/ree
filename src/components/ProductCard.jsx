@@ -88,7 +88,9 @@ const ProductCard = ({ product, onClick }) => {
           {product.price && (
             <div className="flex items-baseline gap-1 mt-1">
                 <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{i18n.language === 'ar' ? 'تبدأ من' : 'From'}</span>
-                <span className="text-[14px] md:text-[16px] font-bold text-[#e11e3b]">{product.price} USD</span>
+                <span className="text-[14px] md:text-[16px] font-bold text-[#e11e3b]">
+                  {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
+                </span>
             </div>
           )}
         </div>
