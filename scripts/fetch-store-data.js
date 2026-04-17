@@ -94,7 +94,7 @@ async function fetchStoreData() {
             in_stock: p.stock_status === 'instock',
             type: p.type,
             variations: p.variations,
-            woocommerceUrl: p.permalink,
+            woocommerceUrl: p.permalink?.replace(/woodmart\.redeem-dz\.com/g, 'redeem-dz.com') || '',
             translations: {
                 ar: { name: p.name, desc: p.short_description },
                 en: { name: getEnProductName(p.id), desc: getEnProductDesc(p.id) }
