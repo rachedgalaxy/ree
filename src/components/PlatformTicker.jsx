@@ -122,8 +122,14 @@ const PlatformTicker = () => {
 
   return (
     <div className="w-full mt-6 overflow-hidden ticker-container" dir="ltr">
-      <div className="relative">
-        {/* Edge gradients removed per user request */}
+      <div 
+        className="relative"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 25px, black calc(100% - 25px), transparent)',
+          maskImage: 'linear-gradient(to right, transparent, black 25px, black calc(100% - 25px), transparent)'
+        }}
+      >
+        {/* Edge gradients removed per user request, replaced with transparent native mask */}
 
         {/* Nested animations for smooth slow-down */}
         <div className="ticker-wrapper">
