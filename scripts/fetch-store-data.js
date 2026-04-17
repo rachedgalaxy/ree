@@ -63,9 +63,13 @@ async function fetchStoreData() {
 
     console.log('⚙️ Transforming Data...');
     const groupedData = categoriesAr
-      .filter(cat => cat.slug !== 'uncategorized')
+      .filter(cat => cat.slug !== 'uncategorized' && cat.parent === 0)
       .map(cat => {
-        const catProducts = productsAr.filter(p => p.categories.some(pc => pc.id === cat.id));
+        // Collect this parent category ID + all its subcategory IDs
+        const subCategories = categoriesAr.filter(c => c.parent === cat.id).map(c => c.id);
+        const familyCategoryIds = [cat.id, ...subCategories];
+
+        const catProducts = productsAr.filter(p => p.categories.some(pc => familyCategoryIds.includes(pc.id)));
         
         return {
           id: cat.slug,
