@@ -19,27 +19,40 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    // 1. Fetch Categories
-    const categoriesRes = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
-    const categories = await categoriesRes.json();
+    // 1. Fetch Categories (Arabic - Default)
+    const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
+    const categoriesAr = await categoriesResAr.json();
 
-    // 2. Fetch all products (simplified - in a real large store we might paginate or search)
-    const productsRes = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish`, { headers });
-    const products = await productsRes.json();
+    // 1.5 Fetch Categories (English)
+    const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en`, { headers });
+    const categoriesEn = await categoriesResEn.json();
+
+    // 2. Fetch all products (Arabic)
+    const productsResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish`, { headers });
+    const productsAr = await productsResAr.json();
+
+    // 2.5 Fetch all products (English)
+    const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en`, { headers });
+    const productsEn = await productsResEn.json();
+
+    // Helper functions to get translated names
+    const getEnCatName = (id) => categoriesEn.find(c => c.id === id)?.name || categoriesAr.find(c => c.id === id)?.name;
+    const getEnProductName = (id) => productsEn.find(p => p.id === id)?.name || productsAr.find(p => p.id === id)?.name;
+    const getEnProductDesc = (id) => productsEn.find(p => p.id === id)?.short_description || productsAr.find(p => p.id === id)?.short_description;
 
     // 3. Transformation Logic
     // Group products by category to match the frontend expected structure
-    const groupedData = categories
+    const groupedData = categoriesAr
       .filter(cat => cat.slug !== 'uncategorized')
       .map(cat => {
-        const catProducts = products.filter(p => p.categories.some(pc => pc.id === cat.id));
+        const catProducts = productsAr.filter(p => p.categories.some(pc => pc.id === cat.id));
         
         return {
           id: cat.slug,
           databaseId: cat.id,
           title: {
-            ar: cat.name, // If you have a translation plugin, this might need parsing
-            en: cat.name
+            ar: cat.name, 
+            en: getEnCatName(cat.id)
           },
           products: catProducts.map(p => ({
             id: p.id,
@@ -53,14 +66,13 @@ exports.handler = async (event, context) => {
             categories: p.categories,
             on_sale: p.on_sale,
             total_sales: parseInt(p.total_sales || 0),
-            is_hot: parseInt(p.total_sales || 0) > 10, // Example threshold
-            type: p.type, // simple, variable
-            variations: p.variations, // IDs of variations
+            is_hot: parseInt(p.total_sales || 0) > 10,
+            type: p.type,
+            variations: p.variations,
             woocommerceUrl: p.permalink,
             translations: {
-                // If the name is "FIFA 24 | فيفا 24", we could parse it
                 ar: { name: p.name, desc: p.short_description },
-                en: { name: p.name, desc: p.short_description }
+                en: { name: getEnProductName(p.id), desc: getEnProductDesc(p.id) }
             }
           }))
         };

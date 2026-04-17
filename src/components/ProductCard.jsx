@@ -8,6 +8,11 @@ const ProductCard = ({ product }) => {
   const tProduct = product.translations?.[i18n.language] || product.translations?.['en'] || { name: product.name };
   const [accentColor, setAccentColor] = useState('rgba(225, 30, 59, 0.4)');
 
+  const baseWooUrl = product.woocommerceUrl || '#';
+  const urlWithLang = i18n.language === 'en' && baseWooUrl !== '#' 
+    ? (baseWooUrl.includes('?') ? `${baseWooUrl}&lang=en` : `${baseWooUrl}?lang=en`)
+    : baseWooUrl;
+
   useEffect(() => {
     if (!product.image) return;
     const img = new Image();
@@ -30,7 +35,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <a
-      href={product.woocommerceUrl || '#'}
+      href={urlWithLang}
       target="_self"
       draggable="false"
       style={{
