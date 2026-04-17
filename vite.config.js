@@ -16,10 +16,6 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-    }),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
