@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+// Node 20+ has native fetch built-in
 
 exports.handler = async (event, context) => {
   const WC_URL = process.env.WC_URL || 'https://redeem-dz.com';
