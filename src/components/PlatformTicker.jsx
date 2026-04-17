@@ -87,18 +87,19 @@ const PlatformIcon = ({ id }) => {
 };
 
 const platforms = [
-  { id: 'ea',        name: 'EA Play',     color: '#e94646', label: 'EA Play'     },
-  { id: 'steam',     name: 'Steam',       color: '#1b2838', label: 'Steam'       },
-  { id: 'xbox',      name: 'Xbox',        color: '#107c10', label: 'Xbox'        },
-  { id: 'psn',       name: 'PlayStation', color: '#006fcd', label: 'PlayStation' },
-  { id: 'nintendo',  name: 'Nintendo',    color: '#e60012', label: 'Nintendo'    },
-  { id: 'epic',      name: 'Epic Games',  color: '#2a2a2a', label: 'Epic Games'  },
-  { id: 'rockstar',  name: 'Rockstar',    color: '#F8B426', label: 'Rockstar'    },
+  { id: 'ea',        name: 'EA Play',     color: '#e94646', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/ea/' },
+  { id: 'steam',     name: 'Steam',       color: '#1b2838', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/steam/' },
+  { id: 'xbox',      name: 'Xbox',        color: '#107c10', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/xbox/' },
+  { id: 'psn',       name: 'PlayStation', color: '#006fcd', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/playstation/' },
+  { id: 'nintendo',  name: 'Nintendo',    color: '#e60012', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/nintendo/' },
+  { id: 'epic',      name: 'Epic Games',  color: '#2a2a2a', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/epic/'  },
+  { id: 'rockstar',  name: 'Rockstar',    color: '#F8B426', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/rockstar/'    },
 ];
 
 const PlatformCard = ({ platform }) => (
   <a
-    href={`/store?platform[]=${encodeURIComponent(platform.name)}`}
+    href={platform.link}
+    target="_self"
     className="flex-shrink-0 group cursor-pointer"
     style={{ width: '240px' }}
   >
