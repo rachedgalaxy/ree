@@ -7,6 +7,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,10 +20,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
           
       - name: Install Dependencies
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         run: npm ci
         
       - name: Build Site & Generate SPA Fallback
