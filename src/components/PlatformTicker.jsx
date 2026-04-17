@@ -123,9 +123,7 @@ const PlatformTicker = () => {
   return (
     <div className="w-full mt-6 overflow-hidden ticker-container" dir="ltr">
       <div className="relative">
-        {/* Edge gradient masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#f5f5f7] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#f5f5f7] to-transparent z-10 pointer-events-none" />
+        {/* Edge gradients removed per user request */}
 
         {/* Nested animations for smooth slow-down */}
         <div className="ticker-wrapper">
