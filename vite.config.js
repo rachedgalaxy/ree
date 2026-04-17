@@ -5,6 +5,7 @@ import viteCompression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   server: {
     proxy: {
       '/wc-api': {
