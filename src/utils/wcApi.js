@@ -20,9 +20,25 @@ export const wcApi = {
    */
   async getStoreData() {
     try {
+      // Client-Side Caching (5 minutes)
+      const CACHE_KEY = 'redeem_store_data';
+      const CACHE_TIME_KEY = 'redeem_store_time';
+      const CACHE_TTL = 5 * 60 * 1000; // 5 mins
+
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+
+      if (cachedData && cachedTime && (Date.now() - parseInt(cachedTime) < CACHE_TTL)) {
+        return JSON.parse(cachedData);
+      }
+
+      let dataToCache = null;
+
       // 1. Try Netlify Functions first (Production)
       const response = await fetch(`${API_BASE}/get-wc-data`);
-      if (response.ok) return await response.json();
+      if (response.ok) {
+          dataToCache = await response.json();
+      }
       
       // 2. Fallback to Direct API call via Proxy (Local Dev)
       console.log('wcApi: Functions unavailable, trying local proxy...');
@@ -49,24 +65,32 @@ export const wcApi = {
       
       const getEnProductName = (id) => productsEn.find?.(p => p.id === id)?.name || productsAr.find(p => p.id === id)?.name;
 
-      // Transform into app structure
-      return categoriesAr.filter(c => c.slug !== 'uncategorized').map(cat => ({
-        id: cat.slug,
-        title: { ar: cat.name, en: getEnCatName(cat.id) },
-        products: productsAr.filter(p => p.categories.some(pc => pc.id === cat.id)).map(p => ({
-            id: p.id,
-            name: p.name,
-            price: p.price,
-            image: p.images[0]?.src || '',
-            description: p.description,
-            is_hot: parseInt(p.total_sales || 0) > 10,
-            woocommerceUrl: p.permalink,
-            translations: {
-                ar: { name: p.name },
-                en: { name: getEnProductName(p.id) }
-            }
-        }))
-      })).filter(c => c.products.length > 0);
+      if (!dataToCache) {
+          // Transform into app structure
+          dataToCache = categoriesAr.filter(c => c.slug !== 'uncategorized').map(cat => ({
+            id: cat.slug,
+            title: { ar: cat.name, en: getEnCatName(cat.id) },
+            products: productsAr.filter(p => p.categories.some(pc => pc.id === cat.id)).map(p => ({
+                id: p.id,
+                name: p.name,
+                price: p.price,
+                image: p.images[0]?.src || '',
+                description: p.description,
+                is_hot: parseInt(p.total_sales || 0) > 10,
+                woocommerceUrl: p.permalink,
+                translations: {
+                    ar: { name: p.name },
+                    en: { name: getEnProductName(p.id) }
+                }
+            }))
+          })).filter(c => c.products.length > 0);
+      }
+
+      if (dataToCache && dataToCache.length > 0) {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(dataToCache));
+          localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+      }
+      return dataToCache;
 
     } catch (error) {
       console.warn('wcApi: Local proxy failed. Using static fallback.', error);
