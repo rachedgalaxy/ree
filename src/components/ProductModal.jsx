@@ -102,6 +102,7 @@ const ProductModal = ({ product, onClose }) => {
   const [loading, setLoading] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [selectedVariation, setSelectedVariation] = useState(null);
+  const [playerInput, setPlayerInput] = useState('');
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -140,7 +141,11 @@ const ProductModal = ({ product, onClose }) => {
   const handleBuy = () => {
     if (!selectedVariation && details?.type === 'variable') return;
     const id = selectedVariation ? selectedVariation.id : product.id;
-    window.location.href = wcApi.getCheckoutUrl(id);
+    
+    // We append the player input as billing_player_id assuming ThemeHigh plugin uses this name (can be changed).
+    const extraParams = playerInput ? `&billing_player_id=${encodeURIComponent(playerInput)}&order_comments=${encodeURIComponent('Player ID/Details: ' + playerInput)}` : '';
+    
+    window.location.href = wcApi.getCheckoutUrl(id) + extraParams;
   };
 
   return (
@@ -256,6 +261,21 @@ const ProductModal = ({ product, onClose }) => {
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Player ID / Account Details Input */}
+              <div className="mb-6">
+                 <label className={`block text-[11px] uppercase tracking-wider text-gray-500 mb-2 font-bold ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    {i18n.language === 'ar' ? 'معرف اللاعب (ID) / تفاصيل الحساب' : 'Player ID / Account Details'}
+                    <span className="text-gray-400 font-normal ml-1 mx-1 text-[10px]">({i18n.language === 'ar' ? 'إذا كان المنتج يتطلب ذلك' : 'If required'})</span>
+                 </label>
+                 <input 
+                    type="text"
+                    value={playerInput}
+                    onChange={(e) => setPlayerInput(e.target.value)}
+                    placeholder={i18n.language === 'ar' ? 'أدخل الـ ID هنا...' : 'Enter your ID here...'}
+                    className={`w-full h-12 px-4 bg-white/50 backdrop-blur-md border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e11e3b]/50 focus:border-[#e11e3b] transition-all text-sm text-gray-800 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}
+                 />
               </div>
 
               {/* Bottom Sticky Action Area */}
