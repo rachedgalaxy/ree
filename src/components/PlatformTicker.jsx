@@ -89,7 +89,7 @@ const PlatformIcon = ({ id }) => {
 };
 
 const platforms = [
-  { id: 'ea',        name: 'EA Play',     color: '#e94646', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/ea/' },
+  { id: 'ea',        name: 'EA Play',     color: '#e94646', link: 'https://redeem-dz.com/product/ea-cash-card/' },
   { id: 'steam',     name: 'Steam',       color: '#1b2838', link: 'https://redeem-dz.com/product/steam-wallet/' },
   { id: 'xbox',      name: 'Xbox',        color: '#107c10', link: 'https://redeem-dz.com/product/xbox/' },
   { id: 'psn',       name: 'PlayStation', color: '#006fcd', link: 'https://redeem-dz.com/product/playstation-gift-cards/' },
