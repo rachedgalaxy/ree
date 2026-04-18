@@ -7,11 +7,20 @@ import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import AboutUs from './components/AboutUs';
 
 function App() {
   const { i18n } = useTranslation();
   const [isLoaded, setIsLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  // Hash routing listener
+  useEffect(() => {
+    const handleHashChange = () => setCurrentHash(window.location.hash);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Initial language and direction setup
   useEffect(() => {
@@ -60,8 +69,14 @@ function App() {
       />
       
       <main>
-        {!searchQuery && <Hero />}
-        <ProductGrid searchQuery={searchQuery} />
+        {currentHash === '#/about-us' ? (
+          <AboutUs />
+        ) : (
+          <>
+            {!searchQuery && <Hero />}
+            <ProductGrid searchQuery={searchQuery} />
+          </>
+        )}
       </main>
       
       {!searchQuery && <Footer />}

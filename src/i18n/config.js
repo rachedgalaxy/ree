@@ -25,6 +25,18 @@ const resources = {
         "a5": "نعم، يتم إرسال فاتورة تلقائيًا إلى بريدك الإلكتروني بعد إتمام الشراء.",
         "q6": "أين أجد الكود بعد إتمام عملية الدفع؟",
         "a6": "ستجد رابط التحميل أو الكود في صفحة 'حسابي' > منتجات رقمية، أو في علبة الوارد ببريدك الإلكتروني المسجل."
+      },
+      "about": {
+        "title": "متجر ريديم",
+        "subtitle": "نحن متجر جزائري متخصص في بيع المنتجات الرقمية الأصلية بأفضل الأسعار.",
+        "t1": "نحن نفهمك",
+        "d1": "لأننا لاعبون قبل أن نكون بائعين. نعرف بالضبط وش يحتاجه كل Gamer حقيقي.",
+        "t2": "أفضل الخدمات",
+        "d2": "نقدم لك أفضل الخدمات الرقمية، بسرعة واحترافية، وبأسعار تناسب الجميع.",
+        "t3": "4 سنوات من الخبرة",
+        "d3": "خبرتنا هي ضمانك، وثقتك هي دافعنا لنستمر ونتطور.",
+        "t4": "دفع آمن 100%",
+        "d4": "نضمن لك تجربة شراء خالية من القلق، مع وسائل دفع آمنة وموثوقة."
       }
     }
   },
@@ -51,6 +63,18 @@ const resources = {
         "a5": "Yes, an invoice is automatically sent to your email after completing the purchase.",
         "q6": "Where do I find my code after payment?",
         "a6": "You will find the code or download link in your 'My Account' page under Digital Products, or in your registered email inbox."
+      },
+      "about": {
+        "title": "Redeem Store",
+        "subtitle": "An Algerian store specialized in selling original digital products at the best prices.",
+        "t1": "We Understand You",
+        "d1": "Because we're gamers before we're sellers. We know exactly what every true gamer needs.",
+        "t2": "The Best Services",
+        "d2": "Best digital services, fast, professional, and affordable.",
+        "t3": "4 Years of Experience",
+        "d3": "Our experience is your guarantee; your trust drives us forward.",
+        "t4": "100% Secure Payment",
+        "d4": "Secure and worry-free payments guaranteed."
       }
     }
   }

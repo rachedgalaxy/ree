@@ -336,18 +336,47 @@ const Hero = () => {
                </div>
             </a>
 
-            {/* Bottom Left: FAQ */}
-            <div 
-              onClick={() => setShowFAQ(true)}
-              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
-            >
-               <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
-                 <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
-               </div>
-               <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ff9500] text-xl" />
-               <span className={`text-[13px] font-[600] text-gray-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
-                 {isRtl ? 'الأسئلة الشائعة' : 'FAQ'}
-               </span>
+            {/* Bottom Left: FAQ + About Us Swipeable Slider */}
+            <div className="col-span-1 row-span-1 rounded-xl overflow-hidden relative border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+              {/* Scroll dots indicator */}
+              <div className="absolute bottom-1.5 left-0 right-0 flex justify-center gap-1 z-20 pointer-events-none">
+                <span className="w-1 h-1 bg-gray-400/70 rounded-full"></span>
+                <span className="w-1 h-1 bg-gray-400/70 rounded-full"></span>
+              </div>
+              {/* Arrow hints */}
+              <div className="absolute inset-y-0 left-1 flex items-center z-10 pointer-events-none text-gray-400/80 text-[10px]">‹</div>
+              <div className="absolute inset-y-0 right-1 flex items-center z-10 pointer-events-none text-gray-400/80 text-[10px]">›</div>
+
+              <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar h-full" style={{ scrollBehavior: 'smooth' }}>
+                {/* Slide 1: FAQ */}
+                <div
+                  onClick={() => setShowFAQ(true)}
+                  className="min-w-full h-full bg-white hover:bg-amber-50/60 snap-start p-4 flex flex-col justify-between cursor-pointer transition-colors group relative"
+                >
+                  <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
+                    <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
+                  </div>
+                  <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ff9500] text-xl" />
+                  <span className={`text-[12px] font-[600] text-gray-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
+                    {isRtl ? 'الأسئلة الشائعة' : 'FAQ'}
+                  </span>
+                </div>
+
+                {/* Slide 2: About Us */}
+                <a
+                  href="#/about-us"
+                  onClick={(e) => { e.stopPropagation(); }}
+                  className="min-w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 snap-start p-4 flex flex-col justify-between cursor-pointer transition-colors group relative border-l border-gray-100"
+                >
+                  <div className="absolute -right-2 -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500 text-blue-600 text-5xl">ℹ</div>
+                  <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+                    <span className="text-white text-[10px] font-black">R</span>
+                  </div>
+                  <span className={`text-[12px] font-[600] text-blue-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
+                    {isRtl ? 'من نحن' : 'About Us'}
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Bottom Right: Support Tile */}
