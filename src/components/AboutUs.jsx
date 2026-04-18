@@ -188,6 +188,7 @@ const AboutUs = () => {
 const ReviewsSlider = ({ reviews, isRtl }) => {
   const sliderRef = useRef(null);
   const isDown = useRef(false);
+  const isHovered = useRef(false);
   const startX = useRef(0);
   const scrollStart = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -238,6 +239,26 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     }
   }, [handleScroll, displayReviews]);
 
+  // Auto-play functionality
+  useEffect(() => {
+    let autoplayTimer;
+    
+    const autoScroll = () => {
+      if (!isDown.current && !isHovered.current && sliderRef.current) {
+        const container = sliderRef.current;
+        const firstChild = container.children[0];
+        if (firstChild) {
+          const cardWidth = firstChild.clientWidth + 16; // width + gap
+          container.scrollBy({ left: isRtl ? -cardWidth : cardWidth, behavior: 'smooth' });
+        }
+      }
+      autoplayTimer = setTimeout(autoScroll, 3500);
+    };
+
+    autoplayTimer = setTimeout(autoScroll, 3500);
+    return () => clearTimeout(autoplayTimer);
+  }, [isRtl]);
+
   const onMouseDown = (e) => {
     isDown.current = true;
     setIsDragging(true);
@@ -246,7 +267,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     scrollStart.current = sliderRef.current.scrollLeft;
   };
 
-  const onMouseLeave = () => { isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
+  const onMouseLeave = () => { isHovered.current = false; isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
   const onMouseUp = () => { isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
 
   const onMouseMove = (e) => {
@@ -271,11 +292,13 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
   return (
     <div
       ref={sliderRef}
+      onMouseEnter={() => { isHovered.current = true; }}
       onMouseDown={onMouseDown}
       onMouseLeave={onMouseLeave}
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
-      onTouchStart={onTouchStart}
+      onTouchStart={(e) => { isHovered.current = true; onTouchStart(e); }}
+      onTouchEnd={() => { isHovered.current = false; }}
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
       className={`flex gap-4 overflow-x-auto py-8 select-none
