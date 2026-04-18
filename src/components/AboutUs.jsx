@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
@@ -193,6 +193,14 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [hasMoved, setHasMoved] = useState(false);
 
+  // Filter by current language and randomize order
+  const currentLang = isRtl ? 'ar' : 'en';
+  const displayReviews = useMemo(() => {
+    return [...reviews]
+      .filter(r => r.lang === currentLang)
+      .sort(() => Math.random() - 0.5);
+  }, [reviews, currentLang]);
+
   const onMouseDown = (e) => {
     isDown.current = true;
     setIsDragging(true);
@@ -237,7 +245,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
         ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
         scroll-smooth snap-x snap-mandatory`}
     >
-      {reviews.map((review, idx) => (
+      {displayReviews.map((review, idx) => (
         <ReviewCard key={review.id} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} />
       ))}
     </div>
@@ -269,9 +277,9 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: idx * 0.1, type: 'spring', stiffness: 100 }}
-      className={`snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[360px]
+      className={`snap-start shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
         bg-gradient-to-br ${gradient}
-        rounded-3xl border p-6 flex flex-col gap-4
+        rounded-3xl border p-5 md:p-6 flex flex-col gap-3 md:gap-4
         shadow-sm hover:shadow-xl transition-shadow duration-500 group`}
     >
       {/* Quote icon */}

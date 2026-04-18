@@ -68,6 +68,7 @@ async function fetchStoreData() {
             const masked = name.length > 2
               ? name.slice(0, 2) + '***'
               : name.slice(0, 1) + '***';
+            const isArabic = /[\u0600-\u06FF]/.test(r.review);
             return {
               id: r.id,
               reviewer: masked,
@@ -75,7 +76,8 @@ async function fetchStoreData() {
               review: r.review.replace(/<[^>]+>/g, '').trim(), // Strip HTML tags
               date: r.date_created?.split('T')[0] || '',
               product: r.product_id,
-              source: 'woocommerce'
+              source: 'woocommerce',
+              lang: isArabic ? 'ar' : 'en'
             };
           })
       : [];

@@ -5,7 +5,8 @@
     "rating": 4,
     "review": "It took me like 1h to get the code. Please take less time in the next purchase.",
     "date": "2026-03-24",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-2",
@@ -13,7 +14,8 @@
     "rating": 5,
     "review": "Depuis plus de 1 ans je fais tout mes achats sur ce sites et je confirme que c’est toujours des produits de qualité et avec prix raisonnable, merci pour le travail que vous offrez",
     "date": "2026-03-18",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-3",
@@ -21,7 +23,8 @@
     "rating": 5,
     "review": "موقع موثوق ودعم متعاون",
     "date": "2026-01-02",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "ar"
   },
   {
     "id": "tp-4",
@@ -29,7 +32,8 @@
     "rating": 5,
     "review": "Trusted platform with excellent service: Redeem quality of purchase is outstanding. I recommend giving it a full potential and standard as other competitors in this kind of business.",
     "date": "2025-12-30",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-5",
@@ -37,6 +41,7 @@
     "rating": 5,
     "review": "الدفع آمن خدمة سريييعة",
     "date": "2025-10-18",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "ar"
   }
 ]

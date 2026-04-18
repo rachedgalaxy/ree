@@ -5,7 +5,8 @@
     "rating": 4,
     "review": "It took me like 1h to get the code. Please take less time in the next purchase.",
     "date": "2026-03-24",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-2",
@@ -13,7 +14,8 @@
     "rating": 5,
     "review": "Depuis plus de 1 ans je fais tout mes achats sur ce sites et je confirme que c’est toujours des produits de qualité et avec prix raisonnable, merci pour le travail que vous offrez",
     "date": "2026-03-18",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-3",
@@ -21,7 +23,8 @@
     "rating": 5,
     "review": "موقع موثوق ودعم متعاون",
     "date": "2026-01-02",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "ar"
   },
   {
     "id": "tp-4",
@@ -29,7 +32,8 @@
     "rating": 5,
     "review": "Trusted platform with excellent service: Redeem quality of purchase is outstanding. I recommend giving it a full potential and standard as other competitors in this kind of business.",
     "date": "2025-12-30",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "en"
   },
   {
     "id": "tp-5",
@@ -37,7 +41,8 @@
     "rating": 5,
     "review": "الدفع آمن خدمة سريييعة",
     "date": "2025-10-18",
-    "source": "trustpilot"
+    "source": "trustpilot",
+    "lang": "ar"
   },
   {
     "id": 2143,
@@ -46,7 +51,8 @@
     "review": "شحن سريع و موثوق.",
     "date": "2026-02-03",
     "product": 3094,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "ar"
   },
   {
     "id": 1120,
@@ -55,7 +61,8 @@
     "review": "Prices a bit high but the services are fast",
     "date": "2025-10-15",
     "product": 3028,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "en"
   },
   {
     "id": 837,
@@ -64,7 +71,8 @@
     "review": "اقسم بالله انك افضل موقع شحن بسعر ارخص و امن... تقيمي 5 نجوم",
     "date": "2025-09-03",
     "product": 3275,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "ar"
   },
   {
     "id": 678,
@@ -73,7 +81,8 @@
     "review": "شكرا لكم ❤",
     "date": "2025-07-29",
     "product": 3177,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "ar"
   },
   {
     "id": 673,
@@ -82,7 +91,8 @@
     "review": "شكرا للعمل السريع والموثوق سيكون موقعكم محطة شرائي دائما ♥",
     "date": "2025-07-27",
     "product": 3361,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "ar"
   },
   {
     "id": 672,
@@ -91,6 +101,7 @@
     "review": "وصل الطلب شكرا",
     "date": "2025-07-27",
     "product": 3177,
-    "source": "woocommerce"
+    "source": "woocommerce",
+    "lang": "ar"
   }
 ]
