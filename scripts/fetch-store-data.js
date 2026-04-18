@@ -117,7 +117,12 @@ async function fetchStoreData() {
           })
         };
       })
-      .filter(cat => cat.products.length > 0);
+      .filter(cat => cat.products.length > 0)
+      .sort((a, b) => {
+        const salesA = a.products.reduce((acc, current) => acc + (current.total_sales || 0), 0);
+        const salesB = b.products.reduce((acc, current) => acc + (current.total_sales || 0), 0);
+        return salesB - salesA;
+      });
 
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
     fs.writeFileSync(targetPath, JSON.stringify(groupedData, null, 2));

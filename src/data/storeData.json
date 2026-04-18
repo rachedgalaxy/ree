@@ -1,29 +1,44 @@
 [
   {
-    "id": "mock-category",
+    "id": "best-sellers",
     "databaseId": 1,
     "title": {
-      "ar": "متجر احتياطي",
-      "en": "Fallback Store"
+      "ar": "الأكثر مبيعاً",
+      "en": "Best Sellers"
     },
     "products": [
       {
         "id": 1,
-        "name": "Fallback Product",
-        "price": "10-100",
+        "name": "Popular Case",
+        "price": "50",
         "image": "https://placehold.co/400x500",
-        "description": "Please configure WC_CONSUMER_KEY in your env",
-        "total_sales": 15,
-        "average_rating": 4.5,
+        "total_sales": 500,
+        "average_rating": 4.8,
         "translations": {
-          "ar": {
-            "name": "منتج احتياطي",
-            "desc": ""
-          },
-          "en": {
-            "name": "Fallback Product",
-            "desc": ""
-          }
+          "ar": { "name": "منتج مشهور", "desc": "" },
+          "en": { "name": "Popular Case", "desc": "" }
+        }
+      }
+    ]
+  },
+  {
+    "id": "new-arrivals",
+    "databaseId": 2,
+    "title": {
+      "ar": "وصل حديثاً",
+      "en": "New Arrivals"
+    },
+    "products": [
+      {
+        "id": 2,
+        "name": "New Item",
+        "price": "30",
+        "image": "https://placehold.co/400x500",
+        "total_sales": 5,
+        "average_rating": 0,
+        "translations": {
+          "ar": { "name": "منتج جديد", "desc": "" },
+          "en": { "name": "New Item", "desc": "" }
         }
       }
     ]
