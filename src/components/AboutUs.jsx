@@ -5,7 +5,7 @@ import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
 import reviewsData from '../data/reviewsData.json';
 
 const AboutUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const containerVariants = {
     hidden: { opacity: 0 },
