@@ -68,7 +68,7 @@ const AboutUs = () => {
         {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
           variants={itemVariants} 
-          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl group shadow-2xl"
+          className="relative w-full overflow-hidden rounded-3xl group shadow-2xl"
         >
           {/* Matrix Effect Layer */}
           <div className="absolute inset-0 z-20 pointer-events-none flex" dir="ltr">
