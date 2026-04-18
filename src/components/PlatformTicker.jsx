@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 /* ─── Inline SVG icons per platform ─── */
 const PlatformIcon = ({ id }) => {
@@ -100,17 +100,17 @@ const PlatformCard = ({ platform }) => (
   <a
     href={platform.link}
     target="_self"
-    className="flex-shrink-0 group cursor-pointer"
-    style={{ width: '240px' }}
+    className="snap-start shrink-0 group cursor-pointer"
+    style={{ width: 'calc(33.333vw - 1rem)', maxWidth: '240px', minWidth: '100px' }}
   >
     <div
-      className="relative h-[120px] rounded-xl flex flex-col items-center justify-center gap-1.5 overflow-hidden"
+      className="relative h-[80px] md:h-[120px] rounded-xl flex flex-col items-center justify-center gap-1.5 overflow-hidden text-white text-lg font-bold"
       style={{ backgroundColor: platform.color, boxShadow: `0 4px 20px ${platform.color}44` }}
     >
       {/* Shine overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/15 pointer-events-none" />
       {/* Icon */}
-      <div className="relative z-10 flex items-center justify-center" style={{ maxWidth: '65%' }}>
+      <div className="relative z-10 flex items-center justify-center transform scale-75 md:scale-100" style={{ maxWidth: '65%' }}>
         <PlatformIcon id={platform.id} />
       </div>
     </div>
@@ -118,27 +118,111 @@ const PlatformCard = ({ platform }) => (
 );
 
 const PlatformTicker = () => {
-  // Triple for seamless infinite loop
-  const items = [...platforms, ...platforms, ...platforms];
+  const scrollRef = useRef(null);
+  const positionRef = useRef(0);
+  const isInteractingRef = useRef(false); // For Hover
+  const isTouchedRef = useRef(false);     // For Touch/Drag
+  const scrollTimeoutRef = useRef(null);
+
+  // 4 sets for a perfect seamless infinite loop
+  const items = [...platforms, ...platforms, ...platforms, ...platforms];
+
+  const handlePointerEnter = () => {
+    isInteractingRef.current = true;
+  };
+
+  const handlePointerLeave = () => {
+    isInteractingRef.current = false;
+  };
+
+  const handleTouchStart = () => {
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    isTouchedRef.current = true;
+  };
+
+  const handleTouchEnd = () => {
+    // Short delay to allow native inertia to settle
+    scrollTimeoutRef.current = setTimeout(() => {
+      isTouchedRef.current = false;
+    }, 1000);
+  };
+
+  useEffect(() => {
+    let animationFrameId;
+    const container = scrollRef.current;
+    
+    if (container) {
+       setTimeout(() => {
+           if (!container) return;
+           const setWidth = container.scrollWidth / 4;
+           container.scrollLeft = setWidth;
+           positionRef.current = setWidth;
+       }, 50);
+    }
+
+    const scrollStep = () => {
+      if (container) {
+        const setWidth = container.scrollWidth / 4;
+        
+        // Only auto-scroll if neither hovering nor touching
+        if (!isInteractingRef.current && !isTouchedRef.current) {
+          positionRef.current += 0.6; // Slightly faster for smoothness
+          
+          if (positionRef.current >= setWidth * 2) {
+             positionRef.current -= setWidth;
+          } else if (positionRef.current <= 0) {
+             positionRef.current += setWidth;
+          }
+          container.scrollLeft = positionRef.current;
+        } else {
+          // If interacting, sync the reference position to current scroll
+          // This ensures no jumps when resuming
+          positionRef.current = container.scrollLeft;
+          
+          // Seamless wrapping even during manual swipe
+          if (container.scrollLeft >= setWidth * 3) {
+             container.scrollLeft -= setWidth;
+             positionRef.current -= setWidth;
+          } else if (container.scrollLeft <= 0) {
+             container.scrollLeft += setWidth;
+             positionRef.current += setWidth;
+          }
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+
+    return () => {
+       cancelAnimationFrame(animationFrameId);
+       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
 
   return (
-    <div className="w-full mt-6 overflow-hidden ticker-container" dir="ltr">
+    <div className="w-full mt-6 ticker-container px-4 md:px-0" dir="ltr">
       <div 
-        className="relative"
+        className="relative max-w-7xl mx-auto overflow-hidden group/ticker"
         style={{
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 25px, black calc(100% - 25px), transparent)',
-          maskImage: 'linear-gradient(to right, transparent, black 25px, black calc(100% - 25px), transparent)'
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15px, black calc(100% - 15px), transparent)',
+          maskImage: 'linear-gradient(to right, transparent, black 15px, black calc(100% - 15px), transparent)'
         }}
       >
-        {/* Edge gradients removed per user request, replaced with transparent native mask */}
-
-        {/* Nested animations for smooth slow-down */}
-        <div className="ticker-wrapper">
-          <div className="ticker-track">
-            {items.map((platform, index) => (
-              <PlatformCard key={`${platform.id}-${index}`} platform={platform} />
-            ))}
-          </div>
+        <div 
+          ref={scrollRef}
+          onPointerEnter={handlePointerEnter}
+          onPointerLeave={handlePointerLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={() => { isTouchedRef.current = true; }}
+          onMouseUp={() => { isTouchedRef.current = false; }}
+          className="flex overflow-x-auto hide-scrollbar gap-2 md:gap-4 pb-4 snap-none active:cursor-grabbing"
+          style={{ scrollBehavior: 'auto' }}
+        >
+          {items.map((platform, index) => (
+            <PlatformCard key={`${platform.id}-${index}`} platform={platform} />
+          ))}
         </div>
       </div>
     </div>
