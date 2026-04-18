@@ -58,12 +58,12 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-16 mt-[80px]">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 pb-8 md:pb-16 mt-[70px]">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center justify-center space-y-12"
+        className="flex flex-col items-center justify-center space-y-8"
       >
         {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
@@ -113,12 +113,12 @@ const AboutUs = () => {
             ))}
           </div>
 
-          {/* Image — fixed height on desktop, square-card height on mobile */}
-          <div className="w-full h-[200px] sm:h-[320px] md:h-[420px] lg:h-[480px]">
+          {/* Image — natural aspect ratio, fills full width */}
+          <div className="w-full">
             <img 
               src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
               alt="Redeem Store Support" 
-              className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
           </div>
         </motion.div>
