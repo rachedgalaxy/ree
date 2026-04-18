@@ -87,17 +87,17 @@ const AboutUs = () => {
                     initial={{ y: -500 }}
                     animate={{ y: 500 }}
                     transition={{ 
-                      duration: 3 + Math.random() * 5, 
+                      duration: 8 + Math.random() * 10, 
                       repeat: Infinity, 
                       ease: "linear",
-                      delay: Math.random() * 5 
+                      delay: Math.random() * 10 
                     }}
                     className="flex flex-col gap-1"
                   >
                     {[...Array(20)].map((_, j) => (
                       <span 
                         key={j} 
-                        className="text-[10px] md:text-[12px] font-mono font-bold text-red-600 drop-shadow-[0_0_8px_rgba(220,38,38,0.8)]"
+                        className="text-[14px] md:text-[16px] font-mono font-bold text-red-600"
                         style={{ opacity: (20 - j) / 20 }}
                       >
                         {Math.floor(Math.random() * 10)}
@@ -115,8 +115,6 @@ const AboutUs = () => {
               alt="Redeem Store Support" 
               className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
-            {/* Dark overlay on the left to make code pop */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
           </div>
         </motion.div>
 
