@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
@@ -10,6 +10,8 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
   const { i18n } = useTranslation();
   const [isFocused, setIsFocused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   // Responsive check
   useEffect(() => {
@@ -19,9 +21,17 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Focus search input when opened on mobile
+  useEffect(() => {
+    if (isMobileSearchOpen && searchInputRef.current) {
+      setTimeout(() => {
+        searchInputRef.current.focus();
+      }, 100);
+    }
+  }, [isMobileSearchOpen]);
+
   // Check if we should expand search (mobile only)
-  const isSearchActive = isFocused || searchQuery.length > 0;
-  const showFullSearch = isMobile && isSearchActive;
+  const showFullSearch = isMobile && isMobileSearchOpen;
 
   return (
     <motion.nav 
@@ -50,13 +60,14 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
             )}
           </AnimatePresence>
 
-          {/* Search Area - Expands on mobile focus only */}
-          <div className={`transition-all duration-300 ${showFullSearch ? 'flex-1' : 'flex-1 max-w-xl'}`}>
+          {/* Search Area */}
+          <div className={`transition-all duration-300 ${showFullSearch ? 'flex-1 block' : 'flex-1 max-w-xl hidden md:block'}`}>
             <div className="relative w-full group">
               <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
                 <Search className={`w-4 h-4 transition-colors ${isFocused ? 'text-blue-500' : 'text-gray-400'}`} />
               </div>
               <input 
+                ref={searchInputRef}
                 type="text" 
                 value={searchQuery}
                 onFocus={() => setIsFocused(true)}
@@ -68,12 +79,19 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
               />
               
               <AnimatePresence>
-                {searchQuery && (
+                {(searchQuery || showFullSearch) && (
                   <motion.button
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    onClick={() => setSearchQuery('')}
+                    onClick={() => {
+                      if (searchQuery) {
+                        setSearchQuery('');
+                        if (searchInputRef.current) searchInputRef.current.focus();
+                      } else if (isMobile) {
+                        setIsMobileSearchOpen(false);
+                      }
+                    }}
                     className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-400 hover:text-red-500 transition-colors"
                   >
                     <X size={18} />
@@ -92,6 +110,20 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 exit={{ opacity: 0, x: 20 }}
                 className="flex flex-shrink-0 items-center justify-end md:w-1/4 gap-2 md:gap-3"
               >
+                {/* Mobile Search Button */}
+                {isMobile && (
+                  <button
+                    onClick={() => setIsMobileSearchOpen(true)}
+                    className="flex md:hidden items-center justify-center w-9 h-9 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 backdrop-blur-md hover:bg-red-500/20 transition-all duration-300 group relative"
+                    title={i18n.language === 'ar' ? 'بحث' : 'Search'}
+                  >
+                    <Search size={15} className="group-hover:scale-110 transition-transform" />
+                    {searchQuery && (
+                      <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    )}
+                  </button>
+                )}
+
                 {/* Login Button */}
                 <a 
                   href={getLocalizedLink('https://redeem-dz.com/my-account/', i18n.language)}
