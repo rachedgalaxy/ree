@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Flame } from 'lucide-react';
+import { Flame, Star } from 'lucide-react';
 import { getLocalizedLink } from '../utils/url';
 
 const ProductCard = ({ product }) => {
@@ -108,13 +108,28 @@ const ProductCard = ({ product }) => {
             {tProduct.name}
           </h3>
           {product.price && !isOutOfStock && (
-            <div className="flex items-baseline gap-1 mt-1">
-              <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
-                {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
-              </span>
-              <span className="text-[12px] md:text-[14px] font-bold text-[#e11e3b]">
-                {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
-              </span>
+            <div className="flex items-center justify-between mt-1 w-full flex-wrap gap-y-1">
+              <div className="flex items-baseline gap-1">
+                <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                  {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
+                </span>
+                <span className="text-[12px] md:text-[14px] font-bold text-[#e11e3b]">
+                  {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
+                </span>
+              </div>
+              
+              {/* Product Rating Stars */}
+              {(product.average_rating > 0) && (
+                <div className="flex items-center gap-0.5" title={`${product.average_rating} rating`}>
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      size={10} 
+                      className={`${i < Math.floor(product.average_rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'} transition-colors duration-300`} 
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           )}
           {isOutOfStock && (

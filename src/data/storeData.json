@@ -13,7 +13,8 @@
         "price": "10-100",
         "image": "https://placehold.co/400x500",
         "description": "Please configure WC_CONSUMER_KEY in your env",
-        "is_hot": true,
+        "total_sales": 15,
+        "average_rating": 4.5,
         "translations": {
           "ar": {
             "name": "منتج احتياطي",

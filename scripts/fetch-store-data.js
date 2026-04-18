@@ -94,6 +94,7 @@ async function fetchStoreData() {
             categories: p.categories,
             on_sale: p.on_sale,
             total_sales: parseInt(p.total_sales || 0),
+            average_rating: parseFloat(p.average_rating || 0),
             is_hot: parseInt(p.total_sales || 0) > 10,
             in_stock: p.stock_status === 'instock',
             type: p.type,
