@@ -34,6 +34,13 @@ function App() {
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'ar' ? 'en' : 'ar';
+    
+    if (newLang === 'en') {
+      // Redirect to the English WordPress site
+      window.location.href = 'https://redeem-dz.com/en';
+      return;
+    }
+
     i18n.changeLanguage(newLang);
     
     const dir = newLang === 'ar' ? 'rtl' : 'ltr';
