@@ -197,9 +197,10 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
   // Filter by current language and randomize order
   const currentLang = isRtl ? 'ar' : 'en';
   const displayReviews = useMemo(() => {
-    return [...reviews]
+    const sorted = [...reviews]
       .filter(r => r.lang === currentLang)
       .sort(() => Math.random() - 0.5);
+    return [...sorted, ...sorted, ...sorted, ...sorted];
   }, [reviews, currentLang]);
 
   const handleScroll = useCallback(() => {
@@ -281,7 +282,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
         scroll-smooth snap-x snap-mandatory`}
     >
       {displayReviews.map((review, idx) => (
-        <ReviewCard key={review.id} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} isActive={activeIndex === idx} />
+        <ReviewCard key={`${review.id}-${idx}`} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} isActive={activeIndex === idx} />
       ))}
     </div>
   );
@@ -310,8 +311,9 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   return (
     <motion.div
       animate={{ 
-        opacity: isActive ? 1 : 0.5, 
+        opacity: isActive ? 1 : 0.3, 
         scale: isActive ? 1 : 0.9,
+        filter: isActive ? 'blur(0px)' : 'blur(2px)'
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={`snap-center shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
