@@ -7,32 +7,14 @@ import { getLocalizedLink } from '../utils/url';
 const ProductCard = ({ product }) => {
   const { i18n } = useTranslation();
   const tProduct = product.translations?.[i18n.language] || product.translations?.['en'] || { name: product.name };
-  const [accentColor, setAccentColor] = useState('rgba(225, 30, 59, 0.4)');
+  // Removed dynamic accent color extraction due to CORS restrictions on original image server
+  const accentColor = 'rgba(225, 30, 59, 0.4)'; 
 
   const baseWooUrl = product.woocommerceUrl || '#';
   const urlWithLang = i18n.language === 'en' && baseWooUrl !== '#' 
     ? getLocalizedLink(baseWooUrl, i18n.language)
     : baseWooUrl;
 
-  useEffect(() => {
-    if (!product.image) return;
-    const img = new Image();
-    img.crossOrigin = "Anonymous";
-    img.src = product.image;
-    img.onload = () => {
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = 1;
-        canvas.height = 1;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, 1, 1);
-        const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
-        setAccentColor(`rgba(${r}, ${g}, ${b}, 0.6)`);
-      } catch {
-        // Fallback already set
-      }
-    };
-  }, [product.image]);
 
   const isOutOfStock = product.in_stock === false; // Explicit check, assume true if undefined
 
