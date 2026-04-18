@@ -64,43 +64,48 @@ const AboutUs = () => {
         animate="visible"
         className="flex flex-col items-center justify-center space-y-12"
       >
-        {/* Header Section - Expanded with Animated Glass Pattern */}
+        {/* Header Section - Expanded with 8 Shining Glass Icons */}
         <motion.div 
           variants={itemVariants} 
           className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl"
         >
           {/* Decorative Pattern Layer */}
           <div className="absolute inset-0 z-20 pointer-events-none">
-            {/* Concentrated pattern on the left */}
+            {/* 8 Floating Icon Circles on the left */}
             {[
-              { size: 'w-12 h-12', pos: 'left-[5%] top-[20%]', icon: <ShieldCheck className="w-4 h-4 text-emerald-500/40" />, delay: 0 },
-              { size: 'w-16 h-16', pos: 'left-[12%] top-[50%]', icon: <Award className="w-5 h-5 text-purple-500/40" />, delay: 0.5 },
-              { size: 'w-10 h-10', pos: 'left-[8%] top-[80%]', icon: <Zap className="w-3 h-3 text-yellow-500/40" />, delay: 1 },
-              { size: 'w-14 h-14', pos: 'left-[20%] top-[35%]', icon: <Gamepad2 className="w-4 h-4 text-blue-500/40" />, delay: 1.5 },
-              // Extra decorative dots
-              { size: 'w-4 h-4', pos: 'left-[15%] top-[10%]', delay: 2 },
-              { size: 'w-6 h-6', pos: 'left-[25%] top-[70%]', delay: 2.5 },
-              { size: 'w-3 h-3', pos: 'left-[30%] top-[40%]', delay: 0.8 },
-              { size: 'w-5 h-5', pos: 'left-[45%] top-[20%]', delay: 1.2 }, // Fading out to the right
-              { size: 'w-2 h-2', pos: 'left-[60%] top-[60%]', delay: 1.8 },
+              { size: 'w-14 h-14', pos: 'left-[4%] top-[15%]', icon: <ShieldCheck className="w-5 h-5 text-emerald-500/60" />, delay: 0 },
+              { size: 'w-16 h-16', pos: 'left-[14%] top-[45%]', icon: <Award className="w-6 h-6 text-purple-500/60" />, delay: 0.5 },
+              { size: 'w-12 h-12', pos: 'left-[6%] top-[75%]', icon: <Zap className="w-4 h-4 text-yellow-500/60" />, delay: 1 },
+              { size: 'w-15 h-15', pos: 'left-[22%] top-[30%]', icon: <Gamepad2 className="w-5 h-5 text-blue-500/60" />, delay: 1.5 },
+              // Duplicate set with different positions
+              { size: 'w-11 h-11', pos: 'left-[10%] top-[30%]', icon: <ShieldCheck className="w-4 h-4 text-emerald-500/50" />, delay: 2 },
+              { size: 'w-13 h-13', pos: 'left-[20%] top-[65%]', icon: <Award className="w-5 h-5 text-purple-500/50" />, delay: 2.5 },
+              { size: 'w-10 h-10', pos: 'left-[30%] top-[45%]', icon: <Zap className="w-3 h-3 text-yellow-500/50" />, delay: 0.8 },
+              { size: 'w-12 h-12', pos: 'left-[35%] top-[15%]', icon: <Gamepad2 className="w-4 h-4 text-blue-500/50" />, delay: 1.2 },
             ].map((dot, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
                 animate={{ 
-                  opacity: [0.3, 0.6, 0.3],
-                  y: [0, i % 2 === 0 ? -15 : 15, 0],
-                  x: [0, i % 3 === 0 ? 10 : -10, 0],
+                  opacity: [0.4, 0.7, 0.4],
+                  y: [0, i % 2 === 0 ? -20 : 20, 0],
+                  x: [0, i % 3 === 0 ? 15 : -15, 0],
                 }}
                 transition={{ 
-                  duration: 4 + (i % 3), 
+                  duration: 5 + (i % 4), 
                   repeat: Infinity, 
                   ease: "easeInOut",
                   delay: dot.delay 
                 }}
-                className={`absolute ${dot.pos} ${dot.size} rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow-sm`}
+                className={`absolute ${dot.pos} ${dot.size} rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group overflow-hidden`}
               >
-                {dot.icon}
+                {/* Shining Reflective Effect */}
+                <motion.div 
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full skew-x-12"
+                />
+                <div className="relative z-10">{dot.icon}</div>
               </motion.div>
             ))}
           </div>
