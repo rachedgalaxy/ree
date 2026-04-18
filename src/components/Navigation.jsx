@@ -49,13 +49,19 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 initial={{ opacity: 1, x: 0 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="flex-shrink-0 flex items-center cursor-pointer md:w-1/4"
+                className="flex-shrink-0 flex items-center md:w-1/4"
               >
-                <img 
-                  src="https://redeem-dz.com/wp-content/uploads/2025/09/logo-redeem-dz.svg" 
-                  alt="Redeem Logo" 
-                  className="h-8 w-auto md:h-10" 
-                />
+                <a 
+                  href="#/" 
+                  onClick={() => setSearchQuery('')}
+                  className="cursor-pointer"
+                >
+                  <img 
+                    src="https://redeem-dz.com/wp-content/uploads/2025/09/logo-redeem-dz.svg" 
+                    alt="Redeem Logo" 
+                    className="h-8 w-auto md:h-10" 
+                  />
+                </a>
               </motion.div>
             )}
           </AnimatePresence>
