@@ -132,21 +132,25 @@ const AboutUs = () => {
               key={feature.id}
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
-              className={`relative overflow-hidden rounded-2xl bg-white/60 dark:bg-[#1a1c23]/60 backdrop-blur-xl border ${feature.border} shadow-lg shadow-black/5 dark:shadow-black/20 p-6 flex flex-col items-center text-center group`}
+              className="relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px]"
             >
-              {/* Background gradient shine */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              {/* Large Cropped Background Icon */}
+              <div className="absolute -bottom-8 -left-8 opacity-[0.06] text-black group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700 pointer-events-none">
+                {React.cloneElement(feature.icon, { className: "w-40 h-40" })}
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center gap-5 w-full">
+                <div className="p-4 rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
-                  {feature.title}
-                </h3>
-                <p className="text-[10px] md:text-[11px] text-gray-600 dark:text-gray-400 font-medium leading-relaxed line-clamp-2">
-                  {feature.desc}
-                </p>
+                <div className="space-y-2">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[11px] md:text-[12px] text-gray-600 font-medium leading-relaxed line-clamp-2 px-2">
+                    {feature.desc}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
