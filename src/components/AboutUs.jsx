@@ -208,13 +208,15 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     const container = sliderRef.current;
     
     // We want the element whose center is closest to the container's center
-    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
     
     let closestIdx = 0;
     let minDistance = Infinity;
 
     Array.from(container.children).forEach((child, index) => {
-      const childCenter = child.offsetLeft + child.clientWidth / 2;
+      const childRect = child.getBoundingClientRect();
+      const childCenter = childRect.left + childRect.width / 2;
       const distance = Math.abs(containerCenter - childCenter);
       if (distance < minDistance) {
         minDistance = distance;
