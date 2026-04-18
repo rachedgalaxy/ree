@@ -58,7 +58,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20 mt-[80px]">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-16 mt-[80px]">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -68,18 +68,17 @@ const AboutUs = () => {
         {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
           variants={itemVariants} 
-          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl group"
+          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl group shadow-2xl"
         >
           {/* Matrix Effect Layer */}
           <div className="absolute inset-0 z-20 pointer-events-none flex" dir="ltr">
-            {/* Concentration of "digital rain" on the left */}
             {[...Array(15)].map((_, i) => (
               <div 
                 key={i} 
                 className="relative flex-none"
                 style={{ 
                   width: `${Math.random() * 20 + 10}px`,
-                  opacity: Math.max(0.1, (15 - i) / 15 * 0.8), // Fades out as we go right
+                  opacity: Math.max(0.1, (15 - i) / 15 * 0.8),
                   marginLeft: i === 0 ? '20px' : '4px'
                 }}
               >
@@ -114,11 +113,12 @@ const AboutUs = () => {
             ))}
           </div>
 
-          <div className="shadow-2xl border border-white/20">
+          {/* Image — fixed height on desktop, square-card height on mobile */}
+          <div className="w-full h-[200px] sm:h-[320px] md:h-[420px] lg:h-[480px]">
             <img 
               src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
               alt="Redeem Store Support" 
-              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+              className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
           </div>
         </motion.div>
