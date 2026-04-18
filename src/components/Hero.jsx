@@ -383,13 +383,22 @@ const Hero = () => {
                     className="col-span-1 row-span-2 relative rounded-xl overflow-hidden group shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 cursor-pointer bg-black"
                   >
                     {product.image && (
-                      <img 
-                        src={product.image} 
-                        alt={product.translations?.[i18n.language]?.name || product.name} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                      />
+                      <>
+                        <img 
+                          src={product.image} 
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 px-[-20%] py-[-20%] scale-125" 
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center p-2 mb-16">
+                          <img 
+                            src={product.image} 
+                            alt={product.translations?.[i18n.language]?.name || product.name} 
+                            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl" 
+                          />
+                        </div>
+                      </>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity group-hover:opacity-90"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/20 to-transparent transition-opacity group-hover:opacity-90"></div>
                     
                     <div className="absolute bottom-3 left-3 right-3 text-white flex flex-col items-start justify-end h-full z-10">
                        <span className="bg-[#ff2d55] text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-sm flex items-center justify-center shadow-lg mb-1.5 animate-pulse uppercase tracking-wider">
