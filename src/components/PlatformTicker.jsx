@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { getLocalizedLink } from '../utils/url';
 
 /* ─── Inline SVG icons per platform ─── */
 const PlatformIcon = ({ id }) => {
@@ -88,17 +90,17 @@ const PlatformIcon = ({ id }) => {
 
 const platforms = [
   { id: 'ea',        name: 'EA Play',     color: '#e94646', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/ea/' },
-  { id: 'steam',     name: 'Steam',       color: '#1b2838', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/steam/' },
-  { id: 'xbox',      name: 'Xbox',        color: '#107c10', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/xbox/' },
-  { id: 'psn',       name: 'PlayStation', color: '#006fcd', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/playstation/' },
-  { id: 'nintendo',  name: 'Nintendo',    color: '#e60012', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/nintendo/' },
+  { id: 'steam',     name: 'Steam',       color: '#1b2838', link: 'https://redeem-dz.com/product/steam-wallet/' },
+  { id: 'xbox',      name: 'Xbox',        color: '#107c10', link: 'https://redeem-dz.com/product/xbox/' },
+  { id: 'psn',       name: 'PlayStation', color: '#006fcd', link: 'https://redeem-dz.com/product/playstation-gift-cards/' },
+  { id: 'nintendo',  name: 'Nintendo',    color: '#e60012', link: 'https://redeem-dz.com/product/nintendo/' },
   { id: 'epic',      name: 'Epic Games',  color: '#2a2a2a', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/epic/'  },
   { id: 'rockstar',  name: 'Rockstar',    color: '#F8B426', link: 'https://redeem-dz.com/%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9/rockstar/'    },
 ];
 
-const PlatformCard = ({ platform }) => (
+const PlatformCard = ({ platform, currentLang }) => (
   <a
-    href={platform.link}
+    href={getLocalizedLink(platform.link, currentLang)}
     target="_self"
     className="snap-start shrink-0 group cursor-pointer"
     style={{ width: 'calc(33.333vw - 1rem)', maxWidth: '240px', minWidth: '100px' }}
@@ -118,6 +120,7 @@ const PlatformCard = ({ platform }) => (
 );
 
 const PlatformTicker = () => {
+  const { i18n } = useTranslation();
   const scrollRef = useRef(null);
   const positionRef = useRef(0);
   const isInteractingRef = useRef(false); // For Hover
@@ -221,7 +224,7 @@ const PlatformTicker = () => {
           style={{ scrollBehavior: 'auto' }}
         >
           {items.map((platform, index) => (
-            <PlatformCard key={`${platform.id}-${index}`} platform={platform} />
+            <PlatformCard key={`${platform.id}-${index}`} platform={platform} currentLang={i18n.language} />
           ))}
         </div>
       </div>
