@@ -1,62 +1,57 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Info, ShieldCheck, FileText } from 'lucide-react';
 
 const Footer = () => {
+  const { i18n } = useTranslation();
+  const isRtl = i18n.language === 'ar';
+
+  const legalLinks = [
+    { hash: '#/about-us',          icon: <Info className="w-3 h-3" />,        ar: 'من نحن',          en: 'About Us' },
+    { hash: '#/privacy-policy',    icon: <ShieldCheck className="w-3 h-3" />, ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
+    { hash: '#/terms-of-service',  icon: <FileText className="w-3 h-3" />,    ar: 'الشروط والأحكام', en: 'Terms of Service' },
+  ];
+
   return (
     <footer className="w-full bg-[#efefef]/80 backdrop-blur-xl border-t border-gray-200/50 py-6 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         
-        {/* Social Icons (DOM Position 1 -> RTL: Right Side, LTR: Left Side) */}
+        {/* Social Icons */}
         <div className="flex gap-2.5 md:gap-3 items-center">
-          <a 
-            href="https://www.facebook.com/redeem.dz" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1877F2] hover:bg-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50"
-            title="Facebook"
-          >
+          <a href="https://www.facebook.com/redeem.dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1877F2] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Facebook">
             <FontAwesomeIcon icon={faFacebookF} className="text-[12px] md:text-[14px]" />
           </a>
-          <a 
-            href="https://www.instagram.com/redeem.dz" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E4405F] hover:bg-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50"
-            title="Instagram"
-          >
+          <a href="https://www.instagram.com/redeem.dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E4405F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Instagram">
             <FontAwesomeIcon icon={faInstagram} className="text-[12px] md:text-[14px]" />
           </a>
-          <a 
-            href="https://www.youtube.com/@redeem-dz" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-[#CD201F] hover:bg-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50"
-            title="YouTube"
-          >
+          <a href="https://www.youtube.com/@redeem-dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-[#CD201F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="YouTube">
             <FontAwesomeIcon icon={faYoutube} className="text-[12px] md:text-[14px]" />
           </a>
-          <a 
-            href="https://www.tiktok.com/@redeem-dz" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50"
-            title="TikTok"
-          >
+          <a href="https://www.tiktok.com/@redeem-dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-black hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="TikTok">
             <FontAwesomeIcon icon={faTiktok} className="text-[11px] md:text-[13px]" />
           </a>
-          <a 
-            href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:bg-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50"
-            title="WhatsApp"
-          >
+          <a href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="WhatsApp">
             <FontAwesomeIcon icon={faWhatsapp} className="text-[12px] md:text-[14px]" />
           </a>
         </div>
 
-        {/* Payment Graphics (DOM Position 2 -> RTL: Left Side, LTR: Right Side) */}
+        {/* Legal Links */}
+        <div className="flex items-center gap-1.5 flex-wrap justify-center">
+          {legalLinks.map((link) => (
+            <a
+              key={link.hash}
+              href={link.hash}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/70 hover:bg-white border border-gray-200/60 hover:border-gray-300 text-gray-600 hover:text-gray-900 text-[11px] font-semibold shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+            >
+              {link.icon}
+              {isRtl ? link.ar : link.en}
+            </a>
+          ))}
+        </div>
+
+        {/* Payment Graphic */}
         <div className="flex flex-col items-center gap-1 opacity-80 transition-opacity hover:opacity-100 grayscale hover:grayscale-0 duration-500">
           <img 
             src="https://redeem-dz.com/wp-content/uploads/2025/09/payment.svg" 
@@ -71,3 +66,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

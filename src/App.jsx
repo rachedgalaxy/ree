@@ -8,6 +8,8 @@ import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import AboutUs from './components/AboutUs';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 function App() {
   const { i18n } = useTranslation();
@@ -71,6 +73,10 @@ function App() {
       <main>
         {currentHash === '#/about-us' ? (
           <AboutUs />
+        ) : currentHash === '#/privacy-policy' ? (
+          <PrivacyPolicy />
+        ) : currentHash === '#/terms-of-service' ? (
+          <TermsOfService />
         ) : (
           <>
             {!searchQuery && <Hero />}
