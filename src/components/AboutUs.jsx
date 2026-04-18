@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
@@ -192,6 +192,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
   const scrollStart = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
   const [hasMoved, setHasMoved] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Filter by current language and randomize order
   const currentLang = isRtl ? 'ar' : 'en';
@@ -200,6 +201,39 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       .filter(r => r.lang === currentLang)
       .sort(() => Math.random() - 0.5);
   }, [reviews, currentLang]);
+
+  const handleScroll = useCallback(() => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    
+    // We want the element whose center is closest to the container's center
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    
+    let closestIdx = 0;
+    let minDistance = Infinity;
+
+    Array.from(container.children).forEach((child, index) => {
+      const childCenter = child.offsetLeft + child.clientWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIdx = index;
+      }
+    });
+
+    if (closestIdx !== activeIndex) {
+      setActiveIndex(closestIdx);
+    }
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const timer = setTimeout(handleScroll, 100);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleScroll);
+    }
+  }, [handleScroll, displayReviews]);
 
   const onMouseDown = (e) => {
     isDown.current = true;
@@ -240,20 +274,21 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onMouseMove={onMouseMove}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
-      className={`flex gap-4 overflow-x-auto pb-4 pt-2 px-1 select-none
+      onScroll={handleScroll}
+      className={`flex gap-4 overflow-x-auto py-8 px-[10vw] md:px-[20%] select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
         scroll-smooth snap-x snap-mandatory`}
     >
       {displayReviews.map((review, idx) => (
-        <ReviewCard key={review.id} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} />
+        <ReviewCard key={review.id} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} isActive={activeIndex === idx} />
       ))}
     </div>
   );
 };
 
 /* ─── Single Review Card ─────────────────────────────────── */
-const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
+const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   const isTrustpilot = review.source === 'trustpilot';
 
   const gradients = [
@@ -274,13 +309,15 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: idx * 0.1, type: 'spring', stiffness: 100 }}
-      className={`snap-start shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
+      animate={{ 
+        opacity: isActive ? 1 : 0.5, 
+        scale: isActive ? 1 : 0.9,
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`snap-center shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
         bg-gradient-to-br ${gradient}
         rounded-3xl border p-5 md:p-6 flex flex-col gap-3 md:gap-4
-        shadow-sm hover:shadow-xl transition-shadow duration-500 group`}
+        shadow-sm hover:shadow-xl transition-shadow duration-500 group relative z-${isActive ? '10' : '0'}`}
     >
       {/* Quote icon */}
       <Quote size={28} className={`${accent} opacity-30 rotate-180 -mb-2`} />
