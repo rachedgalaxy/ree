@@ -387,12 +387,14 @@ const Hero = () => {
                         <img 
                           src={product.image} 
                           alt=""
+                          referrerPolicy="no-referrer"
                           className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 px-[-20%] py-[-20%] scale-125" 
                         />
                         <div className="absolute inset-0 flex items-center justify-center p-2 mb-16">
                           <img 
                             src={product.image} 
                             alt={product.translations?.[i18n.language]?.name || product.name} 
+                            referrerPolicy="no-referrer"
                             className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl" 
                           />
                         </div>
