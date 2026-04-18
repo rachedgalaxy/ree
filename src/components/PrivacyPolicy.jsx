@@ -133,7 +133,7 @@ const PrivacyPolicy = () => {
             {isRtl ? 'سياسة الخصوصية' : 'Privacy Policy'}
           </span>
         </div>
-        <p className="text-xs text-gray-500 max-w-sm mx-auto">
+        <p className="text-xs text-gray-500 mx-auto md:whitespace-nowrap">
           {isRtl
             ? 'في ريديم، نولي خصوصيتك أهمية قصوى ونلتزم بحماية معلوماتك الشخصية.'
             : 'At Redeem, we are committed to protecting your privacy and personal information.'}

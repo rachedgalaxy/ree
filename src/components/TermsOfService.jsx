@@ -141,7 +141,7 @@ const TermsOfService = () => {
             {isRtl ? 'الشروط والأحكام' : 'Terms of Service'}
           </span>
         </div>
-        <p className="text-xs text-gray-500 max-w-sm mx-auto">
+        <p className="text-xs text-gray-500 mx-auto md:whitespace-nowrap">
           {isRtl
             ? 'باستخدام متجر ريديم، فإنك توافق على الشروط والأحكام التالية. يُرجى قراءتها بعناية.'
             : 'By using Redeem Store, you agree to the following terms and conditions. Please read them carefully.'}
