@@ -97,25 +97,25 @@ const FAQOverlay = ({ isOpen, onClose }) => {
                 <a 
                   href="#/about-us" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-bold border border-blue-100 dark:border-blue-800/30 hover:bg-blue-100 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 text-[11px] md:text-xs font-bold border border-blue-200 dark:border-blue-700/50 hover:bg-blue-200 transition-all shadow-sm active:scale-95"
                 >
-                  <Info size={14} />
+                  <Info size={14} className="text-blue-600 dark:text-blue-400" />
                   {i18n.language === 'ar' ? 'من نحن' : 'About Us'}
                 </a>
                 <a 
                   href="#/privacy-policy" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-100 dark:border-emerald-800/30 hover:bg-emerald-100 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 text-[11px] md:text-xs font-bold border border-emerald-200 dark:border-emerald-700/50 hover:bg-emerald-200 transition-all shadow-sm active:scale-95"
                 >
-                  <ShieldCheck size={14} />
+                  <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
                   {i18n.language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
                 </a>
                 <a 
                   href="#/terms-of-service" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 text-xs font-bold border border-purple-100 dark:border-purple-800/30 hover:bg-purple-100 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 text-[11px] md:text-xs font-bold border border-purple-200 dark:border-purple-700/50 hover:bg-purple-200 transition-all shadow-sm active:scale-95"
                 >
-                  <FileText size={14} />
+                  <FileText size={14} className="text-purple-600 dark:text-purple-400" />
                   {i18n.language === 'ar' ? 'الشروط والأحكام' : 'Terms of Service'}
                 </a>
               </div>
