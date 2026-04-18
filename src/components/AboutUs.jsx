@@ -64,13 +64,50 @@ const AboutUs = () => {
         animate="visible"
         className="flex flex-col items-center justify-center space-y-12"
       >
-        {/* Header Section - Replaced with Branding Image */}
-        <motion.div variants={itemVariants} className="w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl border border-white/20">
-          <img 
-            src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
-            alt="Redeem Store Support" 
-            className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
-          />
+        {/* Header Section - Expanded with Floating Icons */}
+        <motion.div 
+          variants={itemVariants} 
+          className="relative w-full max-w-6xl mx-auto"
+        >
+          {/* Floating Decorative Icons (Left Side) */}
+          <div className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-20 hidden sm:flex flex-col gap-6">
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 shadow-xl"
+            >
+              <ShieldCheck className="w-5 h-5 text-emerald-500" />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 shadow-xl ml-6"
+            >
+              <Award className="w-5 h-5 text-purple-500" />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 shadow-xl"
+            >
+              <Zap className="w-5 h-5 text-yellow-500" />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              className="p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 shadow-xl ml-6"
+            >
+              <Gamepad2 className="w-5 h-5 text-blue-500" />
+            </motion.div>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/20">
+            <img 
+              src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
+              alt="Redeem Store Support" 
+              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+            />
+          </div>
         </motion.div>
 
         {/* Features Grid */}
