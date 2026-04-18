@@ -147,7 +147,7 @@ const AboutUs = () => {
                   <h3 className="text-lg md:text-xl font-bold text-gray-900">
                     {feature.title}
                   </h3>
-                  <p className="text-[11px] md:text-[12px] text-gray-600 font-medium leading-relaxed line-clamp-2 px-2">
+                  <p className="text-[10.5px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>
