@@ -210,8 +210,23 @@ async function fetchStoreData() {
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
     fs.writeFileSync(targetPath, JSON.stringify(groupedData, null, 2));
     
-    console.log(`✅ Successfully generated static data with ${groupedData.length} categories! Saved to ${targetPath}`);
+    // ========= SEO Sitemap Generation =========
+    console.log('🗺️ Generating SEO Sitemap & Robots.txt...');
+    const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+    const robotsPath = path.join(__dirname, '../public/robots.txt');
+    const baseUrl = 'https://redeem.dz';
     
+    let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+    sitemapContent += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+    sitemapContent += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+    sitemapContent += `</urlset>`;
+    
+    if (!fs.existsSync(path.join(__dirname, '../public'))) fs.mkdirSync(path.join(__dirname, '../public'));
+    fs.writeFileSync(sitemapPath, sitemapContent);
+    fs.writeFileSync(robotsPath, `User-agent: *\nAllow: /\n\nSitemap: ${baseUrl}/sitemap.xml`);
+    // ==========================================
+
+    console.log(`✅ Successfully generated static data with ${groupedData.length} categories! Saved to ${targetPath}`);
   } catch (error) {
     console.warn(`⚠️ Data Fetch Error: ${error.message}. Falling back to default mock data for development.`);
     const targetPath = path.join(__dirname, '../src/data/storeData.json');

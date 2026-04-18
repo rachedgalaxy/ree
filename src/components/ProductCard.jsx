@@ -36,7 +36,28 @@ const ProductCard = ({ product }) => {
 
   const isOutOfStock = product.in_stock === false; // Explicit check, assume true if undefined
 
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": tProduct.name,
+    "image": product.image,
+    "description": `شراء ${tProduct.name} في الجزائر بأفضل الأسعار عبر بريدي موب و OCPay`,
+    "offers": {
+      "@type": "Offer",
+      "url": "https://redeem.dz" + urlWithLang,
+      "priceCurrency": "DZD",
+      "price": product.price || "0",
+      "availability": isOutOfStock ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "متجر ريديم Redeem DZ"
+      }
+    }
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <a
       href={isOutOfStock ? '#' : urlWithLang}
       onClick={(e) => {
@@ -142,6 +163,7 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
     </a>
+    </>
   );
 };
 

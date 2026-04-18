@@ -10,6 +10,7 @@ import BackToTop from './components/BackToTop';
 import AboutUs from './components/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import SEO from './components/SEO';
 
 function App() {
   const { i18n } = useTranslation();
@@ -63,6 +64,19 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] selection:bg-blue-200 selection:text-blue-900">
+      <SEO />
+      
+      {/* Hidden SEO Keywords Block for Algeria Market - Analyzed by Googlebot but invisible to users */}
+      <div className="sr-only">
+        <h1>متجر ريديم الجزائر - Redeem DZ</h1>
+        <p>
+          أفضل متجر إلكتروني في الجزائر لشحن الالعاب عن طريق بريدي موب (Baridimob) وتطبيق OCPay.
+          بيع بطاقات الهدايا (Gift Cards)، شحن جواهر فري فاير الجزائر (Free Fire)، شحن شدات ببجي (PUBG Mobile UC)،
+          رصيد باينانس بالدينار الجزائري (Binance USDT in DZD)، وشحن كول اوف ديوتي وبلايستيشن واكس بوكس.
+          الدفع محلي وآمن ومتوفر لجميع ولايات الجزائر. 
+          اشتري الآن أرخص المنتجات الرقمية والمحافظ مع تسليم فوري!
+        </p>
+      </div>
       <Navigation 
         currentLang={i18n.language} 
         toggleLanguage={toggleLanguage} 
