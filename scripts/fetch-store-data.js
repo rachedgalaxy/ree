@@ -140,7 +140,7 @@ async function fetchStoreData() {
             price: p.price,
             regular_price: p.regular_price,
             sale_price: p.sale_price,
-            image: p.images[0]?.src?.replace(/woodmart\.redeem-dz\.com/g, 'redeem-dz.com') || '',
+            image: p.images[0]?.src || '',
             description: p.description,
             short_description: p.short_description,
             categories: p.categories,
