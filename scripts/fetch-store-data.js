@@ -126,16 +126,42 @@ async function fetchStoreData() {
         return salesB - salesA;
       });
 
-    // Deduplicate products across categories (assign to the first/highest selling category only)
+    // --- Fair & Prioritized Round Robin Distribution ---
     const seenProductIds = new Set();
-    const groupedData = rawGroupedData.map(cat => {
-      const uniqueProducts = cat.products.filter(p => {
-        if (seenProductIds.has(p.id)) return false;
-        seenProductIds.add(p.id);
-        return true;
-      });
-      return { ...cat, products: uniqueProducts };
-    }).filter(cat => cat.products.length > 0);
+    const distributedCategories = rawGroupedData.map(cat => ({
+      ...cat,
+      availablePool: [...cat.products], // The potential products for this category
+      products: [] // Clear for receiving assigned items
+    }));
+
+    // Perform distribution in rounds
+    let addedAny = true;
+    while (addedAny) {
+      addedAny = false;
+      // Each category gets a chance to pick one product in this round
+      for (const cat of distributedCategories) {
+        // Find the first product in its pool that hasn't been assigned yet
+        const nextProduct = cat.availablePool.find(p => !seenProductIds.has(p.id));
+        if (nextProduct) {
+          cat.products.push(nextProduct);
+          seenProductIds.add(nextProduct.id);  // Fix: track by id, not object reference
+          addedAny = true;
+        }
+      }
+    }
+
+    // Final cleanup: filter out empty categories and ensure products inside are still sorted by sales
+    const groupedData = distributedCategories
+      .map(cat => {
+        const sortedProducts = [...cat.products].sort((a, b) => {
+           if (a.in_stock && !b.in_stock) return -1;
+           if (!a.in_stock && b.in_stock) return 1;
+           return (b.total_sales || 0) - (a.total_sales || 0);
+        });
+        const { availablePool, ...cleanCat } = cat;
+        return { ...cleanCat, products: sortedProducts };
+      })
+      .filter(cat => cat.products.length > 0);
 
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
     fs.writeFileSync(targetPath, JSON.stringify(groupedData, null, 2));

@@ -54,168 +54,6 @@
         }
       },
       {
-        "id": 3083,
-        "name": "PUBG Mobile",
-        "price": 260,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/PUBG-Mobile-01-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>احصل على UC في ببجي موبايل واستعد للمعركة!</strong></p>\n<p>اشحن حسابك في PUBG Mobile واحصل على UC لاستخدامها في شراء الملابس، الأسلحة، صناديق الهدايا، والمزيد من العناصر الحصرية داخل اللعبة. استمتع بتجربة لعب أكثر إثارة وكن جاهزًا للانتصار!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم UC لشراء العناصر الحصرية داخل اللعبة</li>\n<li>ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-701a3642{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-c51cdfe{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          },
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 99,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          9806,
-          3085,
-          30114,
-          3086,
-          30115,
-          3087,
-          30116,
-          3088,
-          30117
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/pubg-mobile/",
-        "translations": {
-          "ar": {
-            "name": "PUBG Mobile",
-            "desc": ""
-          },
-          "en": {
-            "name": "PUBG Mobile",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 2924,
-        "name": "EA Sports FC Mobile",
-        "price": 270,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/EA-Sports-FC-Mobile.webp",
-        "description": "<p><strong> احصل على EA Sports FC Mobile Points - Silver</strong></p>\n<p>اشترِ Digital Pins بكل سهولة، سواء كنت تحتاج إلى بطاقات شحن الألعاب، الاشتراكات، المتاجر الإلكترونية، أو غيرها من الخدمات الرقمية. استمتع بطريقة آمنة وسريعة للحصول على الرصيد الذي تحتاجه!</p>\n<ul>\n<li>شحن فوري وآمن</li>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم النقاط لشحن حسابك بسرعة</li>\n<li>طريقة دفع مريحة وآمنة</li>\n</ul>\n<p><strong><a href=\"https://redeem-dz.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a7%d8%b3%d8%aa%d8%b1%d8%af%d8%a7%d8%af-%d9%83%d9%88%d8%af-ea-sports-fc-mobile/\" target=\"_blank\" rel=\"noopener\">كيفية استرداد كود EA Sports FC Mobile</a></strong></p>\n<style>.elementor-element-9742b2b{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-4f3781c{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          },
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 85,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3017,
-          3018,
-          3019,
-          3020,
-          3021,
-          3022,
-          3023,
-          3014,
-          3015,
-          3016,
-          3004,
-          3005,
-          3006,
-          3007,
-          3008,
-          3009,
-          3010,
-          3011,
-          3012,
-          3013,
-          2996,
-          2997,
-          3003,
-          2998,
-          2999,
-          3000,
-          3001,
-          3002,
-          2992,
-          2991,
-          2990,
-          2993,
-          2989,
-          2994,
-          2988,
-          2987,
-          2986,
-          2985,
-          2984,
-          2995,
-          2983,
-          2982,
-          2981,
-          2980,
-          2979,
-          2978,
-          2977,
-          2976,
-          2944,
-          2945,
-          2946,
-          2947,
-          2948,
-          2936,
-          2937,
-          2938,
-          2939,
-          2940,
-          2941,
-          2942,
-          2943,
-          2930,
-          2931,
-          2932,
-          2933,
-          2934
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/fc-mobile/",
-        "translations": {
-          "ar": {
-            "name": "EA Sports FC Mobile",
-            "desc": ""
-          },
-          "en": {
-            "name": "EA Sports FC Mobile",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 3451,
         "name": "Blood Strike",
         "price": 270,
@@ -269,54 +107,6 @@
         }
       },
       {
-        "id": 3630,
-        "name": "Mobile Legends: Bang Bang",
-        "price": 280,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Mobile-Legends-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن جواهر في Mobile Legends: Bang Bang وانطلق نحو النصر!</strong></p>\n<p>اشحن حسابك في Mobile Legends واحصل على جواهر لاستخدامها في شراء الأبطال، السكنات، التأثيرات، والمزيد من العناصر الحصرية داخل اللعبة. استمتع بتجربة لعب أكثر متعة وسيطر على ساحة القتال!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم الجواهر لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-ed6991f{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب و معرف المنطقة. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-3da7f64{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          },
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 23,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30165,
-          30166,
-          30167,
-          30168,
-          30169,
-          30170,
-          30164
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/mobile-legends-bang-bang/",
-        "translations": {
-          "ar": {
-            "name": "Mobile Legends: Bang Bang",
-            "desc": ""
-          },
-          "en": {
-            "name": "Mobile Legends: Bang Bang",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 3347,
         "name": "BIGO LIVE",
         "price": 290,
@@ -359,53 +149,6 @@
           },
           "en": {
             "name": "BIGO LIVE",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 30376,
-        "name": "Whiteout Survival Frost Star",
-        "price": 320,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2026/02/Whiteout-Survival-Frost-Star-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن حسابك في Frost Star واستعد للنجاة في Whiteout Survival!</strong></p>\n<p>اشحن حسابك في لعبة <strong>Whiteout Survival: Frost Star</strong> واحصل على عملات Frost Star لاستخدامها في شراء الأسلحة، الملابس، الأدوات، والمزيد من العناصر الحصرية داخل اللعبة. عزز تجربتك واجعل شخصيتك قوية وجاهزة للبقاء على قيد الحياة!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم Frost Star لشراء العناصر الحصرية داخل اللعبة</li>\n<li>ميزات وعناصر حصرية لتعزيز تجربتك</li>\n</ul>\n<style>.elementor-element-86d9b1c{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-167a841{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          },
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 9,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30378,
-          30379,
-          30380,
-          30381,
-          30382,
-          30383
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/whiteout-survival-frost-star/",
-        "translations": {
-          "ar": {
-            "name": "Whiteout Survival Frost Star",
-            "desc": ""
-          },
-          "en": {
-            "name": "Whiteout Survival Frost Star",
             "desc": ""
           }
         }
@@ -508,56 +251,6 @@
         }
       },
       {
-        "id": 9199,
-        "name": "Likee",
-        "price": 220,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/10/likee-redeem.webp",
-        "description": "<p style=\"text-align: right;\"><strong>شحن جواهر تطبيق LIKEE</strong></p>\n<p>احصل على جواهر في تطبيق لايكي بسهولة واستخدمها لإرسال الهدايا، الترقيات داخل البث، فتح ميزات خاصة، والمزيد من الأدوات التي تزيد من تفاعلك وشعبيتك داخل التطبيق. اجعل تواجدك على لايكي أكثر تأثيرًا وطاقة مع رصيد يفتح لك أبواب التميز!</p>\n<ul>\n<li>شحن سريع وآمن لجميع المستخدمين حول العالم</li>\n<li>استخدم الجواهر لإرسال هدايا قيمة وزيادة تفاعلك مع المذيعين</li>\n<li>مناسب للترقيات داخل الغرف، التأثيرات الخاصة، ورفع مستوى الملف الشخصي</li>\n</ul>\n<style>.elementor-element-e62270a{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من معرف الحساب. سيتم الشحن خلال 15 دقيقة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-f69a46c{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          },
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 4,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          9202,
-          9203,
-          9204,
-          9205,
-          9206,
-          9207,
-          9208,
-          9209,
-          9210
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/likee/",
-        "translations": {
-          "ar": {
-            "name": "Likee",
-            "desc": ""
-          },
-          "en": {
-            "name": "Likee",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 7312,
         "name": "Genshin Impact Genesis Crystals",
         "price": 270,
@@ -595,51 +288,6 @@
           },
           "en": {
             "name": "Genshin Impact Genesis Crystals",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3427,
-        "name": "Captain Tsubasa: Ace",
-        "price": 320,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Captain-Tsubasa-redeem-dz-1.png",
-        "description": "<p><strong>شحن لعبة Captain Tsubasa: Ace</strong></p>\n<p>احصل على Golden Ball Pack في لعبة Captain Tsubasa: Ace بسهولة، واستخدمها لتطوير لاعبيك، فتح بطاقات جديدة، تحسين مهارات الفريق، والمزيد من العناصر الكروية الحماسية داخل اللعبة. استمتع بتجربة كرة قدم مليئة بالتشويق والإثارة، وكن القائد الأسطوري لفريق الأحلام!</p>\n<ul>\n<li>شحن سريع وآمن</li>\n<li>استخدم Golden Ball Pack لفتح عناصر وميزات حصرية داخل اللعبة</li>\n</ul>\n<style>.elementor-element-dbd9e83{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-917dfd4{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          },
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 2,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3429,
-          3430,
-          3431,
-          3432
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/captain-tsubasa-ace/",
-        "translations": {
-          "ar": {
-            "name": "Captain Tsubasa: Ace",
-            "desc": ""
-          },
-          "en": {
-            "name": "Captain Tsubasa: Ace",
             "desc": ""
           }
         }
@@ -724,6 +372,345 @@
           },
           "en": {
             "name": "Rainbow Six Mobile",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3438,
+        "name": "Honor of Kings",
+        "price": 260,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Honor-of-Kings-redeem-dz.png",
+        "description": "<p style=\"text-align: right;\"><strong>احصل على توكن لعبة Honor of Kings واستعد للمعركة!</strong></p>\n<p>اشحن حسابك في Honor of Kings واحصل على التوكن لاستخدامه في شراء الأزياء، الأبطال، التأثيرات، والمزيد من العناصر المميزة داخل اللعبة.</p>\n<ul>\n<li>شحن سريع وآمن</li>\n<li>استخدم التوكن لفتح محتوى حصري داخل اللعبة</li>\n<li>عناصر وميزات فريدة من نوعها</li>\n</ul>\n<style>.elementor-element-5a3437b{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7af0e58{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          },
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3440,
+          3441,
+          3442,
+          3443,
+          3444,
+          3445,
+          3446
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/honor-of-kings/",
+        "translations": {
+          "ar": {
+            "name": "Honor of Kings",
+            "desc": ""
+          },
+          "en": {
+            "name": "Honor of Kings",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3336,
+        "name": "Call Of Duty Mobile",
+        "price": 310,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Call-of-Duty-Mobile-redeem-dz.png",
+        "description": "<p><strong>اشترِ كود شحن Call of Duty Mobile</strong></p>\n<p>ارفع مستوى تجربتك في لعبة Call of Duty Mobile مع كود الشحن المتوفر الآن على ريديم! سواء كنت تبحث عن تحسين مهاراتك، أو فتح شخصيات وعناصر جديدة، فإن كود الشحن هذا يمنحك الأفضلية في ساحة المعركة.</p>\n<ul>\n<li>مثالي للاعبين المحترفين والهواة</li>\n<li>استمتع بلعب أسرع وتجهيزات أقوى</li>\n</ul>\n<style>.elementor-element-590a2da0{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2ec2d5b4{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          },
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": false,
+        "type": "variable",
+        "variations": [
+          3338,
+          3339,
+          3340,
+          3341
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-mobile/",
+        "translations": {
+          "ar": {
+            "name": "Call Of Duty Mobile",
+            "desc": ""
+          },
+          "en": {
+            "name": "Call Of Duty Mobile",
+            "desc": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mobile-games",
+    "databaseId": 56,
+    "title": {
+      "ar": "العاب الموبايل",
+      "en": "Mobile Games"
+    },
+    "products": [
+      {
+        "id": 3083,
+        "name": "PUBG Mobile",
+        "price": 260,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/PUBG-Mobile-01-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>احصل على UC في ببجي موبايل واستعد للمعركة!</strong></p>\n<p>اشحن حسابك في PUBG Mobile واحصل على UC لاستخدامها في شراء الملابس، الأسلحة، صناديق الهدايا، والمزيد من العناصر الحصرية داخل اللعبة. استمتع بتجربة لعب أكثر إثارة وكن جاهزًا للانتصار!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم UC لشراء العناصر الحصرية داخل اللعبة</li>\n<li>ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-701a3642{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-c51cdfe{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          },
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 99,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          9806,
+          3085,
+          30114,
+          3086,
+          30115,
+          3087,
+          30116,
+          3088,
+          30117
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/pubg-mobile/",
+        "translations": {
+          "ar": {
+            "name": "PUBG Mobile",
+            "desc": ""
+          },
+          "en": {
+            "name": "PUBG Mobile",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3630,
+        "name": "Mobile Legends: Bang Bang",
+        "price": 280,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Mobile-Legends-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن جواهر في Mobile Legends: Bang Bang وانطلق نحو النصر!</strong></p>\n<p>اشحن حسابك في Mobile Legends واحصل على جواهر لاستخدامها في شراء الأبطال، السكنات، التأثيرات، والمزيد من العناصر الحصرية داخل اللعبة. استمتع بتجربة لعب أكثر متعة وسيطر على ساحة القتال!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم الجواهر لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-ed6991f{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب و معرف المنطقة. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-3da7f64{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          },
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 23,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30165,
+          30166,
+          30167,
+          30168,
+          30169,
+          30170,
+          30164
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/mobile-legends-bang-bang/",
+        "translations": {
+          "ar": {
+            "name": "Mobile Legends: Bang Bang",
+            "desc": ""
+          },
+          "en": {
+            "name": "Mobile Legends: Bang Bang",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 30376,
+        "name": "Whiteout Survival Frost Star",
+        "price": 320,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2026/02/Whiteout-Survival-Frost-Star-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن حسابك في Frost Star واستعد للنجاة في Whiteout Survival!</strong></p>\n<p>اشحن حسابك في لعبة <strong>Whiteout Survival: Frost Star</strong> واحصل على عملات Frost Star لاستخدامها في شراء الأسلحة، الملابس، الأدوات، والمزيد من العناصر الحصرية داخل اللعبة. عزز تجربتك واجعل شخصيتك قوية وجاهزة للبقاء على قيد الحياة!</p>\n<ul>\n<li>شحن سريع ومضمون</li>\n<li>استخدم Frost Star لشراء العناصر الحصرية داخل اللعبة</li>\n<li>ميزات وعناصر حصرية لتعزيز تجربتك</li>\n</ul>\n<style>.elementor-element-86d9b1c{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-167a841{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          },
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 9,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30378,
+          30379,
+          30380,
+          30381,
+          30382,
+          30383
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/whiteout-survival-frost-star/",
+        "translations": {
+          "ar": {
+            "name": "Whiteout Survival Frost Star",
+            "desc": ""
+          },
+          "en": {
+            "name": "Whiteout Survival Frost Star",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3427,
+        "name": "Captain Tsubasa: Ace",
+        "price": 320,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Captain-Tsubasa-redeem-dz-1.png",
+        "description": "<p><strong>شحن لعبة Captain Tsubasa: Ace</strong></p>\n<p>احصل على Golden Ball Pack في لعبة Captain Tsubasa: Ace بسهولة، واستخدمها لتطوير لاعبيك، فتح بطاقات جديدة، تحسين مهارات الفريق، والمزيد من العناصر الكروية الحماسية داخل اللعبة. استمتع بتجربة كرة قدم مليئة بالتشويق والإثارة، وكن القائد الأسطوري لفريق الأحلام!</p>\n<ul>\n<li>شحن سريع وآمن</li>\n<li>استخدم Golden Ball Pack لفتح عناصر وميزات حصرية داخل اللعبة</li>\n</ul>\n<style>.elementor-element-dbd9e83{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-917dfd4{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          },
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 2,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3429,
+          3430,
+          3431,
+          3432
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/captain-tsubasa-ace/",
+        "translations": {
+          "ar": {
+            "name": "Captain Tsubasa: Ace",
+            "desc": ""
+          },
+          "en": {
+            "name": "Captain Tsubasa: Ace",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7338,
+        "name": "Arena Breakout",
+        "price": 320,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Arena-Breakout-1-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن Bonds في Arena Breakout وكن البطل في ساحة المعركة!</strong></p>\n<p>احصل على Bonds بسهولة واستخدمها لشراء الشخصيات، الأسلحة، السكنات، والمزيد من العناصر المميزة داخل اللعبة. استمتع بمغامرة قتالية لا مثيل لها مع رصيد إضافي يعزز تجربتك!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم Bonds لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-3cf8a2dc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-5cadc89{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 1,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7340,
+          7341,
+          7342,
+          7343,
+          7344
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/arena-breakout/",
+        "translations": {
+          "ar": {
+            "name": "Arena Breakout",
+            "desc": ""
+          },
+          "en": {
+            "name": "Arena Breakout",
             "desc": ""
           }
         }
@@ -862,155 +849,6 @@
           },
           "en": {
             "name": "NBA INFINITE",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3438,
-        "name": "Honor of Kings",
-        "price": 260,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Honor-of-Kings-redeem-dz.png",
-        "description": "<p style=\"text-align: right;\"><strong>احصل على توكن لعبة Honor of Kings واستعد للمعركة!</strong></p>\n<p>اشحن حسابك في Honor of Kings واحصل على التوكن لاستخدامه في شراء الأزياء، الأبطال، التأثيرات، والمزيد من العناصر المميزة داخل اللعبة.</p>\n<ul>\n<li>شحن سريع وآمن</li>\n<li>استخدم التوكن لفتح محتوى حصري داخل اللعبة</li>\n<li>عناصر وميزات فريدة من نوعها</li>\n</ul>\n<style>.elementor-element-5a3437b{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7af0e58{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          },
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3440,
-          3441,
-          3442,
-          3443,
-          3444,
-          3445,
-          3446
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/honor-of-kings/",
-        "translations": {
-          "ar": {
-            "name": "Honor of Kings",
-            "desc": ""
-          },
-          "en": {
-            "name": "Honor of Kings",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3336,
-        "name": "Call Of Duty Mobile",
-        "price": 310,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Call-of-Duty-Mobile-redeem-dz.png",
-        "description": "<p><strong>اشترِ كود شحن Call of Duty Mobile</strong></p>\n<p>ارفع مستوى تجربتك في لعبة Call of Duty Mobile مع كود الشحن المتوفر الآن على ريديم! سواء كنت تبحث عن تحسين مهاراتك، أو فتح شخصيات وعناصر جديدة، فإن كود الشحن هذا يمنحك الأفضلية في ساحة المعركة.</p>\n<ul>\n<li>مثالي للاعبين المحترفين والهواة</li>\n<li>استمتع بلعب أسرع وتجهيزات أقوى</li>\n</ul>\n<style>.elementor-element-590a2da0{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2ec2d5b4{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          },
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": false,
-        "type": "variable",
-        "variations": [
-          3338,
-          3339,
-          3340,
-          3341
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-mobile/",
-        "translations": {
-          "ar": {
-            "name": "Call Of Duty Mobile",
-            "desc": ""
-          },
-          "en": {
-            "name": "Call Of Duty Mobile",
-            "desc": ""
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "mobile-games",
-    "databaseId": 56,
-    "title": {
-      "ar": "العاب الموبايل",
-      "en": "Mobile Games"
-    },
-    "products": [
-      {
-        "id": 7338,
-        "name": "Arena Breakout",
-        "price": 320,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Arena-Breakout-1-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن Bonds في Arena Breakout وكن البطل في ساحة المعركة!</strong></p>\n<p>احصل على Bonds بسهولة واستخدمها لشراء الشخصيات، الأسلحة، السكنات، والمزيد من العناصر المميزة داخل اللعبة. استمتع بمغامرة قتالية لا مثيل لها مع رصيد إضافي يعزز تجربتك!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم Bonds لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-3cf8a2dc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-5cadc89{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 56,
-            "name": "العاب الموبايل",
-            "slug": "mobile-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          7340,
-          7341,
-          7342,
-          7343,
-          7344
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/arena-breakout/",
-        "translations": {
-          "ar": {
-            "name": "Arena Breakout",
-            "desc": ""
-          },
-          "en": {
-            "name": "Arena Breakout",
             "desc": ""
           }
         }
@@ -1165,6 +1003,118 @@
     },
     "products": [
       {
+        "id": 2924,
+        "name": "EA Sports FC Mobile",
+        "price": 270,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/EA-Sports-FC-Mobile.webp",
+        "description": "<p><strong> احصل على EA Sports FC Mobile Points - Silver</strong></p>\n<p>اشترِ Digital Pins بكل سهولة، سواء كنت تحتاج إلى بطاقات شحن الألعاب، الاشتراكات، المتاجر الإلكترونية، أو غيرها من الخدمات الرقمية. استمتع بطريقة آمنة وسريعة للحصول على الرصيد الذي تحتاجه!</p>\n<ul>\n<li>شحن فوري وآمن</li>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم النقاط لشحن حسابك بسرعة</li>\n<li>طريقة دفع مريحة وآمنة</li>\n</ul>\n<p><strong><a href=\"https://redeem-dz.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a7%d8%b3%d8%aa%d8%b1%d8%af%d8%a7%d8%af-%d9%83%d9%88%d8%af-ea-sports-fc-mobile/\" target=\"_blank\" rel=\"noopener\">كيفية استرداد كود EA Sports FC Mobile</a></strong></p>\n<style>.elementor-element-9742b2b{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-4f3781c{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 56,
+            "name": "العاب الموبايل",
+            "slug": "mobile-games"
+          },
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 85,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3017,
+          3018,
+          3019,
+          3020,
+          3021,
+          3022,
+          3023,
+          3014,
+          3015,
+          3016,
+          3004,
+          3005,
+          3006,
+          3007,
+          3008,
+          3009,
+          3010,
+          3011,
+          3012,
+          3013,
+          2996,
+          2997,
+          3003,
+          2998,
+          2999,
+          3000,
+          3001,
+          3002,
+          2992,
+          2991,
+          2990,
+          2993,
+          2989,
+          2994,
+          2988,
+          2987,
+          2986,
+          2985,
+          2984,
+          2995,
+          2983,
+          2982,
+          2981,
+          2980,
+          2979,
+          2978,
+          2977,
+          2976,
+          2944,
+          2945,
+          2946,
+          2947,
+          2948,
+          2936,
+          2937,
+          2938,
+          2939,
+          2940,
+          2941,
+          2942,
+          2943,
+          2930,
+          2931,
+          2932,
+          2933,
+          2934
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/fc-mobile/",
+        "translations": {
+          "ar": {
+            "name": "EA Sports FC Mobile",
+            "desc": ""
+          },
+          "en": {
+            "name": "EA Sports FC Mobile",
+            "desc": ""
+          }
+        }
+      },
+      {
         "id": 3275,
         "name": "Roblox",
         "price": 2660,
@@ -1205,123 +1155,6 @@
           },
           "en": {
             "name": "Roblox",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3177,
-        "name": "iTunes",
-        "price": 540,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/iTunes.webp",
-        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن آي تيونز – اشحن حسابك بكل سهولة!</strong></p>\n<p>احصل على بطاقات شحن iTunes واستمتع بشراء التطبيقات، الألعاب، الموسيقى، الأفلام، والاشتراكات المميزة على متجر Apple بسهولة وأمان!</p>\n<ul>\n<li>متوفرة للدول: فرنسا، أمريكا، المملكة المتحدة</li>\n<li>اشحن رصيدك في متجر Apple خلال دقائق</li>\n<li>استخدم الرصيد لشراء التطبيقات، الألعاب، والأفلام</li>\n<li>متوافقة مع أجهزة iPhone، iPad، وMac</li>\n</ul>\n<style>.elementor-element-711cb7d8{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-714cdb9{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 29,
-        "average_rating": 5,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          31224,
-          31225,
-          31223,
-          3200,
-          3180,
-          3181,
-          3182,
-          3183,
-          3184,
-          3185,
-          3186,
-          3187,
-          3188,
-          3189,
-          3190,
-          3191,
-          3192,
-          3193,
-          3194,
-          3195,
-          3196,
-          3197,
-          3198,
-          3199
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/itunes/",
-        "translations": {
-          "ar": {
-            "name": "iTunes",
-            "desc": ""
-          },
-          "en": {
-            "name": "iTunes",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 7176,
-        "name": "Apple Gift Cards",
-        "price": 540,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/apple-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>بطاقات Apple Gift Card – كل ما تحبه من Apple في بطاقة واحدة!</strong></p>\n<p>احصل على بطاقات Apple Gift Card واستخدمها لشراء المنتجات من متجر Apple أو لشحن رصيدك على App Store وiTunes بكل سهولة وأمان!</p>\n<ul>\n<li>اشحن رصيد Apple الخاص بك في دقائق</li>\n<li>صالح لشراء التطبيقات، الألعاب، الأفلام، الاشتراكات، وأيضًا أجهزة Apple</li>\n<li>تعمل مع أجهزة iPhone، iPad، Mac، وApple Watch</li>\n</ul>\n<style>.elementor-element-3dccf43{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-c070cb2{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 28,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          7179,
-          7180,
-          7181,
-          7182,
-          7183,
-          7184,
-          7185,
-          7186,
-          7187,
-          7189,
-          7190
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/apple-gift-cards/",
-        "translations": {
-          "ar": {
-            "name": "Apple Gift Cards",
-            "desc": ""
-          },
-          "en": {
-            "name": "Apple Gift Cards",
             "desc": ""
           }
         }
@@ -1369,114 +1202,6 @@
         }
       },
       {
-        "id": 3405,
-        "name": "Discord Nitro",
-        "price": 820,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/discord-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن ديسكورد نيترو اشتراك عالمي!</strong></p>\n<p>احصل على اشتراك Discord Nitro واستمتع بمزايا حصرية مثل تعزيز السيرفرات، إرسال صور ومقاطع بجودة عالية، واستخدام إيموجيات مخصصة في أي مكان!</p>\n<ul>\n<li> اشتراك عالمي – يعمل في جميع الدول</li>\n<li>زيادة سعة تحميل الملفات حتى 100MB أو 500MB (Nitro)</li>\n<li>استخدم إيموجيات متحركة ومخصصة في أي خادم</li>\n<li>دعم خوادمك المفضلة بـ Server Boosts</li>\n<li>جودة عالية في البث والمكالمات الصوتية</li>\n</ul>\n<style>.elementor-element-73a6026{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال رابط الهدية (صالح لمدة 48 ساعة) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-0f700e0{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          },
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 21,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3407,
-          3408
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/discord-nitro/",
-        "translations": {
-          "ar": {
-            "name": "Discord Nitro",
-            "desc": ""
-          },
-          "en": {
-            "name": "Discord Nitro",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3361,
-        "name": "Steam Wallet",
-        "price": 820,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/steam.webp",
-        "description": "<p style=\"text-align: right;\"><strong>بطاقة هدايا ستيم الرقمية</strong></p>\n<p>احصل على بطاقة ستيم الرقمية وأضف الرصيد إلى حسابك لشراء الألعاب، المحتوى الإضافي، والعناصر داخل المتجر بسهولة!</p>\n<ul>\n<li>بطاقة رقمية قابلة للاسترداد وفقًا للمنطقة المختارة</li>\n<li>استخدم الرصيد لشراء الألعاب، الإضافات، والعروض الحصرية</li>\n<li>طريقة آمنة وسريعة لإضافة الأموال إلى حسابك دون الحاجة لبطاقة مصرفية</li>\n</ul>\n<style>.elementor-element-071e818{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-742402e{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 18,
-        "average_rating": 5,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3383,
-          3384,
-          3385,
-          3386,
-          3387,
-          3379,
-          3380,
-          3381,
-          3382,
-          3374,
-          3375,
-          3376,
-          3377,
-          3378,
-          3369,
-          3370,
-          3371,
-          3372,
-          3363,
-          3364,
-          3365,
-          3366,
-          3367,
-          3368
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/steam-wallet/",
-        "translations": {
-          "ar": {
-            "name": "Steam Wallet",
-            "desc": ""
-          },
-          "en": {
-            "name": "Steam Wallet",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 9046,
         "name": "Virtual Visa Rewarble",
         "price": 1600,
@@ -1512,188 +1237,6 @@
           },
           "en": {
             "name": "Virtual Visa Rewarble",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3117,
-        "name": "PlayStation Gift Cards",
-        "price": 1380,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/PlayStation-Gift-Cards-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>استمتع بأفضل تجربة ألعاب على بلايستيشن مع رصيدك الشخصي!</strong></p>\n<p>انطلق في عالم الألعاب بلا حدود مع بطاقة تعبئة بلايستيشن، واحصل على رصيد فوري لشراء الألعاب، والملحقات، والاشتراكات مثل PS Plus، أو حتى تحميل أحدث الألعاب من متجر PlayStation Store!<br />\nلماذا تختار بطاقاتنا؟</p>\n<ul style=\"text-align: right; direction: rtl;\">\n<li>كود يمكنك إستخدامه في حسابك الشخصي</li>\n<li>صالح للاستخدام على <strong>حساب PSN الخاص بمنطقتك</strong></li>\n</ul>\n<style>.elementor-element-27efd329{display:none !important}</style>\n<p>ملاحظة:<br />\nيُرجى اختيار القيمة المناسبة لمنطقتك. سيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2a7684e0{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 14,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30414,
-          3120,
-          3121,
-          3122,
-          3123,
-          3124,
-          3125,
-          3126,
-          3127,
-          3128,
-          3129,
-          3130,
-          3131,
-          3132,
-          3133,
-          3134,
-          3135,
-          3136,
-          3137,
-          3138,
-          3139,
-          3140,
-          3141,
-          3142,
-          3143,
-          3144
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/playstation-gift-cards/",
-        "translations": {
-          "ar": {
-            "name": "PlayStation Gift Cards",
-            "desc": ""
-          },
-          "en": {
-            "name": "PlayStation Gift Cards",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3028,
-        "name": "Valorant",
-        "price": 740,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Valorant-1.webp",
-        "description": "<p><strong>احصل على Valorant Points (VP) الآن!</strong></p>\n<p>ارفع مستواك في لعبة Valorant مع شحن VP بسهولة من خلال متجر ريديم! افتح سكنات جديدة، باقات مميزة، وتمتع بتجربة لعب أكثر احترافية.</p>\n<ul>\n<li>مثالي للاعبين الباحثين عن التميز داخل اللعبة</li>\n<li>اشحن رصيدك بسرعة وأمان</li>\n</ul>\n<style>.elementor-element-4ba17782{display:none !important}</style>\n<p>ملاحظة:<br />\nيرجى التأكد من اختيار منطقة الحساب (Region) الصحيحة، لأن الكود يعمل فقط في نفس المنطقة. سيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-fa04190{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 12,
-        "average_rating": 4,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30196,
-          30197,
-          30198,
-          30199,
-          30200,
-          30201,
-          30202,
-          30203,
-          30204,
-          30205,
-          30206,
-          30207,
-          30208,
-          30178,
-          30179,
-          30180,
-          30181,
-          30182,
-          30183,
-          30184,
-          30185,
-          30186,
-          30187,
-          30188,
-          30189,
-          30190,
-          30191,
-          30192,
-          30193,
-          30194,
-          30195
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/valorant/",
-        "translations": {
-          "ar": {
-            "name": "Valorant",
-            "desc": ""
-          },
-          "en": {
-            "name": "Valorant",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3243,
-        "name": "Shahid",
-        "price": 3170,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/shahid-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك شاهد VIP</strong></p>\n<p>شاهد هو موقع بث شهير في منطقة الشرق الأوسط وشمال إفريقيا (MENA) يتيح لك مشاهدة البرامج المحلية والعالمية في أي وقت ترغب به.</p>\n<ul>\n<li>مشاهدة المحتوى دون اتصال</li>\n<li>الوصول إلى محتوى حصري</li>\n<li>الحصول على محتوى جديد مبكرًا</li>\n<li>البث على أجهزة متعددة</li>\n</ul>\n<style>.elementor-element-6f4f8f45{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-9b49833{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 4,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3245,
-          3246
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/shahid/",
-        "translations": {
-          "ar": {
-            "name": "Shahid",
-            "desc": ""
-          },
-          "en": {
-            "name": "Shahid",
             "desc": ""
           }
         }
@@ -1779,66 +1322,6 @@
         }
       },
       {
-        "id": 3251,
-        "name": "OSN+",
-        "price": 1890,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/osn-PLIS-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك +OSN باستخدام برومو كود خاص بالبلد</strong></p>\n<p>OSN+ هي منصة بث رائدة تقدم لك مجموعة من أفضل الأفلام والمسلسلات من هوليوود والعالم العربي، مع محتوى حصري وميزات مبتكرة، متاحة فقط في بلدك.</p>\n<ul>\n<li>مشاهدة المحتوى دون إنترنت</li>\n<li>الوصول إلى محتوى حصري ومميز</li>\n<li>متابعة أحدث العروض فور صدورها</li>\n<li>إمكانية المشاهدة على أكثر من جهاز في نفس الوقت</li>\n</ul>\n<style>.elementor-element-554197af{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال البرومو كود إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7fd22f6a{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 3,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          8154,
-          3268,
-          3269,
-          3270,
-          3265,
-          3266,
-          3267,
-          3262,
-          3263,
-          3264,
-          3259,
-          3260,
-          3261,
-          3256,
-          3257,
-          3258,
-          3253,
-          3254,
-          3255
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/osn/",
-        "translations": {
-          "ar": {
-            "name": "OSN+",
-            "desc": ""
-          },
-          "en": {
-            "name": "OSN+",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 7763,
         "name": "Nintendo",
         "price": 2570,
@@ -1882,50 +1365,6 @@
         }
       },
       {
-        "id": 7745,
-        "name": "Fortnite",
-        "price": 8570,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/07/Fortnite-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن V-Bucks وميّز شخصيتك في Fortnite كما تحب!</strong></p>\n<p>احصل على بطاقة Fortnite - V-Bucks Gift Card GLOBAL بكل سهولة، واستخدمها لشحن رصيد V-Bucks داخل اللعبة. افتح عوالم جديدة من السكنات، الرقصات، الباتل باس، والمزيد من العناصر الرائعة التي تضيف متعة وتشويقًا لتجربتك القتالية!</p>\n<ul>\n<li>كود عالمي قابل للتفعيل في حسابات Fortnite</li>\n<li>استخدم V-Bucks لشراء سكنات، أدوات، رقصات و Battle Pass</li>\n<li>طريقة آمنة وسريعة لشحن حسابك مباشرة</li>\n</ul>\n<style>.elementor-element-5b270365{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-5067144f{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          7747,
-          7748,
-          7749
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/fortnite/",
-        "translations": {
-          "ar": {
-            "name": "Fortnite",
-            "desc": ""
-          },
-          "en": {
-            "name": "Fortnite",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 7488,
         "name": "MINT Prepaid Card",
         "price": 1330,
@@ -1962,96 +1401,6 @@
           },
           "en": {
             "name": "MINT Prepaid Card",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 7219,
-        "name": "League of Legends",
-        "price": 2690,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/League-of-Legends-1-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>شحن لعبة League of Legends</strong></p>\n<p>احصل على RP الخاصة بـ League of Legends بسهولة واستخدمها لشراء الأبطال، السكنات، التعبيرات، والمزيد من العناصر الرائعة داخل اللعبة. استمتع بتجربة لعب تنافسية مثيرة مع رصيد إضافي يعزز مستواك!</p>\n<ul>\n<li>شحن سريع وآمن 100%</li>\n<li>استخدم RP لفتح محتوى حصري داخل اللعبة</li>\n</ul>\n<style>.elementor-element-1b4e0e9{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2c89aea{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          },
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          7221,
-          7222,
-          7223
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/league-of-legends/",
-        "translations": {
-          "ar": {
-            "name": "League of Legends",
-            "desc": ""
-          },
-          "en": {
-            "name": "League of Legends",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 30126,
-        "name": "Apex Legends",
-        "price": 2330,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2026/02/Apex-Legends-1.webp",
-        "description": "<link rel=\"stylesheet\" id=\"wd-text-block-css\" href=\"https://redeem-dz.com/wp-content/themes/woodmart/css/parts/el-text-block.min.css?ver=8.3.9\" type=\"text/css\" media=\"all\" />\n<p style=\"text-align: right;\"><strong>اشحن عملات Apex Legends وكن أسطورة في ساحة القتال!</strong></p>\n<p>احصل على عملات Apex Legends Coins بسهولة واستخدمها لشراء الشخصيات (Legends)، السكنات، الباتل باس، وحِزم العناصر المميزة داخل اللعبة. استمتع بتجربة تنافسية حماسية وارتقِ بمستواك في عالم Apex Legends مع رصيد إضافي يعزز أدائك!</p>\n<ul>\n<li>يمكن استخدامها بسهولة داخل لعبة Apex Legends</li>\n<li>استخدم العملات لفتح محتوى حصري وتخصيص شخصيتك</li>\n</ul>\n<style>.elementor-element-40bf7c49{display:none !important}</style>\n<p>\t\t\t\t\t\tملاحظة:<br />\n\t\t\t\t\t\tسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-70f9b42{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30128,
-          30129,
-          30130,
-          30131,
-          30132
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/apex-legends/",
-        "translations": {
-          "ar": {
-            "name": "Apex Legends",
-            "desc": ""
-          },
-          "en": {
-            "name": "Apex Legends",
             "desc": ""
           }
         }
@@ -2181,20 +1530,15 @@
         }
       },
       {
-        "id": 7534,
-        "name": "Spacetoon Go",
-        "price": 3980,
+        "id": 7460,
+        "name": "Battle.net",
+        "price": 1440,
         "regular_price": "",
         "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Spacetoon-Go-redeem-dz.png",
-        "description": "<p style=\"text-align: right;\"><strong> اشترك في Spacetoon Go واسترجع ذكريات الطفولة مع أقوى مسلسلات وأفلام الأنمي! </strong></p>\n<p>استمتع بمشاهدة أفضل محتوى أنمي وبرامج الأطفال بجودة عالية وبدون إعلانات، عبر تطبيق Spacetoon Go. عالم من المغامرات والمرح بانتظارك في أي وقت ومن أي مكان!</p>\n<ul>\n<li>مكتبة ضخمة من مسلسلات الأنمي الكلاسيكية والجديدة</li>\n<li>مشاهدة بدون إعلانات وعلى مختلف الأجهزة</li>\n</ul>\n<style>.elementor-element-12fea8d2{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-301f5e10{display:none !important}</style>\n",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Battle.net-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن رصيد Battle.net وابدأ مغامرتك في ألعاب Blizzard الأسطورية!</strong></p>\n<p>احصل على بطاقة رصيد Battle.net بكل سهولة، واستخدمها لشراء الألعاب، الإضافات، والعملات داخل أشهر ألعاب Blizzard مثل Overwatch، World of Warcraft، Diablo، والمزيد. عزز تجربتك داخل عالم Blizzard الأسطوري.</p>\n<ul>\n<li>سهل الاستخدام عبر حساب Battle.net</li>\n<li>مثالي لشراء الألعاب، التوسعات، والميزات الحصرية</li>\n</ul>\n<style>.elementor-element-45db9e7{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2aaeae71{display:none !important}</style>\n",
         "short_description": "",
         "categories": [
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          },
           {
             "id": 51,
             "name": "بطاقات الهدايا",
@@ -2208,17 +1552,364 @@
         "in_stock": true,
         "type": "variable",
         "variations": [
-          7536,
-          7537
+          7462,
+          7463,
+          7464,
+          7465,
+          7466,
+          7467
         ],
-        "woocommerceUrl": "https://redeem-dz.com/product/spacetoon-go/",
+        "woocommerceUrl": "https://redeem-dz.com/product/battle-net/",
         "translations": {
           "ar": {
-            "name": "Spacetoon Go",
+            "name": "Battle.net",
             "desc": ""
           },
           "en": {
-            "name": "Spacetoon Go",
+            "name": "Battle.net",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7386,
+        "name": "Call of Duty: Black Ops Cold War",
+        "price": 1660,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Black-Ops-Cold-War-1-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong> اشحن نقاط كول أوف ديوتي: بلاك أوبس كولد وور وكن مستعدًا للمعركة! </strong></p>\n<p>احصل على نقاط Call of Duty بسهولة واستخدمها لشراء الأسلحة، السكنات، وتمريرات القتال داخل اللعبة. استمتع بتجربة قتالية متقدمة مع رصيد يعزز أداءك!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم النقاط لفتح محتوى مميز ومكافآت حصرية</li>\n</ul>\n<style>.elementor-element-1b5ac91b{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-1ae9aef8{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": false,
+        "type": "variable",
+        "variations": [
+          7388,
+          7389,
+          7390,
+          7391
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-black-ops-cold-war/",
+        "translations": {
+          "ar": {
+            "name": "Call of Duty: Black Ops Cold War",
+            "desc": ""
+          },
+          "en": {
+            "name": "Call of Duty: Black Ops Cold War",
+            "desc": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "software-apps",
+    "databaseId": 57,
+    "title": {
+      "ar": "برامج و تطبيقات",
+      "en": "Software Apps"
+    },
+    "products": [
+      {
+        "id": 3177,
+        "name": "iTunes",
+        "price": 540,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/iTunes.webp",
+        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن آي تيونز – اشحن حسابك بكل سهولة!</strong></p>\n<p>احصل على بطاقات شحن iTunes واستمتع بشراء التطبيقات، الألعاب، الموسيقى، الأفلام، والاشتراكات المميزة على متجر Apple بسهولة وأمان!</p>\n<ul>\n<li>متوفرة للدول: فرنسا، أمريكا، المملكة المتحدة</li>\n<li>اشحن رصيدك في متجر Apple خلال دقائق</li>\n<li>استخدم الرصيد لشراء التطبيقات، الألعاب، والأفلام</li>\n<li>متوافقة مع أجهزة iPhone، iPad، وMac</li>\n</ul>\n<style>.elementor-element-711cb7d8{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-714cdb9{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 29,
+        "average_rating": 5,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          31224,
+          31225,
+          31223,
+          3200,
+          3180,
+          3181,
+          3182,
+          3183,
+          3184,
+          3185,
+          3186,
+          3187,
+          3188,
+          3189,
+          3190,
+          3191,
+          3192,
+          3193,
+          3194,
+          3195,
+          3196,
+          3197,
+          3198,
+          3199
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/itunes/",
+        "translations": {
+          "ar": {
+            "name": "iTunes",
+            "desc": ""
+          },
+          "en": {
+            "name": "iTunes",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7176,
+        "name": "Apple Gift Cards",
+        "price": 540,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/apple-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>بطاقات Apple Gift Card – كل ما تحبه من Apple في بطاقة واحدة!</strong></p>\n<p>احصل على بطاقات Apple Gift Card واستخدمها لشراء المنتجات من متجر Apple أو لشحن رصيدك على App Store وiTunes بكل سهولة وأمان!</p>\n<ul>\n<li>اشحن رصيد Apple الخاص بك في دقائق</li>\n<li>صالح لشراء التطبيقات، الألعاب، الأفلام، الاشتراكات، وأيضًا أجهزة Apple</li>\n<li>تعمل مع أجهزة iPhone، iPad، Mac، وApple Watch</li>\n</ul>\n<style>.elementor-element-3dccf43{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-c070cb2{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 28,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7179,
+          7180,
+          7181,
+          7182,
+          7183,
+          7184,
+          7185,
+          7186,
+          7187,
+          7189,
+          7190
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/apple-gift-cards/",
+        "translations": {
+          "ar": {
+            "name": "Apple Gift Cards",
+            "desc": ""
+          },
+          "en": {
+            "name": "Apple Gift Cards",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3405,
+        "name": "Discord Nitro",
+        "price": 820,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/discord-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن ديسكورد نيترو اشتراك عالمي!</strong></p>\n<p>احصل على اشتراك Discord Nitro واستمتع بمزايا حصرية مثل تعزيز السيرفرات، إرسال صور ومقاطع بجودة عالية، واستخدام إيموجيات مخصصة في أي مكان!</p>\n<ul>\n<li> اشتراك عالمي – يعمل في جميع الدول</li>\n<li>زيادة سعة تحميل الملفات حتى 100MB أو 500MB (Nitro)</li>\n<li>استخدم إيموجيات متحركة ومخصصة في أي خادم</li>\n<li>دعم خوادمك المفضلة بـ Server Boosts</li>\n<li>جودة عالية في البث والمكالمات الصوتية</li>\n</ul>\n<style>.elementor-element-73a6026{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال رابط الهدية (صالح لمدة 48 ساعة) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-0f700e0{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          },
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 21,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3407,
+          3408
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/discord-nitro/",
+        "translations": {
+          "ar": {
+            "name": "Discord Nitro",
+            "desc": ""
+          },
+          "en": {
+            "name": "Discord Nitro",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 9199,
+        "name": "Likee",
+        "price": 220,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/10/likee-redeem.webp",
+        "description": "<p style=\"text-align: right;\"><strong>شحن جواهر تطبيق LIKEE</strong></p>\n<p>احصل على جواهر في تطبيق لايكي بسهولة واستخدمها لإرسال الهدايا، الترقيات داخل البث، فتح ميزات خاصة، والمزيد من الأدوات التي تزيد من تفاعلك وشعبيتك داخل التطبيق. اجعل تواجدك على لايكي أكثر تأثيرًا وطاقة مع رصيد يفتح لك أبواب التميز!</p>\n<ul>\n<li>شحن سريع وآمن لجميع المستخدمين حول العالم</li>\n<li>استخدم الجواهر لإرسال هدايا قيمة وزيادة تفاعلك مع المذيعين</li>\n<li>مناسب للترقيات داخل الغرف، التأثيرات الخاصة، ورفع مستوى الملف الشخصي</li>\n</ul>\n<style>.elementor-element-e62270a{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من معرف الحساب. سيتم الشحن خلال 15 دقيقة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-f69a46c{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          },
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 4,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          9202,
+          9203,
+          9204,
+          9205,
+          9206,
+          9207,
+          9208,
+          9209,
+          9210
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/likee/",
+        "translations": {
+          "ar": {
+            "name": "Likee",
+            "desc": ""
+          },
+          "en": {
+            "name": "Likee",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3471,
+        "name": "HMA! Pro VPN",
+        "price": 3470,
+        "regular_price": 3470,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/HMA-Pro-VPN.webp",
+        "description": "<p style=\"text-align: right;\"><strong>كود تفعيل رسمي لمدة عام كامل!</strong></p>\n<p>تمتع بتصفح الإنترنت بأمان وخصوصية تامة مع HMA! Pro VPN باستخدام كود تفعيل رسمي لمدة سنة كاملة. يتيح لك هذا المفتاح تفعيل اشتراكك على 5 أجهزة في نفس الوقت والاستفادة من جميع مزايا Hide My Ass! دون أي قيود.</p>\n<ul>\n<li>استخدمه على حسابك الخاص</li>\n<li>تفعيل على 5 أجهزة في نفس الوقت</li>\n<li>أكثر من 280 موقع خادم حول العالم</li>\n</ul>\n<style>.elementor-element-fa4c467{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التفعيل إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-8a54294{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 58,
+            "name": "Vpn",
+            "slug": "vpn"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 1,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/hma-pro-vpn/",
+        "translations": {
+          "ar": {
+            "name": "HMA! Pro VPN",
+            "desc": ""
+          },
+          "en": {
+            "name": "HMA! Pro VPN",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7666,
+        "name": "Surfshark",
+        "price": 8020,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Surfshark-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong> اشترك في Surfshark وتمتع بتصفح آمن وخصوصية لا حدود لها! </strong></p>\n<p>احصل على حماية كاملة لهويتك الرقمية مع Surfshark VPN، وتصفح الإنترنت بحرية بدون تتبع أو قيود. استمتع بخدمة سريعة وآمنة على جميع أجهزتك بدون حدود!</p>\n<ul>\n<li>يحجب الإعلانات والمتتبعين والبرمجيات الخبيثة</li>\n<li>يدعم عدد غير محدود من الأجهزة باتصال واحد</li>\n<li>يسمح بتجاوز القيود الجغرافية</li>\n</ul>\n<style>.elementor-element-3d7509bc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التفعيل إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-59c284e5{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 58,
+            "name": "Vpn",
+            "slug": "vpn"
+          },
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7668,
+          7669
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/surfshark/",
+        "translations": {
+          "ar": {
+            "name": "Surfshark",
+            "desc": ""
+          },
+          "en": {
+            "name": "Surfshark",
             "desc": ""
           }
         }
@@ -2268,19 +1959,19 @@
         }
       },
       {
-        "id": 7460,
-        "name": "Battle.net",
-        "price": 1440,
+        "id": 3613,
+        "name": "Internet Download Manager",
+        "price": 3550,
         "regular_price": "",
         "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Battle.net-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن رصيد Battle.net وابدأ مغامرتك في ألعاب Blizzard الأسطورية!</strong></p>\n<p>احصل على بطاقة رصيد Battle.net بكل سهولة، واستخدمها لشراء الألعاب، الإضافات، والعملات داخل أشهر ألعاب Blizzard مثل Overwatch، World of Warcraft، Diablo، والمزيد. عزز تجربتك داخل عالم Blizzard الأسطوري.</p>\n<ul>\n<li>سهل الاستخدام عبر حساب Battle.net</li>\n<li>مثالي لشراء الألعاب، التوسعات، والميزات الحصرية</li>\n</ul>\n<style>.elementor-element-45db9e7{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2aaeae71{display:none !important}</style>\n",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Internet-Download-Manager-1.webp",
+        "description": "<link rel=\"stylesheet\" id=\"wd-text-block-css\" href=\"https://redeem-dz.com/wp-content/themes/woodmart/css/parts/el-text-block.min.css?ver=8.2.2\" type=\"text/css\" media=\"all\" />\n<p style=\"text-align: right;\"><strong>حمّل ملفاتك بسرعة صاروخية مع أفضل مدير تحميلات!</strong></p>\n<p style=\"text-align: right;\">استمتع بأداء فائق وسرعة تحميل مذهلة مع <strong>Internet Download Manager (IDM)</strong>، البرنامج الأشهر في تسريع التحميلات وتنظيمها. احصل على كود التفعيل الأصلي لتفعيل البرنامج مدى الحياة بدون إعلانات أو انقطاعات.</p>\n<ul>\n<li>كود تفعيل رسمي</li>\n<li>تفعيل بدون كراك أو باتش</li>\n<li>سهل التفعيل بخطوات بسيطة</li>\n<li>متوافق مع ويندوز 7/8/10/11</li>\n</ul>\n<style>.elementor-element-78445af{display:none !important}</style>\n<p>\t\t\t\t\t\tملاحظة:<br />\n\t\t\t\t\t\tسيتم إرسال مفتاح التفعيل إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-700d4ea{display:none !important}</style>\n",
         "short_description": "",
         "categories": [
           {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
           }
         ],
         "on_sale": false,
@@ -2290,73 +1981,17 @@
         "in_stock": true,
         "type": "variable",
         "variations": [
-          7462,
-          7463,
-          7464,
-          7465,
-          7466,
-          7467
+          3615,
+          3616
         ],
-        "woocommerceUrl": "https://redeem-dz.com/product/battle-net/",
+        "woocommerceUrl": "https://redeem-dz.com/product/internet-download-manager/",
         "translations": {
           "ar": {
-            "name": "Battle.net",
+            "name": "Internet Download Manager",
             "desc": ""
           },
           "en": {
-            "name": "Battle.net",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3300,
-        "name": "Twitch",
-        "price": 880,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/TWITCH-redeem-dz.png",
-        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن تويتش – أمريكا، فرنسا، أستراليا!</strong></p>\n<p>احصل على بطاقات شحن Twitch واستمتع بدعم مفضّليك من الستريمرز، شراء الاشتراكات، أو الحصول على Bits لمزيد من التفاعل والمتعة!</p>\n<ul>\n<li>متوفرة بفئات مختلفة تناسب احتياجاتك</li>\n<li>تعمل على الحسابات الأمريكية، الفرنسية، والأسترالية</li>\n<li>استخدمها للاشتراكات أو شراء المحتوى داخل المنصة</li>\n<li>لا حاجة لبطاقة مصرفية – شحن سريع وسهل</li>\n</ul>\n<style>.elementor-element-9af1ab8{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-e1bbc0f{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3312,
-          3313,
-          3314,
-          3315,
-          3316,
-          3317,
-          3318,
-          3319,
-          3320,
-          3321,
-          3322
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/twitch/",
-        "translations": {
-          "ar": {
-            "name": "Twitch",
-            "desc": ""
-          },
-          "en": {
-            "name": "Twitch",
+            "name": "Internet Download Manager",
             "desc": ""
           }
         }
@@ -2467,267 +2102,6 @@
         }
       },
       {
-        "id": 3233,
-        "name": "WATCH IT",
-        "price": 790,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/watchit-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك WATCH IT VIP باستخدام برومو كود عالمي</strong></p>\n<p>WATCH IT هي منصة بث رائدة تتيح لك متابعة أقوى المسلسلات والأفلام المصرية والعربية بجودة عالية، أينما كنت في العالم.</p>\n<ul>\n<li>مشاهدة المحتوى دون إنترنت</li>\n<li>الوصول إلى محتوى حصري ومميز</li>\n<li>متابعة أحدث العروض فور صدورها</li>\n<li>إمكانية المشاهدة على أكثر من جهاز في نفس الوقت</li>\n</ul>\n<style>.elementor-element-461fccca{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال البرومو كود إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-52688070{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": false,
-        "type": "variable",
-        "variations": [
-          3235,
-          3236,
-          3237,
-          3238
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/watch-it/",
-        "translations": {
-          "ar": {
-            "name": "WATCH IT",
-            "desc": ""
-          },
-          "en": {
-            "name": "WATCH IT",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 7386,
-        "name": "Call of Duty: Black Ops Cold War",
-        "price": 1660,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Black-Ops-Cold-War-1-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong> اشحن نقاط كول أوف ديوتي: بلاك أوبس كولد وور وكن مستعدًا للمعركة! </strong></p>\n<p>احصل على نقاط Call of Duty بسهولة واستخدمها لشراء الأسلحة، السكنات، وتمريرات القتال داخل اللعبة. استمتع بتجربة قتالية متقدمة مع رصيد يعزز أداءك!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل اللعبة</li>\n<li>استخدم النقاط لفتح محتوى مميز ومكافآت حصرية</li>\n</ul>\n<style>.elementor-element-1b5ac91b{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-1ae9aef8{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 51,
-            "name": "بطاقات الهدايا",
-            "slug": "gift-cards"
-          },
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": false,
-        "type": "variable",
-        "variations": [
-          7388,
-          7389,
-          7390,
-          7391
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-black-ops-cold-war/",
-        "translations": {
-          "ar": {
-            "name": "Call of Duty: Black Ops Cold War",
-            "desc": ""
-          },
-          "en": {
-            "name": "Call of Duty: Black Ops Cold War",
-            "desc": ""
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "software-apps",
-    "databaseId": 57,
-    "title": {
-      "ar": "برامج و تطبيقات",
-      "en": "Software Apps"
-    },
-    "products": [
-      {
-        "id": 3471,
-        "name": "HMA! Pro VPN",
-        "price": 3470,
-        "regular_price": 3470,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/HMA-Pro-VPN.webp",
-        "description": "<p style=\"text-align: right;\"><strong>كود تفعيل رسمي لمدة عام كامل!</strong></p>\n<p>تمتع بتصفح الإنترنت بأمان وخصوصية تامة مع HMA! Pro VPN باستخدام كود تفعيل رسمي لمدة سنة كاملة. يتيح لك هذا المفتاح تفعيل اشتراكك على 5 أجهزة في نفس الوقت والاستفادة من جميع مزايا Hide My Ass! دون أي قيود.</p>\n<ul>\n<li>استخدمه على حسابك الخاص</li>\n<li>تفعيل على 5 أجهزة في نفس الوقت</li>\n<li>أكثر من 280 موقع خادم حول العالم</li>\n</ul>\n<style>.elementor-element-fa4c467{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التفعيل إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-8a54294{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 58,
-            "name": "Vpn",
-            "slug": "vpn"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/hma-pro-vpn/",
-        "translations": {
-          "ar": {
-            "name": "HMA! Pro VPN",
-            "desc": ""
-          },
-          "en": {
-            "name": "HMA! Pro VPN",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 7666,
-        "name": "Surfshark",
-        "price": 8020,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Surfshark-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong> اشترك في Surfshark وتمتع بتصفح آمن وخصوصية لا حدود لها! </strong></p>\n<p>احصل على حماية كاملة لهويتك الرقمية مع Surfshark VPN، وتصفح الإنترنت بحرية بدون تتبع أو قيود. استمتع بخدمة سريعة وآمنة على جميع أجهزتك بدون حدود!</p>\n<ul>\n<li>يحجب الإعلانات والمتتبعين والبرمجيات الخبيثة</li>\n<li>يدعم عدد غير محدود من الأجهزة باتصال واحد</li>\n<li>يسمح بتجاوز القيود الجغرافية</li>\n</ul>\n<style>.elementor-element-3d7509bc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود التفعيل إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-59c284e5{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 58,
-            "name": "Vpn",
-            "slug": "vpn"
-          },
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          7668,
-          7669
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/surfshark/",
-        "translations": {
-          "ar": {
-            "name": "Surfshark",
-            "desc": ""
-          },
-          "en": {
-            "name": "Surfshark",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3613,
-        "name": "Internet Download Manager",
-        "price": 3550,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Internet-Download-Manager-1.webp",
-        "description": "<link rel=\"stylesheet\" id=\"wd-text-block-css\" href=\"https://redeem-dz.com/wp-content/themes/woodmart/css/parts/el-text-block.min.css?ver=8.2.2\" type=\"text/css\" media=\"all\" />\n<p style=\"text-align: right;\"><strong>حمّل ملفاتك بسرعة صاروخية مع أفضل مدير تحميلات!</strong></p>\n<p style=\"text-align: right;\">استمتع بأداء فائق وسرعة تحميل مذهلة مع <strong>Internet Download Manager (IDM)</strong>، البرنامج الأشهر في تسريع التحميلات وتنظيمها. احصل على كود التفعيل الأصلي لتفعيل البرنامج مدى الحياة بدون إعلانات أو انقطاعات.</p>\n<ul>\n<li>كود تفعيل رسمي</li>\n<li>تفعيل بدون كراك أو باتش</li>\n<li>سهل التفعيل بخطوات بسيطة</li>\n<li>متوافق مع ويندوز 7/8/10/11</li>\n</ul>\n<style>.elementor-element-78445af{display:none !important}</style>\n<p>\t\t\t\t\t\tملاحظة:<br />\n\t\t\t\t\t\tسيتم إرسال مفتاح التفعيل إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-700d4ea{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          3615,
-          3616
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/internet-download-manager/",
-        "translations": {
-          "ar": {
-            "name": "Internet Download Manager",
-            "desc": ""
-          },
-          "en": {
-            "name": "Internet Download Manager",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3555,
-        "name": "Spotify Premium",
-        "price": 7040,
-        "regular_price": 7040,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Spotify-redeem-dz.png",
-        "description": "<p><strong>سبوتيفاي بريميوم لمدة 12 شهر – استمتع بالموسيقى بلا حدود! </strong></p>\n<p>احصل على حساب Spotify Premium لمدة سنة كاملة واستمتع بتجربة استماع خالية من الإعلانات، بجودة عالية، وإمكانية تحميل الأغاني للاستماع دون إنترنت!</p>\n<ul>\n<li>حساب جديد مخصص لك ومحمّل باشتراك لمدة 12 شهر</li>\n<li>استمتع بالموسيقى دون إعلانات وبتجربة استماع بجودة فائقة</li>\n<li>تحميل الأغاني للاستماع في أي وقت بدون إنترنت</li>\n<li>تشغيل غير محدود وتخطي عدد غير محدود من الأغاني</li>\n</ul>\n<style>.elementor-element-9f5a5c6{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 24 ساعة بعد تأكيد الدفع.</p>\n<style>.elementor-element-a33ab8f{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 57,
-            "name": "برامج و تطبيقات",
-            "slug": "software-apps"
-          },
-          {
-            "id": 53,
-            "name": "إشتراكات",
-            "slug": "subscriptions"
-          },
-          {
-            "id": 54,
-            "name": "حسابات",
-            "slug": "accounts"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 2,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": false,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/spotify-premium/",
-        "translations": {
-          "ar": {
-            "name": "Spotify Premium",
-            "desc": ""
-          },
-          "en": {
-            "name": "Spotify Premium",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 7818,
         "name": "YouTube Premium",
         "price": 8610,
@@ -2816,46 +2190,6 @@
         }
       },
       {
-        "id": 3579,
-        "name": "Minecraft: Java & Bedrock Edition",
-        "price": 3940,
-        "regular_price": 3940,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Minecraft-Java-Bedrock-Edition-1.webp",
-        "description": "<p><strong>ماينكرافت: إصدار جافا وبدروك – للكمبيوتر</strong><br />\nاحصل على حساب رسمي لتشغيل نسختي جافا وبدروك على نظام ويندوز.</p>\n<ul>\n<li>حساب دائم ومضمون</li>\n<li>تشغيل النسختين بنفس الحساب</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم Windows 10 و11</li>\n</ul>\n<style>.elementor-element-b4ce1cc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-cb4b089{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          },
-          {
-            "id": 54,
-            "name": "حسابات",
-            "slug": "accounts"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 14,
-        "average_rating": 0,
-        "is_hot": true,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/minecraft-java-bedrock-edition/",
-        "translations": {
-          "ar": {
-            "name": "Minecraft: Java & Bedrock Edition",
-            "desc": ""
-          },
-          "en": {
-            "name": "Minecraft: Java & Bedrock Edition",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 3600,
         "name": "control",
         "price": 630,
@@ -2936,46 +2270,6 @@
         }
       },
       {
-        "id": 8042,
-        "name": "EA Sports FC 26",
-        "price": 5990,
-        "regular_price": 5990,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/07/EA-Sports-FC-26-1.webp",
-        "description": "<p><strong>EA SPORTS FC 26 – للكمبيوتر</strong></p>\n<p>احصل على حساب رسمي لتشغيل EA SPORTS FC 26.</p>\n<ul>\n<li>حساب ستيم دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-8a9535f{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-b939998{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 54,
-            "name": "حسابات",
-            "slug": "accounts"
-          },
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 4,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/ea-sports-fc-26/",
-        "translations": {
-          "ar": {
-            "name": "EA Sports FC 26",
-            "desc": ""
-          },
-          "en": {
-            "name": "EA Sports FC 26",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 3561,
         "name": "EA SPORTS FC 25",
         "price": 4100,
@@ -3011,46 +2305,6 @@
           },
           "en": {
             "name": "EA SPORTS FC 25",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 3585,
-        "name": "Euro Truck Simulator 2",
-        "price": 1470,
-        "regular_price": 1470,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Euro-Truck-Simulator-2-1.webp",
-        "description": "<p><strong>Euro Truck Simulator 2 – للكمبيوتر</strong></p>\n<p>احصل على حساب رسمي لتشغيل Euro Truck Simulator 2.</p>\n<ul>\n<li>حساب ستيم دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-760b55c{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-966b05c{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          },
-          {
-            "id": 54,
-            "name": "حسابات",
-            "slug": "accounts"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 2,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/euro-truck-simulator-2/",
-        "translations": {
-          "ar": {
-            "name": "Euro Truck Simulator 2",
-            "desc": ""
-          },
-          "en": {
-            "name": "Euro Truck Simulator 2",
             "desc": ""
           }
         }
@@ -3328,6 +2582,452 @@
         }
       },
       {
+        "id": 3574,
+        "name": "Call of Duty: Black Ops 6",
+        "price": 10350,
+        "regular_price": 10350,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Call-of-Duty-Black-Ops-6-redeem-dz.png",
+        "description": "<p><strong> استمتع بأروع تجربة قتال وتكتيك في أحدث إصدار!</strong></p>\n<p>احصل على حساب رسمي لتشغيل <strong>Call of Duty: Black Ops 6</strong> على نظام ويندوز.</p>\n<ul>\n<li>حساب دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم Windows 10 و11</li>\n</ul>\n<style>.elementor-element-f1ad003{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-966b05c{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          },
+          {
+            "id": 54,
+            "name": "حسابات",
+            "slug": "accounts"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": false,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-black-ops-6/",
+        "translations": {
+          "ar": {
+            "name": "Call of Duty: Black Ops 6",
+            "desc": ""
+          },
+          "en": {
+            "name": "Call of Duty: Black Ops 6",
+            "desc": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pc-games",
+    "databaseId": 55,
+    "title": {
+      "ar": "العاب الكمبيوتر",
+      "en": "Pc Games"
+    },
+    "products": [
+      {
+        "id": 3579,
+        "name": "Minecraft: Java & Bedrock Edition",
+        "price": 3940,
+        "regular_price": 3940,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Minecraft-Java-Bedrock-Edition-1.webp",
+        "description": "<p><strong>ماينكرافت: إصدار جافا وبدروك – للكمبيوتر</strong><br />\nاحصل على حساب رسمي لتشغيل نسختي جافا وبدروك على نظام ويندوز.</p>\n<ul>\n<li>حساب دائم ومضمون</li>\n<li>تشغيل النسختين بنفس الحساب</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم Windows 10 و11</li>\n</ul>\n<style>.elementor-element-b4ce1cc{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-cb4b089{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          },
+          {
+            "id": 54,
+            "name": "حسابات",
+            "slug": "accounts"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 14,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/minecraft-java-bedrock-edition/",
+        "translations": {
+          "ar": {
+            "name": "Minecraft: Java & Bedrock Edition",
+            "desc": ""
+          },
+          "en": {
+            "name": "Minecraft: Java & Bedrock Edition",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3028,
+        "name": "Valorant",
+        "price": 740,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Valorant-1.webp",
+        "description": "<p><strong>احصل على Valorant Points (VP) الآن!</strong></p>\n<p>ارفع مستواك في لعبة Valorant مع شحن VP بسهولة من خلال متجر ريديم! افتح سكنات جديدة، باقات مميزة، وتمتع بتجربة لعب أكثر احترافية.</p>\n<ul>\n<li>مثالي للاعبين الباحثين عن التميز داخل اللعبة</li>\n<li>اشحن رصيدك بسرعة وأمان</li>\n</ul>\n<style>.elementor-element-4ba17782{display:none !important}</style>\n<p>ملاحظة:<br />\nيرجى التأكد من اختيار منطقة الحساب (Region) الصحيحة، لأن الكود يعمل فقط في نفس المنطقة. سيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-fa04190{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 12,
+        "average_rating": 4,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30196,
+          30197,
+          30198,
+          30199,
+          30200,
+          30201,
+          30202,
+          30203,
+          30204,
+          30205,
+          30206,
+          30207,
+          30208,
+          30178,
+          30179,
+          30180,
+          30181,
+          30182,
+          30183,
+          30184,
+          30185,
+          30186,
+          30187,
+          30188,
+          30189,
+          30190,
+          30191,
+          30192,
+          30193,
+          30194,
+          30195
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/valorant/",
+        "translations": {
+          "ar": {
+            "name": "Valorant",
+            "desc": ""
+          },
+          "en": {
+            "name": "Valorant",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 8042,
+        "name": "EA Sports FC 26",
+        "price": 5990,
+        "regular_price": 5990,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/07/EA-Sports-FC-26-1.webp",
+        "description": "<p><strong>EA SPORTS FC 26 – للكمبيوتر</strong></p>\n<p>احصل على حساب رسمي لتشغيل EA SPORTS FC 26.</p>\n<ul>\n<li>حساب ستيم دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-8a9535f{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-b939998{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 54,
+            "name": "حسابات",
+            "slug": "accounts"
+          },
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 4,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/ea-sports-fc-26/",
+        "translations": {
+          "ar": {
+            "name": "EA Sports FC 26",
+            "desc": ""
+          },
+          "en": {
+            "name": "EA Sports FC 26",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3585,
+        "name": "Euro Truck Simulator 2",
+        "price": 1470,
+        "regular_price": 1470,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Euro-Truck-Simulator-2-1.webp",
+        "description": "<p><strong>Euro Truck Simulator 2 – للكمبيوتر</strong></p>\n<p>احصل على حساب رسمي لتشغيل Euro Truck Simulator 2.</p>\n<ul>\n<li>حساب ستيم دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-760b55c{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-966b05c{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          },
+          {
+            "id": 54,
+            "name": "حسابات",
+            "slug": "accounts"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 2,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/euro-truck-simulator-2/",
+        "translations": {
+          "ar": {
+            "name": "Euro Truck Simulator 2",
+            "desc": ""
+          },
+          "en": {
+            "name": "Euro Truck Simulator 2",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3546,
+        "name": "Grand Theft Auto V",
+        "price": 4100,
+        "regular_price": 4100,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Grand-Theft-Auto-V-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>استمتع بأفضل تجربة في عالم الجريمة المفتوح!</strong></p>\n<p>انطلق في مغامرة لا حدود لها مع Grand Theft Auto V: Premium Online Edition، حيث يمكنك تجربة القصة الملحمية لثلاثة شخصيات رئيسية في نمط القصة، أو الانضمام إلى ملايين اللاعبين في GTA Online وبناء إمبراطوريتك الإجرامية. احصل على محتوى إضافي داخل اللعبة، بما في ذلك Criminal Enterprise Starter Pack لبدء رحلتك بقوة!</p>\n<ul>\n<li>مفتاح Rockstar Games Launcher عالمي</li>\n<li>متوافق مع أجهزة الكمبيوتر (PC)</li>\n<li>يتضمن: نمط القصة + GTA Online + حزمة Criminal Enterprise Starter</li>\n</ul>\n<style>.elementor-element-de8cd01{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال مفتاح اللعبة (CDKey) إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7d10317{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 2,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/grand-theft-auto-v/",
+        "translations": {
+          "ar": {
+            "name": "Grand Theft Auto V",
+            "desc": ""
+          },
+          "en": {
+            "name": "Grand Theft Auto V",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7745,
+        "name": "Fortnite",
+        "price": 8570,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/07/Fortnite-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن V-Bucks وميّز شخصيتك في Fortnite كما تحب!</strong></p>\n<p>احصل على بطاقة Fortnite - V-Bucks Gift Card GLOBAL بكل سهولة، واستخدمها لشحن رصيد V-Bucks داخل اللعبة. افتح عوالم جديدة من السكنات، الرقصات، الباتل باس، والمزيد من العناصر الرائعة التي تضيف متعة وتشويقًا لتجربتك القتالية!</p>\n<ul>\n<li>كود عالمي قابل للتفعيل في حسابات Fortnite</li>\n<li>استخدم V-Bucks لشراء سكنات، أدوات، رقصات و Battle Pass</li>\n<li>طريقة آمنة وسريعة لشحن حسابك مباشرة</li>\n</ul>\n<style>.elementor-element-5b270365{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-5067144f{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 1,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7747,
+          7748,
+          7749
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/fortnite/",
+        "translations": {
+          "ar": {
+            "name": "Fortnite",
+            "desc": ""
+          },
+          "en": {
+            "name": "Fortnite",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7219,
+        "name": "League of Legends",
+        "price": 2690,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/League-of-Legends-1-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>شحن لعبة League of Legends</strong></p>\n<p>احصل على RP الخاصة بـ League of Legends بسهولة واستخدمها لشراء الأبطال، السكنات، التعبيرات، والمزيد من العناصر الرائعة داخل اللعبة. استمتع بتجربة لعب تنافسية مثيرة مع رصيد إضافي يعزز مستواك!</p>\n<ul>\n<li>شحن سريع وآمن 100%</li>\n<li>استخدم RP لفتح محتوى حصري داخل اللعبة</li>\n</ul>\n<style>.elementor-element-1b4e0e9{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2c89aea{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          },
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 1,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7221,
+          7222,
+          7223
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/league-of-legends/",
+        "translations": {
+          "ar": {
+            "name": "League of Legends",
+            "desc": ""
+          },
+          "en": {
+            "name": "League of Legends",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 30126,
+        "name": "Apex Legends",
+        "price": 2330,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2026/02/Apex-Legends-1.webp",
+        "description": "<link rel=\"stylesheet\" id=\"wd-text-block-css\" href=\"https://redeem-dz.com/wp-content/themes/woodmart/css/parts/el-text-block.min.css?ver=8.3.9\" type=\"text/css\" media=\"all\" />\n<p style=\"text-align: right;\"><strong>اشحن عملات Apex Legends وكن أسطورة في ساحة القتال!</strong></p>\n<p>احصل على عملات Apex Legends Coins بسهولة واستخدمها لشراء الشخصيات (Legends)، السكنات، الباتل باس، وحِزم العناصر المميزة داخل اللعبة. استمتع بتجربة تنافسية حماسية وارتقِ بمستواك في عالم Apex Legends مع رصيد إضافي يعزز أدائك!</p>\n<ul>\n<li>يمكن استخدامها بسهولة داخل لعبة Apex Legends</li>\n<li>استخدم العملات لفتح محتوى حصري وتخصيص شخصيتك</li>\n</ul>\n<style>.elementor-element-40bf7c49{display:none !important}</style>\n<p>\t\t\t\t\t\tملاحظة:<br />\n\t\t\t\t\t\tسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-70f9b42{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30128,
+          30129,
+          30130,
+          30131,
+          30132
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/apex-legends/",
+        "translations": {
+          "ar": {
+            "name": "Apex Legends",
+            "desc": ""
+          },
+          "en": {
+            "name": "Apex Legends",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 29882,
+        "name": "ARC Raiders",
+        "price": 6830,
+        "regular_price": 10080,
+        "sale_price": 6500,
+        "image": "https://redeem-dz.com/wp-content/uploads/2026/01/ARC-Raiders-1.webp",
+        "description": "<p><strong>ARC Raiders (Steam) – مفتاح ستيم عالمي</strong></p>\n<p>احصل على مفتاح تفعيل رسمي للعبة ARC Raiders وتشغيلها مباشرة عبر منصة Steam.</p>\n<ul>\n<li>مفتاح Steam أصلي وعالمي (Global Key)</li>\n<li>تفعيل فوري على حسابك الشخصي</li>\n<li>يدعم اللعب أونلاين والتعاوني (Co-op)</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>لا حاجة لمشاركة حسابك</li>\n<li>يدعم أنظمة ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-f50f3a0{display:none !important}</style>\n<p>ملاحظة:<br />\nمدة التسليم: من 15 دقيقة إلى 6 ساعات بعد تأكيد الدفع.<br />\nسيتم إرسال كود ستيم إلى بريدك الإلكتروني.</p>\n<style>.elementor-element-ec812b4{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 55,
+            "name": "العاب الكمبيوتر",
+            "slug": "pc-games"
+          }
+        ],
+        "on_sale": true,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/arc-raiders/",
+        "translations": {
+          "ar": {
+            "name": "ARC Raiders",
+            "desc": ""
+          },
+          "en": {
+            "name": "ARC Raiders",
+            "desc": ""
+          }
+        }
+      },
+      {
         "id": 3592,
         "name": "Rust",
         "price": 2630,
@@ -3408,126 +3108,6 @@
         }
       },
       {
-        "id": 3574,
-        "name": "Call of Duty: Black Ops 6",
-        "price": 10350,
-        "regular_price": 10350,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Call-of-Duty-Black-Ops-6-redeem-dz.png",
-        "description": "<p><strong> استمتع بأروع تجربة قتال وتكتيك في أحدث إصدار!</strong></p>\n<p>احصل على حساب رسمي لتشغيل <strong>Call of Duty: Black Ops 6</strong> على نظام ويندوز.</p>\n<ul>\n<li>حساب دائم ومضمون</li>\n<li>يدعم اللعب أونلاين</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>يدعم Windows 10 و11</li>\n</ul>\n<style>.elementor-element-f1ad003{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-966b05c{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          },
-          {
-            "id": 54,
-            "name": "حسابات",
-            "slug": "accounts"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": false,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/call-of-duty-black-ops-6/",
-        "translations": {
-          "ar": {
-            "name": "Call of Duty: Black Ops 6",
-            "desc": ""
-          },
-          "en": {
-            "name": "Call of Duty: Black Ops 6",
-            "desc": ""
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "pc-games",
-    "databaseId": 55,
-    "title": {
-      "ar": "العاب الكمبيوتر",
-      "en": "Pc Games"
-    },
-    "products": [
-      {
-        "id": 3546,
-        "name": "Grand Theft Auto V",
-        "price": 4100,
-        "regular_price": 4100,
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Grand-Theft-Auto-V-1.webp",
-        "description": "<p style=\"text-align: right;\"><strong>استمتع بأفضل تجربة في عالم الجريمة المفتوح!</strong></p>\n<p>انطلق في مغامرة لا حدود لها مع Grand Theft Auto V: Premium Online Edition، حيث يمكنك تجربة القصة الملحمية لثلاثة شخصيات رئيسية في نمط القصة، أو الانضمام إلى ملايين اللاعبين في GTA Online وبناء إمبراطوريتك الإجرامية. احصل على محتوى إضافي داخل اللعبة، بما في ذلك Criminal Enterprise Starter Pack لبدء رحلتك بقوة!</p>\n<ul>\n<li>مفتاح Rockstar Games Launcher عالمي</li>\n<li>متوافق مع أجهزة الكمبيوتر (PC)</li>\n<li>يتضمن: نمط القصة + GTA Online + حزمة Criminal Enterprise Starter</li>\n</ul>\n<style>.elementor-element-de8cd01{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال مفتاح اللعبة (CDKey) إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7d10317{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 2,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/grand-theft-auto-v/",
-        "translations": {
-          "ar": {
-            "name": "Grand Theft Auto V",
-            "desc": ""
-          },
-          "en": {
-            "name": "Grand Theft Auto V",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 29882,
-        "name": "ARC Raiders",
-        "price": 6830,
-        "regular_price": 10080,
-        "sale_price": 6500,
-        "image": "https://redeem-dz.com/wp-content/uploads/2026/01/ARC-Raiders-1.webp",
-        "description": "<p><strong>ARC Raiders (Steam) – مفتاح ستيم عالمي</strong></p>\n<p>احصل على مفتاح تفعيل رسمي للعبة ARC Raiders وتشغيلها مباشرة عبر منصة Steam.</p>\n<ul>\n<li>مفتاح Steam أصلي وعالمي (Global Key)</li>\n<li>تفعيل فوري على حسابك الشخصي</li>\n<li>يدعم اللعب أونلاين والتعاوني (Co-op)</li>\n<li>بدون اشتراك – نسخة كاملة</li>\n<li>لا حاجة لمشاركة حسابك</li>\n<li>يدعم أنظمة ويندوز 10 و11</li>\n</ul>\n<style>.elementor-element-f50f3a0{display:none !important}</style>\n<p>ملاحظة:<br />\nمدة التسليم: من 15 دقيقة إلى 6 ساعات بعد تأكيد الدفع.<br />\nسيتم إرسال كود ستيم إلى بريدك الإلكتروني.</p>\n<style>.elementor-element-ec812b4{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 55,
-            "name": "العاب الكمبيوتر",
-            "slug": "pc-games"
-          }
-        ],
-        "on_sale": true,
-        "total_sales": 0,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "simple",
-        "variations": [],
-        "woocommerceUrl": "https://redeem-dz.com/product/arc-raiders/",
-        "translations": {
-          "ar": {
-            "name": "ARC Raiders",
-            "desc": ""
-          },
-          "en": {
-            "name": "ARC Raiders",
-            "desc": ""
-          }
-        }
-      },
-      {
         "id": 3538,
         "name": "Red Dead Redemption 2",
         "price": 4820,
@@ -3573,6 +3153,138 @@
     },
     "products": [
       {
+        "id": 3361,
+        "name": "Steam Wallet",
+        "price": 820,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/steam.webp",
+        "description": "<p style=\"text-align: right;\"><strong>بطاقة هدايا ستيم الرقمية</strong></p>\n<p>احصل على بطاقة ستيم الرقمية وأضف الرصيد إلى حسابك لشراء الألعاب، المحتوى الإضافي، والعناصر داخل المتجر بسهولة!</p>\n<ul>\n<li>بطاقة رقمية قابلة للاسترداد وفقًا للمنطقة المختارة</li>\n<li>استخدم الرصيد لشراء الألعاب، الإضافات، والعروض الحصرية</li>\n<li>طريقة آمنة وسريعة لإضافة الأموال إلى حسابك دون الحاجة لبطاقة مصرفية</li>\n</ul>\n<style>.elementor-element-071e818{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-742402e{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 18,
+        "average_rating": 5,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3383,
+          3384,
+          3385,
+          3386,
+          3387,
+          3379,
+          3380,
+          3381,
+          3382,
+          3374,
+          3375,
+          3376,
+          3377,
+          3378,
+          3369,
+          3370,
+          3371,
+          3372,
+          3363,
+          3364,
+          3365,
+          3366,
+          3367,
+          3368
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/steam-wallet/",
+        "translations": {
+          "ar": {
+            "name": "Steam Wallet",
+            "desc": ""
+          },
+          "en": {
+            "name": "Steam Wallet",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3117,
+        "name": "PlayStation Gift Cards",
+        "price": 1380,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/PlayStation-Gift-Cards-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>استمتع بأفضل تجربة ألعاب على بلايستيشن مع رصيدك الشخصي!</strong></p>\n<p>انطلق في عالم الألعاب بلا حدود مع بطاقة تعبئة بلايستيشن، واحصل على رصيد فوري لشراء الألعاب، والملحقات، والاشتراكات مثل PS Plus، أو حتى تحميل أحدث الألعاب من متجر PlayStation Store!<br />\nلماذا تختار بطاقاتنا؟</p>\n<ul style=\"text-align: right; direction: rtl;\">\n<li>كود يمكنك إستخدامه في حسابك الشخصي</li>\n<li>صالح للاستخدام على <strong>حساب PSN الخاص بمنطقتك</strong></li>\n</ul>\n<style>.elementor-element-27efd329{display:none !important}</style>\n<p>ملاحظة:<br />\nيُرجى اختيار القيمة المناسبة لمنطقتك. سيتم إرسال كود التعبئة إلى بريدك الإلكتروني خلال مدة تتراوح بين ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-2a7684e0{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 14,
+        "average_rating": 0,
+        "is_hot": true,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30414,
+          3120,
+          3121,
+          3122,
+          3123,
+          3124,
+          3125,
+          3126,
+          3127,
+          3128,
+          3129,
+          3130,
+          3131,
+          3132,
+          3133,
+          3134,
+          3135,
+          3136,
+          3137,
+          3138,
+          3139,
+          3140,
+          3141,
+          3142,
+          3143,
+          3144
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/playstation-gift-cards/",
+        "translations": {
+          "ar": {
+            "name": "PlayStation Gift Cards",
+            "desc": ""
+          },
+          "en": {
+            "name": "PlayStation Gift Cards",
+            "desc": ""
+          }
+        }
+      },
+      {
         "id": 2665,
         "name": "Xbox Game Pass Ultimate",
         "price": 3260,
@@ -3611,6 +3323,294 @@
           },
           "en": {
             "name": "Xbox Game Pass Ultimate",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3243,
+        "name": "Shahid",
+        "price": 3170,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/shahid-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك شاهد VIP</strong></p>\n<p>شاهد هو موقع بث شهير في منطقة الشرق الأوسط وشمال إفريقيا (MENA) يتيح لك مشاهدة البرامج المحلية والعالمية في أي وقت ترغب به.</p>\n<ul>\n<li>مشاهدة المحتوى دون اتصال</li>\n<li>الوصول إلى محتوى حصري</li>\n<li>الحصول على محتوى جديد مبكرًا</li>\n<li>البث على أجهزة متعددة</li>\n</ul>\n<style>.elementor-element-6f4f8f45{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-9b49833{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 4,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3245,
+          3246
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/shahid/",
+        "translations": {
+          "ar": {
+            "name": "Shahid",
+            "desc": ""
+          },
+          "en": {
+            "name": "Shahid",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3251,
+        "name": "OSN+",
+        "price": 1890,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/osn-PLIS-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك +OSN باستخدام برومو كود خاص بالبلد</strong></p>\n<p>OSN+ هي منصة بث رائدة تقدم لك مجموعة من أفضل الأفلام والمسلسلات من هوليوود والعالم العربي، مع محتوى حصري وميزات مبتكرة، متاحة فقط في بلدك.</p>\n<ul>\n<li>مشاهدة المحتوى دون إنترنت</li>\n<li>الوصول إلى محتوى حصري ومميز</li>\n<li>متابعة أحدث العروض فور صدورها</li>\n<li>إمكانية المشاهدة على أكثر من جهاز في نفس الوقت</li>\n</ul>\n<style>.elementor-element-554197af{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال البرومو كود إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-7fd22f6a{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 3,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          8154,
+          3268,
+          3269,
+          3270,
+          3265,
+          3266,
+          3267,
+          3262,
+          3263,
+          3264,
+          3259,
+          3260,
+          3261,
+          3256,
+          3257,
+          3258,
+          3253,
+          3254,
+          3255
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/osn/",
+        "translations": {
+          "ar": {
+            "name": "OSN+",
+            "desc": ""
+          },
+          "en": {
+            "name": "OSN+",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 7534,
+        "name": "Spacetoon Go",
+        "price": 3980,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Spacetoon-Go-redeem-dz.png",
+        "description": "<p style=\"text-align: right;\"><strong> اشترك في Spacetoon Go واسترجع ذكريات الطفولة مع أقوى مسلسلات وأفلام الأنمي! </strong></p>\n<p>استمتع بمشاهدة أفضل محتوى أنمي وبرامج الأطفال بجودة عالية وبدون إعلانات، عبر تطبيق Spacetoon Go. عالم من المغامرات والمرح بانتظارك في أي وقت ومن أي مكان!</p>\n<ul>\n<li>مكتبة ضخمة من مسلسلات الأنمي الكلاسيكية والجديدة</li>\n<li>مشاهدة بدون إعلانات وعلى مختلف الأجهزة</li>\n</ul>\n<style>.elementor-element-12fea8d2{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-301f5e10{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          },
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          7536,
+          7537
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/spacetoon-go/",
+        "translations": {
+          "ar": {
+            "name": "Spacetoon Go",
+            "desc": ""
+          },
+          "en": {
+            "name": "Spacetoon Go",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3300,
+        "name": "Twitch",
+        "price": 880,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/TWITCH-redeem-dz.png",
+        "description": "<p style=\"text-align: right;\"><strong>بطاقات شحن تويتش – أمريكا، فرنسا، أستراليا!</strong></p>\n<p>احصل على بطاقات شحن Twitch واستمتع بدعم مفضّليك من الستريمرز، شراء الاشتراكات، أو الحصول على Bits لمزيد من التفاعل والمتعة!</p>\n<ul>\n<li>متوفرة بفئات مختلفة تناسب احتياجاتك</li>\n<li>تعمل على الحسابات الأمريكية، الفرنسية، والأسترالية</li>\n<li>استخدمها للاشتراكات أو شراء المحتوى داخل المنصة</li>\n<li>لا حاجة لبطاقة مصرفية – شحن سريع وسهل</li>\n</ul>\n<style>.elementor-element-9af1ab8{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال كود الشحن إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-e1bbc0f{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 0,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          3312,
+          3313,
+          3314,
+          3315,
+          3316,
+          3317,
+          3318,
+          3319,
+          3320,
+          3321,
+          3322
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/twitch/",
+        "translations": {
+          "ar": {
+            "name": "Twitch",
+            "desc": ""
+          },
+          "en": {
+            "name": "Twitch",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3555,
+        "name": "Spotify Premium",
+        "price": 7040,
+        "regular_price": 7040,
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/Spotify-redeem-dz.png",
+        "description": "<p><strong>سبوتيفاي بريميوم لمدة 12 شهر – استمتع بالموسيقى بلا حدود! </strong></p>\n<p>احصل على حساب Spotify Premium لمدة سنة كاملة واستمتع بتجربة استماع خالية من الإعلانات، بجودة عالية، وإمكانية تحميل الأغاني للاستماع دون إنترنت!</p>\n<ul>\n<li>حساب جديد مخصص لك ومحمّل باشتراك لمدة 12 شهر</li>\n<li>استمتع بالموسيقى دون إعلانات وبتجربة استماع بجودة فائقة</li>\n<li>تحميل الأغاني للاستماع في أي وقت بدون إنترنت</li>\n<li>تشغيل غير محدود وتخطي عدد غير محدود من الأغاني</li>\n</ul>\n<style>.elementor-element-9f5a5c6{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال معلومات الحساب (البريد وكلمة المرور) إلى بريدك الإلكتروني خلال ساعة إلى 24 ساعة بعد تأكيد الدفع.</p>\n<style>.elementor-element-a33ab8f{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 57,
+            "name": "برامج و تطبيقات",
+            "slug": "software-apps"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          },
+          {
+            "id": 54,
+            "name": "حسابات",
+            "slug": "accounts"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 2,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": false,
+        "type": "simple",
+        "variations": [],
+        "woocommerceUrl": "https://redeem-dz.com/product/spotify-premium/",
+        "translations": {
+          "ar": {
+            "name": "Spotify Premium",
+            "desc": ""
+          },
+          "en": {
+            "name": "Spotify Premium",
+            "desc": ""
+          }
+        }
+      },
+      {
+        "id": 3233,
+        "name": "WATCH IT",
+        "price": 790,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2025/06/watchit-1.webp",
+        "description": "<p style=\"text-align: right;\"><strong>اشترِ اشتراك WATCH IT VIP باستخدام برومو كود عالمي</strong></p>\n<p>WATCH IT هي منصة بث رائدة تتيح لك متابعة أقوى المسلسلات والأفلام المصرية والعربية بجودة عالية، أينما كنت في العالم.</p>\n<ul>\n<li>مشاهدة المحتوى دون إنترنت</li>\n<li>الوصول إلى محتوى حصري ومميز</li>\n<li>متابعة أحدث العروض فور صدورها</li>\n<li>إمكانية المشاهدة على أكثر من جهاز في نفس الوقت</li>\n</ul>\n<style>.elementor-element-461fccca{display:none !important}</style>\n<p>ملاحظة:<br />\nسيتم إرسال البرومو كود إلى بريدك الإلكتروني خلال ساعة إلى 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-52688070{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 51,
+            "name": "بطاقات الهدايا",
+            "slug": "gift-cards"
+          },
+          {
+            "id": 53,
+            "name": "إشتراكات",
+            "slug": "subscriptions"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 1,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": false,
+        "type": "variable",
+        "variations": [
+          3235,
+          3236,
+          3237,
+          3238
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/watch-it/",
+        "translations": {
+          "ar": {
+            "name": "WATCH IT",
+            "desc": ""
+          },
+          "en": {
+            "name": "WATCH IT",
             "desc": ""
           }
         }
