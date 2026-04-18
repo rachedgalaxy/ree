@@ -246,6 +246,8 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
 
 /* ─── Single Review Card ─────────────────────────────────── */
 const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
+  const isTrustpilot = review.source === 'trustpilot';
+
   const gradients = [
     'from-indigo-50 to-blue-50 border-indigo-100',
     'from-rose-50 to-pink-50 border-rose-100',
@@ -255,8 +257,10 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
     'from-sky-50 to-cyan-50 border-sky-100',
   ];
   const accentColors = ['text-indigo-500','text-rose-500','text-amber-500','text-emerald-500','text-purple-500','text-sky-500'];
-  const gradient = gradients[idx % gradients.length];
-  const accent = accentColors[idx % accentColors.length];
+  
+  // Custom Trustpilot styling
+  const gradient = isTrustpilot ? 'from-[#f5faf7] to-[#eaf5f0] border-[#00b67a]/30' : gradients[idx % gradients.length];
+  const accent = isTrustpilot ? 'text-[#00b67a]' : accentColors[idx % accentColors.length];
 
   const initials = review.reviewer.slice(0, 2).toUpperCase();
 
@@ -281,11 +285,18 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
       {/* Stars */}
       <div className="flex items-center gap-0.5">
         {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            size={14}
-            className={i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200 fill-gray-200'}
-          />
+          <div 
+            key={i} 
+            className={`flex items-center justify-center w-[18px] h-[18px] ${
+              isTrustpilot && i < review.rating ? 'bg-[#00b67a]' : 
+              !isTrustpilot && i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200 fill-gray-200'
+            }`}
+          >
+            <Star
+              size={isTrustpilot ? 10 : 14}
+              className={isTrustpilot && i < review.rating ? 'text-white fill-white' : ''}
+            />
+          </div>
         ))}
       </div>
 
@@ -293,7 +304,7 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
       <div className="flex items-center gap-3 pt-2 border-t border-black/5">
         {/* Avatar */}
         <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white shadow-sm
-          bg-gradient-to-br ${idx % 2 === 0 ? 'from-gray-700 to-gray-900' : 'from-red-500 to-red-700'}`}>
+          bg-gradient-to-br ${isTrustpilot ? 'from-[#00b67a] to-[#009462]' : idx % 2 === 0 ? 'from-gray-700 to-gray-900' : 'from-red-500 to-red-700'}`}>
           {initials}
         </div>
         <div className="flex flex-col">
@@ -302,12 +313,20 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
           </span>
           <span className="text-[10px] text-gray-400 font-medium">{review.date}</span>
         </div>
-        {/* Verified badge */}
+        
+        {/* Verified / Trustpilot badge */}
         <div className="mr-auto ml-auto flex-1 flex justify-end">
-          <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-            <ShieldCheck size={10} />
-            {isRtl ? 'موثّق' : 'Verified'}
-          </span>
+          {isTrustpilot ? (
+             <span className="flex items-center gap-1 text-[10px] font-bold text-[#00b67a] bg-[#00b67a]/10 px-2 py-0.5 rounded-full border border-[#00b67a]/20">
+               <span className="bg-[#00b67a] rounded-sm p-0.5"><Star size={8} className="fill-white text-white"/></span>
+               Trustpilot
+             </span>
+          ) : (
+             <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+               <ShieldCheck size={10} />
+               {isRtl ? 'موثّق' : 'Verified'}
+             </span>
+          )}
         </div>
       </div>
     </motion.div>

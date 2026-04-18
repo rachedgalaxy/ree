@@ -1,0 +1,18 @@
+[
+  {
+    "id": "tp-1",
+    "reviewer": "Amine",
+    "rating": 5,
+    "review": "Excellent service and fast delivery! Best store in DZ.",
+    "date": "2025-11-20",
+    "source": "trustpilot"
+  },
+  {
+    "id": "tp-2",
+    "reviewer": "Karim",
+    "rating": 5,
+    "review": "موقع موثوق وسريع جدا في التعامل بارك الله فيكم",
+    "date": "2025-10-12",
+    "source": "trustpilot"
+  }
+]

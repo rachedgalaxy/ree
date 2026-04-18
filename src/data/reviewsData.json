@@ -1,11 +1,28 @@
 [
   {
+    "id": "tp-1",
+    "reviewer": "Amine",
+    "rating": 5,
+    "review": "Excellent service and fast delivery! Best store in DZ.",
+    "date": "2025-11-20",
+    "source": "trustpilot"
+  },
+  {
+    "id": "tp-2",
+    "reviewer": "Karim",
+    "rating": 5,
+    "review": "موقع موثوق وسريع جدا في التعامل بارك الله فيكم",
+    "date": "2025-10-12",
+    "source": "trustpilot"
+  },
+  {
     "id": 2143,
     "reviewer": "Da***",
     "rating": 5,
     "review": "شحن سريع و موثوق.",
     "date": "2026-02-03",
-    "product": 3094
+    "product": 3094,
+    "source": "woocommerce"
   },
   {
     "id": 1120,
@@ -13,7 +30,8 @@
     "rating": 4,
     "review": "Prices a bit high but the services are fast",
     "date": "2025-10-15",
-    "product": 3028
+    "product": 3028,
+    "source": "woocommerce"
   },
   {
     "id": 837,
@@ -21,7 +39,8 @@
     "rating": 5,
     "review": "اقسم بالله انك افضل موقع شحن بسعر ارخص و امن... تقيمي 5 نجوم",
     "date": "2025-09-03",
-    "product": 3275
+    "product": 3275,
+    "source": "woocommerce"
   },
   {
     "id": 678,
@@ -29,7 +48,8 @@
     "rating": 5,
     "review": "شكرا لكم ❤",
     "date": "2025-07-29",
-    "product": 3177
+    "product": 3177,
+    "source": "woocommerce"
   },
   {
     "id": 673,
@@ -37,7 +57,8 @@
     "rating": 5,
     "review": "شكرا للعمل السريع والموثوق سيكون موقعكم محطة شرائي دائما ♥",
     "date": "2025-07-27",
-    "product": 3361
+    "product": 3361,
+    "source": "woocommerce"
   },
   {
     "id": 672,
@@ -45,6 +66,7 @@
     "rating": 5,
     "review": "وصل الطلب شكرا",
     "date": "2025-07-27",
-    "product": 3177
+    "product": 3177,
+    "source": "woocommerce"
   }
 ]

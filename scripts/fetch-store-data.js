@@ -74,14 +74,27 @@ async function fetchStoreData() {
               rating: r.rating,
               review: r.review.replace(/<[^>]+>/g, '').trim(), // Strip HTML tags
               date: r.date_created?.split('T')[0] || '',
-              product: r.product_id
+              product: r.product_id,
+              source: 'woocommerce'
             };
           })
       : [];
 
+    // Optional: read static trustpilot reviews
+    const tpPath = path.join(__dirname, '../src/data/trustpilotReviews.json');
+    let tpReviews = [];
+    if (fs.existsSync(tpPath)) {
+      try {
+        tpReviews = JSON.parse(fs.readFileSync(tpPath, 'utf8'));
+      } catch(e) {
+        console.warn('⚠️ Could not parse trustpilotReviews.json', e.message);
+      }
+    }
+
+    const combinedReviews = [...tpReviews, ...processedReviews];
     const reviewsPath = path.join(__dirname, '../src/data/reviewsData.json');
-    fs.writeFileSync(reviewsPath, JSON.stringify(processedReviews, null, 2));
-    console.log(`✅ Saved ${processedReviews.length} reviews to reviewsData.json`);
+    fs.writeFileSync(reviewsPath, JSON.stringify(combinedReviews, null, 2));
+    console.log(`✅ Saved ${combinedReviews.length} reviews to reviewsData.json`);
 
     if (!Array.isArray(categoriesAr) || !Array.isArray(productsAr)) {
       throw new Error(`Invalid response from API (categories: ${typeof categoriesAr})`);

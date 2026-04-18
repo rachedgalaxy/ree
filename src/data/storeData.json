@@ -75,7 +75,7 @@
           }
         ],
         "on_sale": false,
-        "total_sales": 24,
+        "total_sales": 27,
         "average_rating": 0,
         "is_hot": true,
         "in_stock": true,
@@ -251,6 +251,47 @@
         }
       },
       {
+        "id": 30669,
+        "name": "Yalla Ludo",
+        "price": 540,
+        "regular_price": "",
+        "sale_price": "",
+        "image": "https://redeem-dz.com/wp-content/uploads/2026/03/yalla-ludo-redeem-dz-com-1.png",
+        "description": "<p style=\"text-align: right;\"><strong>اشحن الماس وذهب Yalla Ludo واستمتع بتجربة لعب أكثر متعة!</strong></p>\n<p>احصل على الماس والذهب في لعبة Yalla Ludo بسهولة واستخدمهما لشراء النرد المميز، الإيموجي، الهدايا، والعناصر الحصرية داخل اللعبة. اجعل جلسات اللعب مع الأصدقاء أكثر حماسًا وتميزًا!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل لعبة Yalla Ludo</li>\n<li>استخدم الماس والذهب لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-aee2da9{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال مدة تتراوح بين 15 دقيقة و 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-8bc483a{display:none !important}</style>\n",
+        "short_description": "",
+        "categories": [
+          {
+            "id": 52,
+            "name": "شحن",
+            "slug": "top-up"
+          }
+        ],
+        "on_sale": false,
+        "total_sales": 3,
+        "average_rating": 0,
+        "is_hot": false,
+        "in_stock": true,
+        "type": "variable",
+        "variations": [
+          30671,
+          30672,
+          30673,
+          30674,
+          30675
+        ],
+        "woocommerceUrl": "https://redeem-dz.com/product/yalla-ludo/",
+        "translations": {
+          "ar": {
+            "name": "Yalla Ludo",
+            "desc": ""
+          },
+          "en": {
+            "name": "Yalla Ludo",
+            "desc": ""
+          }
+        }
+      },
+      {
         "id": 7312,
         "name": "Genshin Impact Genesis Crystals",
         "price": 270,
@@ -288,47 +329,6 @@
           },
           "en": {
             "name": "Genshin Impact Genesis Crystals",
-            "desc": ""
-          }
-        }
-      },
-      {
-        "id": 30669,
-        "name": "Yalla Ludo",
-        "price": 540,
-        "regular_price": "",
-        "sale_price": "",
-        "image": "https://redeem-dz.com/wp-content/uploads/2026/03/yalla-ludo-redeem-dz-com-1.png",
-        "description": "<p style=\"text-align: right;\"><strong>اشحن الماس وذهب Yalla Ludo واستمتع بتجربة لعب أكثر متعة!</strong></p>\n<p>احصل على الماس والذهب في لعبة Yalla Ludo بسهولة واستخدمهما لشراء النرد المميز، الإيموجي، الهدايا، والعناصر الحصرية داخل اللعبة. اجعل جلسات اللعب مع الأصدقاء أكثر حماسًا وتميزًا!</p>\n<ul>\n<li>يمكن استخدامه بسهولة داخل لعبة Yalla Ludo</li>\n<li>استخدم الماس والذهب لفتح ميزات وعناصر حصرية</li>\n</ul>\n<style>.elementor-element-aee2da9{display:none !important}</style>\n<p>ملاحظة:<br />\nتأكد من صحة معرف اللاعب. سيتم شحن الحساب خلال مدة تتراوح بين 15 دقيقة و 6 ساعات بعد تأكيد الدفع.</p>\n<style>.elementor-element-8bc483a{display:none !important}</style>\n",
-        "short_description": "",
-        "categories": [
-          {
-            "id": 52,
-            "name": "شحن",
-            "slug": "top-up"
-          }
-        ],
-        "on_sale": false,
-        "total_sales": 1,
-        "average_rating": 0,
-        "is_hot": false,
-        "in_stock": true,
-        "type": "variable",
-        "variations": [
-          30671,
-          30672,
-          30673,
-          30674,
-          30675
-        ],
-        "woocommerceUrl": "https://redeem-dz.com/product/yalla-ludo/",
-        "translations": {
-          "ar": {
-            "name": "Yalla Ludo",
-            "desc": ""
-          },
-          "en": {
-            "name": "Yalla Ludo",
             "desc": ""
           }
         }
@@ -501,7 +501,7 @@
           }
         ],
         "on_sale": false,
-        "total_sales": 99,
+        "total_sales": 100,
         "average_rating": 0,
         "is_hot": true,
         "in_stock": true,
