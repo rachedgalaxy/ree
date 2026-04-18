@@ -276,7 +276,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
-      className={`flex gap-4 overflow-x-auto py-8 select-none
+      className={`flex gap-4 overflow-x-auto py-8 px-[15vw] md:px-[25%] lg:px-[30%] select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
         scroll-smooth snap-x snap-mandatory`}
@@ -307,16 +307,17 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   const accent = isTrustpilot ? 'text-[#00b67a]' : accentColors[idx % accentColors.length];
 
   const initials = review.reviewer.slice(0, 2).toUpperCase();
+  const displayName = review.reviewer.length > 2 ? review.reviewer.slice(0, 2) + '***' : review.reviewer.slice(0, 1) + '***';
 
   return (
     <motion.div
       animate={{ 
-        opacity: isActive ? 1 : 0.6, 
-        scale: isActive ? 1 : 0.9,
-        filter: isActive ? 'blur(0px)' : 'blur(1px)'
+        opacity: isActive ? 1 : 0.4, 
+        scale: isActive ? 1 : 0.85,
+        filter: isActive ? 'blur(0px)' : 'blur(2px)'
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`snap-center shrink-0 w-[calc(50%-8px)] md:w-[calc(33.333%-11px)]
+      className={`snap-center shrink-0 w-[65vw] sm:w-[50vw] md:w-[340px] lg:w-[380px]
         bg-gradient-to-br ${gradient}
         rounded-3xl border p-5 md:p-6 flex flex-col gap-3 md:gap-4
         shadow-sm hover:shadow-xl transition-shadow duration-500 group relative z-${isActive ? '10' : '0'}`}
@@ -356,7 +357,7 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
         </div>
         <div className="flex flex-col">
           <span className={`text-sm font-bold text-gray-900 tracking-wide ${isRtl ? 'font-kufi' : ''}`}>
-            {review.reviewer}
+            {displayName}
           </span>
           <span className="text-[10px] text-gray-400 font-medium">{review.date}</span>
         </div>
