@@ -76,13 +76,11 @@ async function fetchStoreData() {
     const getEnProductDesc = (id) => productsEn.find(p => p.id === id)?.short_description || productsAr.find(p => p.id === id)?.short_description;
 
     console.log('⚙️ Transforming Data...');
-    const groupedData = categoriesAr
+    const rawGroupedData = categoriesAr
       .filter(cat => cat.slug !== 'uncategorized' && cat.parent === 0)
       .map(cat => {
-        // Collect this parent category ID + all its subcategory IDs
         const subCategories = categoriesAr.filter(c => c.parent === cat.id).map(c => c.id);
         const familyCategoryIds = [cat.id, ...subCategories];
-
         const catProducts = productsAr.filter(p => p.categories.some(pc => familyCategoryIds.includes(pc.id)));
         
         return {
@@ -115,11 +113,8 @@ async function fetchStoreData() {
                 en: { name: getEnProductName(p.id), desc: getEnProductDesc(p.id) }
             }
           })).sort((a, b) => {
-            // Out of stock products always last
             if (a.in_stock && !b.in_stock) return -1;
             if (!a.in_stock && b.in_stock) return 1;
-            
-            // Then sort by total sales descending
             return (b.total_sales || 0) - (a.total_sales || 0);
           })
         };
@@ -130,6 +125,17 @@ async function fetchStoreData() {
         const salesB = b.products.reduce((acc, current) => acc + (current.total_sales || 0), 0);
         return salesB - salesA;
       });
+
+    // Deduplicate products across categories (assign to the first/highest selling category only)
+    const seenProductIds = new Set();
+    const groupedData = rawGroupedData.map(cat => {
+      const uniqueProducts = cat.products.filter(p => {
+        if (seenProductIds.has(p.id)) return false;
+        seenProductIds.add(p.id);
+        return true;
+      });
+      return { ...cat, products: uniqueProducts };
+    }).filter(cat => cat.products.length > 0);
 
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
     fs.writeFileSync(targetPath, JSON.stringify(groupedData, null, 2));
