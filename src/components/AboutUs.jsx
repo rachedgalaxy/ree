@@ -276,7 +276,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
-      className={`flex gap-4 overflow-x-auto py-8 px-[15vw] md:px-[25%] lg:px-[30%] select-none
+      className={`flex gap-4 overflow-x-auto py-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
         scroll-smooth snap-x snap-mandatory`}
