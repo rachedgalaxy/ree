@@ -64,19 +64,13 @@ const AboutUs = () => {
         animate="visible"
         className="flex flex-col items-center justify-center space-y-12"
       >
-        {/* Header Section */}
-        <motion.div variants={itemVariants} className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800/50 mb-2 shadow-sm">
-            <span className="text-xs md:text-sm font-bold text-blue-700 dark:text-blue-300">
-              {t('about.title')}
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-            Redeem <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Store</span>
-          </h1>
-          <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
-            {t('about.subtitle')}
-          </p>
+        {/* Header Section - Replaced with Branding Image */}
+        <motion.div variants={itemVariants} className="w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl border border-white/20">
+          <img 
+            src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
+            alt="Redeem Store Support" 
+            className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+          />
         </motion.div>
 
         {/* Features Grid */}
