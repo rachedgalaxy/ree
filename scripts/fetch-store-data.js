@@ -228,9 +228,23 @@ async function fetchStoreData() {
 
     console.log(`✅ Successfully generated static data with ${groupedData.length} categories! Saved to ${targetPath}`);
   } catch (error) {
-    console.warn(`⚠️ Data Fetch Error: ${error.message}. Falling back to default mock data for development.`);
+    console.warn(`⚠️ Data Fetch Error: ${error.message}.`);
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
     
+    // Check if we already have valid data. If so, don't overwrite it with mock data!
+    if (fs.existsSync(targetPath)) {
+        try {
+            const existing = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
+            if (Array.isArray(existing) && existing.length > 0 && existing[0].id !== "mock-category") {
+                console.log('✅ Local data exists and is valid. Preserving existing data instead of falling back to mock.');
+                return;
+            }
+        } catch (e) {
+            // If parsing existing fails, we proceed to fallback
+        }
+    }
+
+    console.log('🔄 No valid local data found. Generating minimal fallback data...');
     // Minimal valid structure to keep site functional
     const fallbackData = [
       {
