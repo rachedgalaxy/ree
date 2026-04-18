@@ -380,33 +380,25 @@ const Hero = () => {
                     key={product.id}
                     href={getLocalizedLink(product.woocommerceUrl || `https://redeem-dz.com/product/${product.id}`, i18n.language)}
                     target="_self"
-                    className={`col-span-1 row-span-2 relative rounded-xl overflow-hidden group shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 cursor-pointer ${isFirst ? 'bg-gradient-to-br from-indigo-600 to-purple-800' : 'bg-gradient-to-br from-rose-500 to-red-700'}`}
+                    className="col-span-1 row-span-2 relative rounded-xl overflow-hidden group shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 cursor-pointer bg-black"
                   >
                     {product.image && (
                       <img 
                         src={product.image} 
                         alt={product.translations?.[i18n.language]?.name || product.name} 
-                        className="absolute inset-0 w-[150%] h-[150%] -top-[25%] -left-[25%] object-cover transition-transform duration-700 group-hover:scale-100 scale-110 opacity-40 mix-blend-overlay blur-sm" 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity group-hover:opacity-90"></div>
                     
-                    {/* Centered Floating Image */}
-                    <div className="absolute inset-x-0 top-3 flex justify-center perspective-[1000px]">
-                       <img 
-                          src={product.image} 
-                          className="w-16 h-16 md:w-20 md:h-20 object-contain rounded drop-shadow-2xl group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-500" 
-                       />
-                    </div>
-
-                    <div className="absolute bottom-3 left-2 right-2 text-center text-white flex flex-col items-center">
-                       <span className={`bg-[#ff2d55] text-[10px] md:text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center justify-center shadow-lg mb-1.5 ${isFirst ? 'animate-pulse' : ''} ${i18n.language === 'ar' ? 'font-sans' : 'font-sans'}`}>
+                    <div className="absolute bottom-3 left-3 right-3 text-white flex flex-col items-start justify-end h-full z-10">
+                       <span className="bg-[#ff2d55] text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-sm flex items-center justify-center shadow-lg mb-1.5 animate-pulse uppercase tracking-wider">
                           -{discountPercent}% OFF
                        </span>
-                       <h3 className={`text-[10px] md:text-[11px] font-bold leading-tight drop-shadow-md line-clamp-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                       <h3 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                          {product.translations?.[i18n.language]?.name || product.name}
                        </h3>
-                       <div className={`mt-1 text-[11px] md:text-[13px] font-black text-[#34c759] tracking-tight ${i18n.language === 'ar' ? 'font-sans' : 'font-sans'}`}>
+                       <div className={`mt-1.5 text-[11px] md:text-[12px] font-black text-[#34c759] tracking-tight ${i18n.language === 'ar' ? 'font-sans' : 'font-sans'}`}>
                          {product.price} {isRtl ? 'دج' : 'DA'}
                        </div>
                     </div>
