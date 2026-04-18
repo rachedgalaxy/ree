@@ -94,15 +94,19 @@ const AboutUs = () => {
                     }}
                     className="flex flex-col gap-1"
                   >
-                    {[...Array(20)].map((_, j) => (
-                      <span 
-                        key={j} 
-                        className="text-[14px] md:text-[16px] font-mono font-bold text-red-600"
-                        style={{ opacity: (20 - j) / 20 }}
-                      >
-                        {Math.floor(Math.random() * 10)}
-                      </span>
-                    ))}
+                    {[...Array(20)].map((_, j) => {
+                      const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                      const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                      return (
+                        <span 
+                          key={j} 
+                          className="text-[14px] md:text-[16px] font-mono font-bold text-red-600"
+                          style={{ opacity: (20 - j) / 20 }}
+                        >
+                          {randomChar}
+                        </span>
+                      );
+                    })}
                   </motion.div>
                 </div>
               </div>
