@@ -12,19 +12,14 @@ async function fetchStoreData() {
   const CONSUMER_KEY = process.env.WC_CONSUMER_KEY;
   const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET;
 
-  if (!CONSUMER_KEY || !CONSUMER_SECRET) {
-    process.exit(1);
-  }
-
-  const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString('base64');
+  const authQuery = `&consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}`;
   const headers = {
-    'Authorization': `Basic ${auth}`,
     'Content-Type': 'application/json',
   };
 
   try {
     console.log('⏳ Fetching Arabic Categories...');
-    const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
+    const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true${authQuery}`, { headers });
     const categoriesText = await categoriesResAr.text(); 
     let categoriesAr;
     try {
@@ -38,15 +33,15 @@ async function fetchStoreData() {
     }
 
     console.log('⏳ Fetching English Categories...');
-    const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en`, { headers });
+    const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en${authQuery}`, { headers });
     const categoriesEn = categoriesResEn.ok ? await categoriesResEn.json() : categoriesAr;
 
     console.log('⏳ Fetching Arabic Products...');
-    const productsResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish`, { headers });
+    const productsResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish${authQuery}`, { headers });
     const productsAr = await productsResAr.json();
 
     console.log('⏳ Fetching English Products...');
-    const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en`, { headers });
+    const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en${authQuery}`, { headers });
     const productsEn = productsResEn.ok ? await productsResEn.json() : productsAr;
 
     if (!Array.isArray(categoriesAr) || !Array.isArray(productsAr)) {
