@@ -108,12 +108,12 @@ const ProductCard = ({ product }) => {
             {tProduct.name}
           </h3>
           {product.price && !isOutOfStock && (
-            <div className="flex items-center justify-between mt-1 w-full flex-wrap gap-y-1">
-              <div className="flex items-baseline gap-1">
-                <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+            <div className="flex items-center justify-between mt-1 w-full gap-1">
+              <div className="flex items-baseline gap-1 min-w-0">
+                <span className="text-[9px] text-gray-400 font-medium uppercase tracking-wider whitespace-nowrap">
                   {i18n.language === 'ar' ? 'تبدأ من' : 'From'}
                 </span>
-                <span className="text-[12px] md:text-[14px] font-bold text-[#e11e3b]">
+                <span className="text-[11px] md:text-[12.5px] font-bold text-[#e11e3b] whitespace-nowrap">
                   {product.price} {i18n.language === 'ar' ? 'دج' : 'DA'}
                 </span>
               </div>
