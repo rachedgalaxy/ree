@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
+import { getLocalizedLink } from '../utils/url';
 
 const ProductCard = ({ product }) => {
   const { i18n } = useTranslation();
@@ -10,7 +11,7 @@ const ProductCard = ({ product }) => {
 
   const baseWooUrl = product.woocommerceUrl || '#';
   const urlWithLang = i18n.language === 'en' && baseWooUrl !== '#' 
-    ? (baseWooUrl.includes('?') ? `${baseWooUrl}&lang=en` : `${baseWooUrl}?lang=en`)
+    ? getLocalizedLink(baseWooUrl, i18n.language)
     : baseWooUrl;
 
   useEffect(() => {
