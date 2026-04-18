@@ -1,0 +1,50 @@
+[
+  {
+    "id": 2143,
+    "reviewer": "Da***",
+    "rating": 5,
+    "review": "شحن سريع و موثوق.",
+    "date": "2026-02-03",
+    "product": 3094
+  },
+  {
+    "id": 1120,
+    "reviewer": "za***",
+    "rating": 4,
+    "review": "Prices a bit high but the services are fast",
+    "date": "2025-10-15",
+    "product": 3028
+  },
+  {
+    "id": 837,
+    "reviewer": "ma***",
+    "rating": 5,
+    "review": "اقسم بالله انك افضل موقع شحن بسعر ارخص و امن... تقيمي 5 نجوم",
+    "date": "2025-09-03",
+    "product": 3275
+  },
+  {
+    "id": 678,
+    "reviewer": "Ha***",
+    "rating": 5,
+    "review": "شكرا لكم ❤",
+    "date": "2025-07-29",
+    "product": 3177
+  },
+  {
+    "id": 673,
+    "reviewer": "ta***",
+    "rating": 5,
+    "review": "شكرا للعمل السريع والموثوق سيكون موقعكم محطة شرائي دائما ♥",
+    "date": "2025-07-27",
+    "product": 3361
+  },
+  {
+    "id": 672,
+    "reviewer": "Na***",
+    "rating": 5,
+    "review": "وصل الطلب شكرا",
+    "date": "2025-07-27",
+    "product": 3177
+  }
+]

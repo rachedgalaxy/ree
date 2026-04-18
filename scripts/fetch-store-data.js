@@ -54,6 +54,35 @@ async function fetchStoreData() {
     const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en`, { headers });
     const productsEn = productsResEn.ok ? await productsResEn.json() : productsAr;
 
+    console.log('⏳ Fetching Product Reviews...');
+    const reviewsRes = await fetch(`${WC_URL}/wp-json/wc/v3/products/reviews?per_page=50&status=approved&order=desc&orderby=date`, { headers });
+    const rawReviews = reviewsRes.ok ? await reviewsRes.json() : [];
+
+    // Process reviews: mask reviewer name for privacy, keep rating + comment
+    const processedReviews = Array.isArray(rawReviews)
+      ? rawReviews
+          .filter(r => r.rating >= 4 && r.review?.trim()) // Only 4-5 star reviews
+          .map(r => {
+            const name = r.reviewer || 'مستخدم';
+            // Show first 2 chars + stars, e.g. "أح***"
+            const masked = name.length > 2
+              ? name.slice(0, 2) + '***'
+              : name.slice(0, 1) + '***';
+            return {
+              id: r.id,
+              reviewer: masked,
+              rating: r.rating,
+              review: r.review.replace(/<[^>]+>/g, '').trim(), // Strip HTML tags
+              date: r.date_created?.split('T')[0] || '',
+              product: r.product_id
+            };
+          })
+      : [];
+
+    const reviewsPath = path.join(__dirname, '../src/data/reviewsData.json');
+    fs.writeFileSync(reviewsPath, JSON.stringify(processedReviews, null, 2));
+    console.log(`✅ Saved ${processedReviews.length} reviews to reviewsData.json`);
+
     if (!Array.isArray(categoriesAr) || !Array.isArray(productsAr)) {
       throw new Error(`Invalid response from API (categories: ${typeof categoriesAr})`);
     }

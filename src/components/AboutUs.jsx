@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Gamepad2, Zap, ShieldCheck, Award } from 'lucide-react';
+import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
+import reviewsData from '../data/reviewsData.json';
 
 const AboutUs = () => {
   const { t } = useTranslation();
@@ -156,8 +157,160 @@ const AboutUs = () => {
           ))}
         </motion.div>
 
+        {/* Reviews Section */}
+        {reviewsData.length > 0 && (
+          <motion.div
+            variants={itemVariants}
+            className="w-full"
+          >
+            {/* Section Header */}
+            <div className="flex flex-col items-center gap-2 mb-8">
+              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-xs font-bold uppercase tracking-widest">
+                <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                {i18n.language === 'ar' ? 'آراء عملائنا' : 'Customer Reviews'}
+              </div>
+              <h2 className={`text-2xl md:text-3xl font-black text-gray-900 text-center ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar' ? 'ماذا يقول عملاؤنا؟' : 'What our customers say?'}
+              </h2>
+            </div>
+
+            {/* Draggable Slider */}
+            <ReviewsSlider reviews={reviewsData} isRtl={i18n.language === 'ar'} />
+          </motion.div>
+        )}
+
       </motion.div>
     </div>
+  );
+};
+
+/* ─── Draggable Reviews Slider ─────────────────────────── */
+const ReviewsSlider = ({ reviews, isRtl }) => {
+  const sliderRef = useRef(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasMoved, setHasMoved] = useState(false);
+
+  const onMouseDown = (e) => {
+    isDown.current = true;
+    setIsDragging(true);
+    setHasMoved(false);
+    startX.current = e.pageX - sliderRef.current.offsetLeft;
+    scrollStart.current = sliderRef.current.scrollLeft;
+  };
+
+  const onMouseLeave = () => { isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
+  const onMouseUp = () => { isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
+
+  const onMouseMove = (e) => {
+    if (!isDown.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    if (Math.abs(walk) > 5) setHasMoved(true);
+    sliderRef.current.scrollLeft = scrollStart.current - walk;
+  };
+
+  // Touch support
+  const onTouchStart = (e) => {
+    startX.current = e.touches[0].pageX;
+    scrollStart.current = sliderRef.current.scrollLeft;
+  };
+  const onTouchMove = (e) => {
+    const walk = (e.touches[0].pageX - startX.current) * 1.2;
+    sliderRef.current.scrollLeft = scrollStart.current - walk;
+  };
+
+  return (
+    <div
+      ref={sliderRef}
+      onMouseDown={onMouseDown}
+      onMouseLeave={onMouseLeave}
+      onMouseUp={onMouseUp}
+      onMouseMove={onMouseMove}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      className={`flex gap-4 overflow-x-auto pb-4 pt-2 px-1 select-none
+        [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+        ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
+        scroll-smooth snap-x snap-mandatory`}
+    >
+      {reviews.map((review, idx) => (
+        <ReviewCard key={review.id} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} />
+      ))}
+    </div>
+  );
+};
+
+/* ─── Single Review Card ─────────────────────────────────── */
+const ReviewCard = ({ review, idx, hasMoved, isRtl }) => {
+  const gradients = [
+    'from-indigo-50 to-blue-50 border-indigo-100',
+    'from-rose-50 to-pink-50 border-rose-100',
+    'from-amber-50 to-yellow-50 border-amber-100',
+    'from-emerald-50 to-teal-50 border-emerald-100',
+    'from-purple-50 to-violet-50 border-purple-100',
+    'from-sky-50 to-cyan-50 border-sky-100',
+  ];
+  const accentColors = ['text-indigo-500','text-rose-500','text-amber-500','text-emerald-500','text-purple-500','text-sky-500'];
+  const gradient = gradients[idx % gradients.length];
+  const accent = accentColors[idx % accentColors.length];
+
+  const initials = review.reviewer.slice(0, 2).toUpperCase();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: idx * 0.1, type: 'spring', stiffness: 100 }}
+      className={`snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[360px]
+        bg-gradient-to-br ${gradient}
+        rounded-3xl border p-6 flex flex-col gap-4
+        shadow-sm hover:shadow-xl transition-shadow duration-500 group`}
+    >
+      {/* Quote icon */}
+      <Quote size={28} className={`${accent} opacity-30 rotate-180 -mb-2`} />
+
+      {/* Review text */}
+      <p className={`text-gray-700 text-sm leading-relaxed font-medium flex-1 line-clamp-4 ${isRtl ? 'text-right font-kufi' : 'text-left'}`}>
+        {review.review}
+      </p>
+
+      {/* Stars */}
+      <div className="flex items-center gap-0.5">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            size={14}
+            className={i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200 fill-gray-200'}
+          />
+        ))}
+      </div>
+
+      {/* Reviewer info */}
+      <div className="flex items-center gap-3 pt-2 border-t border-black/5">
+        {/* Avatar */}
+        <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white shadow-sm
+          bg-gradient-to-br ${idx % 2 === 0 ? 'from-gray-700 to-gray-900' : 'from-red-500 to-red-700'}`}>
+          {initials}
+        </div>
+        <div className="flex flex-col">
+          <span className={`text-sm font-bold text-gray-900 tracking-wide ${isRtl ? 'font-kufi' : ''}`}>
+            {review.reviewer}
+          </span>
+          <span className="text-[10px] text-gray-400 font-medium">{review.date}</span>
+        </div>
+        {/* Verified badge */}
+        <div className="mr-auto ml-auto flex-1 flex justify-end">
+          <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+            <ShieldCheck size={10} />
+            {isRtl ? 'موثّق' : 'Verified'}
+          </span>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
