@@ -119,11 +119,8 @@ async function fetchStoreData() {
             if (a.in_stock && !b.in_stock) return -1;
             if (!a.in_stock && b.in_stock) return 1;
             
-            // Then Hot products first among the in-stock ones
-            if (a.is_hot && !b.is_hot) return -1;
-            if (!a.is_hot && b.is_hot) return 1;
-            
-            return 0;
+            // Then sort by total sales descending
+            return (b.total_sales || 0) - (a.total_sales || 0);
           })
         };
       })
