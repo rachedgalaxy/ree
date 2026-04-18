@@ -280,7 +280,7 @@ const Hero = () => {
             <a 
               href={getLocalizedLink('https://redeem-dz.com/shop/', i18n.language)}
               target="_self"
-              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
+              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
                <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faStore} size="3x" />
@@ -295,7 +295,7 @@ const Hero = () => {
             <a 
               href={getLocalizedLink('https://redeem-dz.com/my-account/orders/', i18n.language)}
               target="_self"
-              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
+              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
                <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faShoppingBag} size="3x" />
@@ -310,7 +310,7 @@ const Hero = () => {
             <a 
               href={getLocalizedLink('https://redeem-dz.com/product/xbox/', i18n.language)}
               target="_self"
-              className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden group shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 cursor-pointer"
+              className="col-span-2 row-span-2 relative rounded-xl overflow-hidden group shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100 cursor-pointer"
             >
                <img 
                  src="https://redeem-dz.com/wp-content/uploads/2026/03/xbox-pass-REDEEM-DZ-01.webp" 
@@ -339,7 +339,7 @@ const Hero = () => {
             {/* Bottom Left: FAQ */}
             <div 
               onClick={() => setShowFAQ(true)}
-              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
+              className="col-span-1 row-span-1 bg-white hover:bg-white/90 rounded-xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all cursor-pointer group border border-gray-100 overflow-hidden relative"
             >
                <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
                  <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
@@ -354,7 +354,7 @@ const Hero = () => {
             <a 
               href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" 
               target="_blank" rel="noreferrer"
-              className="col-span-1 row-span-1 bg-[#25D366]/5 hover:bg-[#25D366]/10 rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-lg transition-all border border-[#25D366]/20 group"
+              className="col-span-1 row-span-1 bg-[#25D366]/5 hover:bg-[#25D366]/10 rounded-xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-lg transition-all border border-[#25D366]/20 group"
             >
                <FontAwesomeIcon icon={faWhatsapp} className="text-[#25D366] text-xl group-hover:scale-110 transition-transform" />
                <div className="flex flex-col">
