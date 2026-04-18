@@ -276,7 +276,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
-      className={`flex gap-4 overflow-x-auto py-8 px-[10vw] md:px-[20%] select-none
+      className={`flex gap-4 overflow-x-auto py-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
         scroll-smooth snap-x snap-mandatory`}
@@ -311,12 +311,12 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   return (
     <motion.div
       animate={{ 
-        opacity: isActive ? 1 : 0.3, 
+        opacity: isActive ? 1 : 0.6, 
         scale: isActive ? 1 : 0.9,
-        filter: isActive ? 'blur(0px)' : 'blur(2px)'
+        filter: isActive ? 'blur(0px)' : 'blur(1px)'
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`snap-center shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[360px]
+      className={`snap-center shrink-0 w-[calc(50%-8px)] md:w-[calc(33.333%-11px)]
         bg-gradient-to-br ${gradient}
         rounded-3xl border p-5 md:p-6 flex flex-col gap-3 md:gap-4
         shadow-sm hover:shadow-xl transition-shadow duration-500 group relative z-${isActive ? '10' : '0'}`}
