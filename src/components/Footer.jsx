@@ -2,17 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { Info, ShieldCheck, FileText } from 'lucide-react';
-
 const Footer = () => {
   const { i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
-
-  const legalLinks = [
-    { hash: '#/about-us',          icon: <Info className="w-3 h-3" />,        ar: 'من نحن',          en: 'About Us' },
-    { hash: '#/privacy-policy',    icon: <ShieldCheck className="w-3 h-3" />, ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
-    { hash: '#/terms-of-service',  icon: <FileText className="w-3 h-3" />,    ar: 'الشروط والأحكام', en: 'Terms of Service' },
-  ];
 
   return (
     <footer className="w-full bg-[#efefef]/80 backdrop-blur-xl border-t border-gray-200/50 py-6 px-6 relative z-10">
@@ -35,20 +27,6 @@ const Footer = () => {
           <a href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="WhatsApp">
             <FontAwesomeIcon icon={faWhatsapp} className="text-[12px] md:text-[14px]" />
           </a>
-        </div>
-
-        {/* Legal Links */}
-        <div className="flex items-center gap-1.5 flex-wrap justify-center">
-          {legalLinks.map((link) => (
-            <a
-              key={link.hash}
-              href={link.hash}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/70 hover:bg-white border border-gray-200/60 hover:border-gray-300 text-gray-600 hover:text-gray-900 text-[11px] font-semibold shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
-            >
-              {link.icon}
-              {isRtl ? link.ar : link.en}
-            </a>
-          ))}
         </div>
 
         {/* Payment Graphic */}

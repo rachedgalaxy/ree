@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, ArrowLeft, ArrowRight, X, ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowLeft, ArrowRight, X, ChevronDown, HelpCircle, Info, ShieldCheck, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedLink } from '../utils/url';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -92,6 +92,34 @@ const FAQOverlay = ({ isOpen, onClose }) => {
 
             {/* Content Container */}
             <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
+              {/* Legal Links Quick Access */}
+              <div className="flex items-center gap-2 mb-6 flex-wrap">
+                <a 
+                  href="#/about-us" 
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-bold border border-blue-100 dark:border-blue-800/30 hover:bg-blue-100 transition-colors"
+                >
+                  <Info size={14} />
+                  {i18n.language === 'ar' ? 'من نحن' : 'About Us'}
+                </a>
+                <a 
+                  href="#/privacy-policy" 
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-100 dark:border-emerald-800/30 hover:bg-emerald-100 transition-colors"
+                >
+                  <ShieldCheck size={14} />
+                  {i18n.language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+                </a>
+                <a 
+                  href="#/terms-of-service" 
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 text-xs font-bold border border-purple-100 dark:border-purple-800/30 hover:bg-purple-100 transition-colors"
+                >
+                  <FileText size={14} />
+                  {i18n.language === 'ar' ? 'الشروط والأحكام' : 'Terms of Service'}
+                </a>
+              </div>
+
               <div className="space-y-3">
                 {faqData.map((item, index) => (
                   <div key={index} className="overflow-hidden rounded-2xl bg-white/40 border border-white/60 hover:border-black/10 transition-colors">
