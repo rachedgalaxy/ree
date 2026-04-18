@@ -64,49 +64,48 @@ const AboutUs = () => {
         animate="visible"
         className="flex flex-col items-center justify-center space-y-12"
       >
-        {/* Header Section - Expanded with 8 Shining Glass Icons */}
+        {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
           variants={itemVariants} 
-          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl"
+          className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-3xl group"
         >
-          {/* Decorative Pattern Layer */}
-          <div className="absolute inset-0 z-20 pointer-events-none">
-            {/* 8 Floating Icon Circles on the left */}
-            {[
-              { size: 'w-14 h-14', pos: 'left-[4%] top-[15%]', icon: <ShieldCheck className="w-5 h-5 text-red-500/80" />, delay: 0 },
-              { size: 'w-16 h-16', pos: 'left-[14%] top-[45%]', icon: <Award className="w-6 h-6 text-red-500/80" />, delay: 0.5 },
-              { size: 'w-12 h-12', pos: 'left-[6%] top-[75%]', icon: <Zap className="w-4 h-4 text-red-500/80" />, delay: 1 },
-              { size: 'w-15 h-15', pos: 'left-[22%] top-[30%]', icon: <Gamepad2 className="w-5 h-5 text-red-500/80" />, delay: 1.5 },
-              // Duplicate set with different positions
-              { size: 'w-11 h-11', pos: 'left-[10%] top-[30%]', icon: <ShieldCheck className="w-4 h-4 text-red-500/70" />, delay: 2 },
-              { size: 'w-13 h-13', pos: 'left-[20%] top-[65%]', icon: <Award className="w-5 h-5 text-red-500/70" />, delay: 2.5 },
-              { size: 'w-10 h-10', pos: 'left-[30%] top-[45%]', icon: <Zap className="w-3 h-3 text-red-500/70" />, delay: 0.8 },
-              { size: 'w-12 h-12', pos: 'left-[35%] top-[15%]', icon: <Gamepad2 className="w-4 h-4 text-red-500/70" />, delay: 1.2 },
-            ].map((dot, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ 
-                  opacity: [0.4, 0.7, 0.4],
-                  y: [0, i % 2 === 0 ? -20 : 20, 0],
-                  x: [0, i % 3 === 0 ? 15 : -15, 0],
+          {/* Matrix Effect Layer */}
+          <div className="absolute inset-0 z-20 pointer-events-none flex" dir="ltr">
+            {/* Concentration of "digital rain" on the left */}
+            {[...Array(15)].map((_, i) => (
+              <div 
+                key={i} 
+                className="relative flex-none"
+                style={{ 
+                  width: `${Math.random() * 20 + 10}px`,
+                  opacity: Math.max(0.1, (15 - i) / 15 * 0.8), // Fades out as we go right
+                  marginLeft: i === 0 ? '20px' : '4px'
                 }}
-                transition={{ 
-                  duration: 5 + (i % 4), 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: dot.delay 
-                }}
-                className={`absolute ${dot.pos} ${dot.size} rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group overflow-hidden`}
               >
-                {/* Shining Reflective Effect */}
-                <motion.div 
-                  animate={{ x: ['-100%', '100%'] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full skew-x-12"
-                />
-                <div className="relative z-10">{dot.icon}</div>
-              </motion.div>
+                <div className="absolute top-0 left-0 w-full flex flex-col items-center">
+                  <motion.div
+                    initial={{ y: -500 }}
+                    animate={{ y: 500 }}
+                    transition={{ 
+                      duration: 3 + Math.random() * 5, 
+                      repeat: Infinity, 
+                      ease: "linear",
+                      delay: Math.random() * 5 
+                    }}
+                    className="flex flex-col gap-1"
+                  >
+                    {[...Array(20)].map((_, j) => (
+                      <span 
+                        key={j} 
+                        className="text-[10px] md:text-[12px] font-mono font-bold text-red-600 drop-shadow-[0_0_8px_rgba(220,38,38,0.8)]"
+                        style={{ opacity: (20 - j) / 20 }}
+                      >
+                        {Math.floor(Math.random() * 10)}
+                      </span>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
             ))}
           </div>
 
@@ -114,8 +113,10 @@ const AboutUs = () => {
             <img 
               src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
               alt="Redeem Store Support" 
-              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-1000"
+              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
+            {/* Dark overlay on the left to make code pop */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
           </div>
         </motion.div>
 
