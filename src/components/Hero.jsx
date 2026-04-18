@@ -274,7 +274,7 @@ const Hero = () => {
           </div>
 
           {/* Premium Bento Sidebar (Flex 1/4) */}
-          <div className="hidden lg:grid w-full lg:w-1/4 grid-cols-2 grid-rows-4 gap-3 h-[450px]">
+          <div className="grid w-full lg:w-1/4 grid-cols-2 grid-rows-4 gap-3 h-[450px] mt-2 lg:mt-0">
             
             {/* Top Left: The Store */}
             <a 
