@@ -73,15 +73,15 @@ const AboutUs = () => {
           <div className="absolute inset-0 z-20 pointer-events-none">
             {/* 8 Floating Icon Circles on the left */}
             {[
-              { size: 'w-14 h-14', pos: 'left-[4%] top-[15%]', icon: <ShieldCheck className="w-5 h-5 text-white/80" />, delay: 0 },
-              { size: 'w-16 h-16', pos: 'left-[14%] top-[45%]', icon: <Award className="w-6 h-6 text-white/80" />, delay: 0.5 },
-              { size: 'w-12 h-12', pos: 'left-[6%] top-[75%]', icon: <Zap className="w-4 h-4 text-white/80" />, delay: 1 },
-              { size: 'w-15 h-15', pos: 'left-[22%] top-[30%]', icon: <Gamepad2 className="w-5 h-5 text-white/80" />, delay: 1.5 },
+              { size: 'w-14 h-14', pos: 'left-[4%] top-[15%]', icon: <ShieldCheck className="w-5 h-5 text-red-500/80" />, delay: 0 },
+              { size: 'w-16 h-16', pos: 'left-[14%] top-[45%]', icon: <Award className="w-6 h-6 text-red-500/80" />, delay: 0.5 },
+              { size: 'w-12 h-12', pos: 'left-[6%] top-[75%]', icon: <Zap className="w-4 h-4 text-red-500/80" />, delay: 1 },
+              { size: 'w-15 h-15', pos: 'left-[22%] top-[30%]', icon: <Gamepad2 className="w-5 h-5 text-red-500/80" />, delay: 1.5 },
               // Duplicate set with different positions
-              { size: 'w-11 h-11', pos: 'left-[10%] top-[30%]', icon: <ShieldCheck className="w-4 h-4 text-white/70" />, delay: 2 },
-              { size: 'w-13 h-13', pos: 'left-[20%] top-[65%]', icon: <Award className="w-5 h-5 text-white/70" />, delay: 2.5 },
-              { size: 'w-10 h-10', pos: 'left-[30%] top-[45%]', icon: <Zap className="w-3 h-3 text-white/70" />, delay: 0.8 },
-              { size: 'w-12 h-12', pos: 'left-[35%] top-[15%]', icon: <Gamepad2 className="w-4 h-4 text-white/70" />, delay: 1.2 },
+              { size: 'w-11 h-11', pos: 'left-[10%] top-[30%]', icon: <ShieldCheck className="w-4 h-4 text-red-500/70" />, delay: 2 },
+              { size: 'w-13 h-13', pos: 'left-[20%] top-[65%]', icon: <Award className="w-5 h-5 text-red-500/70" />, delay: 2.5 },
+              { size: 'w-10 h-10', pos: 'left-[30%] top-[45%]', icon: <Zap className="w-3 h-3 text-red-500/70" />, delay: 0.8 },
+              { size: 'w-12 h-12', pos: 'left-[35%] top-[15%]', icon: <Gamepad2 className="w-4 h-4 text-red-500/70" />, delay: 1.2 },
             ].map((dot, i) => (
               <motion.div
                 key={i}
