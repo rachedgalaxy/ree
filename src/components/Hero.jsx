@@ -93,30 +93,30 @@ const FAQOverlay = ({ isOpen, onClose }) => {
             {/* Content Container */}
             <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
               {/* Legal Links Quick Access - Minimalist Light Theme */}
-              <div className="flex items-center gap-2 mb-6 flex-wrap">
+              <div className="flex items-center justify-between gap-1.5 md:gap-2 mb-6 w-full flex-nowrap">
                 <a 
                   href="#/about-us" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[11px] md:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95"
+                  className="flex flex-1 justify-center items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[10px] sm:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95 whitespace-nowrap shrink-0"
                 >
-                  <Info size={14} className="opacity-70 group-hover:opacity-100" />
+                  <Info size={12} className="opacity-70 group-hover:opacity-100 hidden sm:block" />
                   {i18n.language === 'ar' ? 'من نحن' : 'About Us'}
                 </a>
                 <a 
                   href="#/privacy-policy" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[11px] md:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95"
+                  className="flex flex-1 justify-center items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[10px] sm:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95 whitespace-nowrap shrink-0"
                 >
-                  <ShieldCheck size={14} className="opacity-70 group-hover:opacity-100" />
-                  {i18n.language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+                  <ShieldCheck size={12} className="opacity-70 group-hover:opacity-100 hidden sm:block" />
+                  {i18n.language === 'ar' ? 'الخصوصية' : 'Privacy'}
                 </a>
                 <a 
                   href="#/terms-of-service" 
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[11px] md:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95"
+                  className="flex flex-1 justify-center items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-full bg-black/5 hover:bg-black/10 text-black/70 hover:text-black text-[10px] sm:text-xs font-bold border border-black/5 hover:border-black/10 transition-all shadow-sm active:scale-95 whitespace-nowrap shrink-0"
                 >
-                  <FileText size={14} className="opacity-70 group-hover:opacity-100" />
-                  {i18n.language === 'ar' ? 'الشروط والأحكام' : 'Terms of Service'}
+                  <FileText size={12} className="opacity-70 group-hover:opacity-100 hidden sm:block" />
+                  {i18n.language === 'ar' ? 'الشروط والأحكام' : 'Terms'}
                 </a>
               </div>
 
