@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import https from 'https';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,14 +16,20 @@ async function fetchStoreData() {
   const CONSUMER_KEY = process.env.WC_CONSUMER_KEY;
   const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET;
 
-  const authQuery = `&consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}`;
+  if (!CONSUMER_KEY || !CONSUMER_SECRET) {
+      throw new Error('WC_CONSUMER_KEY or WC_CONSUMER_SECRET is missing from environment variables.');
+  }
+
+  const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString('base64');
   const headers = {
     'Content-Type': 'application/json',
+    'Authorization': `Basic ${auth}`,
+    'User-Agent': 'Redeem-Storefront-Fetch/1.0'
   };
 
   try {
     console.log('⏳ Fetching Arabic Categories...');
-    const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true${authQuery}`, { headers });
+    const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
     const categoriesText = await categoriesResAr.text(); 
     let categoriesAr;
     try {
@@ -33,15 +43,15 @@ async function fetchStoreData() {
     }
 
     console.log('⏳ Fetching English Categories...');
-    const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en${authQuery}`, { headers });
+    const categoriesResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true&lang=en`, { headers });
     const categoriesEn = categoriesResEn.ok ? await categoriesResEn.json() : categoriesAr;
 
     console.log('⏳ Fetching Arabic Products...');
-    const productsResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish${authQuery}`, { headers });
+    const productsResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish`, { headers });
     const productsAr = await productsResAr.json();
 
     console.log('⏳ Fetching English Products...');
-    const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en${authQuery}`, { headers });
+    const productsResEn = await fetch(`${WC_URL}/wp-json/wc/v3/products?per_page=100&status=publish&lang=en`, { headers });
     const productsEn = productsResEn.ok ? await productsResEn.json() : productsAr;
 
     if (!Array.isArray(categoriesAr) || !Array.isArray(productsAr)) {
