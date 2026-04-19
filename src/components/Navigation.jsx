@@ -142,44 +142,37 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
             </div>
           </div>
 
-          {/* Mobile Search Overlay - SINGLE SMOOTH STEP */}
+          {/* Mobile Search Overlay - DESKTOP STYLE */}
           <AnimatePresence>
             {showOverlaySearch && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="absolute inset-0 z-50 flex items-center bg-white px-2"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 z-50 flex items-center bg-white px-4"
               >
-                <div className="relative w-full flex items-center gap-2">
-                  <div className="relative flex-1">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
-                      <Search className="w-4 h-4 text-[#e11e3b]" />
-                    </div>
-                    <input 
-                      ref={searchInputRef}
-                      type="text" 
-                      value={localSearch}
-                      onChange={(e) => setLocalSearch(e.target.value)}
-                      placeholder={i18n.language === 'ar' ? 'ما الذي تبحث عنه؟' : 'What are you looking for?'}
-                      className="w-full bg-gray-100/80 border-none text-gray-900 text-base font-medium rounded-2xl outline-none block ps-11 pe-11 p-3"
-                      dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
-                    />
-                    {localSearch && (
-                      <button
-                        onClick={() => setLocalSearch('')}
-                        className="absolute inset-y-0 end-12 flex items-center text-gray-400"
-                      >
-                        <X size={18} />
-                      </button>
-                    )}
+                <div className="relative w-full flex items-center">
+                  <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+                    <Search className="w-4 h-4 text-[#e11e3b]" />
                   </div>
+                  <input 
+                    ref={searchInputRef}
+                    type="text" 
+                    value={localSearch}
+                    onChange={(e) => setLocalSearch(e.target.value)}
+                    placeholder={i18n.language === 'ar' ? 'بحث...' : 'Search...'}
+                    className="w-full bg-gray-100 border-none text-gray-900 text-sm font-medium rounded-full outline-none block ps-11 pe-12 p-2.5"
+                    dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                  />
                   <button
-                    onClick={() => setIsMobileSearchOpen(false)}
-                    className={`text-sm font-bold text-gray-600 px-2 py-2 hover:bg-gray-100 rounded-xl transition-all ${i18n.language === 'ar' ? 'font-kufi' : ''}`}
+                    onClick={() => {
+                      setIsMobileSearchOpen(false);
+                      setLocalSearch('');
+                    }}
+                    className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-400 hover:text-red-500 transition-colors"
                   >
-                    {i18n.language === 'ar' ? 'إلغاء' : 'Cancel'}
+                    <X size={20} />
                   </button>
                 </div>
               </motion.div>
