@@ -49,18 +49,20 @@ const BackToTop = () => {
   };
 
   return (
-    <div className={`fixed bottom-24 z-[60] flex flex-col gap-4 ${isRtl ? 'left-8' : 'right-8'}`}>
+    <>
       <AnimatePresence>
-        {/* Back Button - Only visible if NOT on home page */}
+        {/* Back Button - On the OPPOSITE side from Scroll to Top */}
         {isNotHome && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.5, x: isRtl ? -20 : 20 }}
+            initial={{ opacity: 0, scale: 0.5, x: isRtl ? 20 : -20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.5, x: isRtl ? -20 : 20 }}
+            exit={{ opacity: 0, scale: 0.5, x: isRtl ? 20 : -20 }}
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleBack}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-md backdrop-blur-md transition-all duration-300 border-2 border-gray-400/60 bg-white/10 hover:bg-[#e11e3b] hover:border-[#e11e3b] hover:text-white group"
+            className={`fixed bottom-24 z-[60] w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-md backdrop-blur-md transition-all duration-300 border-2 border-gray-400/60 bg-white/10 hover:bg-[#e11e3b] hover:border-[#e11e3b] hover:text-white group ${
+              isRtl ? 'right-8' : 'left-8'
+            }`}
             style={{
               boxShadow: '0 8px 30px rgba(0, 0, 0, 0.05)'
             }}
@@ -76,7 +78,7 @@ const BackToTop = () => {
           </motion.button>
         )}
 
-        {/* Scroll To Top Button */}
+        {/* Scroll To Top Button - Original side */}
         {isVisible && (
           <motion.button
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -85,7 +87,9 @@ const BackToTop = () => {
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-md backdrop-blur-md transition-all duration-300 border-2 border-gray-400/60 bg-white/10 hover:bg-[#e11e3b] hover:border-[#e11e3b] hover:text-white group"
+            className={`fixed bottom-24 z-[60] w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-md backdrop-blur-md transition-all duration-300 border-2 border-gray-400/60 bg-white/10 hover:bg-[#e11e3b] hover:border-[#e11e3b] hover:text-white group ${
+              isRtl ? 'left-8' : 'right-8'
+            }`}
             style={{
               boxShadow: '0 8px 30px rgba(0, 0, 0, 0.05)'
             }}
@@ -97,7 +101,7 @@ const BackToTop = () => {
           </motion.button>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
 
