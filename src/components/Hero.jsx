@@ -45,44 +45,59 @@ const banners = [
 
 const MatrixRain = ({ isMobile }) => {
   const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const hints = ["REDEEM", "GIFT", "CARD", "TOPUP", "GAMES", "FUN"];
   const columns = isMobile ? 12 : 25;
   
   return (
     <div className="absolute inset-0 z-0 pointer-events-none flex opacity-20" dir="ltr">
-      {[...Array(columns)].map((_, i) => (
-        <div 
-          key={i} 
-          className="relative flex-none"
-          style={{ 
-            width: `${100 / columns}%`,
-            opacity: Math.max(0.1, (columns - i) / columns * 0.8),
-          }}
-        >
-          <div className="absolute top-0 left-0 w-full flex flex-col items-center">
-            <motion.div
-              initial={{ y: -500 }}
-              animate={{ y: 500 }}
-              transition={{ 
-                duration: 10 + Math.random() * 15, 
-                repeat: Infinity, 
-                ease: "linear",
-                delay: Math.random() * 10 
-              }}
-              className="flex flex-col gap-1"
-            >
-              {[...Array(20)].map((_, j) => (
-                <span 
-                  key={j} 
-                  className="text-[10px] md:text-[14px] font-mono font-bold text-gray-500"
-                  style={{ opacity: (20 - j) / 20 }}
-                >
-                  {characters[Math.floor(Math.random() * characters.length)]}
-                </span>
-              ))}
-            </motion.div>
+      {[...Array(columns)].map((_, i) => {
+        const isHintColumn = Math.random() > 0.7;
+        const hint = hints[Math.floor(Math.random() * hints.length)];
+        
+        return (
+          <div 
+            key={i} 
+            className="relative flex-none"
+            style={{ 
+              width: `${100 / columns}%`,
+              opacity: Math.max(0.1, (columns - i) / columns * 0.8),
+            }}
+          >
+            <div className="absolute top-0 left-0 w-full flex flex-col items-center">
+              <motion.div
+                initial={{ y: -500 }}
+                animate={{ y: 500 }}
+                transition={{ 
+                  duration: 10 + Math.random() * 15, 
+                  repeat: Infinity, 
+                  ease: "linear",
+                  delay: Math.random() * 10 
+                }}
+                className="flex flex-col gap-1"
+              >
+                {[...Array(20)].map((_, j) => {
+                  let char;
+                  if (isHintColumn) {
+                    char = hint[j % hint.length];
+                  } else {
+                    char = characters[Math.floor(Math.random() * characters.length)];
+                  }
+                  
+                  return (
+                    <span 
+                      key={j} 
+                      className="text-[10px] md:text-[14px] font-mono font-bold text-gray-500"
+                      style={{ opacity: (20 - j) / 20 }}
+                    >
+                      {char}
+                    </span>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
