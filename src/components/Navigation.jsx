@@ -30,6 +30,22 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
     }
   }, [isMobileSearchOpen]);
 
+  // Local state for debounced search input
+  const [localSearch, setLocalSearch] = useState(searchQuery);
+
+  // Debounce the global search update to improve performance
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchQuery(localSearch);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [localSearch, setSearchQuery]);
+
+  // Keep local search in sync when global search changes (e.g., from suggestions)
+  useEffect(() => {
+    setLocalSearch(searchQuery);
+  }, [searchQuery]);
+
   // Check if we should expand search (mobile only)
   const showFullSearch = isMobile && isMobileSearchOpen;
 
