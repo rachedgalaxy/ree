@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faMobileAlt, faCreditCard, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from './ProductCard';
 import { wcApi } from '../utils/wcApi';
+import { normalizeArabicText, findClosestMatch } from '../utils/searchUtils';
 
 const getCategoryIcon = (id) => {
   // Map slugs or IDs to icons
@@ -116,10 +117,11 @@ const CategorySlider = ({ category, i18n }) => {
   );
 };
 
-const ProductGrid = ({ searchQuery }) => {
+const ProductGrid = ({ searchQuery, setSearchQuery }) => {
   const { i18n } = useTranslation();
   const [storeData, setStoreData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [suggestion, setSuggestion] = useState(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -132,19 +134,28 @@ const ProductGrid = ({ searchQuery }) => {
   }, []);
 
   const filteredCategories = useMemo(() => {
-    const query = (searchQuery || '').toLowerCase();
+    const query = normalizeArabicText(searchQuery || '');
     
     if (!query) return storeData;
 
     return storeData.map(category => {
       const filteredProducts = category.products.filter(p => {
-        const nameAr = (p.translations?.ar?.name || p.name).toLowerCase();
-        const nameEn = (p.translations?.en?.name || p.name).toLowerCase();
+        const nameAr = normalizeArabicText(p.translations?.ar?.name || p.name);
+        const nameEn = normalizeArabicText(p.translations?.en?.name || p.name);
         return nameAr.includes(query) || nameEn.includes(query);
       });
       return { ...category, products: filteredProducts };
     }).filter(category => category.products.length > 0);
   }, [searchQuery, storeData]);
+
+  useEffect(() => {
+    if (searchQuery && filteredCategories.length === 0 && storeData.length > 0) {
+      const match = findClosestMatch(searchQuery, storeData);
+      setSuggestion(match);
+    } else {
+      setSuggestion(null);
+    }
+  }, [searchQuery, filteredCategories.length, storeData]);
 
   if (loading && storeData.length === 0) {
     return (
@@ -223,9 +234,27 @@ const ProductGrid = ({ searchQuery }) => {
             <h3 className={`text-2xl font-bold text-gray-900 mb-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
               {i18n.language === 'ar' ? 'لا توجد نتائج' : 'No results found'}
             </h3>
-            <p className="text-gray-500">
+            <p className="text-gray-500 mb-6">
               {i18n.language === 'ar' ? 'لم نتمكن من العثور على أي منتج يطابق بحثك.' : 'We could not find any products matching your search.'}
             </p>
+            
+            {/* Typo Suggestion UI */}
+            {suggestion && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-white/80 backdrop-blur-sm border border-[#e11e3b]/20 px-6 py-4 rounded-2xl shadow-sm cursor-pointer hover:shadow-md hover:border-[#e11e3b]/50 transition-all duration-300 group inline-block"
+                onClick={() => setSearchQuery && setSearchQuery(suggestion)}
+              >
+                <span className={`text-gray-600 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'} text-lg`}>
+                  {i18n.language === 'ar' ? 'هل تقصد: ' : 'Did you mean: '}
+                </span>
+                <span className={`text-[#e11e3b] font-bold text-xl group-hover:underline ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                  {suggestion}؟
+                </span>
+              </motion.div>
+            )}
+            
           </motion.div>
         )}
       </AnimatePresence>

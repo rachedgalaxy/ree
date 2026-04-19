@@ -107,7 +107,7 @@ function App() {
         ) : (
           <>
             {!searchQuery && <Hero />}
-            <ProductGrid searchQuery={searchQuery} />
+            <ProductGrid searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           </>
         )}
       </main>
