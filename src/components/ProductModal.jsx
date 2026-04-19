@@ -196,7 +196,7 @@ const ProductModal = ({ product, onClose }) => {
             </h2>
             <div 
               className={`text-gray-500 text-sm md:text-base leading-relaxed mb-8 line-clamp-3 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(product.description || product.translations[i18n.language]?.desc) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(product.description || product.translations?.[i18n.language]?.desc || '') }}
             />
           </div>
 

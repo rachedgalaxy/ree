@@ -40,10 +40,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-    <script 
-      type="application/ld+json" 
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.stringify(productSchema)) }} 
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <a
       href={isOutOfStock ? '#' : urlWithLang}
       onClick={(e) => {
