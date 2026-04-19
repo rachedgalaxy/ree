@@ -342,6 +342,18 @@ const Hero = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.1}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = Math.abs(offset.x) * velocity.x;
+
+                  if (swipe < -10000) {
+                    paginate(1);
+                  } else if (swipe > 10000) {
+                    paginate(-1);
+                  }
+                }}
                 className="absolute inset-0 w-full h-full"
               >
                 {/* Background Image & Effects */}
