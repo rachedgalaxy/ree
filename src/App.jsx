@@ -20,7 +20,11 @@ function App() {
 
   // Hash routing listener
   useEffect(() => {
-    const handleHashChange = () => setCurrentHash(window.location.hash);
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+      // Auto-scroll to top on navigation
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
