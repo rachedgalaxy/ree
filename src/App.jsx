@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence } from 'framer-motion';
 import './i18n/config'; // Setup i18next
 
 import Navigation from './components/Navigation';
