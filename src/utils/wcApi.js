@@ -4,22 +4,38 @@
  */
 import storeData from '../data/storeData.json';
 
+const WORKER_URL = import.meta.env.VITE_WORKER_URL || '';
+const HANDSHAKE_SECRET = import.meta.env.VITE_HANDSHAKE_SECRET || '';
+
 export const wcApi = {
   /**
-   * Returns all categories and their products grouped from the static build JSON
+   * Returns all categories and their products grouped.
+   * Priority: Static build JSON, Fallback: Secure Worker API
    */
   async getStoreData() {
-    return storeData;
+    if (storeData && storeData.length > 0) return storeData;
+    
+    // Fallback to secure worker if static data is missing
+    if (!WORKER_URL) return [];
+    
+    try {
+      const response = await fetch(`${WORKER_URL}/get-store-data`, {
+        headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
+      });
+      return await response.json();
+    } catch (e) {
+      console.error("API Fetch Error:", e);
+      return [];
+    }
   },
 
   /**
-   * Returns detailed info for a single product include variations
-   * Finds the product dynamically in the static data tree
+   * Returns detailed info for a single product.
    */
   async getProductDetails(productId) {
     let foundProduct = null;
     
-    // Search the static file for the product
+    // 1. Check static data first
     for (const category of storeData) {
       const p = category.products.find(p => p.id.toString() === productId.toString());
       if (p) {
@@ -28,14 +44,19 @@ export const wcApi = {
       }
     }
 
-    if (!foundProduct) return null;
+    if (foundProduct) return foundProduct;
 
-    return {
-      ...foundProduct,
-      // If we pre-built variation details, they would be here.
-      // But for simple checkout routing, the variation mapping inside product is enough.
-      variations_details: [] // Kept for interface compatibility
-    };
+    // 2. Fallback to secure worker
+    if (!WORKER_URL) return null;
+
+    try {
+      const response = await fetch(`${WORKER_URL}/products/${productId}`, {
+        headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
+      });
+      return await response.json();
+    } catch (e) {
+      return null;
+    }
   },
 
   getCheckoutUrl(itemId) {

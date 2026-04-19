@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Flame, ShoppingCart, ChevronDown, Check } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { useTranslation } from 'react-i18next';
 import { wcApi } from '../utils/wcApi';
 import SEO from './SEO';
@@ -195,7 +196,7 @@ const ProductModal = ({ product, onClose }) => {
             </h2>
             <div 
               className={`text-gray-500 text-sm md:text-base leading-relaxed mb-8 line-clamp-3 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}
-              dangerouslySetInnerHTML={{ __html: product.description || product.translations[i18n.language]?.desc }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(product.description || product.translations[i18n.language]?.desc) }}
             />
           </div>
 

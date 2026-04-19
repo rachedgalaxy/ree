@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Flame, Star } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { getLocalizedLink } from '../utils/url';
 
 const ProductCard = ({ product }) => {
@@ -39,7 +40,10 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+    <script 
+      type="application/ld+json" 
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.stringify(productSchema)) }} 
+    />
     <a
       href={isOutOfStock ? '#' : urlWithLang}
       onClick={(e) => {
