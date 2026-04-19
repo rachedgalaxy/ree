@@ -218,7 +218,21 @@ async function fetchStoreData() {
     
     let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     sitemapContent += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+    
+    // 1. Home Page
     sitemapContent += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+    
+    // 2. Static Legal Pages
+    const staticPages = ['#/about-us', '#/privacy-policy', '#/terms-of-service'];
+    staticPages.forEach(page => {
+      sitemapContent += `  <url>\n    <loc>${baseUrl}/${page}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n  </url>\n`;
+    });
+
+    // 3. Category Pages (Dynamic)
+    groupedData.forEach(cat => {
+      sitemapContent += `  <url>\n    <loc>${baseUrl}/#/${cat.id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    });
+    
     sitemapContent += `</urlset>`;
     
     if (!fs.existsSync(path.join(__dirname, '../public'))) fs.mkdirSync(path.join(__dirname, '../public'));
