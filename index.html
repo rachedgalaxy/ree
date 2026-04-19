@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#e11e3b" />
@@ -19,16 +20,21 @@
     <meta name="description" content="Redeem Store (متجر ريديم) - The best digital cards store in Algeria. Buy Free Fire gems, PUBG UC, Binance USDT, and Gift Cards via Baridimob and OCPay with instant delivery." />
     <link rel="apple-touch-icon" href="https://redeem-dz.com/wp-content/uploads/2026/03/redeem-emeil-logo.png" />
     <title>Redeem Store | متجر ريديم</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GK5LFT5GX"></script>
+    <!-- Delayed Google tag (gtag.js) for Performance -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      setTimeout(() => {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-3GK5LFT5GX";
+        document.head.appendChild(script);
 
-      gtag('config', 'G-3GK5LFT5GX');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3GK5LFT5GX');
+      }, 3500);
     </script>
-    <script type="module" crossorigin src="./assets/index-Dkghfh-e.js"></script>
+    <script type="module" crossorigin src="./assets/index-NWpnlDS0.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-C26hdgLY.css">
   <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
