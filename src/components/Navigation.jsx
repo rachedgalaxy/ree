@@ -162,7 +162,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                     value={localSearch}
                     onChange={(e) => setLocalSearch(e.target.value)}
                     placeholder={i18n.language === 'ar' ? 'بحث...' : 'Search...'}
-                    className="w-full bg-gray-100 border-none text-gray-900 text-sm font-medium rounded-full outline-none block ps-11 pe-12 p-2.5"
+                    className="w-full bg-white border border-gray-200 text-gray-900 text-[13px] font-medium rounded-full outline-none block ps-10 pe-11 p-2 shadow-sm"
                     dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
                   />
                   <button
@@ -172,7 +172,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                     }}
                     className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-400 hover:text-red-500 transition-colors"
                   >
-                    <X size={20} />
+                    <X size={18} />
                   </button>
                 </div>
               </motion.div>
