@@ -355,7 +355,7 @@ const Hero = () => {
                   alt="Featured Promo" 
                   width="1200"
                   height="500"
-                  className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 hidden md:block" 
+                  className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 block" 
                   draggable="false"
                 />
 
