@@ -51,8 +51,8 @@ const MatrixRain = ({ isMobile }) => {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none flex opacity-20" dir="ltr">
       {[...Array(columns)].map((_, i) => {
-        const isHintColumn = Math.random() > 0.7;
-        const hint = hints[Math.floor(Math.random() * hints.length)];
+        const isHintColumn = i % 4 === 0;
+        const hint = hints[(i / 4) % hints.length];
         
         return (
           <div 
