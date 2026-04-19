@@ -85,6 +85,7 @@ const ProductCard = ({ product }) => {
           src={product.image}
           alt=""
           loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover blur-xl scale-125 opacity-25"
         />
@@ -103,6 +104,8 @@ const ProductCard = ({ product }) => {
             referrerPolicy="no-referrer"
             src={product.image}
             alt={tProduct.name}
+            loading="lazy"
+            decoding="async"
             className={`w-full h-full object-cover transition-transform duration-700 pointer-events-none ${!isOutOfStock && 'group-hover:scale-110'}`}
           />
         </div>

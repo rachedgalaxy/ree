@@ -204,7 +204,7 @@ const PlatformTicker = () => {
   }, []);
 
   return (
-    <div className="w-full mt-6 ticker-container px-4 md:px-0" dir="ltr">
+    <div className="w-full mt-6 ticker-container px-4 md:px-0 min-h-[100px] md:min-h-[140px]" dir="ltr">
       <div 
         className="relative max-w-7xl mx-auto overflow-hidden group/ticker"
         style={{

@@ -328,7 +328,7 @@ const Hero = () => {
 
   return (
     <div className="w-full pt-20 pb-2 bg-[#f5f5f7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
         
         <div className="flex flex-col lg:flex-row gap-6">
           
@@ -357,11 +357,8 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full"
               >
                 {/* Background Image & Effects */}
-                <div className="absolute inset-0 md:hidden">
-                  <MatrixRain isMobile={true} />
-                </div>
-                {banners[currentIndex].type === 'topup' && (
-                  <div className="hidden md:block absolute inset-0">
+                {!isMobile && (
+                  <div className="absolute inset-0">
                     <MatrixRain isMobile={false} />
                   </div>
                 )}
@@ -371,6 +368,7 @@ const Hero = () => {
                   alt="Featured Promo" 
                   width="1200"
                   height="500"
+                  {...(currentIndex === 0 ? { fetchpriority: "high", loading: "eager" } : { loading: "lazy" })}
                   className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 block" 
                   draggable="false"
                 />
