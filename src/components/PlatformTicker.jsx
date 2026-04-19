@@ -123,9 +123,17 @@ const PlatformTicker = () => {
   const { i18n } = useTranslation();
   const scrollRef = useRef(null);
   const positionRef = useRef(0);
-  const isInteractingRef = useRef(false); // For Hover
-  const isTouchedRef = useRef(false);     // For Touch/Drag
+  const isInteractingRef = useRef(false);
+  const isTouchedRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // 4 sets for a perfect seamless infinite loop
   const items = [...platforms, ...platforms, ...platforms, ...platforms];
@@ -164,12 +172,12 @@ const PlatformTicker = () => {
     }
 
     const scrollStep = () => {
-      if (container) {
+      if (container && !isMobile) { // Disable auto-scroll on mobile to save TBT
         const setWidth = container.scrollWidth / 4;
         
         // Only auto-scroll if neither hovering nor touching
         if (!isInteractingRef.current && !isTouchedRef.current) {
-          positionRef.current += 0.6; // Slightly faster for smoothness
+          positionRef.current += 0.6;
           
           if (positionRef.current >= setWidth * 2) {
              positionRef.current -= setWidth;
@@ -178,11 +186,7 @@ const PlatformTicker = () => {
           }
           container.scrollLeft = positionRef.current;
         } else {
-          // If interacting, sync the reference position to current scroll
-          // This ensures no jumps when resuming
           positionRef.current = container.scrollLeft;
-          
-          // Seamless wrapping even during manual swipe
           if (container.scrollLeft >= setWidth * 3) {
              container.scrollLeft -= setWidth;
              positionRef.current -= setWidth;
@@ -195,7 +199,7 @@ const PlatformTicker = () => {
       animationFrameId = requestAnimationFrame(scrollStep);
     };
 
-    animationFrameId = requestAnimationFrame(scrollStep);
+    if (!isMobile) animationFrameId = requestAnimationFrame(scrollStep);
 
     return () => {
        cancelAnimationFrame(animationFrameId);

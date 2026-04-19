@@ -302,7 +302,7 @@ const Hero = () => {
     enter: (direction) => ({
       x: direction > 0 ? 500 : -500,
       opacity: 0,
-      scale: 0.98
+      scale: isMobile ? 1 : 0.98 // Simpler for mobile
     }),
     center: {
       zIndex: 1,
@@ -310,18 +310,22 @@ const Hero = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.4 }
+        x: isMobile 
+          ? { duration: 0.3, ease: "easeOut" } // Faster/Lain on mobile
+          : { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 }
       }
     },
     exit: (direction) => ({
       zIndex: 0,
       x: direction < 0 ? 500 : -500,
       opacity: 0,
-      scale: 0.98,
+      scale: isMobile ? 1 : 0.98,
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.4 }
+        x: isMobile 
+          ? { duration: 0.3, ease: "easeIn" }
+          : { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 }
       }
     })
   };
@@ -368,8 +372,10 @@ const Hero = () => {
                   alt="Featured Promo" 
                   width="1200"
                   height="500"
+                  decoding="async"
                   {...(currentIndex === 0 ? { fetchpriority: "high", loading: "eager" } : { loading: "lazy" })}
-                  className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 block" 
+                  className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-300 block" 
+                  autoReverse="true"
                   draggable="false"
                 />
 

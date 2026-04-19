@@ -43,6 +43,7 @@ const ProductCard = ({ product }) => {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <a
       href={isOutOfStock ? '#' : urlWithLang}
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '0 300px' }}
       onClick={(e) => {
           if (isOutOfStock) e.preventDefault();
       }}
