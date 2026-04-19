@@ -1,3 +1,18 @@
+// Common aliases and synonyms for popular terms
+const SEARCH_ALIASES = [
+  ['pubg', 'pupg', 'ببجي', 'بوبجي', 'ببج', 'ببجي موبايل', 'pubg mobile'],
+  ['free fire', 'فري فاير', 'فرى فاير', 'جواهر', 'ff'],
+  ['genshin', 'جنشن', 'قنشن', 'جينشن', 'انباكت'],
+  ['discord', 'ديسكورد', 'دسكورد'],
+  ['playstation', 'بلايستيشن', 'بلاي ستيشن', 'ps', 'psn', 'ps4', 'ps5'],
+  ['xbox', 'اكس بوكس', 'اكس بوكس'],
+  ['steam', 'ستيم', 'ستيم'],
+  ['valorant', 'فالورانت', 'فالورانت'],
+  ['roblox', 'روبلوكس', 'روبلوكس', 'روبوكس', 'robux'],
+  ['netflix', 'نتفليكس', 'نتفلكس'],
+  ['binance', 'باينانس', 'بينانس', 'usdt'],
+];
+
 export const normalizeArabicText = (text) => {
   if (!text) return '';
   return text
@@ -10,6 +25,24 @@ export const normalizeArabicText = (text) => {
     .replace(/[ىي]/g, 'ي')
     // Normalize Teh Marbuta and Heh to Heh
     .replace(/[ةه]/g, 'ه');
+};
+
+/**
+ * Returns a list of terms that are related to the query term.
+ * If the query matches an alias group, it returns all terms in that group.
+ */
+export const expandQuery = (query) => {
+  const normalizedQuery = normalizeArabicText(query);
+  const terms = new Set([normalizedQuery]);
+
+  SEARCH_ALIASES.forEach(group => {
+    const normalizedGroup = group.map(normalizeArabicText);
+    if (normalizedGroup.some(alias => normalizedQuery.includes(alias) || alias.includes(normalizedQuery))) {
+      group.forEach(alias => terms.add(normalizeArabicText(alias)));
+    }
+  });
+
+  return Array.from(terms);
 };
 
 const levenshteinDistance = (a, b) => {

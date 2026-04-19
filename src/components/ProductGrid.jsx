@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faMobileAlt, faCreditCard, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from './ProductCard';
 import { wcApi } from '../utils/wcApi';
-import { normalizeArabicText, findClosestMatch } from '../utils/searchUtils';
+import { normalizeArabicText, findClosestMatch, expandQuery } from '../utils/searchUtils';
 
 const getCategoryIcon = (id) => {
   // Map slugs or IDs to icons
@@ -134,15 +134,21 @@ const ProductGrid = ({ searchQuery, setSearchQuery }) => {
   }, []);
 
   const filteredCategories = useMemo(() => {
-    const query = normalizeArabicText(searchQuery || '');
-    
-    if (!query) return storeData;
+    const rawQuery = searchQuery || '';
+    if (!rawQuery) return storeData;
 
+    const expandedTerms = expandQuery(rawQuery);
+    
     return storeData.map(category => {
       const filteredProducts = category.products.filter(p => {
         const nameAr = normalizeArabicText(p.translations?.ar?.name || p.name);
         const nameEn = normalizeArabicText(p.translations?.en?.name || p.name);
-        return nameAr.includes(query) || nameEn.includes(query);
+        
+        // Match if any of the expanded terms are included in the product names
+        return expandedTerms.some(term => 
+          nameAr.includes(term) || nameEn.includes(term) || 
+          term.includes(nameAr) || term.includes(nameEn)
+        );
       });
       return { ...category, products: filteredProducts };
     }).filter(category => category.products.length > 0);
