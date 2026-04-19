@@ -292,6 +292,8 @@ const Hero = () => {
                 <img 
                   src={banners[currentIndex].bg} 
                   alt="Featured Promo" 
+                  width="1200"
+                  height="500"
                   className="w-full h-full object-cover select-none pointer-events-none" 
                   draggable="false"
                 />
@@ -329,10 +331,16 @@ const Hero = () => {
             </AnimatePresence>
 
             {/* Nav Arrows */}
-            <button onClick={() => paginate(isRtl ? 1 : -1)} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/5 hover:bg-black/20 rounded-full text-white/90 hover:text-white backdrop-blur-md transition-all z-30 opacity-0 group-hover:opacity-100">
+            <button 
+              onClick={() => paginate(isRtl ? 1 : -1)} 
+              aria-label={isRtl ? 'السابق' : 'Previous'}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/5 hover:bg-black/20 rounded-full text-white/90 hover:text-white backdrop-blur-md transition-all z-30 opacity-0 group-hover:opacity-100">
               <ChevronLeft size={24} />
             </button>
-            <button onClick={() => paginate(isRtl ? -1 : 1)} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/5 hover:bg-black/20 rounded-full text-white/90 hover:text-white backdrop-blur-md transition-all z-30 opacity-0 group-hover:opacity-100">
+            <button 
+              onClick={() => paginate(isRtl ? -1 : 1)} 
+              aria-label={isRtl ? 'التالي' : 'Next'}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/5 hover:bg-black/20 rounded-full text-white/90 hover:text-white backdrop-blur-md transition-all z-30 opacity-0 group-hover:opacity-100">
               <ChevronRight size={24} />
             </button>
           </div>

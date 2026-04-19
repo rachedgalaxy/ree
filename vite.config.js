@@ -17,6 +17,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    viteCompression(),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',

@@ -125,7 +125,11 @@ const ProductCard = ({ product }) => {
               
               {/* Product Rating Stars */}
               {(product.average_rating > 0) && (
-                <div className="flex items-center gap-0.5" title={`${product.average_rating} rating`}>
+                <div 
+                  className="flex items-center gap-0.5" 
+                  aria-label={i18n.language === 'ar' ? `تقييم: ${product.average_rating} من 5` : `Rating: ${product.average_rating} out of 5`}
+                  title={`${product.average_rating} rating`}
+                >
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 

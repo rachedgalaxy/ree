@@ -12,19 +12,19 @@ const Footer = () => {
         
         {/* Social Icons */}
         <div className="flex gap-2.5 md:gap-3 items-center">
-          <a href="https://www.facebook.com/redeem.dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1877F2] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Facebook">
+          <a href="https://www.facebook.com/redeem.dz" target="_blank" rel="noreferrer" aria-label="Facebook" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1877F2] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Facebook">
             <FontAwesomeIcon icon={faFacebookF} className="text-[12px] md:text-[14px]" />
           </a>
-          <a href="https://www.instagram.com/redeem.dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E4405F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Instagram">
+          <a href="https://www.instagram.com/redeem.dz" target="_blank" rel="noreferrer" aria-label="Instagram" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E4405F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="Instagram">
             <FontAwesomeIcon icon={faInstagram} className="text-[12px] md:text-[14px]" />
           </a>
-          <a href="https://www.youtube.com/@redeem-dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-[#CD201F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="YouTube">
+          <a href="https://www.youtube.com/@redeem-dz" target="_blank" rel="noreferrer" aria-label="YouTube" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-700 hover:text-[#CD201F] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="YouTube">
             <FontAwesomeIcon icon={faYoutube} className="text-[12px] md:text-[14px]" />
           </a>
-          <a href="https://www.tiktok.com/@redeem-dz" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-black hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="TikTok">
+          <a href="https://www.tiktok.com/@redeem-dz" target="_blank" rel="noreferrer" aria-label="TikTok" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-black hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="TikTok">
             <FontAwesomeIcon icon={faTiktok} className="text-[11px] md:text-[13px]" />
           </a>
-          <a href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="WhatsApp">
+          <a href="https://api.whatsapp.com/send/?phone=213562033668&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#25D366] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100/50" title="WhatsApp">
             <FontAwesomeIcon icon={faWhatsapp} className="text-[12px] md:text-[14px]" />
           </a>
         </div>
@@ -34,6 +34,8 @@ const Footer = () => {
           <img 
             src="https://redeem-dz.com/wp-content/uploads/2025/09/payment.svg" 
             alt="Payment Methods" 
+            width="280"
+            height="40"
             className="w-full max-w-[240px] md:max-w-[280px] object-contain mix-blend-multiply drop-shadow-sm" 
           />
         </div>

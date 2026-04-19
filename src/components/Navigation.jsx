@@ -59,6 +59,8 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                   <img 
                     src="https://redeem-dz.com/wp-content/uploads/2025/09/logo-redeem-dz.svg" 
                     alt="Redeem Logo" 
+                    width="160"
+                    height="40"
                     className="h-8 w-auto md:h-10" 
                   />
                 </a>
@@ -75,6 +77,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
               <input 
                 ref={searchInputRef}
                 type="text" 
+                name="search"
                 value={searchQuery}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setTimeout(() => setIsFocused(false), 200)}
@@ -90,6 +93,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
+                    aria-label={i18n.language === 'ar' ? 'إغلاق البحث' : 'Close search'}
                     onClick={() => {
                       if (searchQuery) {
                         setSearchQuery('');
@@ -120,6 +124,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 {isMobile && (
                   <button
                     onClick={() => setIsMobileSearchOpen(true)}
+                    aria-label={i18n.language === 'ar' ? 'فتح البحث' : 'Open search'}
                     className="flex md:hidden items-center justify-center w-9 h-9 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 backdrop-blur-md hover:bg-red-500/20 transition-all duration-300 group relative"
                     title={i18n.language === 'ar' ? 'بحث' : 'Search'}
                   >
@@ -134,6 +139,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 <a 
                   href={getLocalizedLink('https://redeem-dz.com/my-account/', i18n.language)}
                   target="_self"
+                  aria-label={i18n.language === 'ar' ? 'حسابي' : 'My Account'}
                   className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full border border-gray-200 text-gray-600 hover:text-black hover:border-black transition-all duration-300 group"
                   title={i18n.language === 'ar' ? 'حسابي / تسجيل الدخول' : 'My Account / Login'}
                 >
@@ -152,6 +158,8 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                       ? "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/us.svg" 
                       : "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/dz.svg"}
                     alt={currentLang === 'ar' ? "English" : "العربية"}
+                    width="24"
+                    height="18"
                     className="w-5 h-auto md:w-6 shadow-sm rounded-[2px] object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </button>
