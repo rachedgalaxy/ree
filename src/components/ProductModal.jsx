@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Flame, ShoppingCart, ChevronDown, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { wcApi } from '../utils/wcApi';
+import SEO from './SEO';
 
 const RegionSelector = ({ attributes, selectedRegion, onSelect, i18n }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -163,6 +164,12 @@ const ProductModal = ({ product, onClose }) => {
         layoutId={`product-${product.id}`}
         className="relative w-full max-w-4xl bg-[#f5f5f7] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
       >
+        <SEO 
+          title={`${product.translations[i18n.language]?.name || product.name} | متجر ريديم الجزائر`}
+          description={`شحن ${product.translations[i18n.language]?.name || product.name} في الجزائر بأفضل الأسعار. دفع آمن عبر بريدي موب و OCPay مع تسليم فوري.`}
+          image={product.image}
+          url={`https://redeem.dz/#/product/${product.id}`}
+        />
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 z-50 w-10 h-10 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center backdrop-blur-md transition-all"
