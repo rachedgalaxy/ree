@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: '0 */6 * * *' # Automatically update site data every 6 hours
+  workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:
   contents: write
