@@ -16,18 +16,18 @@ async function fetchStoreData() {
   const CONSUMER_KEY = process.env.WC_CONSUMER_KEY;
   const CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET;
 
-  if (!CONSUMER_KEY || !CONSUMER_SECRET) {
-      throw new Error('WC_CONSUMER_KEY or WC_CONSUMER_SECRET is missing from environment variables.');
-  }
-
-  const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString('base64');
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Basic ${auth}`,
-    'User-Agent': 'Redeem-Storefront-Fetch/1.0'
-  };
-
   try {
+    if (!CONSUMER_KEY || !CONSUMER_SECRET) {
+      throw new Error('WC_CONSUMER_KEY or WC_CONSUMER_SECRET is missing from environment variables.');
+    }
+
+    const auth = Buffer.from(`${CONSUMER_KEY}:${CONSUMER_SECRET}`).toString('base64');
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${auth}`,
+      'User-Agent': 'Redeem-Storefront-Fetch/1.0'
+    };
+
     console.log('⏳ Fetching Arabic Categories...');
     const categoriesResAr = await fetch(`${WC_URL}/wp-json/wc/v3/products/categories?per_page=100&hide_empty=true`, { headers });
     const categoriesText = await categoriesResAr.text(); 
