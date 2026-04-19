@@ -15,7 +15,11 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
 
   // Responsive check
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) setIsMobileSearchOpen(false);
+    };
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -26,7 +30,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
     if (isMobileSearchOpen && searchInputRef.current) {
       setTimeout(() => {
         searchInputRef.current.focus();
-      }, 100);
+      }, 50); // Faster focus
     }
   }, [isMobileSearchOpen]);
 
@@ -37,148 +41,147 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
   useEffect(() => {
     const timer = setTimeout(() => {
       setSearchQuery(localSearch);
-    }, 300);
+    }, 200); // Slightly faster debounce
     return () => clearTimeout(timer);
   }, [localSearch, setSearchQuery]);
 
-  // Keep local search in sync when global search changes (e.g., from suggestions)
   useEffect(() => {
     setLocalSearch(searchQuery);
   }, [searchQuery]);
 
-  // Check if we should expand search (mobile only)
-  const showFullSearch = isMobile && isMobileSearchOpen;
+  const showOverlaySearch = isMobile && isMobileSearchOpen;
 
   return (
     <motion.nav 
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className={`fixed top-0 w-full z-50 border-b transition-all duration-300 ${searchQuery ? 'bg-white shadow-lg border-gray-200' : 'glass-panel border-white/10 dark:border-black/10'}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${searchQuery ? 'bg-white shadow-lg border-b border-gray-200' : 'glass-panel border-b border-white/10'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 gap-4 border-b border-transparent">
+        <div className="relative flex justify-between items-center h-16 gap-4">
           
-          {/* Logo Area - Hidden on mobile focus only */}
-          <AnimatePresence>
-            {(!showFullSearch) && (
-              <motion.div 
-                initial={{ opacity: 1, x: 0 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="flex-shrink-0 flex items-center md:w-1/4"
+          {/* Default Header State (Logo + Actions) */}
+          <div className={`flex items-center justify-between w-full transition-opacity duration-300 ${showOverlaySearch ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
+              <a 
+                href="#/" 
+                onClick={() => setSearchQuery('')}
+                className="cursor-pointer"
               >
-                <a 
-                  href="#/" 
-                  onClick={() => setSearchQuery('')}
-                  className="cursor-pointer"
-                >
-                  <img 
-                    src="https://redeem-dz.com/wp-content/uploads/2025/09/logo-redeem-dz.svg" 
-                    alt="Redeem Logo" 
-                    width="160"
-                    height="40"
-                    className="h-8 w-auto md:h-10" 
-                  />
-                </a>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                <img 
+                  src="https://redeem-dz.com/wp-content/uploads/2025/09/logo-redeem-dz.svg" 
+                  alt="Redeem Logo" 
+                  width="160"
+                  height="40"
+                  className="h-8 w-auto md:h-10" 
+                />
+              </a>
+            </div>
 
-          {/* Search Area */}
-          <div className={`transition-all duration-300 ${showFullSearch ? 'flex-1 block' : 'flex-1 max-w-xl hidden md:block'}`}>
-            <div className="relative w-full group">
-              <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
-                <Search className={`w-4 h-4 transition-colors ${isFocused ? 'text-blue-500' : 'text-gray-400'}`} />
+            {/* Desktop Search Center */}
+            <div className="hidden md:block flex-1 max-w-xl mx-8">
+              <div className="relative w-full group">
+                <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+                  <Search className={`w-4 h-4 transition-colors ${isFocused ? 'text-[#e11e3b]' : 'text-gray-400'}`} />
+                </div>
+                <input 
+                  type="text" 
+                  value={localSearch}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+                  onChange={(e) => setLocalSearch(e.target.value)}
+                  placeholder={i18n.language === 'ar' ? 'بحث' : 'Search'}
+                  className="w-full bg-gray-50/50 border border-transparent text-gray-900 text-sm font-medium rounded-full outline-none focus:bg-white focus:border-gray-200 focus:shadow-[0_4px_20px_rgba(0,0,0,0.06)] block ps-11 pe-11 p-2.5 transition-all duration-300"
+                  dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                />
+                <AnimatePresence>
+                  {searchQuery && (
+                    <motion.button
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      onClick={() => setSearchQuery('')}
+                      className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-400 hover:text-red-500 transition-colors"
+                    >
+                      <X size={18} />
+                    </motion.button>
+                  )}
+                </AnimatePresence>
               </div>
-              <input 
-                ref={searchInputRef}
-                type="text" 
-                name="search"
-                value={localSearch}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-                onChange={(e) => setLocalSearch(e.target.value)}
-                placeholder={i18n.language === 'ar' ? 'بحث' : 'Search'}
-                className="w-full bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full outline-none focus:shadow-[0_4px_20px_rgba(0,0,0,0.06)] focus:ring-1 focus:ring-gray-300 block ps-11 pe-11 p-2.5 transition-all duration-300"
-                dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
-              />
-              
-              <AnimatePresence>
-                {(searchQuery || showFullSearch) && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    aria-label={i18n.language === 'ar' ? 'إغلاق البحث' : 'Close search'}
-                    onClick={() => {
-                      if (searchQuery) {
-                        setSearchQuery('');
-                        if (searchInputRef.current) searchInputRef.current.focus();
-                      } else if (isMobile) {
-                        setIsMobileSearchOpen(false);
-                      }
-                    }}
-                    className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-400 hover:text-red-500 transition-colors"
-                  >
-                    <X size={18} />
-                  </motion.button>
-                )}
-              </AnimatePresence>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-2 md:gap-3">
+              {isMobile && (
+                <button
+                  onClick={() => setIsMobileSearchOpen(true)}
+                  className="w-9 h-9 rounded-full bg-red-500/5 border border-red-500/10 text-red-500 flex items-center justify-center transition-all active:scale-95"
+                >
+                  <Search size={16} />
+                </button>
+              )}
+              <a 
+                href={getLocalizedLink('https://redeem-dz.com/my-account/', i18n.language)}
+                className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-gray-200 text-gray-600 flex items-center justify-center hover:border-black transition-all"
+              >
+                <FontAwesomeIcon icon={faUser} className="text-sm md:text-base" />
+              </a>
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center justify-center p-1"
+              >
+                <img 
+                  src={currentLang === 'ar' 
+                    ? "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/us.svg" 
+                    : "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/dz.svg"}
+                  alt="lang"
+                  className="w-5 md:w-6 h-auto shadow-sm"
+                />
+              </button>
             </div>
           </div>
-          
-          {/* Action Area - Hidden on mobile focus only */}
+
+          {/* Mobile Search Overlay - SINGLE SMOOTH STEP */}
           <AnimatePresence>
-            {(!showFullSearch) && (
-              <motion.div 
-                initial={{ opacity: 1, x: 0 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                className="flex flex-shrink-0 items-center justify-end md:w-1/4 gap-2 md:gap-3"
+            {showOverlaySearch && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute inset-0 z-50 flex items-center bg-white px-2"
               >
-                {/* Mobile Search Button */}
-                {isMobile && (
-                  <button
-                    onClick={() => setIsMobileSearchOpen(true)}
-                    aria-label={i18n.language === 'ar' ? 'فتح البحث' : 'Open search'}
-                    className="flex md:hidden items-center justify-center w-9 h-9 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 backdrop-blur-md hover:bg-red-500/20 transition-all duration-300 group relative"
-                    title={i18n.language === 'ar' ? 'بحث' : 'Search'}
-                  >
-                    <Search size={15} className="group-hover:scale-110 transition-transform" />
-                    {searchQuery && (
-                      <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                <div className="relative w-full flex items-center gap-2">
+                  <div className="relative flex-1">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+                      <Search className="w-4 h-4 text-[#e11e3b]" />
+                    </div>
+                    <input 
+                      ref={searchInputRef}
+                      type="text" 
+                      value={localSearch}
+                      onChange={(e) => setLocalSearch(e.target.value)}
+                      placeholder={i18n.language === 'ar' ? 'ما الذي تبحث عنه؟' : 'What are you looking for?'}
+                      className="w-full bg-gray-100/80 border-none text-gray-900 text-base font-medium rounded-2xl outline-none block ps-11 pe-11 p-3"
+                      dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                    />
+                    {localSearch && (
+                      <button
+                        onClick={() => setLocalSearch('')}
+                        className="absolute inset-y-0 end-12 flex items-center text-gray-400"
+                      >
+                        <X size={18} />
+                      </button>
                     )}
+                  </div>
+                  <button
+                    onClick={() => setIsMobileSearchOpen(false)}
+                    className={`text-sm font-bold text-gray-600 px-2 py-2 hover:bg-gray-100 rounded-xl transition-all ${i18n.language === 'ar' ? 'font-kufi' : ''}`}
+                  >
+                    {i18n.language === 'ar' ? 'إلغاء' : 'Cancel'}
                   </button>
-                )}
-
-                {/* Login Button */}
-                <a 
-                  href={getLocalizedLink('https://redeem-dz.com/my-account/', i18n.language)}
-                  target="_self"
-                  aria-label={i18n.language === 'ar' ? 'حسابي' : 'My Account'}
-                  className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full border border-gray-200 text-gray-600 hover:text-black hover:border-black transition-all duration-300 group"
-                  title={i18n.language === 'ar' ? 'حسابي / تسجيل الدخول' : 'My Account / Login'}
-                >
-                  <FontAwesomeIcon icon={faUser} className="text-sm md:text-base group-hover:scale-110 transition-transform" />
-                </a>
-
-                {/* Language Toggle */}
-                {/* Language Toggle */}
-                <button
-                  onClick={toggleLanguage}
-                  title={currentLang === 'ar' ? 'Switch to English' : 'تغيير إلى العربية'}
-                  className="flex items-center justify-center p-1 transition-transform duration-300 focus:outline-none"
-                >
-                  <img 
-                    src={currentLang === 'ar' 
-                      ? "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/us.svg" 
-                      : "https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/dz.svg"}
-                    alt={currentLang === 'ar' ? "English" : "العربية"}
-                    width="24"
-                    height="18"
-                    className="w-5 h-auto md:w-6 shadow-sm rounded-[2px] object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
