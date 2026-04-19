@@ -224,6 +224,14 @@ const Hero = () => {
   const { t, i18n } = useTranslation();
   const [[page, direction], setPage] = useState([0, 0]);
   const [showFAQ, setShowFAQ] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const topDiscounts = React.useMemo(() => {
     try {
@@ -333,9 +341,12 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
               >
                 {/* Background Image & Effects */}
+                <div className="absolute inset-0 md:hidden">
+                  <MatrixRain isMobile={true} />
+                </div>
                 {banners[currentIndex].type === 'topup' && (
-                  <div className="absolute inset-0 transparent">
-                    <MatrixRain isMobile={window.innerWidth < 768} />
+                  <div className="hidden md:block absolute inset-0">
+                    <MatrixRain isMobile={false} />
                   </div>
                 )}
                 
@@ -344,7 +355,7 @@ const Hero = () => {
                   alt="Featured Promo" 
                   width="1200"
                   height="500"
-                  className={`w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 ${banners[currentIndex].type === 'topup' ? 'hidden md:block' : 'block'}`} 
+                  className="w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 hidden md:block" 
                   draggable="false"
                 />
 
