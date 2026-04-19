@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
     "description": `شراء ${tProduct.name} في الجزائر بأفضل الأسعار عبر بريدي موب و OCPay`,
     "offers": {
       "@type": "Offer",
-      "url": `https://redeem.dz/#/product/${product.id}`,
+      "url": "https://redeem.dz" + urlWithLang,
       "priceCurrency": "DZD",
       "price": product.price || "0",
       "availability": isOutOfStock ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
     <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <a
-      href={`#/product/${product.id}`}
+      href={isOutOfStock ? '#' : urlWithLang}
       onClick={(e) => {
           if (isOutOfStock) e.preventDefault();
       }}

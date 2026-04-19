@@ -233,13 +233,6 @@ async function fetchStoreData() {
       sitemapContent += `  <url>\n    <loc>${baseUrl}/#/${cat.id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     });
     
-    // 4. Product Pages (Dynamic)
-    groupedData.forEach(cat => {
-      cat.products?.forEach(product => {
-        sitemapContent += `  <url>\n    <loc>${baseUrl}/#/product/${product.id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-      });
-    });
-    
     sitemapContent += `</urlset>`;
     
     if (!fs.existsSync(path.join(__dirname, '../public'))) fs.mkdirSync(path.join(__dirname, '../public'));

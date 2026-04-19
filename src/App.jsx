@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AnimatePresence } from 'framer-motion';
 import './i18n/config'; // Setup i18next
 
 import Navigation from './components/Navigation';
@@ -13,46 +12,16 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import SEO from './components/SEO';
 
-import ProductModal from './components/ProductModal';
-import storeData from './data/storeData.json';
-
 function App() {
   const { i18n } = useTranslation();
   const [isLoaded, setIsLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentHash, setCurrentHash] = useState(window.location.hash);
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Hash routing listener
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      setCurrentHash(hash);
-      
-      // Deep link for products: #/product/123
-      if (hash.startsWith('#/product/')) {
-        const productId = parseInt(hash.replace('#/product/', ''));
-        if (!isNaN(productId)) {
-          // Find product in all categories
-          let found = null;
-          for (const cat of storeData) {
-            found = cat.products?.find(p => p.id === productId);
-            if (found) break;
-          }
-          if (found) {
-            setSelectedProduct(found);
-          }
-        }
-      } else if (selectedProduct) {
-        // Clear selection if we navigated away from product URL
-        setSelectedProduct(null);
-      }
-    };
-
+    const handleHashChange = () => setCurrentHash(window.location.hash);
     window.addEventListener('hashchange', handleHashChange);
-    // Initial check
-    handleHashChange();
-    
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
@@ -138,15 +107,6 @@ function App() {
           </>
         )}
       </main>
-
-      <AnimatePresence>
-        {selectedProduct && (
-          <ProductModal 
-            product={selectedProduct} 
-            onClose={closeProductModal} 
-          />
-        )}
-      </AnimatePresence>
       
       {!searchQuery && <Footer />}
       <BackToTop />
