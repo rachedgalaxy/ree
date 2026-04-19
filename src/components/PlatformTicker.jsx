@@ -214,13 +214,7 @@ const PlatformTicker = () => {
       >
         <div 
           ref={scrollRef}
-          onPointerEnter={handlePointerEnter}
-          onPointerLeave={handlePointerLeave}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onMouseDown={() => { isTouchedRef.current = true; }}
-          onMouseUp={() => { isTouchedRef.current = false; }}
-          className="flex overflow-x-auto hide-scrollbar gap-2 md:gap-4 pb-4 snap-none active:cursor-grabbing"
+          className="flex overflow-x-hidden hide-scrollbar gap-2 md:gap-4 pb-4 snap-none"
           style={{ scrollBehavior: 'auto' }}
         >
           {items.map((platform, index) => (

@@ -140,7 +140,7 @@ async function fetchStoreData() {
             price: p.price,
             regular_price: p.regular_price,
             sale_price: p.sale_price,
-            image: p.images[0]?.src || '',
+            image: p.images[0]?.src?.replace(/woodmart\.redeem-dz\.com/g, 'redeem-dz.com') || '',
             description: p.description,
             short_description: p.short_description,
             categories: p.categories,
@@ -208,7 +208,8 @@ async function fetchStoreData() {
       .filter(cat => cat.products.length > 0);
 
     const targetPath = path.join(__dirname, '../src/data/storeData.json');
-    fs.writeFileSync(targetPath, JSON.stringify(groupedData, null, 2));
+    const finalDataString = JSON.stringify(groupedData, null, 2).replace(/woodmart\.redeem-dz\.com/g, 'redeem-dz.com');
+    fs.writeFileSync(targetPath, finalDataString);
     
     // ========= SEO Sitemap Generation =========
     console.log('🗺️ Generating SEO Sitemap & Robots.txt...');

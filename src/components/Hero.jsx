@@ -342,18 +342,7 @@ const Hero = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.1}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = Math.abs(offset.x) * velocity.x;
-                  if (offset.x > 50 || swipe > 400) {
-                    paginate(isRtl ? 1 : -1);
-                  } else if (offset.x < -50 || swipe < -400) {
-                    paginate(isRtl ? -1 : 1);
-                  }
-                }}
-                className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
+                className="absolute inset-0 w-full h-full"
               >
                 {/* Background Image & Effects */}
                 <div className="absolute inset-0 md:hidden">
@@ -531,52 +520,18 @@ const Hero = () => {
               </a>
             )}
 
-            {/* Bottom Left: FAQ + About Us Swipeable Slider */}
-            <div className="col-span-1 row-span-1 rounded-xl overflow-hidden relative border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
-
-              {/* Slide container */}
-              <div
-                className="flex h-full"
-                style={{
-                  overflowX: 'auto',
-                  scrollSnapType: 'x mandatory',
-                  WebkitOverflowScrolling: 'touch',
-                  scrollBehavior: 'smooth',
-                  msOverflowStyle: 'none',
-                  scrollbarWidth: 'none',
-                  touchAction: 'pan-x',
-                }}
-              >
-                {/* Slide 1: FAQ */}
-                <div
-                  onClick={() => setShowFAQ(true)}
-                  style={{ scrollSnapAlign: 'start', minWidth: '100%' }}
-                  className="h-full bg-white hover:bg-amber-50/60 p-4 flex flex-col justify-between cursor-pointer transition-colors group relative"
-                >
-                  <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
-                    <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
-                  </div>
-                  <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ff9500] text-xl" />
-                  <span className={`text-[13px] font-[600] text-gray-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
-                    {isRtl ? 'الأسئلة الشائعة' : 'FAQ'}
-                  </span>
-                </div>
-
-                {/* Slide 2: About Us — identical style to FAQ */}
-                <a
-                  href="#/about-us"
-                  style={{ scrollSnapAlign: 'start', minWidth: '100%' }}
-                  className="h-full bg-white hover:bg-blue-50/60 p-4 flex flex-col justify-between cursor-pointer transition-colors group relative"
-                >
-                  <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
-                    <FontAwesomeIcon icon={faInfoCircle} size="3x" />
-                  </div>
-                  <FontAwesomeIcon icon={faInfoCircle} className="text-[#007aff] text-xl" />
-                  <span className={`text-[13px] font-[600] text-gray-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
-                    {isRtl ? 'من نحن' : 'About Us'}
-                  </span>
-                </a>
+            {/* Bottom Left: FAQ Card */}
+            <div 
+              onClick={() => setShowFAQ(true)}
+              className="col-span-1 row-span-1 bg-white hover:bg-amber-50/60 rounded-xl p-4 flex flex-col justify-between border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] cursor-pointer transition-colors group relative overflow-hidden"
+            >
+              <div className={`absolute ${isRtl ? '-left-2' : '-right-2'} -bottom-2 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-500`}>
+                <FontAwesomeIcon icon={faQuestionCircle} size="3x" />
               </div>
+              <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ff9500] text-xl" />
+              <span className={`text-[13px] font-[600] text-gray-800 ${isRtl ? 'font-kufi' : 'font-sans'}`}>
+                {isRtl ? 'الأسئلة الشائعة' : 'FAQ'}
+              </span>
             </div>
 
             {/* Bottom Right: Support Tile */}
