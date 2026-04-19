@@ -477,7 +477,7 @@ const Hero = () => {
                     
                     <div className="absolute bottom-3 left-3 right-3 text-white flex flex-col items-start justify-end h-full z-10">
                        <span className="bg-[#ff2d55] text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-sm flex items-center justify-center shadow-lg mb-1.5 animate-pulse uppercase tracking-wider">
-                          -{discountPercent}% OFF
+                          {isRtl ? `خصم ${discountPercent}%` : `-${discountPercent}% OFF`}
                        </span>
                        <h3 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                          {product.translations?.[i18n.language]?.name || product.name}
@@ -545,9 +545,11 @@ const Hero = () => {
                   <span className={`text-[11px] font-[600] text-[#25D366] ${isRtl ? 'font-kufi' : 'font-sans'}`}>
                     {isRtl ? 'الدعم الفني' : 'Live Support'}
                   </span>
-                  <div className="flex items-center gap-1.5 mt-0.5">
+                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-1.5 h-1.5 bg-[#25D366] rounded-full animate-ping"></span>
-                    <span className="text-[9px] text-[#25D366]/80 font-bold uppercase tracking-wider">Online</span>
+                    <span className="text-[9px] text-[#25D366]/80 font-bold uppercase tracking-wider">
+                      {isRtl ? 'متصل الآن' : 'Online'}
+                    </span>
                   </div>
                </div>
             </a>
