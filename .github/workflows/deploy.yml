@@ -33,6 +33,8 @@ jobs:
           WC_URL: ${{ secrets.WC_URL }}
           WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
           WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
+          VITE_WORKER_URL: ${{ secrets.VITE_WORKER_URL }}
+          VITE_HANDSHAKE_SECRET: ${{ secrets.VITE_HANDSHAKE_SECRET }}
         run: |
           npm run build
           # This copies index.html to 404.html so React Router takes over when a user directly opens a sub-page!
