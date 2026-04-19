@@ -13,50 +13,53 @@ export const wcApi = {
    * Priority: Static build JSON, Fallback: Secure Worker API
    */
   async getStoreData() {
+    // 1. Try to fetch live data from the Worker API first for real-time updates
+    if (WORKER_URL) {
+      try {
+        const response = await fetch(`${WORKER_URL}/get-store-data`, {
+          headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
+        });
+        if (response.ok) {
+          const liveData = await response.json();
+          if (liveData && liveData.length > 0) return liveData;
+        }
+      } catch (e) {
+        console.warn("Worker API unreachable, falling back to static cache:", e);
+      }
+    }
+    
+    // 2. Fallback to static build-time JSON if API fails or is missing
     if (storeData && storeData.length > 0) return storeData;
     
-    // Fallback to secure worker if static data is missing
-    if (!WORKER_URL) return [];
-    
-    try {
-      const response = await fetch(`${WORKER_URL}/get-store-data`, {
-        headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
-      });
-      return await response.json();
-    } catch (e) {
-      console.error("API Fetch Error:", e);
-      return [];
-    }
+    return [];
   },
 
   /**
    * Returns detailed info for a single product.
    */
   async getProductDetails(productId) {
-    let foundProduct = null;
-    
-    // 1. Check static data first
-    for (const category of storeData) {
-      const p = category.products.find(p => p.id.toString() === productId.toString());
-      if (p) {
-        foundProduct = p;
-        break;
+    // 1. Try secure worker first for live data
+    if (WORKER_URL) {
+      try {
+        const response = await fetch(`${WORKER_URL}/products/${productId}`, {
+          headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
+        });
+        if (response.ok) {
+          const liveProduct = await response.json();
+          if (liveProduct) return liveProduct;
+        }
+      } catch (e) {
+        console.warn("Worker API error for product details, falling back:", e);
       }
     }
 
-    if (foundProduct) return foundProduct;
-
-    // 2. Fallback to secure worker
-    if (!WORKER_URL) return null;
-
-    try {
-      const response = await fetch(`${WORKER_URL}/products/${productId}`, {
-        headers: { 'X-Handshake-Secret': HANDSHAKE_SECRET }
-      });
-      return await response.json();
-    } catch (e) {
-      return null;
+    // 2. Check static data as fallback
+    for (const category of storeData) {
+      const p = category.products.find(p => p.id.toString() === productId.toString());
+      if (p) return p;
     }
+
+    return null;
   },
 
   getCheckoutUrl(itemId) {
