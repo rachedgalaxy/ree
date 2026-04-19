@@ -43,6 +43,50 @@ const banners = [
   }
 ];
 
+const MatrixRain = ({ isMobile }) => {
+  const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const columns = isMobile ? 12 : 25;
+  
+  return (
+    <div className="absolute inset-0 z-0 pointer-events-none flex opacity-20" dir="ltr">
+      {[...Array(columns)].map((_, i) => (
+        <div 
+          key={i} 
+          className="relative flex-none"
+          style={{ 
+            width: `${100 / columns}%`,
+            opacity: Math.max(0.1, (columns - i) / columns * 0.8),
+          }}
+        >
+          <div className="absolute top-0 left-0 w-full flex flex-col items-center">
+            <motion.div
+              initial={{ y: -500 }}
+              animate={{ y: 500 }}
+              transition={{ 
+                duration: 10 + Math.random() * 15, 
+                repeat: Infinity, 
+                ease: "linear",
+                delay: Math.random() * 10 
+              }}
+              className="flex flex-col gap-1"
+            >
+              {[...Array(20)].map((_, j) => (
+                <span 
+                  key={j} 
+                  className="text-[10px] md:text-[14px] font-mono font-bold text-gray-500"
+                  style={{ opacity: (20 - j) / 20 }}
+                >
+                  {characters[Math.floor(Math.random() * characters.length)]}
+                </span>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const FAQOverlay = ({ isOpen, onClose }) => {
   const { t, i18n } = useTranslation();
   const [openIndex, setOpenIndex] = useState(0);
@@ -288,13 +332,19 @@ const Hero = () => {
                 }}
                 className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
               >
-                {/* Background Image */}
+                {/* Background Image & Effects */}
+                {banners[currentIndex].type === 'topup' && (
+                  <div className="absolute inset-0 transparent">
+                    <MatrixRain isMobile={window.innerWidth < 768} />
+                  </div>
+                )}
+                
                 <img 
                   src={banners[currentIndex].bg} 
                   alt="Featured Promo" 
                   width="1200"
                   height="500"
-                  className="w-full h-full object-cover select-none pointer-events-none" 
+                  className={`w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 ${banners[currentIndex].type === 'topup' ? 'hidden md:block' : 'block'}`} 
                   draggable="false"
                 />
 
