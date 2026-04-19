@@ -53,7 +53,7 @@ function App() {
     handleHashChange();
     
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [selectedProduct]);
+  }, []);
 
   // Initial language and direction setup
   useEffect(() => {
