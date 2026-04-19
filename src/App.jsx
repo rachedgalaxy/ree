@@ -98,11 +98,11 @@ function App() {
       />
       
       <main>
-        {currentHash === '#/about-us' ? (
+        {currentHash === '#/about-us' && !searchQuery ? (
           <AboutUs />
-        ) : currentHash === '#/privacy-policy' ? (
+        ) : currentHash === '#/privacy-policy' && !searchQuery ? (
           <PrivacyPolicy />
-        ) : currentHash === '#/terms-of-service' ? (
+        ) : currentHash === '#/terms-of-service' && !searchQuery ? (
           <TermsOfService />
         ) : (
           <>
