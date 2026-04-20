@@ -30,10 +30,19 @@ const PromoSlider = () => {
     };
   }, [isHovered, pairedItems.length]);
 
+  const handleDragEnd = (e, { offset }) => {
+    const swipe = offset.x;
+    if (swipe < -30) {
+      setCurrentIndex((prev) => (prev + 1) % pairedItems.length);
+    } else if (swipe > 30) {
+      setCurrentIndex((prev) => (prev - 1 + pairedItems.length) % pairedItems.length);
+    }
+  };
+
   return (
     <div className="w-full my-8 md:my-12 px-2 sm:px-0">
       <div 
-        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
+        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 pb-8 md:p-6 md:pb-8"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)}
@@ -46,7 +55,11 @@ const PromoSlider = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30, position: 'absolute' }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="flex gap-3 md:gap-6 w-full h-full"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            className="flex gap-3 md:gap-6 w-full h-full cursor-grab active:cursor-grabbing"
           >
             {pairedItems[currentIndex].map((item, idx) => (
               item && (
@@ -76,7 +89,7 @@ const PromoSlider = () => {
         </AnimatePresence>
 
         {/* Navigation Indicators (Dots) */}
-        <div className="absolute bottom-2 md:bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+        <div className="absolute bottom-1.5 md:bottom-2 left-0 right-0 flex justify-center gap-2 z-10">
           {pairedItems.map((_, index) => (
             <button
               key={index}
