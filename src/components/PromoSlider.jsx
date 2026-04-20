@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { getLocalizedLink } from '../utils/url';
 
 const PROMO_ITEMS = [
-  { id: 'netflix', img: "https://redeem-dz.com/wp-content/uploads/2026/04/NETFLIX-CC-1.webp", link: "https://redeem-dz.com/en/product/netflix/" },
-  { id: 'shahid', img: "https://redeem-dz.com/wp-content/uploads/2026/04/shahid-CC-1.webp", link: "https://redeem-dz.com/en/product/shahid/" },
-  { id: 'osn',    img: "https://redeem-dz.com/wp-content/uploads/2026/04/osn-CC-1.webp",    link: "https://redeem-dz.com/en/product/osn/" },
-  { id: 'watchit',img: "https://redeem-dz.com/wp-content/uploads/2026/04/watchit-CC-1.webp",link: "https://redeem-dz.com/en/product/watch-it/" }
+  { id: 'netflix', img: "https://redeem-dz.com/wp-content/uploads/2026/04/NETFLIX-CC-1.webp", link: "https://redeem-dz.com/product/netflix/" },
+  { id: 'shahid', img: "https://redeem-dz.com/wp-content/uploads/2026/04/shahid-CC-1.webp", link: "https://redeem-dz.com/product/shahid/" },
+  { id: 'osn',    img: "https://redeem-dz.com/wp-content/uploads/2026/04/osn-CC-1.webp",    link: "https://redeem-dz.com/product/osn/" },
+  { id: 'watchit',img: "https://redeem-dz.com/wp-content/uploads/2026/04/watchit-CC-1.webp",link: "https://redeem-dz.com/product/watch-it/" }
 ];
 
 const PromoSlider = () => {
+  const { i18n } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -23,7 +26,7 @@ const PromoSlider = () => {
     if (!isHovered) {
       timerId = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % pairedItems.length);
-      }, 5000); // 5 seconds duration for smooth reading
+      }, 3500); // 3.5 seconds duration for faster reading
     }
     return () => {
       if (timerId) clearInterval(timerId);
@@ -51,10 +54,10 @@ const PromoSlider = () => {
         <AnimatePresence mode="default" initial={false}>
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30, position: 'absolute' }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            exit={{ opacity: 0, x: -20, position: 'absolute' }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
@@ -65,7 +68,7 @@ const PromoSlider = () => {
               item && (
                 <a 
                   key={item.id} 
-                  href={item.link} 
+                  href={getLocalizedLink(item.link, i18n.language)} 
                   target="_self"
                   className="flex-1 relative rounded-[1rem] md:rounded-2xl overflow-hidden group bg-transparent flex items-center justify-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
