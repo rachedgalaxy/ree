@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGamepad, faMobileAlt, faCreditCard, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from './ProductCard';
+import PromoSlider from './PromoSlider';
 import { wcApi } from '../utils/wcApi';
 import { normalizeArabicText, findClosestMatch, expandQuery } from '../utils/searchUtils';
 
@@ -184,17 +185,20 @@ const ProductGrid = ({ searchQuery, setSearchQuery }) => {
       
       <AnimatePresence mode="popLayout">
         {filteredCategories.length > 0 ? (
-          filteredCategories.map((category) => (
-            <motion.div 
-              layout 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: -20, scale: 0.95 }} 
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              key={category.id} 
-              className="mb-5 md:mb-7 last:mb-0"
-            >
-              <motion.div layout="position" className="flex items-center gap-2 mb-2 md:mb-3 border-b border-gray-100 pb-2">
+          filteredCategories.map((category, index) => (
+            <React.Fragment key={category.id}>
+              {index === Math.floor(filteredCategories.length / 2) && !searchQuery && (
+                <PromoSlider />
+              )}
+              <motion.div 
+                layout 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                exit={{ opacity: 0, y: -20, scale: 0.95 }} 
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="mb-5 md:mb-7 last:mb-0"
+              >
+                <motion.div layout="position" className="flex items-center gap-2 mb-2 md:mb-3 border-b border-gray-100 pb-2">
                 <FontAwesomeIcon icon={getCategoryIcon(category.id)} className="text-[#e11e3b] text-sm md:text-base opacity-90" />
                 <h2 className={`text-sm md:text-base font-[600] text-gray-800 tracking-tight uppercase ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                   {category.title[i18n.language] || category.title['en']}
@@ -224,6 +228,7 @@ const ProductGrid = ({ searchQuery, setSearchQuery }) => {
               )}
               
             </motion.div>
+            </React.Fragment>
           ))
         ) : (
           <motion.div 
