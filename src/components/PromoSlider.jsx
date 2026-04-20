@@ -70,7 +70,7 @@ const PromoSlider = () => {
                   key={item.id} 
                   href={getLocalizedLink(item.link, i18n.language)} 
                   target="_self"
-                  className="flex-1 relative rounded-[1rem] md:rounded-2xl overflow-hidden group bg-transparent flex items-center justify-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="flex-1 relative rounded-[1rem] md:rounded-2xl overflow-hidden group bg-transparent flex items-center justify-center"
                 >
                   {/* Subtle background glow for the image */}
                   <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
