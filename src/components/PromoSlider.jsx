@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getLocalizedLink } from '../utils/url';
 
@@ -12,98 +11,104 @@ const PROMO_ITEMS = [
 
 const PromoSlider = () => {
   const { i18n } = useTranslation();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const isRtl = i18n.language === 'ar';
 
-  // Group items into pairs of two
-  const pairedItems = [];
-  for (let i = 0; i < PROMO_ITEMS.length; i += 2) {
-    pairedItems.push([PROMO_ITEMS[i], PROMO_ITEMS[i + 1]]);
-  }
+  // Drag State Management for native feel
+  const [isDragging, setIsDragging] = useState(false);
+  const [isDragMoved, setIsDragMoved] = useState(false);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftPos = useRef(0);
 
+  const handleMouseDown = (e) => {
+    isDown.current = true;
+    setIsDragging(true);
+    setIsDragMoved(false);
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeftPos.current = scrollRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDown.current = false;
+    setIsDragging(false);
+    setTimeout(() => setIsDragMoved(false), 50);
+    setIsHovered(false);
+  };
+
+  const handleMouseUp = () => {
+    isDown.current = false;
+    setIsDragging(false);
+    setTimeout(() => setIsDragMoved(false), 50);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown.current) return;
+    e.preventDefault(); 
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; 
+    if (Math.abs(walk) > 10) setIsDragMoved(true); 
+    scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
+  };
+
+  // Continuous Auto-Scroll Effect
   useEffect(() => {
     let timerId;
-    if (!isHovered) {
+    if (!isHovered && !isDragging && scrollRef.current) {
       timerId = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % pairedItems.length);
-      }, 3500); // 3.5 seconds duration for faster reading
+        if (!scrollRef.current) return;
+        const { clientWidth, scrollLeft, scrollWidth } = scrollRef.current;
+        const scrollAmount = clientWidth / 2; // Move by roughly one card
+        
+        let newScrollLeft = Math.abs(scrollLeft) + scrollAmount;
+        
+        // Loop back smoothly if reached the end
+        if (newScrollLeft >= scrollWidth - clientWidth) {
+           scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+           return;
+        }
+
+        const multiplier = isRtl ? -1 : 1;
+        scrollRef.current.scrollBy({ left: scrollAmount * multiplier, behavior: 'smooth' });
+      }, 3500); 
     }
     return () => {
       if (timerId) clearInterval(timerId);
     };
-  }, [isHovered, pairedItems.length]);
-
-  const handleDragEnd = (e, { offset }) => {
-    const swipe = offset.x;
-    if (swipe < -30) {
-      setCurrentIndex((prev) => (prev + 1) % pairedItems.length);
-    } else if (swipe > 30) {
-      setCurrentIndex((prev) => (prev - 1 + pairedItems.length) % pairedItems.length);
-    }
-  };
+  }, [isHovered, isDragging, isRtl]);
 
   return (
     <div className="w-full my-8 md:my-12 px-2 sm:px-0">
       <div 
-        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 pb-8 md:p-6 md:pb-8"
+        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
       >
-        <AnimatePresence mode="default" initial={false}>
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20, position: 'absolute' }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={handleDragEnd}
-            className="flex gap-3 md:gap-6 w-full h-full cursor-grab active:cursor-grabbing"
-          >
-            {pairedItems[currentIndex].map((item, idx) => (
-              item && (
-                <a 
-                  key={item.id} 
-                  href={getLocalizedLink(item.link, i18n.language)} 
-                  target="_self"
-                  className="flex-1 relative rounded-[1rem] md:rounded-2xl overflow-hidden group bg-transparent flex items-center justify-center"
-                >
-                  {/* Subtle background glow for the image */}
-                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  
-                  {/* The Image */}
-                  <img 
-                    src={item.img} 
-                    alt={item.id} 
-                    className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl" 
-                    loading="lazy"
-                  />
-                  
-                  {/* Premium overlay gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </a>
-              )
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Navigation Indicators (Dots) */}
-        <div className="absolute bottom-1.5 md:bottom-2 left-0 right-0 flex justify-center gap-2 z-10">
-          {pairedItems.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`transition-all duration-300 rounded-full ${
-                 index === currentIndex 
-                  ? 'bg-red-500 w-6 h-1.5 shadow-md' 
-                  : 'bg-black/20 dark:bg-white/20 w-1.5 h-1.5 hover:bg-red-500/50'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+        <div 
+          ref={scrollRef} 
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          className={`flex overflow-x-auto no-scrollbar gap-3 md:gap-6 w-full h-full pb-2 ${isDragging ? 'cursor-grabbing snap-none scroll-auto' : 'cursor-grab snap-x snap-mandatory scroll-smooth'}`}
+        >
+          {PROMO_ITEMS.map((item) => (
+             <a 
+               key={item.id} 
+               href={getLocalizedLink(item.link, i18n.language)} 
+               target="_self"
+               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(50%-12px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm ${isDragMoved ? 'pointer-events-none' : ''}`}
+             >
+               <img 
+                 src={item.img} 
+                 alt={item.id} 
+                 className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl pointer-events-none" 
+                 loading="lazy"
+               />
+               <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+             </a>
           ))}
         </div>
       </div>
