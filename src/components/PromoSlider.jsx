@@ -110,7 +110,7 @@ const PromoSlider = () => {
                target="_self"
                draggable="false"
                onClick={(e) => handleLinkClick(e)}
-               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(50%-12px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm select-none`}
+               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(25%-18px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm select-none`}
              >
                <img 
                  src={item.img} 
