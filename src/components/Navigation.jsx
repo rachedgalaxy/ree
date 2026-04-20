@@ -92,7 +92,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                   onBlur={() => setTimeout(() => setIsFocused(false), 200)}
                   onChange={(e) => setLocalSearch(e.target.value)}
                   placeholder={i18n.language === 'ar' ? 'بحث' : 'Search'}
-                  className="w-full bg-gray-50/50 border border-transparent text-gray-900 text-sm font-medium rounded-full outline-none focus:bg-white focus:border-gray-200 focus:shadow-[0_4px_20px_rgba(0,0,0,0.06)] block ps-11 pe-11 p-2.5 transition-all duration-300"
+                  className="w-full bg-white border border-gray-200 text-gray-900 text-[13px] font-medium rounded-full outline-none focus:shadow-[0_4px_20px_rgba(0,0,0,0.06)] block ps-10 pe-11 p-2 shadow-sm transition-all duration-300"
                   dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
                 />
                 <AnimatePresence>
