@@ -47,7 +47,8 @@ const PromoSlider = () => {
     if (!isDown.current) return;
     e.preventDefault(); 
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; 
+    // Increased scroll multiplier significantly to make dragging on desktop/large screens feel much lighter and faster
+    const walk = (x - startX.current) * 2.5; 
     if (Math.abs(walk) > 10) setIsDragMoved(true); 
     scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
   };
@@ -78,6 +79,14 @@ const PromoSlider = () => {
     };
   }, [isHovered, isDragging, isRtl]);
 
+  // Prevent link click when user is dragging instead of intentionally clicking
+  const handleLinkClick = (e, linkStr) => {
+    if (isDragMoved) {
+      e.preventDefault();
+      return false;
+    }
+  };
+
   return (
     <div className="w-full my-8 md:my-12 px-2 sm:px-0">
       <div 
@@ -99,12 +108,15 @@ const PromoSlider = () => {
                key={item.id} 
                href={getLocalizedLink(item.link, i18n.language)} 
                target="_self"
-               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(50%-12px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm ${isDragMoved ? 'pointer-events-none' : ''}`}
+               draggable="false"
+               onClick={(e) => handleLinkClick(e)}
+               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(50%-12px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm select-none`}
              >
                <img 
                  src={item.img} 
                  alt={item.id} 
-                 className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl pointer-events-none" 
+                 draggable="false"
+                 className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl pointer-events-none select-none" 
                  loading="lazy"
                />
                <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
