@@ -139,7 +139,7 @@ const FAQOverlay = ({ isOpen, onClose }) => {
                   <HelpCircle size={20} />
                 </div>
                 <div>
-                  <h2 className="text-xl md:text-2xl font-bold text-black">{t('faq.title')}</h2>
+                  <h2 className="text-lg md:text-xl font-bold text-black">{t('faq.title')}</h2>
                 </div>
               </div>
               <button 
@@ -187,7 +187,7 @@ const FAQOverlay = ({ isOpen, onClose }) => {
                       onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                       className="w-full flex items-center justify-between p-4 md:p-5 text-start group"
                     >
-                      <span className="text-sm md:text-base font-semibold text-black pr-4 transition-colors group-hover:text-red-600">{item.q}</span>
+                      <span className="text-[13px] md:text-[15px] font-semibold text-black pr-4 transition-colors group-hover:text-red-600">{item.q}</span>
                       <motion.div
                         animate={{ rotate: openIndex === index ? 180 : 0 }}
                         className="flex-shrink-0 text-black/30 group-hover:text-red-600 transition-colors"
@@ -203,7 +203,7 @@ const FAQOverlay = ({ isOpen, onClose }) => {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="px-5 pb-5 text-sm md:text-[15px] leading-relaxed text-black/80 font-medium border-t border-black/5 pt-3">
+                          <div className="px-5 pb-5 text-[12px] md:text-[14px] leading-relaxed text-black/80 font-medium border-t border-black/5 pt-3">
                             {item.a}
                           </div>
                         </motion.div>
@@ -215,7 +215,7 @@ const FAQOverlay = ({ isOpen, onClose }) => {
               
               <div className="mt-8 p-6 rounded-2xl bg-black text-white flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
                  <div className="text-center md:text-start">
-                    <h3 className="font-bold text-base">{i18n.language === 'ar' ? 'هل لا تزال بحاجة لمساعدة؟' : 'Still need help?'}</h3>
+                    <h3 className="font-bold text-sm">{i18n.language === 'ar' ? 'هل لا تزال بحاجة لمساعدة؟' : 'Still need help?'}</h3>
                     <p className="text-[11px] opacity-70 mt-1">{i18n.language === 'ar' ? 'فريق الدعم الفني متواجد لمساعدتك في أي وقت.' : 'Our support team is here to help you 24/7.'}</p>
                  </div>
                  <a 
