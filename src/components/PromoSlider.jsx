@@ -144,12 +144,12 @@ const PromoSlider = () => {
                </div>
 
                {/* The Image Container */}
-               <div className="w-full relative z-10 aspect-square rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-sm isolate">
+               <div className="w-full relative z-10 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-sm isolate">
                  <img 
                    src={item.img} 
                    alt={item.id} 
                    draggable="false"
-                   className="w-full h-full object-cover rounded-xl pointer-events-none select-none transition-transform duration-700" 
+                   className="w-full h-auto rounded-xl pointer-events-none select-none transition-transform duration-700" 
                    loading="lazy"
                  />
                </div>
