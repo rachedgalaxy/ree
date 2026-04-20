@@ -80,7 +80,7 @@ const PromoSlider = () => {
   }, [isHovered, isDragging, isRtl]);
 
   // Prevent link click when user is dragging instead of intentionally clicking
-  const handleLinkClick = (e, linkStr) => {
+  const handleLinkClick = (e) => {
     if (isDragMoved) {
       e.preventDefault();
       return false;
@@ -88,21 +88,25 @@ const PromoSlider = () => {
   };
 
   return (
-    <div className="w-full my-8 md:my-12 px-2 sm:px-0">
+    <div 
+      className="w-full my-8 md:my-12 px-2 sm:px-0 relative group"
+      onMouseEnter={() => setIsHovered(true)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+    >
+      <style>{`
+        .promo-scroll::-webkit-scrollbar { display: none; }
+        .promo-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
       <div 
-        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
-        onMouseEnter={() => setIsHovered(true)}
-        onTouchStart={() => setIsHovered(true)}
-        onTouchEnd={() => setIsHovered(false)}
+        ref={scrollRef} 
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className={`promo-scroll flex overflow-x-auto gap-3 md:gap-6 w-full pb-3 md:pb-4 pt-1 ${isDragging ? 'cursor-grabbing snap-none scroll-auto' : 'cursor-grab snap-x snap-mandatory scroll-smooth'}`}
       >
-        <div 
-          ref={scrollRef} 
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          className={`flex overflow-x-auto no-scrollbar gap-3 md:gap-6 w-full pb-2 ${isDragging ? 'cursor-grabbing snap-none scroll-auto' : 'cursor-grab snap-x snap-mandatory scroll-smooth'}`}
-        >
           {PROMO_ITEMS.map((item) => (
              <a 
                key={item.id} 
@@ -123,7 +127,6 @@ const PromoSlider = () => {
              </a>
           ))}
         </div>
-      </div>
     </div>
   );
 };
