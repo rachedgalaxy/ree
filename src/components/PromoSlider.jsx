@@ -90,7 +90,7 @@ const PromoSlider = () => {
   return (
     <div className="w-full my-8 md:my-12 px-2 sm:px-0">
       <div 
-        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
+        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
         onMouseEnter={() => setIsHovered(true)}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
@@ -101,7 +101,7 @@ const PromoSlider = () => {
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className={`flex overflow-x-auto no-scrollbar gap-3 md:gap-6 w-full h-full pb-2 ${isDragging ? 'cursor-grabbing snap-none scroll-auto' : 'cursor-grab snap-x snap-mandatory scroll-smooth'}`}
+          className={`flex overflow-x-auto no-scrollbar gap-3 md:gap-6 w-full pb-2 ${isDragging ? 'cursor-grabbing snap-none scroll-auto' : 'cursor-grab snap-x snap-mandatory scroll-smooth'}`}
         >
           {PROMO_ITEMS.map((item) => (
              <a 
@@ -110,13 +110,13 @@ const PromoSlider = () => {
                target="_self"
                draggable="false"
                onClick={(e) => handleLinkClick(e)}
-               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(25%-18px)] snap-start h-full relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm select-none`}
+               className={`shrink-0 w-[calc(50%-6px)] md:w-[calc(25%-18px)] snap-start relative rounded-[1rem] md:rounded-2xl overflow-hidden bg-transparent flex items-center justify-center shadow-sm select-none`}
              >
                <img 
                  src={item.img} 
                  alt={item.id} 
                  draggable="false"
-                 className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl pointer-events-none select-none" 
+                 className="w-full h-auto rounded-[1rem] md:rounded-2xl pointer-events-none select-none" 
                  loading="lazy"
                />
                <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
