@@ -1,82 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const PROMO_IMAGES = [
-  "https://redeem-dz.com/wp-content/uploads/2026/04/NETFLIX-CC-1.webp",
-  "https://redeem-dz.com/wp-content/uploads/2026/04/shahid-CC-1.webp",
-  "https://redeem-dz.com/wp-content/uploads/2026/04/watchit-CC-1.webp",
-  "https://redeem-dz.com/wp-content/uploads/2026/04/osn-CC-1.webp"
+const PROMO_ITEMS = [
+  { id: 'netflix', img: "https://redeem-dz.com/wp-content/uploads/2026/04/NETFLIX-CC-1.webp", link: "https://redeem-dz.com/en/product/netflix/" },
+  { id: 'shahid', img: "https://redeem-dz.com/wp-content/uploads/2026/04/shahid-CC-1.webp", link: "https://redeem-dz.com/en/product/shahid/" },
+  { id: 'osn',    img: "https://redeem-dz.com/wp-content/uploads/2026/04/osn-CC-1.webp",    link: "https://redeem-dz.com/en/product/osn/" },
+  { id: 'watchit',img: "https://redeem-dz.com/wp-content/uploads/2026/04/watchit-CC-1.webp",link: "https://redeem-dz.com/en/product/watch-it/" }
 ];
 
 const PromoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
+  // Group items into pairs of two
+  const pairedItems = [];
+  for (let i = 0; i < PROMO_ITEMS.length; i += 2) {
+    pairedItems.push([PROMO_ITEMS[i], PROMO_ITEMS[i + 1]]);
+  }
+
   useEffect(() => {
     let timerId;
-    const startTimer = () => {
-      timerId = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % PROMO_IMAGES.length);
-      }, 4000); // Auto-advance every 4 seconds
-    };
-
     if (!isHovered) {
-      startTimer();
+      timerId = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % pairedItems.length);
+      }, 5000); // 5 seconds duration for smooth reading
     }
-    
     return () => {
       if (timerId) clearInterval(timerId);
     };
-  }, [isHovered]);
-
-  const handleDragEnd = (e, { offset }) => {
-    const swipe = offset.x;
-    if (swipe < -50) {
-      // Swiped left, go next
-      setCurrentIndex((prev) => (prev + 1) % PROMO_IMAGES.length);
-    } else if (swipe > 50) {
-      // Swiped right, go prev
-      setCurrentIndex((prev) => (prev - 1 + PROMO_IMAGES.length) % PROMO_IMAGES.length);
-    }
-  };
+  }, [isHovered, pairedItems.length]);
 
   return (
     <div className="w-full my-8 md:my-12 px-2 sm:px-0">
       <div 
-        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/9] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl"
+        className="relative overflow-hidden rounded-2xl md:rounded-[32px] glass-panel shadow-[0_8px_30px_rgb(0,0,0,0.06)] aspect-[21/10] md:aspect-[32/9] border border-white/20 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl p-3 md:p-6"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
       >
-        <AnimatePresence initial={false} custom={currentIndex}>
-          <motion.img
+        <AnimatePresence mode="default" initial={false}>
+          <motion.div
             key={currentIndex}
-            src={PROMO_IMAGES[currentIndex]}
-            alt={`Promo Banner ${currentIndex + 1}`}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30, position: 'absolute' }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={handleDragEnd}
-            className="absolute inset-0 w-full h-full object-cover cursor-grab active:cursor-grabbing"
-            loading="lazy"
-          />
+            className="flex gap-3 md:gap-6 w-full h-full"
+          >
+            {pairedItems[currentIndex].map((item, idx) => (
+              item && (
+                <a 
+                  key={item.id} 
+                  href={item.link} 
+                  target="_self"
+                  className="flex-1 relative rounded-[1rem] md:rounded-2xl overflow-hidden group bg-transparent flex items-center justify-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  {/* Subtle background glow for the image */}
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  
+                  {/* The Image */}
+                  <img 
+                    src={item.img} 
+                    alt={item.id} 
+                    className="w-full h-full object-cover rounded-[1rem] md:rounded-2xl" 
+                    loading="lazy"
+                  />
+                  
+                  {/* Premium overlay gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </a>
+              )
+            ))}
+          </motion.div>
         </AnimatePresence>
 
         {/* Navigation Indicators (Dots) */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-          {PROMO_IMAGES.map((_, index) => (
+        <div className="absolute bottom-2 md:bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+          {pairedItems.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`transition-all duration-300 rounded-full ${
-                index === currentIndex 
-                  ? 'bg-white w-6 h-2 shadow-md' 
-                  : 'bg-white/50 w-2 h-2 hover:bg-white/80'
+                 index === currentIndex 
+                  ? 'bg-red-500 w-6 h-1.5 shadow-md' 
+                  : 'bg-black/20 dark:bg-white/20 w-1.5 h-1.5 hover:bg-red-500/50'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
