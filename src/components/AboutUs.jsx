@@ -667,21 +667,21 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   };
 
   return (
-    <div className="relative w-full py-4">
-      {/* Navigation Arrows - Increased Visibility and Z-Index */}
+    <div className="relative w-full py-2">
+      {/* Navigation Arrows - Red, Small, No Blur */}
       <button 
-        onClick={() => move('prev')}
-        className="absolute left-1 top-1/2 -translate-y-1/2 z-[100] p-3 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 text-white shadow-2xl active:scale-90 transition-all"
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); move('prev'); }}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-[150] p-1.5 rounded-full bg-red-600 text-white shadow-lg active:scale-75 transition-all pointer-events-auto mt-1"
         aria-label="Previous"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={16} />
       </button>
       <button 
-        onClick={() => move('next')}
-        className="absolute right-1 top-1/2 -translate-y-1/2 z-[100] p-3 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 text-white shadow-2xl active:scale-90 transition-all"
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); move('next'); }}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-[150] p-1.5 rounded-full bg-red-600 text-white shadow-lg active:scale-75 transition-all pointer-events-auto mt-1"
         aria-label="Next"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={16} />
       </button>
 
       <div
