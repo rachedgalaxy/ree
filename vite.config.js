@@ -25,7 +25,7 @@ export default defineConfig({
     },
     includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
     manifest: {
-      name: 'Redeem Store | متجر ريديم',
+      name: 'Redeem',
       short_name: 'Redeem',
       description: 'Premium Gaming & Digital Cards Store',
       start_url: '/',
@@ -34,17 +34,17 @@ export default defineConfig({
       theme_color: '#e11e3b',
       icons: [
         {
-          src: 'https://redeem-dz.com/wp-content/uploads/2026/03/redeem-emeil-logo.png',
+          src: '/pwa-logo.png',
           sizes: '192x192',
           type: 'image/png'
         },
         {
-          src: 'https://redeem-dz.com/wp-content/uploads/2026/03/redeem-emeil-logo.png',
+          src: '/pwa-logo.png',
           sizes: '512x512',
           type: 'image/png'
         },
         {
-          src: 'https://redeem-dz.com/wp-content/uploads/2026/03/redeem-emeil-logo.png',
+          src: '/pwa-logo.png',
           sizes: '512x512',
           type: 'image/png',
           purpose: 'any maskable'
