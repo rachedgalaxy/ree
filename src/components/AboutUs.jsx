@@ -206,6 +206,49 @@ const AboutUs = () => {
                <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
                <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
                
+               {/* Matrix Effect Background for Startup */}
+               <div className="absolute inset-0 z-0 pointer-events-none flex justify-evenly overflow-hidden opacity-50 transition-opacity duration-700 group-hover:opacity-100" dir="ltr">
+                 {[...Array(15)].map((_, i) => (
+                   <div 
+                     key={i} 
+                     className="relative flex-none"
+                     style={{ 
+                       width: '15px',
+                       marginTop: `${Math.random() * -50}px`
+                     }}
+                   >
+                     <div className="absolute top-0 left-0 w-full flex flex-col items-center">
+                       <motion.div
+                         initial={{ y: -300 }}
+                         animate={{ y: 500 }}
+                         transition={{ 
+                           duration: 12 + Math.random() * 15, 
+                           repeat: Infinity, 
+                           ease: "linear",
+                           delay: Math.random() * 8 
+                         }}
+                         className="flex flex-col gap-1"
+                       >
+                         {[...Array(20)].map((_, j) => {
+                           const chars = "NATIONALSTARTUPCOMMITTEE";
+                           const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                           const isRed = Math.random() > 0.8; 
+                           return (
+                             <span 
+                               key={j} 
+                               className={`text-[10px] md:text-[12px] font-mono font-bold ${isRed ? 'text-red-400/60' : 'text-emerald-500/50'}`}
+                               style={{ opacity: (20 - j) / 20 }}
+                             >
+                               {randomChar}
+                             </span>
+                           );
+                         })}
+                       </motion.div>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+
                <img 
                  src="https://redeem-dz.com/wp-content/uploads/2026/04/national-startup-committee.svg" 
                  alt="National Startup Committee" 
