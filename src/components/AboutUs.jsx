@@ -288,7 +288,7 @@ const AboutUs = () => {
           </motion.div>
 
           {/* Mobile Slider (Visible only on small screens) */}
-          <div className="md:hidden w-full -mx-4 overflow-hidden">
+          <div className="md:hidden w-full relative">
              <FeaturesSlider features={features} isRtl={i18n.language === 'ar'} itemVariants={itemVariants} />
           </div>
         </div>
@@ -606,9 +606,6 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
 /* ─── Mobile Features Slider ───────────────────────────── */
 const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const sliderRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Triple items for infinite feel
@@ -618,20 +615,23 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
     if (!sliderRef.current) return;
     const container = sliderRef.current;
     
-    // Smooth looping logic (similar to ReviewsSlider)
-    if (container.scrollLeft <= 5) {
-      container.scrollLeft = container.scrollWidth / 3;
-    } else if (container.scrollLeft >= (container.scrollWidth * 2) / 3) {
-      container.scrollLeft = container.scrollWidth / 3;
+    const center = container.scrollLeft + container.clientWidth / 2;
+    const scrollMax = container.scrollWidth;
+    const sliceWidth = scrollMax / 3;
+
+    // Smooth infinite resetting
+    if (container.scrollLeft < sliceWidth - container.clientWidth) {
+        container.scrollLeft += sliceWidth;
+    } else if (container.scrollLeft > sliceWidth * 2) {
+        container.scrollLeft -= sliceWidth;
     }
 
-    const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
+    // Determine active index
     let closestIdx = 0;
     let minDistance = Infinity;
-
     Array.from(container.children).forEach((child, index) => {
-      const childCenter = child.getBoundingClientRect().left + child.clientWidth / 2;
-      const distance = Math.abs(containerCenter - childCenter);
+      const childCenter = child.offsetLeft + child.clientWidth / 2;
+      const distance = Math.abs(center - childCenter);
       if (distance < minDistance) {
         minDistance = distance;
         closestIdx = index;
@@ -641,67 +641,53 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
     if (closestIdx !== activeIndex) setActiveIndex(closestIdx);
   }, [activeIndex]);
 
-  // Initial center position
+  // Initial center position with perfect offset calculation
   useLayoutEffect(() => {
-    if (sliderRef.current) {
-      const container = sliderRef.current;
-      container.scrollLeft = container.scrollWidth / 3;
-    }
-  }, []);
+    const timer = setTimeout(() => {
+      if (sliderRef.current) {
+        const container = sliderRef.current;
+        const middleItem = container.children[features.length];
+        if (middleItem) {
+          const offset = middleItem.offsetLeft - (container.clientWidth / 2) + (middleItem.clientWidth / 2);
+          container.scrollTo({ left: offset, behavior: 'instant' });
+        }
+      }
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [features.length]);
 
   const move = (direction) => {
     if (!sliderRef.current) return;
     const container = sliderRef.current;
-    const cardWidth = container.children[0].clientWidth + 16; // width + gap
+    const cardWidth = container.children[0].clientWidth + 16;
     container.scrollBy({ 
       left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
       behavior: 'smooth' 
     });
   };
 
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - sliderRef.current.offsetLeft);
-    setScrollLeft(sliderRef.current.scrollLeft);
-  };
-
-  const stopDrag = () => setIsDragging(false);
-
-  const onMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
-  };
-
   return (
-    <div className="relative group/slider">
-      {/* Navigation Arrows (Mobile Only) */}
+    <div className="relative w-full py-4">
+      {/* Navigation Arrows - Increased Visibility and Z-Index */}
       <button 
         onClick={() => move('prev')}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg active:scale-95 transition-all"
+        className="absolute left-1 top-1/2 -translate-y-1/2 z-[100] p-3 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 text-white shadow-2xl active:scale-90 transition-all"
         aria-label="Previous"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={24} />
       </button>
       <button 
         onClick={() => move('next')}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg active:scale-95 transition-all"
+        className="absolute right-1 top-1/2 -translate-y-1/2 z-[100] p-3 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 text-white shadow-2xl active:scale-90 transition-all"
         aria-label="Next"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={24} />
       </button>
 
       <div
         ref={sliderRef}
-        onMouseDown={onMouseDown}
-        onMouseLeave={stopDrag}
-        onMouseUp={stopDrag}
-        onMouseMove={onMouseMove}
         onScroll={handleScroll}
-        style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
-        className={`flex gap-4 overflow-x-auto py-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className="flex gap-4 overflow-x-auto py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-10 snap-x snap-mandatory cursor-default overscroll-x-contain"
       >
         {displayFeatures.map((feature, idx) => (
           <FeatureCard 
