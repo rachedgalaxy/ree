@@ -5,6 +5,8 @@ import { Flame, Star } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { getLocalizedLink } from '../utils/url';
 
+import reviewsData from '../data/reviewsData.json';
+
 const ProductCard = ({ product }) => {
   const { i18n } = useTranslation();
   const tProduct = product.translations?.[i18n.language] || product.translations?.['en'] || { name: product.name };
@@ -19,12 +21,21 @@ const ProductCard = ({ product }) => {
 
   const isOutOfStock = product.in_stock === false; // Explicit check, assume true if undefined
 
+  // Find reviews for this specific product
+  const productReviews = reviewsData.filter(r => r.product === product.id);
+  const reviewCount = productReviews.length;
+
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": tProduct.name,
     "image": product.image,
     "description": `شراء ${tProduct.name} في الجزائر بأفضل الأسعار عبر بريدي موب و OCPay`,
+    "sku": product.id.toString(),
+    "brand": {
+      "@type": "Brand",
+      "name": "Redeem"
+    },
     "offers": {
       "@type": "Offer",
       "url": "https://redeem.dz" + urlWithLang,
@@ -34,8 +45,63 @@ const ProductCard = ({ product }) => {
       "seller": {
         "@type": "Organization",
         "name": "متجر ريديم Redeem DZ"
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "DZD"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "0",
+            "maxValue": "1",
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "0",
+            "maxValue": "0",
+            "unitCode": "DAY"
+          }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "DZ",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
       }
-    }
+    },
+    // Only add rating if it exists
+    ...(product.average_rating > 0 && {
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": product.average_rating,
+        "reviewCount": reviewCount > 0 ? reviewCount : 1,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }),
+    // Only add reviews if they exist
+    ...(productReviews.length > 0 && {
+      "review": productReviews.map(r => ({
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": r.rating,
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": r.reviewer
+        },
+        "reviewBody": r.review,
+        "datePublished": r.date
+      }))
+    })
   };
 
   return (
