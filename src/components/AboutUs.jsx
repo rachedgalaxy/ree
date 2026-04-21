@@ -76,7 +76,7 @@ const AboutUs = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center justify-center space-y-8"
+        className="flex flex-col items-center justify-center space-y-5 md:space-y-8"
       >
         {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
@@ -99,7 +99,7 @@ const AboutUs = () => {
         {/* About Us Interactive Paragraphs */}
         <motion.div 
           variants={itemVariants} 
-          className="w-full flex flex-col gap-6 md:gap-8 mb-4 border-t border-gray-100 pt-8"
+          className="w-full flex flex-col gap-4 md:gap-8 mb-4"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full">
             {/* Box 1: Story */}
