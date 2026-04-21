@@ -530,7 +530,6 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
       animate={{ 
         opacity: isActive ? 1 : 0.4, 
         scale: isActive ? 1 : 0.85,
-        filter: isActive ? 'blur(0px)' : 'blur(2px)'
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={`snap-center shrink-0 w-[65vw] sm:w-[50vw] md:w-[340px] lg:w-[380px]
@@ -610,6 +609,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const startX = useRef(0);
   const scrollStart = useRef(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Triple items for infinite feel
   const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
