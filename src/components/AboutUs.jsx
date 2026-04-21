@@ -251,7 +251,6 @@ const AboutUs = () => {
                     </div>
                   </div>
                 </div>
-                </div>
 
                 <div className="w-full h-px bg-white/20 rounded-full my-1"></div>
 
