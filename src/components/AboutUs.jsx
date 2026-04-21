@@ -257,11 +257,13 @@ const AboutUs = () => {
             {/* Box 4: Innovative Project & Mission Texts */}
             <motion.div 
               whileHover={{ scale: 1.01, y: -2 }}
-              className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group text-white flex flex-col gap-6 justify-center h-full cursor-default"
+              className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 shadow-2xl relative group text-white flex flex-col gap-6 justify-center h-full cursor-default"
             >
-              {/* Soft decorative background effects */}
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 mix-blend-overlay rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+              {/* Soft decorative background effects (isolated overflow layer) */}
+              <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 mix-blend-overlay rounded-full blur-3xl -mr-20 -mt-20"></div>
+              </div>
               
               <div className="relative z-10 flex flex-col gap-6 w-full h-full justify-between">
                 
