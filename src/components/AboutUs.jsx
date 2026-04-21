@@ -130,24 +130,24 @@ const AboutUs = () => {
             {/* Box 2: Features */}
             <motion.div 
               whileHover={{ scale: 1.01 }}
-              className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default flex flex-col justify-center"
+              className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-5 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default flex flex-col justify-center"
             >
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-700 group-hover:scale-150"></div>
-              <p className={`text-[15px] md:text-base font-bold text-gray-900 mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+              <p className={`text-[12px] md:text-base font-bold text-gray-900 mb-4 md:mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                 {i18n.language === 'ar' ? 'نحن لا نبيع فقط منتجات، بل نوفر تجربة كاملة:' : 'We don\'t just sell products; we provide a complete experience:'}
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {[
-                  { icon: <Rocket size={20}/>, ar: 'سرعة في التنفيذ (غالبًا خلال دقائق إلى ساعات)', en: 'Execution speed (often within minutes to hours)' },
-                  { icon: <ShieldCheck size={20}/>, ar: 'نظام آمن يحمي بيانات المستخدمين', en: 'A secure system that protects user data' },
-                  { icon: <CreditCard size={20}/>, ar: 'طرق دفع متعددة تناسب المستخدم الجزائري', en: 'Multiple payment methods tailored for Algerian users' },
-                  { icon: <Headphones size={20}/>, ar: 'دعم مستمر لضمان أفضل تجربة ممكنة', en: 'Continuous support to ensure the best possible experience' }
+                  { icon: <Rocket className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'سرعة في المنح (من دقائق إلى ساعات)', en: 'Execution speed (from minutes to hours)' },
+                  { icon: <ShieldCheck className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'نظام آمن وموثوق يحمي بيانات المستخدمين', en: 'Secure system protecting user data' },
+                  { icon: <CreditCard className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'طرق دفع مرنة تناسب المستخدم الجزائري', en: 'Flexible payments for Algerian users' },
+                  { icon: <Headphones className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'دعم فني مستمر لضمان أفضل تجربة', en: 'Continuous tech support for best experience' }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 group/item">
-                    <div className="text-red-600 p-2 bg-red-50 rounded-xl group-hover/item:bg-red-600 group-hover/item:text-white transition-colors duration-300">
+                  <div key={i} className="flex items-center gap-2.5 md:gap-4 group/item">
+                    <div className="text-red-600 p-1.5 md:p-2 bg-red-50 rounded-lg md:rounded-xl group-hover/item:bg-red-600 group-hover/item:text-white transition-colors duration-300">
                       {item.icon}
                     </div>
-                    <span className={`text-sm md:text-[15px] font-semibold text-gray-700 group-hover/item:text-gray-900 transition-colors ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    <span className={`text-[10px] md:text-[14px] whitespace-nowrap leading-tight font-bold md:font-semibold text-gray-700 group-hover/item:text-gray-900 transition-colors ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                       {i18n.language === 'ar' ? item.ar : item.en}
                     </span>
                   </div>
