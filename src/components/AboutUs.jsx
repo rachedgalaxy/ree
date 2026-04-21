@@ -229,17 +229,15 @@ const AboutUs = () => {
                          }}
                          className="flex flex-col gap-1"
                        >
-                         {[...Array(20)].map((_, j) => {
-                           const chars = "NATIONALSTARTUPCOMMITTEE";
-                           const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                         {("NATIONAL STARTUP COMMITTEE").split('').map((char, j) => {
                            const isRed = Math.random() > 0.8; 
                            return (
                              <span 
                                key={j} 
                                className={`text-[10px] md:text-[12px] font-mono font-bold ${isRed ? 'text-red-400/60' : 'text-emerald-500/50'}`}
-                               style={{ opacity: (20 - j) / 20 }}
+                               style={{ opacity: (26 - j) / 26 }}
                              >
-                               {randomChar}
+                               {char === ' ' ? '\u00A0' : char}
                              </span>
                            );
                          })}
