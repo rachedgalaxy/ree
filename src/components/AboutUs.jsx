@@ -83,48 +83,8 @@ const AboutUs = () => {
           variants={itemVariants} 
           className="relative w-full overflow-hidden rounded-3xl group shadow-2xl"
         >
-          {/* Matrix Effect Layer */}
-          <div className="absolute inset-0 z-20 pointer-events-none flex" dir="ltr">
-            {[...Array(15)].map((_, i) => (
-              <div 
-                key={i} 
-                className="relative flex-none"
-                style={{ 
-                  width: `${Math.random() * 20 + 10}px`,
-                  opacity: Math.max(0.1, (15 - i) / 15 * 0.8),
-                  marginLeft: i === 0 ? '20px' : '4px'
-                }}
-              >
-                <div className="absolute top-0 left-0 w-full flex flex-col items-center">
-                  <motion.div
-                    initial={{ y: -500 }}
-                    animate={{ y: 500 }}
-                    transition={{ 
-                      duration: 8 + Math.random() * 10, 
-                      repeat: Infinity, 
-                      ease: "linear",
-                      delay: Math.random() * 10 
-                    }}
-                    className="flex flex-col gap-1"
-                  >
-                    {[...Array(20)].map((_, j) => {
-                      const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                      const randomChar = chars[Math.floor(Math.random() * chars.length)];
-                      return (
-                        <span 
-                          key={j} 
-                          className="text-[14px] md:text-[16px] font-mono font-bold text-red-600"
-                          style={{ opacity: (20 - j) / 20 }}
-                        >
-                          {randomChar}
-                        </span>
-                      );
-                    })}
-                  </motion.div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Elegant Ambient Overlay instead of Matrix for Performance */}
+          <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-t from-gray-900/60 via-transparent to-gray-900/10 mix-blend-overlay"></div>
 
           {/* Image — natural aspect ratio, fills full width */}
           <div className="w-full">
@@ -205,47 +165,8 @@ const AboutUs = () => {
                {/* Decorational blur inside */}
                <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
                <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
-               
-               {/* Matrix Effect Background for Startup */}
-               <div className="absolute inset-0 z-0 pointer-events-none flex justify-evenly overflow-hidden opacity-50 transition-opacity duration-700 group-hover:opacity-100" dir="ltr">
-                 {[...Array(15)].map((_, i) => (
-                   <div 
-                     key={i} 
-                     className="relative flex-none"
-                     style={{ 
-                       width: '15px',
-                       marginTop: `${Math.random() * -50}px`
-                     }}
-                   >
-                     <div className="absolute top-0 left-0 w-full flex flex-col items-center">
-                       <motion.div
-                         initial={{ y: -300 }}
-                         animate={{ y: 500 }}
-                         transition={{ 
-                           duration: 12 + Math.random() * 15, 
-                           repeat: Infinity, 
-                           ease: "linear",
-                           delay: Math.random() * 8 
-                         }}
-                         className="flex flex-col gap-1"
-                       >
-                         {("NATIONAL STARTUP COMMITTEE").split('').map((char, j) => {
-                           const isRed = Math.random() > 0.8; 
-                           return (
-                             <span 
-                               key={j} 
-                               className={`text-[10px] md:text-[12px] font-mono font-bold ${isRed ? 'text-red-400/60' : 'text-emerald-500/50'}`}
-                               style={{ opacity: (26 - j) / 26 }}
-                             >
-                               {char === ' ' ? '\u00A0' : char}
-                             </span>
-                           );
-                         })}
-                       </motion.div>
-                     </div>
-                   </div>
-                 ))}
-               </div>
+               {/* Elegant Inner Shadow / Ambient Glow */}
+               <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-tr from-emerald-500/5 to-red-500/5 opacity-50 transition-opacity duration-700 group-hover:opacity-100"></div>
 
                <img 
                  src="https://redeem-dz.com/wp-content/uploads/2026/04/national-startup-committee.svg" 
