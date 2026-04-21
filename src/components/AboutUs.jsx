@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
+import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote, Facebook } from 'lucide-react';
 import reviewsData from '../data/reviewsData.json';
 
 const AboutUs = () => {
@@ -316,6 +316,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
 /* ─── Single Review Card ─────────────────────────────────── */
 const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   const isTrustpilot = review.source === 'trustpilot';
+  const isFacebook = review.source === 'facebook';
 
   const gradients = [
     'from-indigo-50 to-blue-50 border-indigo-100',
@@ -327,9 +328,13 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   ];
   const accentColors = ['text-indigo-500','text-rose-500','text-amber-500','text-emerald-500','text-purple-500','text-sky-500'];
   
-  // Custom Trustpilot styling
-  const gradient = isTrustpilot ? 'from-[#f5faf7] to-[#eaf5f0] border-[#00b67a]/30' : gradients[idx % gradients.length];
-  const accent = isTrustpilot ? 'text-[#00b67a]' : accentColors[idx % accentColors.length];
+  // Custom styling
+  const gradient = isTrustpilot ? 'from-[#f5faf7] to-[#eaf5f0] border-[#00b67a]/30' :
+                   isFacebook ? 'from-[#f0f2f5] to-[#e7f3ff] border-[#0866ff]/30' :
+                   gradients[idx % gradients.length];
+  const accent = isTrustpilot ? 'text-[#00b67a]' : 
+                 isFacebook ? 'text-[#0866ff]' :
+                 accentColors[idx % accentColors.length];
 
   const initials = review.reviewer.slice(0, 2).toUpperCase();
   const displayName = review.reviewer.length > 2 ? review.reviewer.slice(0, 2) + '***' : review.reviewer.slice(0, 1) + '***';
@@ -377,7 +382,7 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
       <div className="flex items-center gap-3 pt-2 border-t border-black/5">
         {/* Avatar */}
         <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white shadow-sm
-          bg-gradient-to-br ${isTrustpilot ? 'from-[#00b67a] to-[#009462]' : idx % 2 === 0 ? 'from-gray-700 to-gray-900' : 'from-red-500 to-red-700'}`}>
+          bg-gradient-to-br ${isTrustpilot ? 'from-[#00b67a] to-[#009462]' : isFacebook ? 'from-[#0866ff] to-[#0051d6]' : idx % 2 === 0 ? 'from-gray-700 to-gray-900' : 'from-red-500 to-red-700'}`}>
           {initials}
         </div>
         <div className="flex flex-col">
@@ -387,12 +392,17 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
           <span className="text-[10px] text-gray-400 font-medium">{review.date}</span>
         </div>
         
-        {/* Verified / Trustpilot badge */}
+        {/* Verified / Trustpilot / Facebook badge */}
         <div className="mr-auto ml-auto flex-1 flex justify-end">
           {isTrustpilot ? (
              <span className="flex items-center gap-1 text-[10px] font-bold text-[#00b67a] bg-[#00b67a]/10 px-2 py-0.5 rounded-full border border-[#00b67a]/20">
                <span className="bg-[#00b67a] rounded-sm p-0.5"><Star size={8} className="fill-white text-white"/></span>
                Trustpilot
+             </span>
+          ) : isFacebook ? (
+             <span className="flex items-center gap-1 text-[10px] font-bold text-[#0866ff] bg-[#0866ff]/10 px-2 py-0.5 rounded-full border border-[#0866ff]/20">
+               <Facebook size={12} className="fill-current text-[#0866ff]" />
+               Facebook
              </span>
           ) : (
              <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
@@ -405,5 +415,6 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
     </motion.div>
   );
 };
+
 
 export default AboutUs;
