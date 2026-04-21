@@ -93,7 +93,18 @@ async function fetchStoreData() {
       }
     }
 
-    const combinedReviews = [...tpReviews, ...processedReviews];
+    // Optional: read static facebook reviews
+    const fbPath = path.join(__dirname, '../src/data/facebookReviews.json');
+    let fbReviews = [];
+    if (fs.existsSync(fbPath)) {
+      try {
+        fbReviews = JSON.parse(fs.readFileSync(fbPath, 'utf8'));
+      } catch(e) {
+        console.warn('⚠️ Could not parse facebookReviews.json', e.message);
+      }
+    }
+
+    const combinedReviews = [...fbReviews, ...tpReviews, ...processedReviews];
     const reviewsPath = path.join(__dirname, '../src/data/reviewsData.json');
     fs.writeFileSync(reviewsPath, JSON.stringify(combinedReviews, null, 2));
     console.log(`✅ Saved ${combinedReviews.length} reviews to reviewsData.json`);

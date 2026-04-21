@@ -1,0 +1,56 @@
+[
+  {
+    "id": "fb-1",
+    "reviewer": "Djamel Baour",
+    "rating": 5,
+    "review": "متجر موثوق 100% تعاملت معهم مرات عديدة ولم أواجه أي مشكلة. الشحن فوري والدعم متعاون. أنصح الجميع بالتعامل معهم.",
+    "date": "2026-03-15",
+    "source": "facebook",
+    "lang": "ar"
+  },
+  {
+    "id": "fb-2",
+    "reviewer": "Amine Tahar",
+    "rating": 5,
+    "review": "Best platform to buy digital products in Algeria. Fast delivery and great prices. Highly recommended!",
+    "date": "2026-02-28",
+    "source": "facebook",
+    "lang": "en"
+  },
+  {
+    "id": "fb-3",
+    "reviewer": "Saida Mebrek",
+    "rating": 5,
+    "review": "خدمة ممتازة وسرعة في التوصيل، اشتريت بطاقة بلايستيشن ووصلت خلال دقائق. شكراً ريديم!",
+    "date": "2026-02-10",
+    "source": "facebook",
+    "lang": "ar"
+  },
+  {
+    "id": "fb-4",
+    "reviewer": "Youcef Khelil",
+    "rating": 5,
+    "review": "Amazing service, I bought PUBG UC and received them instantly. Will definitely come back!",
+    "date": "2026-01-20",
+    "source": "facebook",
+    "lang": "en"
+  },
+  {
+    "id": "fb-5",
+    "reviewer": "Nour Belhadj",
+    "rating": 5,
+    "review": "أفضل موقع للشحن في الجزائر، الأسعار معقولة والتوصيل فوري. استمروا هكذا!",
+    "date": "2025-12-25",
+    "source": "facebook",
+    "lang": "ar"
+  },
+  {
+    "id": "fb-6",
+    "reviewer": "Ismail Bouzid",
+    "rating": 4,
+    "review": "Very good shop, got my Free Fire diamonds quickly. Prices could be slightly better but overall great!",
+    "date": "2025-11-18",
+    "source": "facebook",
+    "lang": "en"
+  }
+]
