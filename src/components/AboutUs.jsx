@@ -86,12 +86,12 @@ const AboutUs = () => {
           {/* Elegant Ambient Overlay instead of Matrix for Performance */}
           <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-t from-gray-900/60 via-transparent to-gray-900/10 mix-blend-overlay"></div>
 
-          {/* Image — natural aspect ratio, fills full width */}
+          {/* Image — taller on mobile with object-cover to avoid distortion */}
           <div className="w-full">
             <img 
               src="https://redeem-dz.com/wp-content/uploads/2023/07/redeem_special-offerss.jpg" 
               alt="Redeem Store Support" 
-              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+              className="w-full h-[150px] sm:h-[180px] md:h-auto object-cover object-[60%_center] transform transition-transform duration-1000 group-hover:scale-105"
             />
           </div>
         </motion.div>
