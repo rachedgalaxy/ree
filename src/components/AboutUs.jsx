@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo, useEffect, useLayoutEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote, Lightbulb, Rocket, CreditCard, Headphones, CheckCircle2 } from 'lucide-react';
+import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote, Lightbulb, Rocket, CreditCard, Headphones, CheckCircle2, Target } from 'lucide-react';
 
 const FacebookIcon = ({ size = 24, className = "" }) => (
   <svg 
@@ -196,56 +196,72 @@ const AboutUs = () => {
             </motion.div>
           </div>
 
-          {/* Box 3: Mission & Innovation */}
-          <motion.div 
-            whileHover={{ scale: 1.01, y: -2 }}
-            className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group text-white flex flex-col gap-4"
-          >
-            {/* Soft decorative background effects */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 mix-blend-overlay rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            
-            <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 w-full justify-between items-center md:items-stretch">
-              
-              <div className="flex-1 flex flex-col gap-6 justify-center">
-                <div className="flex items-center gap-4">
-                  <div className="p-3.5 bg-white/10 backdrop-blur-md rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
-                    <CheckCircle2 size={28} className="text-white" />
-                  </div>
-                  <h4 className={`text-xl md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
-                    {i18n.language === 'ar' ? 'مشروع مبتكر' : 'Innovative Project'}
-                  </h4>
-                </div>
-                
-                <p className={`text-sm md:text-[15px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
-                  {i18n.language === 'ar' 
-                    ? 'مشروع Redeem (redeem.dz) حاصل على علامة "مشروع مبتكر" (Label Projet Innovant) من الوزارة، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.'
-                    : 'The Redeem project (redeem.dz) has been awarded the "Innovative Project" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.'}
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full mt-6 md:mt-8">
+            {/* Box 3: Startup Logo Huge Separated */}
+            <motion.div 
+              whileHover={{ scale: 1.01 }}
+              className="bg-white/80 backdrop-blur-2xl border border-red-500/10 rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(225,30,59,0.08)] relative overflow-hidden group flex items-center justify-center h-full min-h-[250px] cursor-default"
+            >
+               {/* Decorational blur inside */}
+               <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
+               <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-1000 group-hover:scale-150 pointer-events-none"></div>
+               
+               <img 
+                 src="https://redeem-dz.com/wp-content/uploads/2026/04/national-startup-committee.svg" 
+                 alt="National Startup Committee" 
+                 className="w-full max-w-[260px] md:max-w-[320px] drop-shadow-sm object-contain transform group-hover:scale-105 transition-transform duration-700 relative z-10" 
+               />
+            </motion.div>
 
-                <div className="flex flex-col gap-3 mt-2">
-                  <h4 className={`text-lg md:text-xl font-bold text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
-                    {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
-                  </h4>
+            {/* Box 4: Innovative Project & Mission Texts */}
+            <motion.div 
+              whileHover={{ scale: 1.01, y: -2 }}
+              className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group text-white flex flex-col gap-6 justify-center h-full cursor-default"
+            >
+              {/* Soft decorative background effects */}
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 mix-blend-overlay rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+              
+              <div className="relative z-10 flex flex-col gap-6 w-full h-full justify-between">
+                
+                {/* Top Half: Innovative Project */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
+                      <CheckCircle2 size={24} className="text-white" />
+                    </div>
+                    <h4 className={`text-xl md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                      {i18n.language === 'ar' ? 'مشروع مبتكر' : 'Innovative Project'}
+                    </h4>
+                  </div>
+                  <p className={`text-sm md:text-[15px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    {i18n.language === 'ar' 
+                      ? 'مشروع Redeem (redeem.dz) حاصل على علامة "مشروع مبتكر" (Label Projet Innovant) من الوزارة، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.'
+                      : 'The Redeem project (redeem.dz) has been awarded the "Innovative Project" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.'}
+                  </p>
+                </div>
+
+                <div className="w-full h-px bg-white/20 rounded-full my-1"></div>
+
+                {/* Bottom Half: Mission */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
+                      <Target size={24} className="text-white" />
+                    </div>
+                    <h4 className={`text-xl md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                      {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
+                    </h4>
+                  </div>
                   <p className={`text-sm md:text-[15px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar'
-                      ? 'توفير منتجات رقمية أصلية بسرعة وكفاءة، مع تجربة استخدام بسيطة وآمنة تناسب الجميع. نؤمن أن الثقة تُبنى بالفعل، لذلك نركز على تقديم خدمة مستقرة وشفافة. في Redeem، نعمل يوميًا لنقدم لك خدمة تستحق الاعتماد عليها.'
-                      : 'To provide authentic digital products swiftly and efficiently, with a simple and secure user experience that suits everyone. We believe that trust is built through actions. At Redeem, we work daily to provide you with a service you can rely on.'}
+                      ? 'توفير منتجات رقمية أصلية بسرعة وكفاءة، مع تجربة استخدام بسيطة وآمنة تناسب الجميع. نؤمن أن الثقة تُبنى بالفعل، لذلك نركز على تقديم خدمة مستقرة وشفافة.'
+                      : 'To provide authentic digital products swiftly and efficiently, with a simple and secure user experience that suits everyone. We believe that trust is built through actions.'}
                   </p>
                 </div>
               </div>
-
-              {/* Startup Logo Side */}
-              <div className="shrink-0 flex items-center justify-center bg-white/95 rounded-[2rem] p-6 shadow-inner border border-white/20 self-center md:self-center group-hover:shadow-2xl transition-shadow duration-500 min-w-[200px]">
-                <img 
-                  src="https://redeem-dz.com/wp-content/uploads/2026/04/national-startup-committee.svg" 
-                  alt="National Startup Committee" 
-                  className="w-32 md:w-48 object-contain transform group-hover:scale-105 transition-transform duration-500" 
-                />
-              </div>
-
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Features Grid */}
