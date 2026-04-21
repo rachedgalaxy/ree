@@ -275,10 +275,12 @@ const AboutUs = () => {
                       {i18n.language === 'ar' ? 'مشروع مبتكر' : 'Innovative Project'}
                     </h4>
                   </div>
-                  <p className={`text-sm md:text-[15px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
-                    {i18n.language === 'ar' 
-                      ? 'مشروع Redeem (redeem.dz) حاصل على علامة "مشروع مبتكر" (Label Projet Innovant) من الوزارة، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.'
-                      : 'The Redeem project (redeem.dz) has been awarded the "Innovative Project" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.'}
+                  <p className={`text-[13px] md:text-[14px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    {i18n.language === 'ar' ? (
+                      <>مشروع Redeem (redeem.dz) حاصل على علامة "مشروع مبتكر" (Label Projet Innovant) من <span className="group/tt relative inline-block border-b border-white/50 border-dotted pb-0.5 cursor-help">الوزارة<span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[220px] md:w-max md:max-w-xs px-3 py-2 bg-gray-900 border border-gray-700 shadow-xl text-white text-[11px] font-bold rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none group-hover/tt:opacity-100 z-50 text-center leading-relaxed">وزارة اقتصاد المعرفة والمؤسسات الناشئة والمؤسسات المصغرة</span></span>، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.</>
+                    ) : (
+                      'The Redeem project (redeem.dz) has been awarded the "Innovative Project" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.'
+                    )}
                   </p>
                 </div>
 
@@ -294,7 +296,7 @@ const AboutUs = () => {
                       {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
                     </h4>
                   </div>
-                  <p className={`text-sm md:text-[15px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                  <p className={`text-[13px] md:text-[14px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar'
                       ? 'توفير منتجات رقمية أصلية بسرعة وكفاءة، مع تجربة استخدام بسيطة وآمنة تناسب الجميع. نؤمن أن الثقة تُبنى بالفعل، لذلك نركز على تقديم خدمة مستقرة وشفافة.'
                       : 'To provide authentic digital products swiftly and efficiently, with a simple and secure user experience that suits everyone. We believe that trust is built through actions.'}
