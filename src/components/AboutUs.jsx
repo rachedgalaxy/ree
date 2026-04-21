@@ -606,7 +606,10 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
 /* ─── Mobile Features Slider ───────────────────────────── */
 const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const sliderRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   // Triple items for infinite feel
   const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
@@ -620,7 +623,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
     const sliceWidth = scrollMax / 3;
 
     // Smooth infinite resetting
-    if (container.scrollLeft < sliceWidth - container.clientWidth) {
+    if (container.scrollLeft < 5) {
         container.scrollLeft += sliceWidth;
     } else if (container.scrollLeft > sliceWidth * 2) {
         container.scrollLeft -= sliceWidth;
@@ -641,7 +644,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
     if (closestIdx !== activeIndex) setActiveIndex(closestIdx);
   }, [activeIndex]);
 
-  // Initial center position with perfect offset calculation
+  // Initial center position
   useLayoutEffect(() => {
     const timer = setTimeout(() => {
       if (sliderRef.current) {
@@ -652,18 +655,37 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
           container.scrollTo({ left: offset, behavior: 'instant' });
         }
       }
-    }, 50);
+    }, 100);
     return () => clearTimeout(timer);
   }, [features.length]);
 
   const move = (direction) => {
-    if (!sliderRef.current) return;
+    if (!sliderRef.current || isScrolling) return;
+    setIsScrolling(true);
     const container = sliderRef.current;
     const cardWidth = container.children[0].clientWidth + 16;
     container.scrollBy({ 
       left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
       behavior: 'smooth' 
     });
+    setTimeout(() => setIsScrolling(false), 500);
+  };
+
+  const onDragStart = (e) => {
+    isDown.current = true;
+    startX.current = (e.pageX || e.touches[0].pageX) - sliderRef.current.offsetLeft;
+    scrollStart.current = sliderRef.current.scrollLeft;
+  };
+
+  const onDragEnd = () => {
+    isDown.current = false;
+  };
+
+  const onDragMove = (e) => {
+    if (!isDown.current) return;
+    const x = (e.pageX || e.touches[0].pageX) - sliderRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    sliderRef.current.scrollLeft = scrollStart.current - walk;
   };
 
   return (
@@ -686,8 +708,15 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
 
       <div
         ref={sliderRef}
+        onMouseDown={onDragStart}
+        onMouseUp={onDragEnd}
+        onMouseLeave={onDragEnd}
+        onMouseMove={onDragMove}
+        onTouchStart={onDragStart}
+        onTouchEnd={onDragEnd}
+        onTouchMove={onDragMove}
         onScroll={handleScroll}
-        className="flex gap-4 overflow-x-auto py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-10 snap-x snap-mandatory cursor-default overscroll-x-contain"
+        className="flex gap-4 overflow-x-auto py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-10 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none overscroll-x-contain"
       >
         {displayFeatures.map((feature, idx) => (
           <FeatureCard 
@@ -712,8 +741,7 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false, isActive 
       whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
       animate={isMobile ? {
         scale: isActive ? 1 : 0.9,
-        opacity: isActive ? 1 : 0.6,
-        filter: isActive ? 'blur(0px)' : 'blur(1px)'
+        opacity: isActive ? 1 : 0.7,
       } : {}}
       className={`relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-500
         ${isMobile ? 'snap-center shrink-0 w-[80vw]' : 'w-full'}
