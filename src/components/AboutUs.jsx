@@ -257,7 +257,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     let autoplayTimer;
     
     const autoScroll = () => {
-      if (!isDown.current && !isHovered.current && sliderRef.current) {
+      if (!isDown.current && !isHovered.current && sliderRef.current && !isDragging) {
         const container = sliderRef.current;
         const firstChild = container.children[0];
         if (firstChild) {
@@ -265,12 +265,12 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
           container.scrollBy({ left: isRtl ? -cardWidth : cardWidth, behavior: 'smooth' });
         }
       }
-      autoplayTimer = setTimeout(autoScroll, 3500);
+      autoplayTimer = setTimeout(autoScroll, 4000);
     };
 
-    autoplayTimer = setTimeout(autoScroll, 3500);
+    autoplayTimer = setTimeout(autoScroll, 4000);
     return () => clearTimeout(autoplayTimer);
-  }, [isRtl]);
+  }, [isRtl, isDragging]);
 
   const onMouseDown = (e) => {
     isDown.current = true;
@@ -280,8 +280,15 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     scrollStart.current = sliderRef.current.scrollLeft;
   };
 
-  const onMouseLeave = () => { isHovered.current = false; isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
-  const onMouseUp = () => { isDown.current = false; setIsDragging(false); setTimeout(() => setHasMoved(false), 100); };
+  const stopDrag = () => {
+    isDown.current = false;
+    isHovered.current = false;
+    setIsDragging(false);
+    setTimeout(() => setHasMoved(false), 50);
+  };
+
+  const onMouseLeave = stopDrag;
+  const onMouseUp = stopDrag;
 
   const onMouseMove = (e) => {
     if (!isDown.current) return;
@@ -292,14 +299,17 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     sliderRef.current.scrollLeft = scrollStart.current - walk;
   };
 
-  // Touch support
   const onTouchStart = (e) => {
+    isHovered.current = true;
+    setIsDragging(true);
     startX.current = e.touches[0].pageX;
     scrollStart.current = sliderRef.current.scrollLeft;
   };
+  
   const onTouchMove = (e) => {
-    const walk = (e.touches[0].pageX - startX.current) * 1.2;
-    sliderRef.current.scrollLeft = scrollStart.current - walk;
+    if (!isDragging) return;
+    const walk = (e.touches[0].pageX - startX.current) * 1.5;
+    if (Math.abs(walk) > 5) setHasMoved(true);
   };
 
   return (
@@ -310,14 +320,16 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onMouseLeave={onMouseLeave}
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
-      onTouchStart={(e) => { isHovered.current = true; onTouchStart(e); }}
-      onTouchEnd={() => { isHovered.current = false; }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={stopDrag}
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
+      style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
       className={`flex gap-4 overflow-x-auto py-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-        ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
-        scroll-smooth snap-x snap-mandatory`}
+        px-[17.5vw] sm:px-[25vw] md:px-[calc(50%-170px)] lg:px-[calc(50%-190px)]
+        ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab snap-x snap-mandatory'}
+      `}
     >
       {displayReviews.map((review, idx) => (
         <ReviewCard key={`${review.id}-${idx}`} review={review} idx={idx} hasMoved={hasMoved} isRtl={isRtl} isActive={activeIndex === idx} />
