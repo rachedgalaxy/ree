@@ -607,100 +607,49 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const sliderRef = useRef(null);
   const isDown = useRef(false);
   const startX = useRef(0);
-  const scrollStart = useRef(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Triple items for infinite feel
-  const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
-
-  const handleScroll = useCallback(() => {
-    if (!sliderRef.current) return;
-    const container = sliderRef.current;
-    
-    const center = container.scrollLeft + container.clientWidth / 2;
-    const scrollMax = container.scrollWidth;
-    const sliceWidth = scrollMax / 3;
-
-    // Smooth infinite resetting
-    if (container.scrollLeft < 5) {
-        container.scrollLeft += sliceWidth;
-    } else if (container.scrollLeft > sliceWidth * 2) {
-        container.scrollLeft -= sliceWidth;
-    }
-
-    // Determine active index
-    let closestIdx = 0;
-    let minDistance = Infinity;
-    Array.from(container.children).forEach((child, index) => {
-      const childCenter = child.offsetLeft + child.clientWidth / 2;
-      const distance = Math.abs(center - childCenter);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIdx = index;
-      }
-    });
-
-    if (closestIdx !== activeIndex) setActiveIndex(closestIdx);
-  }, [activeIndex]);
-
-  // Initial center position
-  useLayoutEffect(() => {
-    const timer = setTimeout(() => {
-      if (sliderRef.current) {
-        const container = sliderRef.current;
-        const middleItem = container.children[features.length];
-        if (middleItem) {
-          const offset = middleItem.offsetLeft - (container.clientWidth / 2) + (middleItem.clientWidth / 2);
-          container.scrollTo({ left: offset, behavior: 'instant' });
-        }
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [features.length]);
+  const scrollLeftStart = useRef(0);
 
   const move = (direction) => {
-    if (!sliderRef.current || isScrolling) return;
-    setIsScrolling(true);
+    if (!sliderRef.current) return;
     const container = sliderRef.current;
     const cardWidth = container.children[0].clientWidth + 16;
     container.scrollBy({ 
       left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
       behavior: 'smooth' 
     });
-    setTimeout(() => setIsScrolling(false), 500);
   };
 
-  const onDragStart = (e) => {
+  // Improved Mouse-Drag logic
+  const handleMouseDown = (e) => {
     isDown.current = true;
-    startX.current = (e.pageX || e.touches[0].pageX) - sliderRef.current.offsetLeft;
-    scrollStart.current = sliderRef.current.scrollLeft;
+    startX.current = e.pageX - sliderRef.current.offsetLeft;
+    scrollLeftStart.current = sliderRef.current.scrollLeft;
   };
 
-  const onDragEnd = () => {
-    isDown.current = false;
-  };
+  const handleMouseLeave = () => { isDown.current = false; };
+  const handleMouseUp = () => { isDown.current = false; };
 
-  const onDragMove = (e) => {
+  const handleMouseMove = (e) => {
     if (!isDown.current) return;
-    const x = (e.pageX || e.touches[0].pageX) - sliderRef.current.offsetLeft;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
-    sliderRef.current.scrollLeft = scrollStart.current - walk;
+    sliderRef.current.scrollLeft = scrollLeftStart.current - walk;
   };
 
   return (
-    <div className="relative w-full py-2">
-      {/* Navigation Arrows - Red, Small, No Blur */}
+    <div className="relative w-full py-4 group">
+      {/* Navigation Arrows - Simple, Functional, Theme Red */}
       <button 
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); move('prev'); }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-[150] p-1.5 rounded-full bg-red-600 text-white shadow-lg active:scale-75 transition-all pointer-events-auto mt-1"
+        onClick={() => move('prev')}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-40 p-2 rounded-full bg-red-600 text-white shadow-lg active:scale-90 transition-all"
         aria-label="Previous"
       >
         <ChevronLeft size={16} />
       </button>
       <button 
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); move('next'); }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-[150] p-1.5 rounded-full bg-red-600 text-white shadow-lg active:scale-75 transition-all pointer-events-auto mt-1"
+        onClick={() => move('next')}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-40 p-2 rounded-full bg-red-600 text-white shadow-lg active:scale-90 transition-all"
         aria-label="Next"
       >
         <ChevronRight size={16} />
@@ -708,24 +657,19 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
 
       <div
         ref={sliderRef}
-        onMouseDown={onDragStart}
-        onMouseUp={onDragEnd}
-        onMouseLeave={onDragEnd}
-        onMouseMove={onDragMove}
-        onTouchStart={onDragStart}
-        onTouchEnd={onDragEnd}
-        onTouchMove={onDragMove}
-        onScroll={handleScroll}
-        className="flex gap-4 overflow-x-auto py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-10 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none overscroll-x-contain"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className="flex gap-4 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-12 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
       >
-        {displayFeatures.map((feature, idx) => (
+        {features.map((feature) => (
           <FeatureCard 
-            key={`${feature.id}-${idx}`} 
+            key={feature.id} 
             feature={feature} 
             itemVariants={itemVariants} 
             isRtl={isRtl} 
             isMobile 
-            isActive={activeIndex === idx} 
           />
         ))}
       </div>
@@ -734,17 +678,13 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
 };
 
 /* ─── Single Feature Card ────────────────────────────────── */
-const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false, isActive = false }) => {
+const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
   return (
     <motion.div
       variants={!isMobile ? itemVariants : undefined}
       whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
-      animate={isMobile ? {
-        scale: isActive ? 1 : 0.9,
-        opacity: isActive ? 1 : 0.7,
-      } : {}}
-      className={`relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-500
-        ${isMobile ? 'snap-center shrink-0 w-[80vw]' : 'w-full'}
+      className={`relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-300
+        ${isMobile ? 'snap-center shrink-0 w-[75vw]' : 'w-full'}
       `}
     >
       {/* Large Cropped Background Icon */}
