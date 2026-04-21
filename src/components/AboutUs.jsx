@@ -15,7 +15,9 @@ import {
   ShoppingBag,
   Gamepad2,
   Zap,
-  Award
+  Award,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import reviewsData from '../data/reviewsData.json';
 import statsData from '../data/statsData.json';
@@ -609,11 +611,21 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Triple items for infinite feel
+  const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
+
   const handleScroll = useCallback(() => {
     if (!sliderRef.current) return;
     const container = sliderRef.current;
-    const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
     
+    // Smooth looping logic (similar to ReviewsSlider)
+    if (container.scrollLeft <= 5) {
+      container.scrollLeft = container.scrollWidth / 3;
+    } else if (container.scrollLeft >= (container.scrollWidth * 2) / 3) {
+      container.scrollLeft = container.scrollWidth / 3;
+    }
+
+    const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
     let closestIdx = 0;
     let minDistance = Infinity;
 
@@ -628,6 +640,24 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
 
     if (closestIdx !== activeIndex) setActiveIndex(closestIdx);
   }, [activeIndex]);
+
+  // Initial center position
+  useLayoutEffect(() => {
+    if (sliderRef.current) {
+      const container = sliderRef.current;
+      container.scrollLeft = container.scrollWidth / 3;
+    }
+  }, []);
+
+  const move = (direction) => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    const cardWidth = container.children[0].clientWidth + 16; // width + gap
+    container.scrollBy({ 
+      left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
+      behavior: 'smooth' 
+    });
+  };
 
   const onMouseDown = (e) => {
     setIsDragging(true);
@@ -646,25 +676,44 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   };
 
   return (
-    <div
-      ref={sliderRef}
-      onMouseDown={onMouseDown}
-      onMouseLeave={stopDrag}
-      onMouseUp={stopDrag}
-      onMouseMove={onMouseMove}
-      onScroll={handleScroll}
-      className={`flex gap-4 overflow-x-auto py-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-    >
-      {features.map((feature, idx) => (
-        <FeatureCard 
-          key={feature.id} 
-          feature={feature} 
-          itemVariants={itemVariants} 
-          isRtl={isRtl} 
-          isMobile 
-          isActive={activeIndex === idx} 
-        />
-      ))}
+    <div className="relative group/slider">
+      {/* Navigation Arrows (Mobile Only) */}
+      <button 
+        onClick={() => move('prev')}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg active:scale-95 transition-all"
+        aria-label="Previous"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button 
+        onClick={() => move('next')}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg active:scale-95 transition-all"
+        aria-label="Next"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      <div
+        ref={sliderRef}
+        onMouseDown={onMouseDown}
+        onMouseLeave={stopDrag}
+        onMouseUp={stopDrag}
+        onMouseMove={onMouseMove}
+        onScroll={handleScroll}
+        style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
+        className={`flex gap-4 overflow-x-auto py-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+      >
+        {displayFeatures.map((feature, idx) => (
+          <FeatureCard 
+            key={`${feature.id}-${idx}`} 
+            feature={feature} 
+            itemVariants={itemVariants} 
+            isRtl={isRtl} 
+            isMobile 
+            isActive={activeIndex === idx} 
+          />
+        ))}
+      </div>
     </div>
   );
 };
