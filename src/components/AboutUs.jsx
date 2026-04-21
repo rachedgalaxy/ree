@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useMemo, useEffect, useLayoutEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
@@ -243,6 +243,22 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
     }
   }, [activeIndex]);
 
+  // Jump to middle on mount so we can drag both left and right immediately
+  useLayoutEffect(() => {
+    if (sliderRef.current && displayReviews.length > 0) {
+      const container = sliderRef.current;
+      // Go to middle of the cloned array
+      const targetIndex = Math.floor(displayReviews.length / 2);
+      const child = container.children[targetIndex];
+      
+      if (child) {
+        // Calculate raw position for instant snap jump without animation
+        const centerPos = child.offsetLeft - (container.clientWidth / 2) + (child.clientWidth / 2);
+        container.scrollTo({ left: centerPos, behavior: 'instant' });
+      }
+    }
+  }, [displayReviews]);
+
   useEffect(() => {
     const timer = setTimeout(handleScroll, 100);
     window.addEventListener('resize', handleScroll);
@@ -250,7 +266,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       clearTimeout(timer);
       window.removeEventListener('resize', handleScroll);
     }
-  }, [handleScroll, displayReviews]);
+  }, [handleScroll]);
 
   // Auto-play functionality
   useEffect(() => {
@@ -327,7 +343,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
       className={`flex gap-4 overflow-x-auto py-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-        px-[17.5vw] sm:px-[25vw] md:px-[calc(50%-170px)] lg:px-[calc(50%-190px)]
+        px-4 md:px-8
         ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab snap-x snap-mandatory'}
       `}
     >
