@@ -273,39 +273,23 @@ const AboutUs = () => {
           </div>
         </motion.div>
 
-        {/* Features Grid */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full"
-          variants={containerVariants}
-        >
-          {features.map((feature) => (
-            <motion.div
-              key={feature.id}
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px]"
-            >
-              {/* Large Cropped Background Icon */}
-              <div className="absolute -bottom-8 -left-8 opacity-[0.06] text-black group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700 pointer-events-none">
-                {React.cloneElement(feature.icon, { className: "w-40 h-40" })}
-              </div>
+        {/* Features Section: Grid on Desktop, Slider on Mobile */}
+        <div className="w-full">
+          {/* Desktop Grid (Visible only on md screens and up) */}
+          <motion.div 
+            className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
+            variants={containerVariants}
+          >
+            {features.map((feature) => (
+              <FeatureCard key={feature.id} feature={feature} itemVariants={itemVariants} isRtl={i18n.language === 'ar'} />
+            ))}
+          </motion.div>
 
-              <div className="relative z-10 flex flex-col items-center gap-4 md:gap-5 w-full">
-                <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                  {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
-                </div>
-                <div className="space-y-1.5 md:space-y-2">
-                  <h3 className="text-base md:text-xl font-bold text-gray-900">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[10px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          {/* Mobile Slider (Visible only on small screens) */}
+          <div className="md:hidden w-full -mx-4 overflow-hidden">
+             <FeaturesSlider features={features} isRtl={i18n.language === 'ar'} itemVariants={itemVariants} />
+          </div>
+        </div>
 
         {/* Reviews Section */}
         {reviewsData.length > 0 && (
@@ -616,5 +600,110 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
   );
 };
 
+
+/* ─── Mobile Features Slider ───────────────────────────── */
+const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
+  const sliderRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    const containerCenter = container.getBoundingClientRect().left + container.clientWidth / 2;
+    
+    let closestIdx = 0;
+    let minDistance = Infinity;
+
+    Array.from(container.children).forEach((child, index) => {
+      const childCenter = child.getBoundingClientRect().left + child.clientWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIdx = index;
+      }
+    });
+
+    if (closestIdx !== activeIndex) setActiveIndex(closestIdx);
+  }, [activeIndex]);
+
+  const onMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeft(sliderRef.current.scrollLeft);
+  };
+
+  const stopDrag = () => setIsDragging(false);
+
+  const onMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  return (
+    <div
+      ref={sliderRef}
+      onMouseDown={onMouseDown}
+      onMouseLeave={stopDrag}
+      onMouseUp={stopDrag}
+      onMouseMove={onMouseMove}
+      onScroll={handleScroll}
+      className={`flex gap-4 overflow-x-auto py-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-8 snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+    >
+      {features.map((feature, idx) => (
+        <FeatureCard 
+          key={feature.id} 
+          feature={feature} 
+          itemVariants={itemVariants} 
+          isRtl={isRtl} 
+          isMobile 
+          isActive={activeIndex === idx} 
+        />
+      ))}
+    </div>
+  );
+};
+
+/* ─── Single Feature Card ────────────────────────────────── */
+const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false, isActive = false }) => {
+  return (
+    <motion.div
+      variants={!isMobile ? itemVariants : undefined}
+      whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
+      animate={isMobile ? {
+        scale: isActive ? 1 : 0.9,
+        opacity: isActive ? 1 : 0.6,
+        filter: isActive ? 'blur(0px)' : 'blur(1px)'
+      } : {}}
+      className={`relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-500
+        ${isMobile ? 'snap-center shrink-0 w-[80vw]' : 'w-full'}
+      `}
+    >
+      {/* Large Cropped Background Icon */}
+      <div className="absolute -bottom-8 -left-8 opacity-[0.06] text-black group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700 pointer-events-none">
+        {React.cloneElement(feature.icon, { className: "w-40 h-40" })}
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4 md:gap-5 w-full">
+        <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+          {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
+        </div>
+        <div className="space-y-1.5 md:space-y-2">
+          <h3 className={`text-base md:text-xl font-bold text-gray-900 ${isRtl ? 'font-kufi' : ''}`}>
+            {feature.title}
+          </h3>
+          <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed ${isRtl ? 'font-kufi' : ''}`}>
+            {feature.desc}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default AboutUs;
