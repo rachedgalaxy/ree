@@ -138,7 +138,7 @@ const AboutUs = () => {
               </p>
               <div className="space-y-3 md:space-y-4">
                 {[
-                  { icon: <Rocket className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'سرعة في المنح (من دقائق إلى ساعات)', en: 'Execution speed (from minutes to hours)' },
+                  { icon: <Rocket className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'سرعة في تنفيذ الطلب', en: 'Fast order execution' },
                   { icon: <ShieldCheck className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'نظام آمن وموثوق يحمي بيانات المستخدمين', en: 'Secure system protecting user data' },
                   { icon: <CreditCard className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'طرق دفع مرنة تناسب المستخدم الجزائري', en: 'Flexible payments for Algerian users' },
                   { icon: <Headphones className="w-[14px] h-[14px] md:w-5 md:h-5"/>, ar: 'دعم فني مستمر لضمان أفضل تجربة', en: 'Continuous tech support for best experience' }
