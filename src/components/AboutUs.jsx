@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo, useEffect, useLayoutEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote } from 'lucide-react';
+import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote, Lightbulb, Rocket, CreditCard, Headphones, CheckCircle2 } from 'lucide-react';
 
 const FacebookIcon = ({ size = 24, className = "" }) => (
   <svg 
@@ -134,6 +134,105 @@ const AboutUs = () => {
               className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
             />
           </div>
+        </motion.div>
+
+        {/* About Us Interactive Paragraphs */}
+        <motion.div 
+          variants={itemVariants} 
+          className="w-full flex flex-col gap-6 md:gap-8 mb-4 border-t border-gray-100 pt-8"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full">
+            {/* Box 1: Story */}
+            <motion.div 
+              whileHover={{ scale: 1.01 }}
+              className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-3 bg-red-50 text-red-600 rounded-2xl border border-red-100 shadow-sm group-hover:rotate-12 transition-transform duration-300">
+                  <Lightbulb size={24} />
+                </div>
+                <h3 className={`text-xl md:text-2xl font-black text-gray-900 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans tracking-tight'}`}>
+                  {i18n.language === 'ar' ? 'من نحن؟' : 'Who We Are'}
+                </h3>
+              </div>
+              <p className={`text-sm md:text-[15px] font-medium leading-loose text-gray-600 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar' ? (
+                  <>نحن في <strong className="text-gray-900">Redeem</strong> مشروع رقمي جزائري طموح هدفه تبسيط عالم المنتجات الرقمية وجعلها في متناول الجميع بطريقة سريعة، آمنة، وموثوقة.<br/><br/>
+                  بدأت الفكرة من حاجة حقيقية في السوق: صعوبة الحصول على خدمات رقمية أصلية بأسعار مناسبة وبدون تعقيدات. من هنا، تم بناء Redeem ليكون منصة متكاملة توفر حلول ذكية لشراء وشحن مختلف الخدمات الرقمية بكل سهولة.</>
+                ) : (
+                  <>At <strong className="text-gray-900">Redeem</strong>, we are an ambitious Algerian digital initiative aimed at simplifying the world of digital products, making them accessible to everyone in a fast, secure, and reliable way.<br/><br/>
+                  The idea stemmed from a real market need: the difficulty of obtaining authentic digital services at affordable prices without complications. Hence, Redeem was built to be an integrated platform providing smart solutions to purchase and top-up various digital services with ease.</>
+                )}
+              </p>
+            </motion.div>
+
+            {/* Box 2: Features */}
+            <motion.div 
+              whileHover={{ scale: 1.01 }}
+              className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default flex flex-col justify-center"
+            >
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-700 group-hover:scale-150"></div>
+              <p className={`text-[15px] md:text-base font-bold text-gray-900 mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar' ? 'نحن لا نبيع فقط منتجات، بل نوفر تجربة كاملة:' : 'We don\'t just sell products; we provide a complete experience:'}
+              </p>
+              <div className="space-y-4">
+                {[
+                  { icon: <Rocket size={20}/>, ar: 'سرعة في التنفيذ (غالبًا خلال دقائق إلى ساعات)', en: 'Execution speed (often within minutes to hours)' },
+                  { icon: <ShieldCheck size={20}/>, ar: 'نظام آمن يحمي بيانات المستخدمين', en: 'A secure system that protects user data' },
+                  { icon: <CreditCard size={20}/>, ar: 'طرق دفع متعددة تناسب المستخدم الجزائري', en: 'Multiple payment methods tailored for Algerian users' },
+                  { icon: <Headphones size={20}/>, ar: 'دعم مستمر لضمان أفضل تجربة ممكنة', en: 'Continuous support to ensure the best possible experience' }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 group/item">
+                    <div className="text-red-600 p-2 bg-red-50 rounded-xl group-hover/item:bg-red-600 group-hover/item:text-white transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <span className={`text-sm md:text-[15px] font-semibold text-gray-700 group-hover/item:text-gray-900 transition-colors ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                      {i18n.language === 'ar' ? item.ar : item.en}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Box 3: Mission & Innovation */}
+          <motion.div 
+            whileHover={{ scale: 1.01, y: -2 }}
+            className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group text-white text-center flex flex-col items-center justify-center gap-4"
+          >
+            {/* Soft decorative background effects */}
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 mix-blend-overlay rounded-full blur-3xl -mr-20 -mt-20"></div>
+            
+            <div className="relative z-10 flex flex-col items-center max-w-4xl">
+              <div className="p-4 bg-white/10 backdrop-blur-md rounded-2xl mb-5 text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
+                <CheckCircle2 size={36} className="text-white" />
+              </div>
+              
+              <p className={`text-base md:text-lg font-bold leading-relaxed opacity-100 mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar' 
+                  ? 'كما أن مشروع Redeem (redeem.dz) حاصل على علامة "مشروع مبتكر" من الوزارة، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.'
+                  : 'Moreover, the Redeem project (redeem.dz) has been awarded the "Innovative Project" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.'}
+              </p>
+              
+              <div className="w-16 h-1 bg-white/30 rounded-full my-2"></div>
+              
+              <h4 className={`text-lg md:text-xl font-black mt-6 mb-3 text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
+              </h4>
+              <p className={`text-sm md:text-base font-semibold leading-relaxed opacity-90 mb-4 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar'
+                  ? 'توفير منتجات رقمية أصلية بسرعة وكفاءة، مع تجربة استخدام بسيطة وآمنة تناسب الجميع.'
+                  : 'To provide authentic digital products swiftly and efficiently, with a simple and secure user experience that suits everyone.'}
+              </p>
+              <p className={`text-sm md:text-base font-medium leading-relaxed opacity-80 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                {i18n.language === 'ar'
+                  ? 'نؤمن أن الثقة تُبنى بالفعل، لذلك نركز على تقديم خدمة مستقرة وشفافة، مع تطوير مستمر للمنصة. في Redeem، نعمل يوميًا لنقدم لك خدمة تستحق الاعتماد عليها.'
+                  : 'We believe that trust is built through actions. Therefore, we focus on providing a stable and transparent service, with continuous development. At Redeem, we work daily to provide you with a service you can rely on.'}
+              </p>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Features Grid */}
