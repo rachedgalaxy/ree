@@ -1,7 +1,24 @@
 import React, { useRef, useState, useMemo, useEffect, useLayoutEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Gamepad2, Zap, ShieldCheck, Award, Star, Quote, Lightbulb, Rocket, CreditCard, Headphones, CheckCircle2, Target } from 'lucide-react';
+import { motion, AnimatePresence, useSpring, useTransform, useInView } from 'framer-motion';
+import { 
+  Lightbulb, 
+  Rocket, 
+  ShieldCheck, 
+  CreditCard, 
+  Headphones, 
+  CheckCircle2, 
+  Target, 
+  Star,
+  Quote,
+  Users,
+  ShoppingBag,
+  Gamepad2,
+  Zap,
+  Award
+} from 'lucide-react';
+import reviewsData from '../data/reviewsData.json';
+import statsData from '../data/statsData.json';
 
 const FacebookIcon = ({ size = 24, className = "" }) => (
   <svg 
@@ -205,6 +222,35 @@ const AboutUs = () => {
                       <>The Redeem project (redeem.dz) has been awarded the "<span className="group/tt2 relative inline-block border-b border-white/50 border-dotted pb-0.5 cursor-help">Innovative Project<span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-gray-900 border border-gray-700 shadow-xl text-white text-[11.5px] font-sans font-bold rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none group-hover/tt2:opacity-100 z-50 text-center text-nowrap">Label Projet Innovant</span></span>" label, reflecting the quality and authenticity of the idea, as well as the efforts made in developing a modern platform that meets the needs of the Algerian digital market.</>
                     )}
                   </p>
+
+                  {/* Real-time Stats Counter Bar */}
+                  <div className="grid grid-cols-2 gap-4 mt-2 md:mt-4 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-2 text-white/70">
+                        <Users size={14} className="md:w-4 md:h-4" />
+                        <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest leading-none">
+                          {i18n.language === 'ar' ? 'عميل يثقون بنا' : 'Total Customers'}
+                        </span>
+                      </div>
+                      <div className="text-xl md:text-3xl font-black text-white flex items-center gap-1">
+                        <span className="text-red-400">+</span>
+                        <AnimatedCounter value={statsData.totalCustomers} />
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-1 border-s border-white/10 ps-4">
+                      <div className="flex items-center gap-2 text-white/70">
+                        <ShoppingBag size={14} className="md:w-4 md:h-4" />
+                        <span className="text-[9px] md:text-[11px] font-bold uppercase tracking-widest leading-none">
+                          {i18n.language === 'ar' ? 'طلب تم تنفيذه' : 'Orders Executed'}
+                        </span>
+                      </div>
+                      <div className="text-xl md:text-3xl font-black text-white flex items-center gap-1">
+                        <span className="text-green-400">+</span>
+                        <AnimatedCounter value={statsData.totalOrders} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 </div>
 
                 <div className="w-full h-px bg-white/20 rounded-full my-1"></div>
@@ -288,6 +334,28 @@ const AboutUs = () => {
 
       </motion.div>
     </div>
+  );
+};
+
+/* ─── Animated Counter Component ─────────────────────── */
+const AnimatedCounter = ({ value }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const spring = useSpring(0, { mass: 1, stiffness: 60, damping: 20 });
+  const display = useTransform(spring, (current) => {
+    return Math.round(current).toLocaleString();
+  });
+  
+  useEffect(() => {
+    if (inView) {
+      spring.set(value);
+    }
+  }, [inView, value, spring]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      <motion.span>{display}</motion.span>
+    </span>
   );
 };
 
