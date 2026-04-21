@@ -32,14 +32,26 @@ function App() {
   // Initial language and direction setup
   useEffect(() => {
     const initApp = async () => {
-      const savedLang = localStorage.getItem('redeem-lang') || 'ar';
-      if (savedLang !== i18n.language) {
-        await i18n.changeLanguage(savedLang);
+      // 1. Check URL first for /en/ or /en path (Common for WP localized sites)
+      const path = window.location.pathname.toLowerCase();
+      const isEnglishPath = path.startsWith('/en/') || path === '/en';
+      
+      // 2. Fallback to localStorage or default to 'ar'
+      const savedLang = localStorage.getItem('redeem-lang');
+      let targetLang = isEnglishPath ? 'en' : (savedLang || 'ar');
+
+      // Sync if the URL says English but state is Arabic
+      if (isEnglishPath && targetLang !== 'en') {
+        targetLang = 'en';
+      }
+
+      if (targetLang !== i18n.language) {
+        await i18n.changeLanguage(targetLang);
       }
       
-      const dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+      const dir = targetLang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.dir = dir;
-      document.documentElement.lang = savedLang;
+      document.documentElement.lang = targetLang;
       
       // Give React one tick to stabilize
       setIsLoaded(true);
