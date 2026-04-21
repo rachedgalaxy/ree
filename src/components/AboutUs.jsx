@@ -108,15 +108,15 @@ const AboutUs = () => {
               className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="p-3 bg-red-50 text-red-600 rounded-2xl border border-red-100 shadow-sm group-hover:rotate-12 transition-transform duration-300">
-                  <Lightbulb size={24} />
+              <div className="flex items-center gap-3 mb-4 md:mb-5">
+                <div className="p-2.5 md:p-3 bg-red-50 text-red-600 rounded-xl md:rounded-2xl border border-red-100 shadow-sm group-hover:rotate-12 transition-transform duration-300">
+                  <Lightbulb className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <h3 className={`text-xl md:text-2xl font-black text-gray-900 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans tracking-tight'}`}>
+                <h3 className={`text-lg md:text-2xl font-black text-gray-900 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans tracking-tight'}`}>
                   {i18n.language === 'ar' ? 'من نحن؟' : 'Who We Are'}
                 </h3>
               </div>
-              <p className={`text-sm md:text-[15px] font-medium leading-loose text-gray-600 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+              <p className={`text-[12px] md:text-[15px] font-medium leading-relaxed md:leading-loose text-gray-600 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                 {i18n.language === 'ar' ? (
                   <>نحن في <strong className="text-gray-900">Redeem</strong> مشروع رقمي جزائري طموح هدفه تبسيط عالم المنتجات الرقمية وجعلها في متناول الجميع بطريقة سريعة، آمنة، وموثوقة.<br/><br/>
                   بدأت الفكرة من حاجة حقيقية في السوق: صعوبة الحصول على خدمات رقمية أصلية بأسعار مناسبة وبدون تعقيدات. من هنا، تم بناء Redeem ليكون منصة متكاملة توفر حلول ذكية لشراء وشحن مختلف الخدمات الرقمية بكل سهولة.</>
@@ -189,16 +189,16 @@ const AboutUs = () => {
               <div className="relative z-10 flex flex-col gap-6 w-full h-full justify-between">
                 
                 {/* Top Half: Innovative Project */}
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
-                      <CheckCircle2 size={24} className="text-white" />
+                <div className="flex flex-col gap-3 md:gap-4">
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
+                      <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h4 className={`text-xl md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    <h4 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                       {i18n.language === 'ar' ? 'مشروع مبتكر' : 'Innovative Project'}
                     </h4>
                   </div>
-                  <p className={`text-[13px] md:text-[14px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                  <p className={`text-[11px] md:text-[14px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar' ? (
                       <>مشروع Redeem (redeem.dz) حاصل على علامة "<span className="group/tt2 relative inline-block border-b border-white/50 border-dotted pb-0.5 cursor-help">مشروع مبتكر<span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-gray-900 border border-gray-700 shadow-xl text-white text-[11.5px] font-sans font-bold rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none group-hover/tt2:opacity-100 z-50 text-center text-nowrap">Label Projet Innovant</span></span>" من <span className="group/tt relative inline-block border-b border-white/50 border-dotted pb-0.5 cursor-help">الوزارة<span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[220px] md:w-max md:max-w-xs px-3 py-2 bg-gray-900 border border-gray-700 shadow-xl text-white text-[11px] font-bold rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none group-hover/tt:opacity-100 z-50 text-center leading-relaxed">وزارة اقتصاد المعرفة والمؤسسات الناشئة والمؤسسات المصغرة</span></span>، وهو ما يعكس جودة الفكرة، وأصالتها، والجهود المبذولة في تطوير منصة حديثة تلبي احتياجات السوق الرقمي في الجزائر.</>
                     ) : (
@@ -210,16 +210,16 @@ const AboutUs = () => {
                 <div className="w-full h-px bg-white/20 rounded-full my-1"></div>
 
                 {/* Bottom Half: Mission */}
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
-                      <Target size={24} className="text-white" />
+                <div className="flex flex-col gap-3 md:gap-4">
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
+                      <Target className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h4 className={`text-xl md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    <h4 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                       {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
                     </h4>
                   </div>
-                  <p className={`text-[13px] md:text-[14px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                  <p className={`text-[11px] md:text-[14px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar'
                       ? 'توفير منتجات رقمية أصلية بسرعة وكفاءة، مع تجربة استخدام بسيطة وآمنة تناسب الجميع. نؤمن أن الثقة تُبنى بالفعل، لذلك نركز على تقديم خدمة مستقرة وشفافة.'
                       : 'To provide authentic digital products swiftly and efficiently, with a simple and secure user experience that suits everyone. We believe that trust is built through actions.'}
@@ -247,15 +247,15 @@ const AboutUs = () => {
                 {React.cloneElement(feature.icon, { className: "w-40 h-40" })}
               </div>
 
-              <div className="relative z-10 flex flex-col items-center gap-5 w-full">
-                <div className="p-4 rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                  {feature.icon}
+              <div className="relative z-10 flex flex-col items-center gap-4 md:gap-5 w-full">
+                <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                <div className="space-y-1.5 md:space-y-2">
+                  <h3 className="text-base md:text-xl font-bold text-gray-900">
                     {feature.title}
                   </h3>
-                  <p className="text-[10.5px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed">
+                  <p className="text-[10px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>
@@ -271,12 +271,12 @@ const AboutUs = () => {
             className="w-full"
           >
             {/* Section Header */}
-            <div className="flex flex-col items-center gap-2 mb-8">
-              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-xs font-bold uppercase tracking-widest">
-                <Star size={12} className="fill-yellow-400 text-yellow-400" />
+            <div className="flex flex-col items-center gap-2 mb-6 md:mb-8">
+              <div className="flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                <Star size={10} className="fill-yellow-400 text-yellow-400" />
                 {i18n.language === 'ar' ? 'آراء عملائنا' : 'Customer Reviews'}
               </div>
-              <h2 className={`text-2xl md:text-3xl font-black text-gray-900 text-center ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+              <h2 className={`text-xl md:text-3xl font-black text-gray-900 text-center ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                 {i18n.language === 'ar' ? 'ماذا يقول عملاؤنا؟' : 'What our customers say?'}
               </h2>
             </div>
