@@ -43,64 +43,7 @@ const banners = [
   }
 ];
 
-const MatrixRain = ({ isMobile }) => {
-  const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const hints = ["REDEEM", "GIFT", "CARD", "TOPUP", "GAMES", "FUN"];
-  const columns = isMobile ? 12 : 25;
-  
-  return (
-    <div className="absolute inset-0 z-0 pointer-events-none flex opacity-20" dir="ltr">
-      {[...Array(columns)].map((_, i) => {
-        const isHintColumn = i % 4 === 0;
-        const hint = hints[(i / 4) % hints.length];
-        
-        return (
-          <div 
-            key={i} 
-            className="relative flex-none"
-            style={{ 
-              width: `${100 / columns}%`,
-              opacity: Math.max(0.1, (columns - i) / columns * 0.8),
-            }}
-          >
-            <div className="absolute top-0 left-0 w-full flex flex-col items-center">
-              <motion.div
-                initial={{ y: -500 }}
-                animate={{ y: 500 }}
-                transition={{ 
-                  duration: 10 + Math.random() * 15, 
-                  repeat: Infinity, 
-                  ease: "linear",
-                  delay: Math.random() * 10 
-                }}
-                className="flex flex-col gap-1"
-              >
-                {[...Array(20)].map((_, j) => {
-                  let char;
-                  if (isHintColumn) {
-                    char = hint[j % hint.length];
-                  } else {
-                    char = characters[Math.floor(Math.random() * characters.length)];
-                  }
-                  
-                  return (
-                    <span 
-                      key={j} 
-                      className="text-[10px] md:text-[14px] font-mono font-bold text-gray-500"
-                      style={{ opacity: (20 - j) / 20 }}
-                    >
-                      {char}
-                    </span>
-                  );
-                })}
-              </motion.div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+
 
 const FAQOverlay = ({ isOpen, onClose }) => {
   const { t, i18n } = useTranslation();
@@ -360,13 +303,7 @@ const Hero = () => {
                 }}
                 className="absolute inset-0 w-full h-full"
               >
-                {/* Background Image & Effects */}
-                {!isMobile && (
-                  <div className="absolute inset-0">
-                    <MatrixRain isMobile={false} />
-                  </div>
-                )}
-                
+                {/* Background Image Header */}
                 <img 
                   src={banners[currentIndex].bg} 
                   alt="Featured Promo" 
@@ -401,11 +338,14 @@ const Hero = () => {
                     initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}
                     className="bg-[#e11e3b] hover:bg-red-700 text-white font-bold py-1.5 md:py-2 px-4 md:px-6 rounded-full flex items-center gap-2 transition-transform duration-300 hover:scale-105 shadow-md group/btn text-[10px] md:text-[12px] border border-transparent hover:border-red-400 pointer-events-auto"
                   >
-                    {isRtl && <ArrowLeft size={16} className="transition-transform group-hover/btn:-translate-x-1" />}
                     <span className={`${isRtl ? 'font-kufi' : 'font-sans'} tracking-wide`}>
                       {isRtl ? banners[currentIndex].btnTextAr : banners[currentIndex].btnTextEn}
                     </span>
-                    {!isRtl && <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />}
+                    {isRtl ? (
+                      <ArrowLeft size={16} className="transition-transform group-hover/btn:-translate-x-1" />
+                    ) : (
+                      <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                    )}
                   </motion.a>
                 </div>
               </motion.div>
