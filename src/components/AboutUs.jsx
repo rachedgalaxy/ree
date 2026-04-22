@@ -724,7 +724,7 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
           {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
         </div>
         <div className={`space-y-1.5 md:space-y-2 ${isRtl ? 'text-right' : 'text-left'}`}>
-          <h3 className={`text-base md:text-xl font-bold text-red-600 ${isRtl ? 'font-kufi' : ''}`}>
+          <h3 className={`text-base md:text-xl font-bold text-red-600 text-center ${isRtl ? 'font-kufi' : ''}`}>
             {feature.title}
           </h3>
           <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed ${isRtl ? 'font-kufi text-right' : 'text-left'}`}>
