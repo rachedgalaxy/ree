@@ -715,8 +715,8 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
         ${isMobile ? 'snap-center shrink-0 w-full' : 'w-full'}
       `}
     >
-      {/* Large Cropped Background Icon — top position */}
-      <div className={`absolute -top-6 opacity-[0.07] text-red-600 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none ${isRtl ? '-right-6' : '-left-6'}`}>
+      {/* Large Cropped Background Icon — opposite side of the small icon */}
+      <div className={`absolute -top-6 opacity-[0.07] text-red-600 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none ${isRtl ? '-left-6' : '-right-6'}`}>
         {React.cloneElement(feature.icon, { className: "w-36 h-36" })}
       </div>
 
