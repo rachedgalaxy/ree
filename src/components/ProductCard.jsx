@@ -53,6 +53,10 @@ const ProductCard = ({ product }) => {
           "value": "0",
           "currency": "DZD"
         },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "DZ"
+        },
         "deliveryTime": {
           "@type": "ShippingDeliveryTime",
           "handlingTime": {
