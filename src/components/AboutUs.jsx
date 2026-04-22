@@ -710,20 +710,21 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
     <motion.div
       variants={!isMobile ? itemVariants : undefined}
       whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
-      className={`relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-300
+      className={`relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col group min-h-[220px] transition-all duration-300
+        ${isRtl ? 'items-end text-right' : 'items-start text-left'}
         ${isMobile ? 'snap-center shrink-0 w-full' : 'w-full'}
       `}
     >
       {/* Large Cropped Background Icon */}
-      <div className="absolute -bottom-8 -left-8 opacity-[0.06] text-black group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700 pointer-events-none">
+      <div className="absolute -bottom-8 -left-8 opacity-[0.06] text-red-600 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700 pointer-events-none">
         {React.cloneElement(feature.icon, { className: "w-40 h-40" })}
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4 md:gap-5 w-full">
-        <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-          {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
+      <div className={`relative z-10 flex flex-col gap-4 md:gap-5 w-full ${isRtl ? 'items-end' : 'items-start'}`}>
+        <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-red-50 shadow-sm border border-red-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+          {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6 text-red-600" })}
         </div>
-        <div className="space-y-1.5 md:space-y-2">
+        <div className={`space-y-1.5 md:space-y-2 ${isRtl ? 'text-right' : 'text-left'}`}>
           <h3 className={`text-base md:text-xl font-bold text-red-600 ${isRtl ? 'font-kufi' : ''}`}>
             {feature.title}
           </h3>
