@@ -604,111 +604,88 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
 
 /* ─── Mobile Features Slider ───────────────────────────── */
 const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
-  const sliderRef = useRef(null);
-  const isDown = useRef(false);
-  const isTouching = useRef(false);
-  const scrollTimeout = useRef(null);
-  const autoplayTimer = useRef(null);
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  // Triple items for infinite feel
-  const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
-
-  const move = useCallback((direction) => {
-    if (!sliderRef.current) return;
-    const container = sliderRef.current;
-    const cardWidth = container.clientWidth;
-    container.scrollBy({ 
-      left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
-      behavior: 'smooth' 
-    });
-  }, [isRtl]);
-
-  const handleScroll = useCallback(() => {
-    if (!sliderRef.current || isDown.current || isTouching.current) return;
-    const container = sliderRef.current;
-    
-    // Clear previous timeout to wait until scroll completely stops
-    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-
-    scrollTimeout.current = setTimeout(() => {
-      if (isTouching.current || isDown.current) return;
-      const sliceWidth = container.scrollWidth / 3;
-      // Allow a buffer (10px) to prevent precision errors
-      if (container.scrollLeft <= 10) {
-          container.scrollLeft += sliceWidth;
-      } else if (container.scrollLeft >= (sliceWidth * 2) - 10) {
-          container.scrollLeft -= sliceWidth;
+  const move = useCallback((newDirection) => {
+    setDirection(newDirection);
+    setIndex((prevIndex) => {
+      if (newDirection === 1) {
+        return prevIndex === features.length - 1 ? 0 : prevIndex + 1;
       }
-    }, 150);
-  }, []);
+      return prevIndex === 0 ? features.length - 1 : prevIndex - 1;
+    });
+  }, [features.length]);
 
-  // Initial center position and Auto-play setup
   useEffect(() => {
-    if (sliderRef.current) {
-      const container = sliderRef.current;
-      setTimeout(() => {
-        container.scrollLeft = container.scrollWidth / 3;
-      }, 50);
-    }
+    const timer = setInterval(() => {
+      move(1);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [move]);
 
-    const startAutoplay = () => {
-      autoplayTimer.current = setInterval(() => {
-        if (!isDown.current && !isTouching.current) {
-          move('next');
-        }
-      }, 3500);
-    };
-
-    startAutoplay();
-
-    return () => {
-      if (autoplayTimer.current) clearInterval(autoplayTimer.current);
-      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-    };
-  }, [features.length, move]);
-
-  const handleTouchStart = () => { isTouching.current = true; };
-  const handleTouchEnd = () => {
-    isTouching.current = false;
-    handleScroll(); // Trigger a check once touch ends
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? (isRtl ? -300 : 300) : (isRtl ? 300 : -300),
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      zIndex: 0,
+      x: direction < 0 ? (isRtl ? -300 : 300) : (isRtl ? 300 : -300),
+      opacity: 0,
+    })
   };
 
   return (
-    <div className="relative w-full py-4 group overflow-hidden">
-      {/* Top Left Navigation Arrows (Small, modern, inside card visual area) */}
-      <div className={`absolute top-10 ${isRtl ? 'left-6' : 'right-6'} z-50 flex gap-2 pointer-events-auto`}>
-        <button 
-          onClick={() => move('prev')}
-          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-gray-100 text-gray-800 shadow-sm active:scale-90 transition-transform"
-          aria-label="Previous"
-        >
-          {isRtl ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
-        </button>
-        <button 
-          onClick={() => move('next')}
-          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-gray-100 text-gray-800 shadow-sm active:scale-90 transition-transform"
-          aria-label="Next"
-        >
-          {isRtl ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-        </button>
-      </div>
-
-      <div
-        ref={sliderRef}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onScroll={handleScroll}
-        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory select-none"
+    <div className="relative w-full h-[280px] flex items-center justify-center overflow-hidden py-4">
+      {/* Left button */}
+      <button 
+        onClick={() => move(isRtl ? 1 : -1)}
+        className="absolute left-2 z-50 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
+        aria-label="Previous"
       >
-        {displayFeatures.map((feature, idx) => (
-          <FeatureCard 
-            key={`${feature.id}-${idx}`} 
-            feature={feature} 
-            itemVariants={itemVariants} 
-            isRtl={isRtl} 
-            isMobile 
-          />
-        ))}
+        <ChevronLeft size={18} />
+      </button>
+
+      {/* Right button */}
+      <button 
+        onClick={() => move(isRtl ? -1 : 1)}
+        className="absolute right-2 z-50 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
+        aria-label="Next"
+      >
+        <ChevronRight size={18} />
+      </button>
+
+      <div className="relative w-full h-full flex items-center justify-center">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset }) => {
+              if (offset.x < -40) {
+                move(isRtl ? -1 : 1);
+              } else if (offset.x > 40) {
+                move(isRtl ? 1 : -1);
+              }
+            }}
+            className="absolute w-full px-12 cursor-grab active:cursor-grabbing"
+          >
+            <FeatureCard feature={features[index]} isMobile isRtl={isRtl} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
