@@ -711,7 +711,7 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
       variants={!isMobile ? itemVariants : undefined}
       whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
       className={`relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col group min-h-[220px] transition-all duration-300
-        ${isRtl ? 'items-end text-right' : 'items-start text-left'}
+        ${isRtl ? 'items-start text-right' : 'items-start text-left'}
         ${isMobile ? 'snap-center shrink-0 w-full' : 'w-full'}
       `}
     >
@@ -720,7 +720,7 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
         {React.cloneElement(feature.icon, { className: "w-36 h-36" })}
       </div>
 
-      <div className={`relative z-10 flex flex-col gap-4 md:gap-5 w-full ${isRtl ? 'items-end' : 'items-start'}`}>
+      <div className={`relative z-10 flex flex-col gap-4 md:gap-5 w-full ${isRtl ? 'items-start' : 'items-start'}`}>
         <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-red-50 shadow-sm border border-red-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
           {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6 text-red-600" })}
         </div>
