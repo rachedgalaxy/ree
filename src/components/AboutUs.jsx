@@ -609,10 +609,38 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const startX = useRef(0);
   const scrollLeftStart = useRef(0);
 
+  // Triple items for infinite feel
+  const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
+
+  const handleScroll = useCallback(() => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    
+    // Smooth infinite resetting
+    const sliceWidth = container.scrollWidth / 3;
+    if (container.scrollLeft < 5) {
+        container.scrollLeft += sliceWidth;
+    } else if (container.scrollLeft > sliceWidth * 2) {
+        container.scrollLeft -= sliceWidth;
+    }
+  }, [features.length]);
+
+  // Initial center position
+  useLayoutEffect(() => {
+    if (sliderRef.current) {
+      const container = sliderRef.current;
+      // Wait a tiny bit for DOM to be ready
+      const timer = setTimeout(() => {
+        container.scrollLeft = container.scrollWidth / 3;
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [features.length]);
+
   const move = (direction) => {
     if (!sliderRef.current) return;
     const container = sliderRef.current;
-    const cardWidth = container.children[0].clientWidth + 16;
+    const cardWidth = container.clientWidth;
     container.scrollBy({ 
       left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
       behavior: 'smooth' 
@@ -638,21 +666,21 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   };
 
   return (
-    <div className="relative w-full py-4 group">
-      {/* Navigation Arrows - Simple, Functional, Theme Red */}
+    <div className="relative w-full py-4 group overflow-hidden">
+      {/* Glassy Navigation Arrows */}
       <button 
         onClick={() => move('prev')}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-40 p-2 rounded-full bg-red-600 text-white shadow-lg active:scale-90 transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl active:scale-95 transition-all"
         aria-label="Previous"
       >
-        <ChevronLeft size={16} />
+        <ChevronLeft size={20} />
       </button>
       <button 
         onClick={() => move('next')}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-40 p-2 rounded-full bg-red-600 text-white shadow-lg active:scale-90 transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl active:scale-95 transition-all"
         aria-label="Next"
       >
-        <ChevronRight size={16} />
+        <ChevronRight size={20} />
       </button>
 
       <div
@@ -661,11 +689,12 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex gap-4 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-12 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
+        onScroll={handleScroll}
+        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
       >
-        {features.map((feature) => (
+        {displayFeatures.map((feature, idx) => (
           <FeatureCard 
-            key={feature.id} 
+            key={`${feature.id}-${idx}`} 
             feature={feature} 
             itemVariants={itemVariants} 
             isRtl={isRtl} 
@@ -684,7 +713,7 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
       variants={!isMobile ? itemVariants : undefined}
       whileHover={!isMobile ? { y: -5, scale: 1.02 } : undefined}
       className={`relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-xl shadow-black/5 p-8 flex flex-col items-center text-center group min-h-[220px] transition-all duration-300
-        ${isMobile ? 'snap-center shrink-0 w-[75vw]' : 'w-full'}
+        ${isMobile ? 'snap-center shrink-0 w-full' : 'w-full'}
       `}
     >
       {/* Large Cropped Background Icon */}
