@@ -606,6 +606,7 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
 const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const move = useCallback((newDirection) => {
     setDirection(newDirection);
@@ -618,11 +619,12 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   }, [features.length]);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       move(1);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [move]);
+  }, [move, isPaused]);
 
   const variants = {
     enter: (direction) => ({
@@ -641,8 +643,19 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
     })
   };
 
+  const handleInteractionEnd = () => {
+    // Add a 1.5s grace period before auto-play resumes
+    setTimeout(() => setIsPaused(false), 1500);
+  };
+
   return (
-    <div className="relative w-full h-[280px] flex items-center justify-center overflow-hidden py-4">
+    <div 
+      className="relative w-full h-[280px] flex items-center justify-center overflow-hidden py-4"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={handleInteractionEnd}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={handleInteractionEnd}
+    >
       {/* Left button */}
       <button 
         onClick={() => move(isRtl ? 1 : -1)}
