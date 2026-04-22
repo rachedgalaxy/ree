@@ -667,17 +667,17 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
 
   return (
     <div className="relative w-full py-4 group overflow-hidden">
-      {/* Glassy Navigation Arrows */}
+      {/* Visible Glassy Navigation Arrows */}
       <button 
         onClick={() => move('prev')}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl active:scale-95 transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-white/70 backdrop-blur-lg border border-gray-200/50 text-red-600 shadow-lg active:scale-90 transition-all pointer-events-auto"
         aria-label="Previous"
       >
         <ChevronLeft size={20} />
       </button>
       <button 
         onClick={() => move('next')}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl active:scale-95 transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-white/70 backdrop-blur-lg border border-gray-200/50 text-red-600 shadow-lg active:scale-90 transition-all pointer-events-auto"
         aria-label="Next"
       >
         <ChevronRight size={20} />
@@ -690,7 +690,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
         onScroll={handleScroll}
-        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
+        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
       >
         {displayFeatures.map((feature, idx) => (
           <FeatureCard 
