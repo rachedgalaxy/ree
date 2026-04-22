@@ -723,11 +723,11 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
         <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
           {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
         </div>
-        <div className={`space-y-1.5 md:space-y-2 ${isRtl ? 'text-right' : 'text-left'}`}>
-          <h3 className={`text-base md:text-xl font-bold text-red-600 text-center ${isRtl ? 'font-kufi' : ''}`}>
+        <div className="space-y-1.5 md:space-y-2">
+          <h3 className={`text-base md:text-xl font-bold text-red-600 ${isRtl ? 'font-kufi' : ''}`}>
             {feature.title}
           </h3>
-          <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed ${isRtl ? 'font-kufi text-right' : 'text-left'}`}>
+          <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed ${isRtl ? 'font-kufi' : ''}`}>
             {feature.desc}
           </p>
         </div>
