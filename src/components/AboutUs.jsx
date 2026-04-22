@@ -606,38 +606,14 @@ const ReviewCard = ({ review, idx, hasMoved, isRtl, isActive }) => {
 const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
   const sliderRef = useRef(null);
   const isDown = useRef(false);
-  const startX = useRef(0);
-  const scrollLeftStart = useRef(0);
+  const isTouching = useRef(false);
+  const scrollTimeout = useRef(null);
+  const autoplayTimer = useRef(null);
 
   // Triple items for infinite feel
   const displayFeatures = useMemo(() => [...features, ...features, ...features], [features]);
 
-  const handleScroll = useCallback(() => {
-    if (!sliderRef.current) return;
-    const container = sliderRef.current;
-    
-    // Smooth infinite resetting
-    const sliceWidth = container.scrollWidth / 3;
-    if (container.scrollLeft < 5) {
-        container.scrollLeft += sliceWidth;
-    } else if (container.scrollLeft > sliceWidth * 2) {
-        container.scrollLeft -= sliceWidth;
-    }
-  }, [features.length]);
-
-  // Initial center position
-  useLayoutEffect(() => {
-    if (sliderRef.current) {
-      const container = sliderRef.current;
-      // Wait a tiny bit for DOM to be ready
-      const timer = setTimeout(() => {
-        container.scrollLeft = container.scrollWidth / 3;
-      }, 50);
-      return () => clearTimeout(timer);
-    }
-  }, [features.length]);
-
-  const move = (direction) => {
+  const move = useCallback((direction) => {
     if (!sliderRef.current) return;
     const container = sliderRef.current;
     const cardWidth = container.clientWidth;
@@ -645,52 +621,84 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
       left: direction === 'next' ? (isRtl ? -cardWidth : cardWidth) : (isRtl ? cardWidth : -cardWidth), 
       behavior: 'smooth' 
     });
-  };
+  }, [isRtl]);
 
-  // Improved Mouse-Drag logic
-  const handleMouseDown = (e) => {
-    isDown.current = true;
-    startX.current = e.pageX - sliderRef.current.offsetLeft;
-    scrollLeftStart.current = sliderRef.current.scrollLeft;
-  };
+  const handleScroll = useCallback(() => {
+    if (!sliderRef.current || isDown.current || isTouching.current) return;
+    const container = sliderRef.current;
+    
+    // Clear previous timeout to wait until scroll completely stops
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
 
-  const handleMouseLeave = () => { isDown.current = false; };
-  const handleMouseUp = () => { isDown.current = false; };
+    scrollTimeout.current = setTimeout(() => {
+      if (isTouching.current || isDown.current) return;
+      const sliceWidth = container.scrollWidth / 3;
+      // Allow a buffer (10px) to prevent precision errors
+      if (container.scrollLeft <= 10) {
+          container.scrollLeft += sliceWidth;
+      } else if (container.scrollLeft >= (sliceWidth * 2) - 10) {
+          container.scrollLeft -= sliceWidth;
+      }
+    }, 150);
+  }, []);
 
-  const handleMouseMove = (e) => {
-    if (!isDown.current) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    sliderRef.current.scrollLeft = scrollLeftStart.current - walk;
+  // Initial center position and Auto-play setup
+  useEffect(() => {
+    if (sliderRef.current) {
+      const container = sliderRef.current;
+      setTimeout(() => {
+        container.scrollLeft = container.scrollWidth / 3;
+      }, 50);
+    }
+
+    const startAutoplay = () => {
+      autoplayTimer.current = setInterval(() => {
+        if (!isDown.current && !isTouching.current) {
+          move('next');
+        }
+      }, 3500);
+    };
+
+    startAutoplay();
+
+    return () => {
+      if (autoplayTimer.current) clearInterval(autoplayTimer.current);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
+  }, [features.length, move]);
+
+  const handleTouchStart = () => { isTouching.current = true; };
+  const handleTouchEnd = () => {
+    isTouching.current = false;
+    handleScroll(); // Trigger a check once touch ends
   };
 
   return (
     <div className="relative w-full py-4 group overflow-hidden">
-      {/* Visible Glassy Navigation Arrows */}
-      <button 
-        onClick={() => move('prev')}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-white/70 backdrop-blur-lg border border-gray-200/50 text-red-600 shadow-lg active:scale-90 transition-all pointer-events-auto"
-        aria-label="Previous"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button 
-        onClick={() => move('next')}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-white/70 backdrop-blur-lg border border-gray-200/50 text-red-600 shadow-lg active:scale-90 transition-all pointer-events-auto"
-        aria-label="Next"
-      >
-        <ChevronRight size={20} />
-      </button>
+      {/* Top Left Navigation Arrows (Small, modern, inside card visual area) */}
+      <div className={`absolute top-10 ${isRtl ? 'left-6' : 'right-6'} z-50 flex gap-2 pointer-events-auto`}>
+        <button 
+          onClick={() => move('prev')}
+          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-gray-100 text-gray-800 shadow-sm active:scale-90 transition-transform"
+          aria-label="Previous"
+        >
+          {isRtl ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+        </button>
+        <button 
+          onClick={() => move('next')}
+          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-gray-100 text-gray-800 shadow-sm active:scale-90 transition-transform"
+          aria-label="Next"
+        >
+          {isRtl ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+        </button>
+      </div>
 
       <div
         ref={sliderRef}
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         onScroll={handleScroll}
-        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
+        className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full snap-x snap-mandatory select-none"
       >
         {displayFeatures.map((feature, idx) => (
           <FeatureCard 
