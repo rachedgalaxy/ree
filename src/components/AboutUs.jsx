@@ -57,33 +57,33 @@ const AboutUs = () => {
       id: 1,
       title: t('about.t1'),
       desc: t('about.d1'),
-      icon: <Gamepad2 className="w-8 h-8 text-blue-500" />,
-      gradient: "from-blue-500/10 to-blue-600/5",
-      border: "border-blue-500/20"
+      icon: <Gamepad2 className="w-8 h-8 text-red-600" />,
+      gradient: "from-red-500/10 to-red-600/5",
+      border: "border-red-500/20"
     },
     {
       id: 2,
       title: t('about.t2'),
       desc: t('about.d2'),
-      icon: <Zap className="w-8 h-8 text-yellow-500" />,
-      gradient: "from-yellow-500/10 to-orange-500/5",
-      border: "border-yellow-500/20"
+      icon: <Zap className="w-8 h-8 text-red-600" />,
+      gradient: "from-red-500/10 to-red-600/5",
+      border: "border-red-500/20"
     },
     {
       id: 3,
       title: t('about.t3'),
       desc: t('about.d3'),
-      icon: <Award className="w-8 h-8 text-purple-500" />,
-      gradient: "from-purple-500/10 to-pink-500/5",
-      border: "border-purple-500/20"
+      icon: <Award className="w-8 h-8 text-red-600" />,
+      gradient: "from-red-500/10 to-red-600/5",
+      border: "border-red-500/20"
     },
     {
       id: 4,
       title: t('about.t4'),
       desc: t('about.d4'),
-      icon: <ShieldCheck className="w-8 h-8 text-emerald-500" />,
-      gradient: "from-emerald-500/10 to-teal-500/5",
-      border: "border-emerald-500/20"
+      icon: <ShieldCheck className="w-8 h-8 text-red-600" />,
+      gradient: "from-red-500/10 to-red-600/5",
+      border: "border-red-500/20"
     }
   ];
 
@@ -723,11 +723,11 @@ const FeatureCard = ({ feature, itemVariants, isRtl, isMobile = false }) => {
         <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 shadow-sm border border-gray-100 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
           {React.cloneElement(feature.icon, { className: "w-5 h-5 md:w-6 md:h-6" })}
         </div>
-        <div className="space-y-1.5 md:space-y-2 text-center">
+        <div className={`space-y-1.5 md:space-y-2 ${isRtl ? 'text-right' : 'text-left'}`}>
           <h3 className={`text-base md:text-xl font-bold text-red-600 ${isRtl ? 'font-kufi' : ''}`}>
             {feature.title}
           </h3>
-          <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed text-center ${isRtl ? 'font-kufi' : ''}`}>
+          <p className={`text-[11px] md:text-[11.5px] text-gray-600 font-medium leading-relaxed ${isRtl ? 'font-kufi text-right' : 'text-left'}`}>
             {feature.desc}
           </p>
         </div>
