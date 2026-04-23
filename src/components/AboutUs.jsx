@@ -300,7 +300,7 @@ const AboutUs = () => {
             className="w-full"
           >
             {/* Section Header */}
-            <div className="flex flex-col items-center gap-0.5 mb-0">
+            <div className="flex flex-col items-center gap-1.5 mb-4 md:mb-5">
               <div className="flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                 <Star size={10} className="fill-yellow-400 text-yellow-400" />
                 {i18n.language === 'ar' ? 'آراء عملائنا' : 'Customer Reviews'}
@@ -486,7 +486,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
       style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
-      className={`flex gap-4 overflow-x-auto pt-0 pb-8 select-none
+      className={`flex gap-4 overflow-x-auto pt-2 md:pt-4 pb-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         px-4 md:px-8
         ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab snap-x snap-mandatory'}
