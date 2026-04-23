@@ -279,6 +279,8 @@ const ProductModal = ({ product, onClose }) => {
                     <span className="text-gray-400 font-normal ml-1 mx-1 text-[10px]">({i18n.language === 'ar' ? 'إذا كان المنتج يتطلب ذلك' : 'If required'})</span>
                  </label>
                  <input 
+                    id="player-id-input"
+                    name="player_id"
                     type="text"
                     value={playerInput}
                     onChange={(e) => setPlayerInput(e.target.value)}

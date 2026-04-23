@@ -86,6 +86,8 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                   <Search className={`w-4 h-4 transition-colors ${isFocused ? 'text-[#e11e3b]' : 'text-gray-400'}`} />
                 </div>
                 <input 
+                  id="desktop-search-input"
+                  name="q"
                   type="text" 
                   value={localSearch}
                   onFocus={() => setIsFocused(true)}
@@ -157,6 +159,8 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                     <Search className="w-4 h-4 text-[#e11e3b]" />
                   </div>
                   <input 
+                    id="mobile-search-input"
+                    name="q_mobile"
                     ref={searchInputRef}
                     type="text" 
                     value={localSearch}
