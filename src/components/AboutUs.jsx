@@ -93,7 +93,7 @@ const AboutUs = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center justify-center space-y-5 md:space-y-8"
+        className="flex flex-col items-center justify-center space-y-10 md:space-y-16"
       >
         {/* Header Section - Matrix Code Rain Effect */}
         <motion.div 
@@ -113,10 +113,9 @@ const AboutUs = () => {
           </div>
         </motion.div>
 
-        {/* About Us Interactive Paragraphs */}
         <motion.div 
           variants={itemVariants} 
-          className="w-full flex flex-col gap-4 md:gap-8 mb-4"
+          className="w-full flex flex-col gap-6 md:gap-8"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full">
             {/* Box 1: Story */}
@@ -125,7 +124,7 @@ const AboutUs = () => {
               className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-              <div className="flex items-center gap-3 mb-4 md:mb-5">
+              <div className="flex items-center gap-3 mb-5 md:mb-6">
                 <div className="p-2.5 md:p-3 bg-red-50 text-red-600 rounded-xl md:rounded-2xl border border-red-100 shadow-sm group-hover:rotate-12 transition-transform duration-300">
                   <Lightbulb className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
@@ -150,7 +149,7 @@ const AboutUs = () => {
               className="bg-white/80 backdrop-blur-xl border border-red-500/15 rounded-3xl p-5 md:p-8 shadow-[0_8px_30px_rgb(225,30,59,0.06)] relative overflow-hidden group cursor-default flex flex-col justify-center"
             >
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -ml-10 -mb-10 transition-transform duration-700 group-hover:scale-150"></div>
-              <p className={`text-[12px] md:text-base font-bold text-gray-900 mb-4 md:mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+              <p className={`text-[12px] md:text-base font-bold text-gray-900 mb-5 md:mb-6 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                 {i18n.language === 'ar' ? 'نحن لا نبيع فقط منتجات، بل نوفر تجربة كاملة:' : 'We don\'t just sell products; we provide a complete experience:'}
               </p>
               <div className="space-y-3 md:space-y-4">
@@ -206,7 +205,7 @@ const AboutUs = () => {
               <div className="relative z-10 flex flex-col gap-6 w-full h-full justify-between">
                 
                 {/* Top Half: Innovative Project */}
-                <div className="flex flex-col gap-3 md:gap-4">
+                <div className="flex flex-col gap-4 md:gap-5">
                   <div className="flex items-center gap-3 md:gap-4">
                     <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
                       <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
@@ -255,7 +254,7 @@ const AboutUs = () => {
                 <div className="w-full h-px bg-white/20 rounded-full my-1"></div>
 
                 {/* Bottom Half: Mission */}
-                <div className="flex flex-col gap-3 md:gap-4">
+                <div className="flex flex-col gap-4 md:gap-5">
                   <div className="flex items-center gap-3 md:gap-4">
                     <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
                       <Target className="w-5 h-5 md:w-6 md:h-6 text-white" />
@@ -300,7 +299,7 @@ const AboutUs = () => {
             className="w-full"
           >
             {/* Section Header */}
-            <div className="flex flex-col items-center gap-1.5 mb-4 md:mb-5">
+            <div className="flex flex-col items-center gap-2 mb-6 md:mb-8">
               <div className="flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                 <Star size={10} className="fill-yellow-400 text-yellow-400" />
                 {i18n.language === 'ar' ? 'آراء عملائنا' : 'Customer Reviews'}
@@ -486,7 +485,7 @@ const ReviewsSlider = ({ reviews, isRtl }) => {
       onTouchMove={onTouchMove}
       onScroll={handleScroll}
       style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
-      className={`flex gap-4 overflow-x-auto pt-2 md:pt-4 pb-8 select-none
+      className={`flex gap-4 overflow-x-auto py-8 select-none
         [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
         px-4 md:px-8
         ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab snap-x snap-mandatory'}
