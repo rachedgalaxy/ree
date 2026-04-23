@@ -113,11 +113,8 @@ const AboutUs = () => {
           </div>
         </motion.div>
 
-        <motion.div 
-          variants={itemVariants} 
-          className="w-full flex flex-col gap-6 md:gap-8"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full">
+        <motion.div variants={itemVariants} className="w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 w-full">
             {/* Box 1: Story */}
             <motion.div 
               whileHover={{ scale: 1.01 }}
@@ -170,9 +167,7 @@ const AboutUs = () => {
                 ))}
               </div>
             </motion.div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full mt-6 md:mt-8">
             {/* Box 3: Startup Logo Huge Separated */}
             <motion.div 
               whileHover={{ scale: 1.01 }}
