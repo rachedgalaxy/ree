@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ChevronDown, Database, Eye, Share2, Cookie, Lock, UserCheck, RefreshCw, MessageCircle } from 'lucide-react';
+import { ShieldCheck, ChevronDown, Database, Eye, Share2, Cookie, Lock, UserCheck, RefreshCw, MessageCircle, Copy, Check } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
@@ -45,8 +45,8 @@ const sections = [
     id: 'rights',
     icon: <UserCheck className="w-5 h-5 text-pink-500" />,
     color: 'pink',
-    ar: { title: 'حقوقك', body: 'لديك الحق في:\n• الوصول إلى معلوماتك الشخصية وتحديثها.\n• طلب حذف حسابك وجميع بياناتك المرتبطة.\n• إلغاء الاشتراك في الرسائل التسويقية في أي وقت.\nلممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر contact@redeem-dz.com' },
-    en: { title: 'Your Rights', body: 'You have the right to:\n• Access and update your personal information.\n• Request deletion of your account and associated data.\n• Opt out of marketing communications at any time.\nContact us at contact@redeem-dz.com to exercise these rights.' }
+    ar: { title: 'حقوقك', body: 'لديك الحق في:\n• الوصول إلى معلوماتك الشخصية وتحديثها.\n• طلب حذف حسابك وجميع بياناتك المرتبطة.\n• إلغاء الاشتراك في الرسائل التسويقية في أي وقت.\nلممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر support@redeem-dz.com' },
+    en: { title: 'Your Rights', body: 'You have the right to:\n• Access and update your personal information.\n• Request deletion of your account and associated data.\n• Opt out of marketing communications at any time.\nContact us at support@redeem-dz.com to exercise these rights.' }
   },
   {
     id: 'updates',
@@ -65,6 +65,31 @@ const colorMap = {
   emerald: 'bg-emerald-50 border-emerald-200/60',
   pink: 'bg-pink-50 border-pink-200/60',
   indigo: 'bg-indigo-50 border-indigo-200/60',
+};
+
+const EmailCopyButton = ({ email }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = (e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <button 
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 mx-1 px-2.5 py-1 bg-white hover:bg-gray-50 border border-gray-200/80 text-gray-800 rounded-md text-[11px] font-bold transition-all shadow-sm hover:shadow active:scale-95 group"
+      dir="ltr"
+      title="Copy email to clipboard"
+    >
+      <span className="select-all">{email}</span>
+      {copied ? (
+        <Check className="w-3.5 h-3.5 text-emerald-500" />
+      ) : (
+        <Copy className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+      )}
+    </button>
+  );
 };
 
 const AccordionItem = ({ section, isOpen, onToggle, lang }) => {
@@ -98,11 +123,24 @@ const AccordionItem = ({ section, isOpen, onToggle, lang }) => {
           >
             <div className="px-4 pb-4 pt-0">
               <div className="h-px bg-gray-200/60 mb-3" />
-              {data.body.split('\n').map((line, i) => (
-                <p key={i} className={`text-xs text-gray-600 leading-relaxed ${line.startsWith('•') ? 'ms-2 mt-1' : 'mt-1'}`}>
-                  {line}
-                </p>
-              ))}
+              {data.body.split('\n').map((line, i) => {
+                const supportEmail = 'support@redeem-dz.com';
+                if (line.includes(supportEmail)) {
+                  const parts = line.split(supportEmail);
+                  return (
+                    <div key={i} className={`text-xs text-gray-600 leading-relaxed flex items-center flex-wrap gap-y-2 ${line.startsWith('•') ? 'ms-2 mt-1' : 'mt-1'}`}>
+                      <span>{parts[0]}</span>
+                      <EmailCopyButton email={supportEmail} />
+                      <span>{parts[1]}</span>
+                    </div>
+                  );
+                }
+                return (
+                  <p key={i} className={`text-xs text-gray-600 leading-relaxed ${line.startsWith('•') ? 'ms-2 mt-1' : 'mt-1'}`}>
+                    {line}
+                  </p>
+                );
+              })}
             </div>
           </motion.div>
         )}
