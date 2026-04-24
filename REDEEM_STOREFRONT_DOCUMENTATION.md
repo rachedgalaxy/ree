@@ -100,6 +100,6 @@ The Hero section features a high-performance "Bento-style" navigation grid:
 | v1.2 | 2026-04-15 | **Modernized Platform Ticker**: High-fidelity SVGs, brand colors, 240px card width. |
 | v1.3 | 2026-04-16 | **UX Major Update**: Integrated FAQ Overlay, App Store-style horizontal category sliders, and Adaptive Grid Search logic. |
 | v1.4 | 2026-04-16 | **UI Polish & Utilities**: Unified curvature reduction across all containers, reduced flag icon rounding, and added the direction-aware **Back to Top** floating button. |
-| v1.5 | 2026-04-24 | **Performance & Accessibility**: Resolved browser preload warnings, added form accessibility attributes for autofill, and enhanced Privacy Policy with an interactive copy-to-clipboard support email component. |
+| v1.5 | 2026-04-24 | **Performance, Accessibility & UI Fixes**: Resolved browser preload warnings, added form attributes for autofill, enhanced Privacy Policy with an interactive copy-to-clipboard email, fixed CLS layout shifts on initial load via default RTL and stable scrollbar, and fixed z-index overlapping issues in the mobile slider. |
 
 *Last Updated: 2026-04-24*
