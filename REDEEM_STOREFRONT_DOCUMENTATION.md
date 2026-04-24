@@ -1,4 +1,4 @@
-# Redeem Storefront | Project Documentation v1.4
+# Redeem Storefront | Project Documentation v1.5
 
 This document serves as the master record for all UI/UX enhancements, technical implementations, and brand-consistent features developed for the **Redeem (redeem-dz.com)** React storefront.
 
@@ -100,5 +100,6 @@ The Hero section features a high-performance "Bento-style" navigation grid:
 | v1.2 | 2026-04-15 | **Modernized Platform Ticker**: High-fidelity SVGs, brand colors, 240px card width. |
 | v1.3 | 2026-04-16 | **UX Major Update**: Integrated FAQ Overlay, App Store-style horizontal category sliders, and Adaptive Grid Search logic. |
 | v1.4 | 2026-04-16 | **UI Polish & Utilities**: Unified curvature reduction across all containers, reduced flag icon rounding, and added the direction-aware **Back to Top** floating button. |
+| v1.5 | 2026-04-24 | **Performance & Accessibility**: Resolved browser preload warnings, added form accessibility attributes for autofill, and enhanced Privacy Policy with an interactive copy-to-clipboard support email component. |
 
-*Last Updated: 2026-04-16*
+*Last Updated: 2026-04-24*
