@@ -100,6 +100,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 <AnimatePresence>
                   {searchQuery && (
                     <motion.button
+                      aria-label={i18n.language === 'ar' ? "مسح البحث" : "Clear search"}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
@@ -117,6 +118,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
             <div className="flex items-center gap-2 md:gap-3">
               {isMobile && (
                 <button
+                  aria-label={i18n.language === 'ar' ? "فتح البحث" : "Open search"}
                   onClick={() => setIsMobileSearchOpen(true)}
                   className="w-9 h-9 rounded-full bg-red-500/5 border border-red-500/10 text-red-500 flex items-center justify-center transition-all active:scale-95"
                 >
@@ -124,12 +126,14 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                 </button>
               )}
               <a 
+                aria-label={i18n.language === 'ar' ? "حسابي" : "My Account"}
                 href={getLocalizedLink('https://redeem-dz.com/my-account/', i18n.language)}
                 className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-gray-200 text-gray-600 flex items-center justify-center hover:border-black transition-all"
               >
                 <FontAwesomeIcon icon={faUser} className="text-sm md:text-base" />
               </a>
               <button
+                aria-label={i18n.language === 'ar' ? "تغيير اللغة" : "Toggle language"}
                 onClick={toggleLanguage}
                 className="flex items-center justify-center p-1"
               >
@@ -170,6 +174,7 @@ const Navigation = ({ currentLang, toggleLanguage, searchQuery, setSearchQuery }
                     dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
                   />
                   <button
+                    aria-label={i18n.language === 'ar' ? "إغلاق البحث" : "Close search"}
                     onClick={() => {
                       setIsMobileSearchOpen(false);
                       setLocalSearch('');

@@ -77,6 +77,7 @@ const CategorySlider = ({ category, i18n }) => {
     <div className="relative group/slider">
       
       <button 
+        aria-label="Previous Category"
         onClick={() => scroll('prev')} 
         className={`absolute top-[40%] -translate-y-[40%] z-10 w-9 h-9 md:w-11 md:h-11 bg-white/95 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center text-gray-700 hover:text-black hover:scale-105 hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-300 opacity-0 group-hover/slider:opacity-100 focus:outline-none cursor-pointer ${isRtl ? '-right-3 md:-right-5' : '-left-3 md:-left-5'}`}
       >
@@ -84,6 +85,7 @@ const CategorySlider = ({ category, i18n }) => {
       </button>
 
       <button 
+        aria-label="Next Category"
         onClick={() => scroll('next')} 
         className={`absolute top-[40%] -translate-y-[40%] z-10 w-9 h-9 md:w-11 md:h-11 bg-white/95 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center text-gray-700 hover:text-black hover:scale-105 hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-300 opacity-0 group-hover/slider:opacity-100 focus:outline-none cursor-pointer ${isRtl ? '-left-3 md:-left-5' : '-right-3 md:-right-5'}`}
       >

@@ -125,9 +125,9 @@ const AboutUs = () => {
                 <div className="p-2.5 md:p-3 bg-red-50 text-red-600 rounded-xl md:rounded-2xl border border-red-100 shadow-sm group-hover:rotate-12 transition-transform duration-300">
                   <Lightbulb className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <h3 className={`text-lg md:text-2xl font-black text-gray-900 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans tracking-tight'}`}>
+                <h2 className={`text-lg md:text-2xl font-black text-gray-900 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans tracking-tight'}`}>
                   {i18n.language === 'ar' ? 'من نحن؟' : 'Who We Are'}
-                </h3>
+                </h2>
               </div>
               <p className={`text-[12px] md:text-[15px] font-medium leading-relaxed md:leading-loose text-gray-600 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                 {i18n.language === 'ar' ? (
@@ -205,9 +205,9 @@ const AboutUs = () => {
                     <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
                       <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h4 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    <h3 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                       {i18n.language === 'ar' ? 'مشروع مبتكر' : 'Innovative Project'}
-                    </h4>
+                    </h3>
                   </div>
                   <p className={`text-[11px] md:text-[14px] font-medium leading-relaxed opacity-100 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar' ? (
@@ -254,9 +254,9 @@ const AboutUs = () => {
                     <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl text-white shadow-inner border border-white/20 transform group-hover:scale-110 transition-transform duration-500">
                       <Target className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h4 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                    <h3 className={`text-lg md:text-2xl font-black text-white ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                       {i18n.language === 'ar' ? 'مهمتنا' : 'Our Mission'}
-                    </h4>
+                    </h3>
                   </div>
                   <p className={`text-[11px] md:text-[14px] font-medium leading-relaxed opacity-90 text-justify ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                     {i18n.language === 'ar'

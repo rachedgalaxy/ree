@@ -435,9 +435,9 @@ const Hero = () => {
                        <span className="bg-[#ff2d55] text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-sm flex items-center justify-center shadow-lg mb-1.5 animate-pulse uppercase tracking-wider">
                           {isRtl ? `خصم ${discountPercent}%` : `-${discountPercent}% OFF`}
                        </span>
-                       <h3 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
+                       <h2 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-2 ${i18n.language === 'ar' ? 'font-kufi' : 'font-sans'}`}>
                          {product.translations?.[i18n.language]?.name || product.name}
-                       </h3>
+                       </h2>
                        <div className={`mt-1.5 text-[11px] md:text-[12px] font-black text-[#34c759] tracking-tight ${i18n.language === 'ar' ? 'font-sans' : 'font-sans'}`}>
                          {product.price} {isRtl ? 'دج' : 'DA'}
                        </div>
@@ -466,9 +466,9 @@ const Hero = () => {
                         <FontAwesomeIcon icon={faFire} size="xs" /> Hot
                       </span>
                     </div>
-                    <h3 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-1 uppercase tracking-tight ${isRtl ? 'font-kufi' : 'font-sans'}`}>
+                    <h2 className={`text-[12px] md:text-[13px] font-[600] leading-tight drop-shadow-md line-clamp-1 uppercase tracking-tight ${isRtl ? 'font-kufi' : 'font-sans'}`}>
                       Xbox Game Pass Ultimate
-                    </h3>
+                    </h2>
                     <div className="mt-1.5 text-[10px] opacity-90 font-medium">
                        {isRtl ? 'أفضل عرض لهذا الأسبوع' : 'Best deal of the week'}
                     </div>
