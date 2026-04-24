@@ -9,6 +9,7 @@ import reviewsData from '../data/reviewsData.json';
 
 const ProductCard = ({ product }) => {
   const { i18n } = useTranslation();
+  const [imgLoaded, setImgLoaded] = useState(false);
   const tProduct = product.translations?.[i18n.language] || product.translations?.['en'] || { name: product.name };
   // Removed dynamic accent color extraction due to CORS restrictions on original image server
   const accentColor = 'rgba(225, 30, 59, 0.4)'; 
@@ -159,7 +160,7 @@ const ProductCard = ({ product }) => {
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover blur-xl scale-125 opacity-25"
+          className={`w-full h-full object-cover blur-xl scale-125 transition-opacity duration-1000 ${imgLoaded ? 'opacity-25' : 'opacity-0'}`}
         />
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
       </div>
@@ -167,7 +168,11 @@ const ProductCard = ({ product }) => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Image Container */}
-        <div className="w-full aspect-[3/4] md:aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-sm isolate">
+        <div className="w-full aspect-[3/4] md:aspect-[4/5] rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-sm isolate relative">
+          {/* Skeleton Placeholder */}
+          {!imgLoaded && (
+            <div className="absolute inset-0 bg-gray-200 animate-pulse z-0"></div>
+          )}
           <motion.img
             style={{ transform: "translateZ(0)" }}
             initial={false}
@@ -176,9 +181,9 @@ const ProductCard = ({ product }) => {
             referrerPolicy="no-referrer"
             src={product.image}
             alt={tProduct.name}
-            loading="lazy"
             decoding="async"
-            className={`w-full h-full object-cover transition-transform duration-700 pointer-events-none ${!isOutOfStock && 'group-hover:scale-110'}`}
+            onLoad={() => setImgLoaded(true)}
+            className={`w-full h-full object-cover pointer-events-none relative z-10 transition-all duration-700 ${imgLoaded ? 'opacity-100' : 'opacity-0'} ${!isOutOfStock && imgLoaded ? 'group-hover:scale-110' : ''}`}
           />
         </div>
 
