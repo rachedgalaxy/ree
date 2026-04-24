@@ -653,7 +653,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
       {/* Left button */}
       <button 
         onClick={() => move(isRtl ? 1 : -1)}
-        className="absolute left-2 z-50 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
+        className="absolute left-2 z-10 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
         aria-label="Previous"
       >
         <ChevronLeft size={18} />
@@ -662,7 +662,7 @@ const FeaturesSlider = ({ features, isRtl, itemVariants }) => {
       {/* Right button */}
       <button 
         onClick={() => move(isRtl ? -1 : 1)}
-        className="absolute right-2 z-50 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
+        className="absolute right-2 z-10 p-2 rounded-full bg-white/70 backdrop-blur-md shadow text-red-600 active:scale-90 transition-transform pointer-events-auto"
         aria-label="Next"
       >
         <ChevronRight size={18} />
