@@ -16,6 +16,12 @@ export const wcApi = {
     return [];
   },
 
+  getStoreDataSync() {
+    if (storeData && storeData.length > 0) return storeData;
+    return [];
+  },
+
+
   /**
    * Returns detailed info for a single product.
    */

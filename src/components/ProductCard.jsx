@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   // Removed dynamic accent color extraction due to CORS restrictions on original image server
   const accentColor = 'rgba(225, 30, 59, 0.4)'; 
 
-  const baseWooUrl = product.woocommerceUrl || '#';
+  const baseWooUrl = product.woocommerceUrl || `https://redeem-dz.com/product/${product.id}`;
   const urlWithLang = i18n.language === 'en' && baseWooUrl !== '#' 
     ? getLocalizedLink(baseWooUrl, i18n.language)
     : baseWooUrl;
@@ -113,7 +113,7 @@ const ProductCard = ({ product }) => {
     <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
     <a
-      href={isOutOfStock ? '#' : urlWithLang}
+      href={urlWithLang}
       style={{ contentVisibility: 'auto', containIntrinsicSize: '0 300px' }}
       onClick={(e) => {
           if (isOutOfStock) e.preventDefault();

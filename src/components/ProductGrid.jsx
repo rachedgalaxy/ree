@@ -122,11 +122,17 @@ const CategorySlider = ({ category, i18n }) => {
 
 const ProductGrid = ({ searchQuery, setSearchQuery }) => {
   const { i18n } = useTranslation();
-  const [storeData, setStoreData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [storeData, setStoreData] = useState(() => wcApi.getStoreDataSync ? wcApi.getStoreDataSync() : []);
+  const [loading, setLoading] = useState(() => {
+    if (wcApi.getStoreDataSync) {
+      return wcApi.getStoreDataSync().length === 0;
+    }
+    return true;
+  });
   const [suggestion, setSuggestion] = useState(null);
 
   useEffect(() => {
+    if (storeData.length > 0) return; // Already loaded synchronously
     const loadData = async () => {
       setLoading(true);
       const data = await wcApi.getStoreData();
@@ -134,7 +140,7 @@ const ProductGrid = ({ searchQuery, setSearchQuery }) => {
       setLoading(false);
     };
     loadData();
-  }, []);
+  }, [storeData.length]);
 
   const filteredCategories = useMemo(() => {
     const rawQuery = searchQuery || '';
