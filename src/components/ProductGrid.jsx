@@ -120,27 +120,26 @@ const CategorySlider = ({ category, i18n }) => {
   );
 };
 
+let isFirstGridMount = true;
+
 const ProductGrid = ({ searchQuery, setSearchQuery }) => {
   const { i18n } = useTranslation();
-  const [storeData, setStoreData] = useState(() => wcApi.getStoreDataSync ? wcApi.getStoreDataSync() : []);
-  const [loading, setLoading] = useState(() => {
-    if (wcApi.getStoreDataSync) {
-      return wcApi.getStoreDataSync().length === 0;
-    }
-    return true;
-  });
+  const [storeData, setStoreData] = useState(() => isFirstGridMount ? [] : (wcApi.getStoreDataSync ? wcApi.getStoreDataSync() : []));
+  const [loading, setLoading] = useState(isFirstGridMount);
   const [suggestion, setSuggestion] = useState(null);
 
   useEffect(() => {
-    if (storeData.length > 0) return; // Already loaded synchronously
-    const loadData = async () => {
-      setLoading(true);
-      const data = await wcApi.getStoreData();
-      if (data) setStoreData(data);
-      setLoading(false);
-    };
-    loadData();
-  }, [storeData.length]);
+    if (isFirstGridMount) {
+      // Allow browser to paint the LCP (Hero) before rendering the massive grid
+      const timer = setTimeout(() => {
+        isFirstGridMount = false;
+        const data = wcApi.getStoreDataSync ? wcApi.getStoreDataSync() : [];
+        setStoreData(data);
+        setLoading(false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const filteredCategories = useMemo(() => {
     const rawQuery = searchQuery || '';
